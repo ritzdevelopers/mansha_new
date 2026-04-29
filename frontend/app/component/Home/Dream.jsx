@@ -85,6 +85,7 @@ const Dream = () => {
               src="/mansha-image/residentail.jpg"
               alt="residentail"
               fill
+              unoptimized
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               sizes="100vw"
             />
