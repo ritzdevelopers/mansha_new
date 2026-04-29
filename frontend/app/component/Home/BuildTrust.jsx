@@ -10,7 +10,7 @@ const BuildTrust = () => {
 
         <div className="relative mt-6">
           <div className="flex flex-wrap items-start justify-center gap-4 max-md:flex-col max-md:items-center max-md:justify-center sm:gap-8 md:flex-nowrap md:items-end md:gap-[150px] lg:flex-nowrap lg:items-end lg:gap-[220px] xl:items-start xl:gap-16 2xl:flex-nowrap 2xl:items-center 2xl:justify-center 2xl:gap-[200px]">
-            <div className="relative min-w-[90px] translate-x-3 pt-12 text-center max-md:w-full max-md:translate-x-0 max-md:pt-4 sm:min-w-[110px] sm:translate-x-6 sm:pt-10 md:translate-x-[100px] md:pt-0 lg:translate-x-[100px] lg:pt-0 xl:pt-12 2xl:translate-x-0 2xl:pt-0">
+            <div className="relative min-w-[90px] translate-x-3 pt-12 text-center max-md:w-full max-md:translate-x-0 max-md:pt-4 sm:min-w-[110px] sm:translate-x-6 sm:pt-10 md:translate-x-[100px] md:pt-0 lg:translate-x-[100px] lg:pt-0 xl:pt-12 2xl:translate-x-[200px] 2xl:pt-0">
               <div className="mt-0 mb-1 sm:mt-[150px] md:mt-0 lg:mt-0 xl:mt-[115px] 2xl:mt-0">
                 <p className="font-['Montserrat',sans-serif] text-[38px] font-medium not-italic leading-none tracking-normal text-center capitalize text-[#333333] [leading-trim:both] [text-edge:cap_alphabetic] sm:text-[42px] sm:font-semibold md:text-[48px] md:font-semibold lg:text-[54px] lg:font-bold xl:text-[65px]">
                   14+
@@ -35,7 +35,7 @@ const BuildTrust = () => {
             </div>
 
             <div className="flex flex-wrap items-start justify-center gap-4 max-md:flex-col max-md:items-center max-md:justify-center sm:gap-8 md:flex-nowrap md:items-end md:gap-[50px] lg:flex-nowrap lg:items-end lg:gap-[120px] xl:items-start xl:gap-16 2xl:flex-nowrap 2xl:items-center 2xl:justify-center 2xl:gap-[200px]">
-              <div className="min-w-[98px] text-center max-md:w-full sm:min-w-[120px]">
+              <div className="min-w-[98px] text-center max-md:w-full sm:min-w-[120px] 2xl:translate-x-[200px]">
                 <div className="mb-1">
                   <p className="font-['Montserrat',sans-serif] text-[38px] font-medium not-italic leading-none tracking-normal text-center capitalize text-[#333333] [leading-trim:both] [text-edge:cap_alphabetic] sm:text-[42px] sm:font-semibold md:text-[48px] md:font-semibold lg:text-[54px] lg:font-bold xl:text-[65px]">
                     65+
@@ -59,7 +59,7 @@ const BuildTrust = () => {
                 />
               </div>
 
-              <div className="min-w-[98px] text-center max-md:w-full sm:min-w-[120px]">
+              <div className="min-w-[98px] text-center max-md:w-full sm:min-w-[120px] 2xl:translate-x-[200px]">
                 <div className="mb-1">
                   <p className="font-['Montserrat',sans-serif] text-[38px] font-medium not-italic leading-none tracking-normal text-center capitalize text-[#333333] [leading-trim:both] [text-edge:cap_alphabetic] sm:text-[42px] sm:font-semibold md:text-[48px] md:font-semibold lg:text-[54px] lg:font-bold xl:text-[65px]">
                     2500+
