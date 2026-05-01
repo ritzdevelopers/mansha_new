@@ -30,7 +30,7 @@ const Headline = () => {
   <span className="absolute inset-0 -translate-x-full bg-[#652A27] transition-transform duration-300 group-hover:translate-x-0"></span>
 
   {/* Content */}
-  <span className="relative z-10 flex items-center gap-6 transition-colors duration-300 group-hover:text-white">
+  <span className="relative z-10 flex items-center gap-2 md:gap-6 transition-colors duration-300 group-hover:text-white">
     Get consultation
 
     <Image

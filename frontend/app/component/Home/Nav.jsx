@@ -77,7 +77,7 @@ const Navbar = () => {
               width={90}
               height={50}
               alt="Mansha"
-              className="h-16 w-auto sm:h-12"
+              className="h-12 w-auto sm:h-12"
               priority
             />
           </Link>
