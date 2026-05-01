@@ -4,7 +4,7 @@ const BuildTrust = () => {
   return (
     <section id="build-trust-section" className="w-full bg-white ">
       <div className=" max-w-8xl px-5 pt-[35px] sm:px-8  lg:px-[75px] lg:pt-[70px] lg:pb-[0px]">
-        <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[36px] sm:text-[42px] lg:text-[40px] xl:text-[48px] font-[500] not-italic leading-none tracking-normal capitalize text-[#000000] text-center md:text-left [leading-trim:none] ">
+        <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] md:text-[36px] sm:text-[42px] lg:text-[40px] xl:text-[48px] font-[500] not-italic leading-none tracking-normal capitalize text-[#000000] text-center md:text-left [leading-trim:none] ">
           Built On Trust
         </h2>
 

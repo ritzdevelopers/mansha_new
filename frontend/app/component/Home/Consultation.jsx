@@ -3,7 +3,7 @@ import Image from "next/image";
 const Consultation = () => {
   return (
     <section className="w-full max-w-[1500px] bg-white px-0 mx-auto">
-      <div className="mx-auto max-w-8xl px-5 py-[35px] sm:px-8 lg:px-[75px] lg:py-[70px]">
+      <div className="mx-auto max-w-8xl px-5 pb-[35px] sm:px-8 lg:px-[75px] lg:py-[70px]">
         <div className="relative overflow-hidden rounded-[24px]">
           <Image
             src="/mansha-image/consultation.jpg"
@@ -21,7 +21,7 @@ const Consultation = () => {
 
             <button
               type="button"
-              className="mt-0 md:mt-3 lg:mt-5 xl:mt-8  cursor-pointer inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 font-['Arial',sans-serif] text-[14px] md:text-[16px] font-normal leading-[100%] tracking-normal text-[#652A27]"
+              className="mt-0 md:mt-3 lg:mt-5 xl:mt-8  cursor-pointer inline-flex items-center gap-1 md:gap-3 rounded-full bg-white px-3 md:px-6 py-3 font-['Arial',sans-serif] text-[14px] md:text-[16px] font-normal leading-[100%] tracking-normal text-[#652A27]"
             >
               Get consultation
               <i className="ri-arrow-right-line text-[18px]" />

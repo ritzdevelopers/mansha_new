@@ -41,7 +41,7 @@ const Faq = () => {
     <section className="w-full max-w-[1500px] bg-white px-0 mx-auto">
       <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-5 py-[35px] sm:px-8 lg:gap-5 lg:px-[75px] lg:py-[70px] xl:gap-0 xl:grid-cols-[500px_1fr]">
         <div>
-          <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] font-[500] leading-[42px] tracking-normal capitalize text-[#111111] md:text-[36px] text-center md:text-left">
+          <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] md:leading-[42px] leading-[30px] tracking-normal capitalize text-[#111111] md:text-[36px] text-center md:text-left">
             Frequently Asked Questions
           </h2>
           <p className="mt-2 xl:mt-7 font-['Montserrat',sans-serif] md:text-[16px] text-[14px] font-normal leading-[100%] tracking-normal capitalize text-[#333333] text-center md:text-left">

@@ -53,19 +53,21 @@ const PageRefreshLoader = () => {
       }`}
     >
       <div
-        className={`relative z-10 leading-none ${
+        className={`relative z-10 inline-block leading-none ${
           startZoomOut
             ? "animate-[popFront_1400ms_cubic-bezier(0.16,1,0.3,1)_forwards]"
             : "opacity-100 [transform:perspective(1400px)_translateZ(0px)_scale(1)]"
         }`}
       >
-        <h1 className="loader-outline waves-font text-[clamp(64px,16vw,230px)] font-black uppercase tracking-tight text-[#3f4045]">
-          MANSHA
-        </h1>
-        <h1 className="loader-wave-text waves-font pointer-events-none absolute inset-0 text-[clamp(64px,16vw,230px)] font-black uppercase tracking-tight text-transparent">
-          MANSHA
-        </h1>
-        <p className="absolute right-2 bottom-1 text-xs font-semibold tracking-wide text-white">
+        <div className="relative">
+          <h1 className="loader-outline waves-font text-[clamp(64px,16vw,230px)] font-black uppercase tracking-tight text-[#3f4045]">
+            MANSHA
+          </h1>
+          <h1 className="loader-wave-text waves-font pointer-events-none absolute inset-0 text-[clamp(64px,16vw,230px)] font-black uppercase tracking-tight text-transparent">
+            MANSHA
+          </h1>
+        </div>
+        <p className="mt-3 text-right text-xs font-semibold tracking-wide text-white sm:absolute sm:right-2 sm:bottom-1 sm:mt-0">
           loading... {loadingPercent}%
         </p>
       </div>

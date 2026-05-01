@@ -100,7 +100,7 @@ const Signature = () => {
   return (
     <section ref={sectionRef} className="w-full bg-white px-0 ">
       <div className="mx-auto max-w-8xl px-5 pb-[0px] sm:px-8 lg:px-[75px] lg:pb-[40px] md:mb-[0px]">
-        <div className="max-w-[1300px] mx-auto flex items-center justify-between  py-5 px-6 lg:px-0">
+        <div className="max-w-[1350px] mx-auto flex items-center justify-between  py-5 px-0 lg:px-0">
           <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] sm:text-[36px] font-[500] leading-[100%] tracking-normal capitalize text-[#111111] text-center md:text-left">
             Signature Masterpieces
           </h2>
@@ -142,7 +142,7 @@ const Signature = () => {
           />
         )}
 
-        <button
+        {/* <button
           type="button"
           aria-label="Previous slide"
           onClick={handlePrev}
@@ -162,10 +162,10 @@ const Signature = () => {
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 18 15 12 9 6" />
           </svg>
-        </button>
+        </button> */}
       </div>
 
-      <div className="mt-5 flex items-center justify-center gap-2.5 cursor-pointer">
+      {/* <div className="mt-5 flex items-center justify-center gap-2.5 cursor-pointer">
         {signatureSlides.map((slide, index) => (
           <button
             key={slide.id}
@@ -177,7 +177,7 @@ const Signature = () => {
             }`}
           />
         ))}
-      </div>
+      </div> */}
 
       <style jsx global>{`
         @keyframes signature-story-clip-next {

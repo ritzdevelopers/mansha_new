@@ -15,7 +15,8 @@ import PageRefreshLoader from "./component/Home/PageRefreshLoader";
   import Footer from "./component/Home/Footer";
 export default function Home() {
   return (
-  <div ><PageRefreshLoader /><Navbar />
+  <div ><PageRefreshLoader />
+  <Navbar />
   <Headline />
   <ImageSection/>
   <BuildTrust/>
