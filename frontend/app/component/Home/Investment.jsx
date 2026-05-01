@@ -17,7 +17,7 @@ const Investment = () => {
   return (
     <section className="w-full max-w-[1500px] bg-[#4A1F1F] px-0 mx-auto">
       <div className="mx-auto max-w-8xl px-5 py-[35px] lg:py-[70px] sm:px-8 lg:px-[75px]">
-        <h2 className="mx-auto max-w-[650px] text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] md:text-[28px] font-[500] leading-[25px] md:leading-[42px] tracking-normal capitalize text-white md:text-[36px]">
+        <h2 className="mx-auto max-w-[650px] text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] md:text-[36px] font-[500] leading-[30px] md:leading-[42px] tracking-normal capitalize text-white ">
           Trust Mansha Group For Your Next Real Estate Investment
         </h2>
         <p className="mt-2 text-center font-['Montserrat',sans-serif] text-[16px] font-[300] leading-[24px] tracking-normal capitalize text-white">

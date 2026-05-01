@@ -37,9 +37,9 @@ const Dream = () => {
       <div className="w-full bg-[#FFFFFF] mx-auto max-w-[1300px]" />
       <div className="mx-auto flex max-w-8xl flex-col items-center gap-[15px] px-5 py-[35px] text-center sm:px-8 md:items-start md:text-left lg:flex-row lg:items-center lg:gap-[0px] lg:justify-between lg:px-[75px] lg:py-[70px] 2xl:justify-center 2xl:gap-12">
       <div className="w-full shrink-0 lg:w-[28%] 2xl:w-auto">
-  <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] md:text-[28px] lg:text-[30px] xl:text-[36px] font-[400] not-italic leading-[37px] tracking-normal capitalize text-[#111111] whitespace-nowrap">
-    Shaping Dreams <br className="hidden lg:block" /> Into Masterpieces
-  </h2>
+      <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] md:text-[36px] lg:text-[30px] xl:text-[36px] font-[400] not-italic leading-[30px] md:leading-[37px] tracking-normal capitalize text-[#111111]">
+  Shaping Dreams <br /> Into Masterpieces
+</h2>
 </div>
         <div className="w-full min-w-0 max-w-[800px]">
           <p className="font-['Montserrat',sans-serif] text-[14px] lg:text-[16px] font-normal not-italic leading-[25px] lg:leading-[25px] xl:leading-7 tracking-[0px] capitalize text-[#6b6b6b]">
@@ -54,7 +54,7 @@ const Dream = () => {
 
         <div className="w-full shrink-0 lg:w-[20%] 2xl:w-auto">
         <div className="flex justify-center md:justify-start lg:justify-end 2xl:justify-start">
-  <button className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-[#000000] px-3 py-[8px] font-['Montserrat',sans-serif] text-[14px] lg:text-[10px] xl:text-[14px] font-semibold leading-none capitalize text-[#333333] cursor-pointer transition-all duration-300 hover:text-white">
+  <button className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-[#000000] px-3 py-[9px] font-['Montserrat',sans-serif] text-[14px] lg:text-[10px] xl:text-[14px] font-semibold leading-none capitalize text-[#333333] cursor-pointer transition-all duration-300 hover:text-white">
 
     {/* Background fill */}
     <span className="absolute left-0 top-0 h-full w-0 bg-[#333333] transition-all duration-500 group-hover:w-full"></span>

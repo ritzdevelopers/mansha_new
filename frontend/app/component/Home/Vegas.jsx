@@ -72,7 +72,7 @@ const Vegas = () => {
               </div>
               <button
   type="button"
-  className="inline-flex items-center gap-2 bg-[#6d2b2b] px-6 py-3 font-['Montserrat',sans-serif] text-[12px] md:text-[16px] font-semibold leading-[100%] tracking-normal text-white rounded-full cursor-pointer"
+  className="inline-flex items-center gap-2 bg-[#6d2b2b] px-6 py-4 font-['Montserrat',sans-serif] text-[12px] md:text-[16px] font-semibold leading-[100%] tracking-normal text-white rounded-full cursor-pointer"
 >
   Book A Site Visit!
   <i class="ri-arrow-right-line"></i>

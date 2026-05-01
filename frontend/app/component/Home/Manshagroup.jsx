@@ -33,7 +33,7 @@ const Manshagroup = () => {
   return (
     <section className="w-full max-w-[1500px] bg-white px-0 mx-auto">
       <div className="mx-auto max-w-8xl px-5 py-[35px] lg:py-[70px] sm:px-8 lg:px-[75px]">
-        <h2 className="mb-3 md:mb-8 max-w-full break-words font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] md:text-[36px] font-[500] leading-[100%] tracking-normal capitalize text-[#111111] text-center md:text-left">
+        <h2 className="mb-3 md:mb-8 max-w-full break-words font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] md:text-[36px] font-[500] leading-[100%] tracking-normal capitalize text-[#111111] text-center md:text-left">
           What&apos;s Trending at manshagroup
         </h2>
 
