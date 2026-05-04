@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo_Black } from "next/font/google";
+import { Archivo_Black, Montserrat } from "next/font/google";
 import "remixicon/fonts/remixicon.css";
 import "./globals.css";
 
@@ -8,6 +8,14 @@ const archivoBlack = Archivo_Black({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-archivo-black",
+  display: "swap",
+});
+
+/** Jahan Montserrat use ho — Optima jaisa bundled variable */
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-montserrat-mansha",
   display: "swap",
 });
 
@@ -24,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivoBlack.variable} h-full antialiased`}
+      className={`${archivoBlack.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
         {children}

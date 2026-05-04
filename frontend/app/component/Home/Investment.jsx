@@ -20,7 +20,7 @@ const Investment = () => {
         <h2 className="mx-auto max-w-[650px] text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] md:text-[36px] font-[500] leading-[30px] md:leading-[42px] tracking-normal capitalize text-white ">
           Trust Mansha Group For Your Next Real Estate Investment
         </h2>
-        <p className="mt-2 text-center font-['Montserrat',sans-serif] text-[16px] font-[300] leading-[24px] tracking-normal capitalize text-white">
+        <p className="mt-2 text-center font-montserrat text-[16px] font-[300] leading-[24px] tracking-normal capitalize text-white">
           Faridabad&apos;s Most Reliable Developer.
         </p>
 
@@ -41,7 +41,7 @@ const Investment = () => {
                   <i className="ri-calendar-line text-[12px]" />
                   {item.date}
                 </p>
-                <p className="mt-2 font-['Montserrat',sans-serif] text-[14px] font-normal leading-[22px] tracking-normal capitalize text-[#333333] sm:text-[16px]">
+                <p className="mt-2 font-montserrat text-[14px] font-normal leading-[22px] tracking-normal capitalize text-[#333333] sm:text-[16px]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                   eiusmod tempor
                 </p>

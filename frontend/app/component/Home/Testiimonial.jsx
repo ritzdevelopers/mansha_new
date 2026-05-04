@@ -34,13 +34,13 @@ export default function Testiimonial() {
       <div className="relative z-10 mx-auto w-full max-w-8xl overflow-x-hidden px-5 py-[35px] sm:px-8 lg:px-[75px] lg:py-[70px]">
         <div className="flex flex-col items-start lg:gap-8 gap-3 lg:flex-row lg:items-center xl:items-start">
           <div className="mt-0 flex w-full flex-col items-center pt-1 text-center lg:mt-0 lg:w-[30%] lg:items-start lg:text-left xl:mt-[100px] xl:w-[26%]">
-            <h2 className="font-['Montserrat',sans-serif] text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#652A27]">
+            <h2 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#652A27]">
               Clients Testimonials
             </h2>
             <h3 className="lg:mt-3 mt-0 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] md:text-[30px] font-bold xl:leading-[50px] leading-[35px] tracking-normal text-[#000000]">
               What Our Clients Say
             </h3>
-            <p className="lg:mt-3 mt-0 w-full max-lg:max-w-none font-['Montserrat',sans-serif] text-[16px] font-normal xl:leading-[28px] leading-[25px] tracking-normal text-[#000000] lg:mx-0 lg:max-w-[281px]">
+            <p className="lg:mt-3 mt-0 w-full max-lg:max-w-none font-montserrat text-[16px] font-normal xl:leading-[28px] leading-[25px] tracking-normal text-[#000000] lg:mx-0 lg:max-w-[281px]">
               Don&apos;t just take our word for it, hear from the brands we&apos;ve
               helped transform.
             </p>
@@ -104,7 +104,7 @@ export default function Testiimonial() {
                           <i className="ri-play-fill text-xl" />
                         </div>
                       )}
-                      <p className="absolute bottom-4 left-4 font-['Montserrat',sans-serif] text-[16px] font-medium leading-[100%] tracking-normal text-[#FFFFFF66]">
+                      <p className="absolute bottom-4 left-4 font-montserrat text-[16px] font-medium leading-[100%] tracking-normal text-[#FFFFFF66]">
                         {item.name}
                       </p>
                     </div>

@@ -63,16 +63,16 @@ const Vegas = () => {
 
             <div className="mt-8 flex flex-wrap items-end justify-between gap-4 border-l-2 border-[#d0d0d0] pl-4">
               <div>
-                <p className="font-['Montserrat',sans-serif] text-[16px] font-normal leading-[29px] tracking-normal text-[#000000]">
+                <p className="font-montserrat text-[16px] font-normal leading-[29px] tracking-normal text-[#000000]">
                   Start From
                 </p>
-                <p className="font-['Montserrat',sans-serif] text-[24px] font-bold leading-[29px] tracking-normal text-[#000000]">
+                <p className="font-montserrat text-[24px] font-bold leading-[29px] tracking-normal text-[#000000]">
                   01.52 CR*
                 </p>
               </div>
               <button
   type="button"
-  className="inline-flex items-center gap-2 bg-[#6d2b2b] px-6 py-4 font-['Montserrat',sans-serif] text-[12px] md:text-[16px] font-semibold leading-[100%] tracking-normal text-white rounded-full cursor-pointer"
+  className="inline-flex items-center gap-2 bg-[#6d2b2b] px-6 py-4 font-montserrat text-[12px] md:text-[16px] font-semibold leading-[100%] tracking-normal text-white rounded-full cursor-pointer"
 >
   Book A Site Visit!
   <i class="ri-arrow-right-line"></i>

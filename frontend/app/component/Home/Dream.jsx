@@ -42,7 +42,7 @@ const Dream = () => {
 </h2>
 </div>
         <div className="w-full min-w-0 max-w-[800px]">
-          <p className="font-['Montserrat',sans-serif] text-[14px] lg:text-[16px] font-normal not-italic leading-[25px] lg:leading-[25px] xl:leading-7 tracking-[0px] capitalize text-[#6b6b6b]">
+          <p className="font-montserrat text-[14px] lg:text-[16px] font-normal not-italic leading-[25px] lg:leading-[25px] xl:leading-7 tracking-[0px] capitalize text-[#6b6b6b]">
             At Mansha Group, we are one of the fastest-growing real estate
             developers in Faridabad, built on a foundation of quality,
             innovation, and customer satisfaction. We develop thoughtfully
@@ -54,7 +54,7 @@ const Dream = () => {
 
         <div className="w-full shrink-0 lg:w-[20%] 2xl:w-auto">
         <div className="flex justify-center md:justify-start lg:justify-end 2xl:justify-start">
-        <button className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-[#000000] px-3 py-[9px] font-['Montserrat',sans-serif] text-[14px] lg:text-[10px] xl:text-[14px] font-semibold leading-none capitalize text-[#333333] cursor-pointer transition-all duration-300 hover:text-white focus:outline-none">
+        <button className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-[#000000] px-3 py-[9px] font-montserrat text-[14px] lg:text-[10px] xl:text-[14px] font-semibold leading-none capitalize text-[#333333] cursor-pointer transition-all duration-300 hover:text-white focus:outline-none">
 
 {/* Background fill */}
 <span className="absolute left-0 top-0 h-full w-0 bg-[#333333] transition-all duration-500 group-hover:w-full group-focus-visible:w-full"></span>
@@ -95,10 +95,10 @@ const Dream = () => {
               Residentail
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
+              <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
                 Elegant living spaces designed for modern families.
               </p>
-              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
               </button>
             </div>
@@ -117,10 +117,10 @@ const Dream = () => {
               Commerical
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
+              <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
                 Elegant living spaces designed for modern families.
               </p>
-              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
               </button>
             </div>
@@ -139,10 +139,10 @@ const Dream = () => {
               Residential
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
+              <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
                 Elegant living spaces designed for modern families.
               </p>
-              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
               </button>
             </div>
@@ -161,10 +161,10 @@ const Dream = () => {
               Residential
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
+              <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
                 Elegant living spaces designed for modern families.
               </p>
-              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
               </button>
             </div>
@@ -186,10 +186,10 @@ const Dream = () => {
             Residential
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-            <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
               Elegant living spaces designed for modern families.
             </p>
-            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
               Read More
             </button>
           </div>
@@ -208,10 +208,10 @@ const Dream = () => {
             Commerical
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-            <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
               Elegant living spaces designed for modern families.
             </p>
-            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
               Read More
             </button>
           </div>
@@ -230,10 +230,10 @@ const Dream = () => {
             Residential
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-            <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
               Elegant living spaces designed for modern families.
             </p>
-            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
               Read More
             </button>
           </div>
@@ -252,10 +252,10 @@ const Dream = () => {
             Residential
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-            <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
               Elegant living spaces designed for modern families.
             </p>
-            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
               Read More
             </button>
           </div>
