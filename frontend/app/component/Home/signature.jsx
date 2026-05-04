@@ -129,7 +129,7 @@ const Signature = () => {
 </div>
       </div>
 
-      <div className="relative isolate min-h-[220px] w-full overflow-hidden bg-[#EAEAEA] [transform:translateZ(0)] sm:min-h-[340px] lg:min-h-[640px]">
+      <div className="relative isolate w-full overflow-hidden bg-[#EAEAEA] [transform:translateZ(0)]">
         {incomingSlide === null && (
           <SlideLayer
             slide={signatureSlides[currentSlide]}
@@ -272,15 +272,16 @@ function SlideLayer({ slide, entering = false, direction = "next", onEnterAnimat
 
   return (
     <div
-      className={`absolute inset-0 bg-[#EAEAEA] ${storyAnimClass}`}
+      className={`relative w-full bg-[#EAEAEA] ${storyAnimClass}`}
       style={{ zIndex: entering ? 10 : 0 }}
       onAnimationEnd={handleEnterAnimationEnd}
     >
       <Image
         src={slide.src}
         alt={slide.title}
-        fill
-        className="object-cover"
+        width={1920}
+        height={1280}
+        className="block h-auto w-full max-w-full object-cover"
         priority={imagePriority}
         quality={100}
         sizes="(max-width: 1284px) 100vw, 1284px"

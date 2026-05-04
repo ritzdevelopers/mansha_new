@@ -6,7 +6,7 @@ const Headline = () => {
     <section className="w-full bg-white  mx-auto max-w-[1500px] ">
       <div className="mx-auto max-w-8xl px-5 py-[35px] sm:px-8 lg:px-[75px]  lg:py-[70px] ">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
-          <h1 className="max-w-[min(100%,42rem)] shrink-0 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[42px] sm:text-[50px] lg:text-[40px] xl:text-[65px] capitalize tracking-normal [leading-trim:both] [text-edge:cap_alphabetic]">
+          <h1 className="font-optima max-w-[min(100%,42rem)] shrink-0 text-[42px] sm:text-[50px] lg:text-[40px] xl:text-[65px] capitalize tracking-normal [leading-trim:both] [text-edge:cap_alphabetic]">
             <span className="block font-normal not-italic  text-black xl:leading-[80px] lg:leading-[50px] md:leading-[60px] leading-[40px]">
               Your Captivating
             </span>

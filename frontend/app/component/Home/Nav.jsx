@@ -139,16 +139,20 @@ const Navbar = () => {
           <ul className="space-y-8 pl-2">
             {NAV_ITEMS.map((item, index) => (
               <li key={`mobile-${item}`}>
-              <a
-  href="#"
-  onClick={() => setOpen(false)}
-  className={`optima-menu-link block cursor-pointer text-black text-[30px] hover:text-[#652A27] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-    open ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
-  }`}
-  style={{ transitionDelay: open ? `${200 + index * 120}ms` : "0ms" }}
->
-  {item}
-</a>
+                <a
+                  href="#"
+                  onClick={() => setOpen(false)}
+                  className={`optima-menu-link mobile-nav-item-link block cursor-pointer text-[30px] text-black ${
+                    open ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+                  }`}
+                  style={{
+                    transitionDelay: open ? `${200 + index * 120}ms` : "0ms",
+                  }}
+                >
+                  <span className="transition-colors duration-150 ease-out hover:text-[#652A27]">
+                    {item}
+                  </span>
+                </a>
               </li>
             ))}
           </ul>
@@ -188,8 +192,15 @@ const Navbar = () => {
 
         .optima-menu-link {
           font-family: Optima, "Segoe UI", Candara, "Noto Sans", sans-serif;
-       
+
           line-height: 1.2;
+        }
+
+        /* Slide-in uses long easing; color hover matches phone/email (fast, no stagger delay). */
+        .mobile-nav-item-link {
+          transition-property: transform, opacity;
+          transition-duration: 700ms;
+          transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
         }
       `}</style>
     </>

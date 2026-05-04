@@ -1,1 +1,45 @@
 @import "tailwindcss";
+
+/*
+ * Optima: `public/optima/*.TTF` — Turbopack `next/font/local` abhi .ttf se error deta hai,
+ * isliye @font-face (same files, same look). Baaki fonts `layout.tsx` mein next/font/google.
+ */
+@font-face {
+  font-family: "OptimaHeadline";
+  src: url("/optima/OPTIMA.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OptimaHeadline";
+  src: url("/optima/OPTIMA_B.TTF") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OptimaHeadline";
+  src: url("/optima/Optima%20Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OptimaHeadline";
+  src: url("/optima/Optima_Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Poori site default = Optima (`@font-face` upar), Geist nahi */
+@theme {
+  --font-sans: "OptimaHeadline", "Optima", "Optima LT Pro", Candara, "Segoe UI",
+    sans-serif;
+  --font-optima: "OptimaHeadline", "Optima", "Optima LT Pro", Candara, "Segoe UI",
+    sans-serif;
+}
