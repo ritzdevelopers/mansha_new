@@ -27,10 +27,10 @@ const Headline = () => {
   className="group relative inline-flex w-fit items-center gap-4 overflow-hidden rounded-full border border-[#652A27] px-5 py-[10px] text-[#652A27] transition-colors duration-300"
 >
   {/* Background Animation */}
-  <span className="absolute inset-0 -translate-x-full bg-[#652A27] transition-transform duration-300 group-hover:translate-x-0"></span>
+  <span className="absolute inset-0 -translate-x-full bg-[#652A27] transition-transform duration-300 group-hover:translate-x-0 group-active:translate-x-0"></span>
 
   {/* Content */}
-  <span className="relative z-10 flex items-center gap-2 md:gap-6 transition-colors duration-300 group-hover:text-white">
+  <span className="relative z-10 flex items-center gap-2 md:gap-6 transition-colors duration-300 group-hover:text-white group-active:text-white">
     Get consultation
 
     <Image
@@ -38,7 +38,7 @@ const Headline = () => {
       width={15}
       height={15}
       alt="arrow-right"
-      className="transition duration-300 group-hover:brightness-0 group-hover:invert"
+      className="transition duration-300 group-hover:brightness-0 group-hover:invert group-active:brightness-0 group-active:invert"
     />
   </span>
 </Link>

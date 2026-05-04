@@ -100,32 +100,36 @@ const Signature = () => {
   return (
     <section ref={sectionRef} className="w-full bg-white px-0 ">
       <div className="mx-auto max-w-8xl px-5 pb-[0px] sm:px-8 lg:px-[75px] lg:pb-[40px] md:mb-[0px]">
-        <div className="max-w-[1350px] mx-auto flex items-center justify-between  py-5 px-0 lg:px-0">
-          <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] sm:text-[36px] font-[500] leading-[100%] tracking-normal capitalize text-[#111111] text-center md:text-left">
-            Signature Masterpieces
-          </h2>
-          <div className="hidden items-center gap-2 sm:flex">
-            <button
-              type="button"
-              aria-label="Previous"
-              className="flex h-10 cursor-pointer w-10 items-center justify-center rounded-full border border-[#000000] text-[#111111]"
-              onClick={handlePrev}
-            >
-              <i className="ri-arrow-left-line"></i>
-            </button>
-            <button
-              type="button"
-              aria-label="Next"
-              className="flex h-10 cursor-pointer w-10 items-center justify-center rounded-full border border-[#000000] text-[#111111]"
-              onClick={handleNext}
-            >
-              <i className="ri-arrow-right-line"></i>
-            </button>
-          </div>
-        </div>
+      <div className="max-w-[1350px] mx-auto flex items-center justify-center md:justify-between py-5 px-0 lg:px-0 relative">
+  
+  <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] sm:text-[36px] font-[500] leading-[100%] tracking-normal capitalize text-[#111111] text-center md:text-left">
+    Signature Masterpieces
+  </h2>
+
+  <div className="hidden items-center gap-2 sm:flex md:flex">
+    <button
+      type="button"
+      aria-label="Previous"
+      className="flex h-10 cursor-pointer w-10 items-center justify-center rounded-full border border-[#000000] text-[#111111]"
+      onClick={handlePrev}
+    >
+      <i className="ri-arrow-left-line"></i>
+    </button>
+
+    <button
+      type="button"
+      aria-label="Next"
+      className="flex h-10 cursor-pointer w-10 items-center justify-center rounded-full border border-[#000000] text-[#111111]"
+      onClick={handleNext}
+    >
+      <i className="ri-arrow-right-line"></i>
+    </button>
+  </div>
+
+</div>
       </div>
 
-      <div className="relative isolate min-h-[220px] w-full overflow-hidden bg-[#EAEAEA] [transform:translateZ(0)] sm:min-h-[340px] lg:min-h-[520px]">
+      <div className="relative isolate min-h-[220px] w-full overflow-hidden bg-[#EAEAEA] [transform:translateZ(0)] sm:min-h-[340px] lg:min-h-[640px]">
         {incomingSlide === null && (
           <SlideLayer
             slide={signatureSlides[currentSlide]}

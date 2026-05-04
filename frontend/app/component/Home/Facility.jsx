@@ -51,9 +51,9 @@ const Facility = () => {
 
   return (
     <section className="w-full overflow-hidden bg-[#F8F8F8] ">
-      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-3 lg:gap-8 px-5 py-[35px] sm:px-8 lg:grid-cols-2 lg:items-start lg:px-[75px] lg:py-[70px]">
-        <div className="order-1 lg:order-1">
-          <h2 ref={titleRef} className="lg:mb-6 mb-0 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] not-italic leading-none tracking-normal capitalize text-[#000000]">
+      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-3 lg:gap-8 px-5 py-[35px] sm:px-8 lg:grid-cols-2 lg:items-start lg:px-[75px] lg:py-[70px] max-w-[1490px]">
+        <div className="order-1 lg:order-1 ">
+          <h2 ref={titleRef} className="lg:mb-6 mb-0 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] md:text-[36px]  not-italic leading-none tracking-normal capitalize text-[#000000]">
             FACILITIES
           </h2>
 
