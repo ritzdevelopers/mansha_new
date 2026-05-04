@@ -82,7 +82,7 @@ const Navbar = () => {
             />
           </Link>
 
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-0 sm:gap-3">
             <a href={PHONE} className={iconBtn} aria-label="Call us">
               <i className="ri-phone-line text-[22px] leading-none" aria-hidden />
             </a>
