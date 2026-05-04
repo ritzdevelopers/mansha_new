@@ -40,7 +40,7 @@ const Vegas = () => {
             <h3 className="mt-4 text-left font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-normal leading-[100%] tracking-normal text-[#000000]">
               Vegas Street
             </h3>
-            <p className="md:mt-7 mt-4 inline-block bg-white  font-['Open_Sans','Open Sans',sans-serif] text-[18px] font-normal leading-[26px] tracking-normal text-[#000000] rounded-full">
+            <p className="md:mt-7 mt-4 inline-block bg-white  font-['Open_Sans','Open Sans',sans-serif] text-[18px] font-normal leading-[26px] tracking-normal text-[#000000] rounded-full px-4 py-2">
               3/4 BHK Residences
             </p>
 
