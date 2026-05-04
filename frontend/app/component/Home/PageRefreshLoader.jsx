@@ -73,10 +73,8 @@ const PageRefreshLoader = () => {
       </div>
 
       <style jsx>{`
-        @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
-
         .waves-font {
-          font-family: "Archivo Black", sans-serif;
+          font-family: var(--font-archivo-black), "Archivo Black", sans-serif;
         }
 
         .loader-outline {

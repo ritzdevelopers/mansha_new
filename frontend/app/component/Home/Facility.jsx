@@ -65,25 +65,25 @@ const Facility = () => {
           </p>
         </div>
       </div>
-      
+
 
       <div className="group/facility mx-auto grid max-w-8xl grid-cols-1 gap-8 px-5 pb-[0px] sm:px-8 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-[50px] lg:px-[75px] lg:pb-[70px] 2xl:mx-auto 2xl:flex 2xl:w-fit 2xl:max-w-full 2xl:flex-row 2xl:justify-center 2xl:gap-[50px]">
-      <div className="shrink-0 lg:flex lg:h-full lg:items-center">
-  <div className="relative h-[340px] w-full overflow-hidden md:h-[440px] md:w-full lg:h-[400px] lg:w-[400px] xl:h-[620px] xl:w-[620px]">
-    <Image
-      src="/mansha-image/residentail.jpg"
-      alt="residentail"
-      fill
-      className="object-cover transition-transform duration-700 ease-out lg:group-hover/facility:-translate-y-full"
-    />
-    <Image
-      src="/mansha-image/facility-image.jpg"
-      alt="facility"
-      fill
-      className="translate-y-full object-cover transition-transform duration-700 ease-out lg:group-hover/facility:translate-y-0"
-    />
-  </div>
-</div>
+        <div className="shrink-0 lg:flex lg:h-full lg:items-center">
+          <div className="relative h-[340px] w-full overflow-hidden md:h-[440px] md:w-full lg:h-[400px] lg:w-[400px] xl:h-[620px] xl:w-[620px]">
+            <Image
+              src="/mansha-image/residentail.jpg"
+              alt="residentail"
+              fill
+              className="object-cover transition-transform duration-700 ease-out lg:group-hover/facility:-translate-y-full"
+            />
+            <Image
+              src="/mansha-image/facility-image.jpg"
+              alt="facility"
+              fill
+              className="translate-y-full object-cover transition-transform duration-700 ease-out lg:group-hover/facility:translate-y-0"
+            />
+          </div>
+        </div>
 
         <div className="min-w-0 space-y-0 lg:min-w-0 2xl:w-auto 2xl:max-w-[640px]">
           <div
@@ -114,7 +114,7 @@ const Facility = () => {
             </p>
           </div>
 
-            <div
+          <div
             className="group/item relative cursor-pointer overflow-hidden px-3 py-4 xl:py-5 border-t border-[#6c6c6c]"
             onClick={() => setActiveFacility(2)}
           >
@@ -138,11 +138,11 @@ const Facility = () => {
             </h3>
             <p className={`relative z-10 mt-2 font-['Montserrat',sans-serif] text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 3 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. 
+              tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
 
-            <div
+          <div
             className="group/item relative cursor-pointer overflow-hidden px-3 py-4 xl:py-5"
             onClick={() => setActiveFacility(4)}
           >
