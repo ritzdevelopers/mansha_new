@@ -136,7 +136,7 @@ const Navbar = () => {
           </Link>
         </div>
         <nav className="mt-8" aria-label="Sidebar menu">
-          <ul className="space-y-8 pl-2">
+          <ul className="space-y-5 md:space-y-8 pl-2">
             {NAV_ITEMS.map((item, index) => (
               <li key={`mobile-${item}`}>
                 <a
