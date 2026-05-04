@@ -44,7 +44,7 @@ const Faq = () => {
           <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] md:leading-[42px] leading-[30px] tracking-normal capitalize text-[#111111] md:text-[36px] text-center md:text-left">
             Frequently Asked Questions
           </h2>
-          <p className="mt-2 xl:mt-7 font-['Montserrat',sans-serif] md:text-[16px] text-[14px] font-normal leading-[100%] tracking-normal capitalize text-[#333333] text-center md:text-left">
+          <p className="mt-2 xl:mt-7 font-montserrat md:text-[16px] text-[14px] font-normal leading-[100%] tracking-normal capitalize text-[#333333] text-center md:text-left">
             If you have any other questions, please email us.
           </p>
         </div>
@@ -59,7 +59,7 @@ const Faq = () => {
                   onClick={() => toggleItem(index)}
                   className="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
                 >
-                  <span className="min-w-0 flex-1 truncate pr-2 font-['Montserrat',sans-serif] text-[16px] font-medium capitalize tracking-normal text-[#333333] leading-[20px] md:text-[20px] md:leading-[20px] lg:text-[24px] lg:leading-[100%]">
+                  <span className="min-w-0 flex-1 truncate pr-2 font-montserrat text-[16px] font-medium capitalize tracking-normal text-[#333333] leading-[20px] md:text-[20px] md:leading-[20px] lg:text-[24px] lg:leading-[100%]">
                     {item.question}
                   </span>
                   <span
@@ -78,7 +78,7 @@ const Faq = () => {
                     isOpen ? "max-h-60 lg:pt-4 pt-0 opacity-100" : "max-h-0 pt-0 opacity-0"
                   }`}
                 >
-                  <p className="mt-2 md:mt-0 font-['Montserrat',sans-serif] text-[16px] font-normal leading-[20px] md:leading-[24px] tracking-normal text-left text-[#00000099]">
+                  <p className="mt-2 md:mt-0 font-montserrat text-[16px] font-normal leading-[20px] md:leading-[24px] tracking-normal text-left text-[#00000099]">
                     {item.answer}
                   </p>
                 </div>

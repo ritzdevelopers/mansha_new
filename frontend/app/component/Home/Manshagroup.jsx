@@ -42,7 +42,7 @@ const Manshagroup = () => {
             <h3 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] md:text-[28px] lg:text-[20px] xl:text-[28px] lg:leading-[25px] leading-[100%] font-[500] xl:leading-[100%] tracking-normal capitalize text-[#111111] md:leading-[30px]">
               Luxury Living By Mansha
             </h3>
-            <p className="mt-2 xl:mt-4 lg:mt-1 flex-1 font-['Montserrat',sans-serif] xl:text-[16px] lg:text-[14px] text-[14px] font-normal xl:leading-[28px] lg:leading-[20px] md:leading-[21px] md:text-[14px] leading-[20px] tracking-normal text-[#515151]">
+            <p className="mt-2 xl:mt-4 lg:mt-1 flex-1 font-montserrat xl:text-[16px] lg:text-[14px] text-[14px] font-normal xl:leading-[28px] lg:leading-[20px] md:leading-[21px] md:text-[14px] leading-[20px] tracking-normal text-[#515151]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
               ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -50,7 +50,7 @@ const Manshagroup = () => {
               reprehenderit in{" "}
               <Link
                 href="#"
-                className="inline font-['Montserrat',sans-serif] text-[16px] font-semibold leading-[28px] tracking-normal text-[#144168] hover:underline"
+                className="inline font-montserrat text-[16px] font-semibold leading-[28px] tracking-normal text-[#144168] hover:underline"
               >
                 Read More...
               </Link>
@@ -74,7 +74,7 @@ const Manshagroup = () => {
               </Link>
               <div className="p-4 sm:p-3">
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-['Montserrat',sans-serif] text-[16px] font-medium xl:leading-[100%] tracking-normal text-[#144168] leading-[17px]">
+                  <h3 className="font-montserrat text-[16px] font-medium xl:leading-[100%] tracking-normal text-[#144168] leading-[17px]">
                     {card.title}
                   </h3>
                   <Link
@@ -85,7 +85,7 @@ const Manshagroup = () => {
                     <i className="ri-arrow-right-up-line text-xl leading-none text-[#515151] hover:border-[#144168] hover:text-[#144168]" />
                   </Link>
                 </div>
-                <p className="lg:mt-0 mt-0 font-['Montserrat',sans-serif] text-[14px] font-medium leading-[100%] tracking-normal text-[#515151]">
+                <p className="lg:mt-0 mt-0 font-montserrat text-[14px] font-medium leading-[100%] tracking-normal text-[#515151]">
                   {card.date}
                 </p>
               </div>

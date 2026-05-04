@@ -91,10 +91,10 @@ const Facility = () => {
             onClick={() => setActiveFacility(0)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 0 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
-            <h3 className={`relative z-10 font-['Montserrat',sans-serif] text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 0 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 0 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               BUSINESS HUB
             </h3>
-            <p className={`relative z-10 mt-2 font-['Montserrat',sans-serif] text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 0 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 0 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua
             </p>
@@ -105,10 +105,10 @@ const Facility = () => {
             onClick={() => setActiveFacility(1)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 1 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
-            <h3 className={`relative z-10 font-['Montserrat',sans-serif] text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 1 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 1 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               BUSINESS HUB
             </h3>
-            <p className={`relative z-10 mt-2 font-['Montserrat',sans-serif] text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 1 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 1 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
@@ -119,10 +119,10 @@ const Facility = () => {
             onClick={() => setActiveFacility(2)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 2 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
-            <h3 className={`relative z-10 font-['Montserrat',sans-serif] text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 2 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 2 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               BUSINESS HUB
             </h3>
-            <p className={`relative z-10 mt-2 font-['Montserrat',sans-serif] text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 2 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 2 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
@@ -133,10 +133,10 @@ const Facility = () => {
             onClick={() => setActiveFacility(3)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 3 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
-            <h3 className={`relative z-10 font-['Montserrat',sans-serif] text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 3 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 3 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               BUSINESS HUB
             </h3>
-            <p className={`relative z-10 mt-2 font-['Montserrat',sans-serif] text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 3 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 3 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
@@ -147,10 +147,10 @@ const Facility = () => {
             onClick={() => setActiveFacility(4)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 4 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
-            <h3 className={`relative z-10 font-['Montserrat',sans-serif] text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 4 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 4 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               BUSINESS HUB
             </h3>
-            <p className={`relative z-10 mt-2 font-['Montserrat',sans-serif] text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 4 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
+            <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 4 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua.
             </p>

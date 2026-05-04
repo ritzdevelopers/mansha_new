@@ -36,10 +36,14 @@
   font-display: swap;
 }
 
+
+
 /* Poori site default = Optima (`@font-face` upar), Geist nahi */
 @theme {
   --font-sans: "OptimaHeadline", "Optima", "Optima LT Pro", Candara, "Segoe UI",
     sans-serif;
   --font-optima: "OptimaHeadline", "Optima", "Optima LT Pro", Candara, "Segoe UI",
     sans-serif;
+  /* `layout.tsx` Montserrat — `font-montserrat` */
+  --font-montserrat: var(--font-montserrat-mansha), "Montserrat", sans-serif;
 }

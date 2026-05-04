@@ -14,7 +14,7 @@ const Footer = () => {
               height={94}
               className="h-auto w-[80px]"
             />
-            <p className="mt-4 max-w-[380px] font-['Montserrat',sans-serif] text-[15px] font-normal leading-[22px] tracking-normal text-[#FFFFFF]">
+            <p className="mt-4 max-w-[380px] font-montserrat text-[15px] font-normal leading-[22px] tracking-normal text-[#FFFFFF]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
               veniam, quis nostrud exercitation
@@ -22,16 +22,16 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-['Montserrat',sans-serif] text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#FFFFFF]">Projects</h3>
-            <ul className="lg:mt-4 mt-0 space-y-0 font-['Montserrat',sans-serif] text-[15px] font-normal leading-[39px] tracking-normal text-[#FFFFFF]">
+            <h3 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#FFFFFF]">Projects</h3>
+            <ul className="lg:mt-4 mt-0 space-y-0 font-montserrat text-[15px] font-normal leading-[39px] tracking-normal text-[#FFFFFF]">
               <li><Link href="#">Residential</Link></li>
               <li><Link href="#">Commercial</Link></li>
             </ul>
           </div>
 
           <div className="xl:-ml-[70px]">
-            <h3 className="font-['Montserrat',sans-serif] text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#FFFFFF]">Our Story</h3>
-            <ul className="lg:mt-4 mt-0 space-y-0 font-['Montserrat',sans-serif] text-[15px] font-normal leading-[39px] tracking-normal text-[#FFFFFF]">
+            <h3 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#FFFFFF]">Our Story</h3>
+            <ul className="lg:mt-4 mt-0 space-y-0 font-montserrat text-[15px] font-normal leading-[39px] tracking-normal text-[#FFFFFF]">
               <li><Link href="#">About Us</Link></li>
               <li><Link href="#">Blogs</Link></li>
               <li><Link href="#">FAQ</Link></li>
@@ -53,7 +53,7 @@ const Footer = () => {
                 height={40}
                 className="h-[40px] w-[30px]"
               />
-              <div className="font-['Montserrat',sans-serif]">
+              <div className="font-montserrat">
                 <p className="text-[14px] font-normal leading-[100%] text-white">Google review</p>
                 <div className="mt-1 flex items-center gap-1 text-[16px] text-[#FFB800]">
                   <span className="mr-1 font-semibold leading-none">4.8</span>
@@ -78,7 +78,7 @@ const Footer = () => {
         <div className="mt-12 grid grid-cols-1 gap-[40px] md:grid-cols-[max-content_1fr] md:items-start">
           <div>
             <h4 className=" font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] text-left">Corporate Office</h4>
-            <p className="mt-2 max-w-[400px] font-['Montserrat',sans-serif] text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
+            <p className="mt-2 max-w-[400px] font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
               41st Floor, Tower-1, M3M International Financial Center, Sector-66, Golf
               Course Road (Extn.), Gurugram-122101, Haryana, India.
             </p>
@@ -87,18 +87,18 @@ const Footer = () => {
           <div className="space-y-4 lg:pt-1">
             <div>
               <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF]">Faridabad</p>
-              <p className="mt-1 font-['Montserrat',sans-serif] text-[13px] lg:text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">2715 Ash Dr. San Jose, South Dakota 83475</p>
+              <p className="mt-1 font-montserrat text-[13px] lg:text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">2715 Ash Dr. San Jose, South Dakota 83475</p>
             </div>
             <div>
               <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF]">Faridabad</p>
-              <p className="mt-1 font-['Montserrat',sans-serif] text-[13px] lg:text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">2715 Ash Dr. San Jose, South Dakota 83475</p>
+              <p className="mt-1 font-montserrat text-[13px] lg:text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">2715 Ash Dr. San Jose, South Dakota 83475</p>
             </div>
           </div>
         </div>
 
         <div className="mt-10 max-w-[800px]">
           <h4 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] lg:text-left">Disclaimer</h4>
-          <p className="mt-3 pb-8 max-width-[700px] text-justify font-['Montserrat',sans-serif] text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
+          <p className="mt-3 pb-8 max-width-[700px] text-justify font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
             Mansha buildcon private limited, a trusted real estate developer, aims to
             provide accurate project information including pricing, layouts, and
             availability. However, all details are subject to change without prior
@@ -108,7 +108,7 @@ const Footer = () => {
             Mansha Group is not liable for any discrepancies that may arise.
           </p>
           <div className="h-px w-screen bg-[#833E3B] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]" />
-          <p className="mt-5 font-['Montserrat',sans-serif] text-[16px] font-normal leading-[26px] text-[#FFFFFFCC]">
+          <p className="mt-5 font-montserrat text-[16px] font-normal leading-[26px] text-[#FFFFFFCC]">
             © 2026 Manshagroup. All Rights Reserved. Digital Media Planned By Ritz
             Media World
           </p>
