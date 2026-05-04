@@ -54,21 +54,22 @@ const Dream = () => {
 
         <div className="w-full shrink-0 lg:w-[20%] 2xl:w-auto">
         <div className="flex justify-center md:justify-start lg:justify-end 2xl:justify-start">
-  <button className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-[#000000] px-3 py-[9px] font-['Montserrat',sans-serif] text-[14px] lg:text-[10px] xl:text-[14px] font-semibold leading-none capitalize text-[#333333] cursor-pointer transition-all duration-300 hover:text-white">
+        <button className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-[#000000] px-3 py-[9px] font-['Montserrat',sans-serif] text-[14px] lg:text-[10px] xl:text-[14px] font-semibold leading-none capitalize text-[#333333] cursor-pointer transition-all duration-300 hover:text-white focus:outline-none">
 
-    {/* Background fill */}
-    <span className="absolute left-0 top-0 h-full w-0 bg-[#333333] transition-all duration-500 group-hover:w-full"></span>
+{/* Background fill */}
+<span className="absolute left-0 top-0 h-full w-0 bg-[#333333] transition-all duration-500 group-hover:w-full group-focus-visible:w-full"></span>
 
-    {/* Text */}
-    <span className="relative z-10 whitespace-nowrap">
+{/* Text */}
+<span className="relative z-10 whitespace-nowrap group-hover:text-white group-focus-visible:text-white">
   Discover Our Story
 </span>
 
-    {/* Arrow */}
-    <span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border border-current transition-all duration-300 group-hover:text-black group-hover:translate-x-1 group-hover:border-white  group-hover:text-white">
-    <i class="ri-arrow-right-up-line "></i>
+{/* Arrow */}
+<span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border border-current transition-all duration-300 group-hover:text-white group-hover:translate-x-1 group-hover:border-white group-focus-visible:text-white group-focus-visible:translate-x-1 group-focus-visible:border-white">
+  <i className="ri-arrow-right-up-line"></i>
 </span>
-  </button>
+
+</button>
 </div>
         </div>
       </div>
@@ -97,7 +98,7 @@ const Dream = () => {
               <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
                 Elegant living spaces designed for modern families.
               </p>
-              <button className="mt-4 rounded-full bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
               </button>
             </div>
@@ -119,7 +120,7 @@ const Dream = () => {
               <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
                 Elegant living spaces designed for modern families.
               </p>
-              <button className="mt-4 rounded-full bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
               </button>
             </div>
@@ -141,7 +142,7 @@ const Dream = () => {
               <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
                 Elegant living spaces designed for modern families.
               </p>
-              <button className="mt-4 rounded-full bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
               </button>
             </div>
@@ -163,7 +164,7 @@ const Dream = () => {
               <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
                 Elegant living spaces designed for modern families.
               </p>
-              <button className="mt-4 rounded-full bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
               </button>
             </div>
@@ -188,7 +189,7 @@ const Dream = () => {
             <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
               Elegant living spaces designed for modern families.
             </p>
-            <button className="mt-4 rounded-full bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
               Read More
             </button>
           </div>
@@ -210,7 +211,7 @@ const Dream = () => {
             <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
               Elegant living spaces designed for modern families.
             </p>
-            <button className="mt-4 rounded-full bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
               Read More
             </button>
           </div>
@@ -232,7 +233,7 @@ const Dream = () => {
             <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
               Elegant living spaces designed for modern families.
             </p>
-            <button className="mt-4 rounded-full bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
               Read More
             </button>
           </div>
@@ -254,7 +255,7 @@ const Dream = () => {
             <p className="max-w-[390px] font-['Montserrat',sans-serif] text-[22px] font-[500] leading-[25px] capitalize text-white">
               Elegant living spaces designed for modern families.
             </p>
-            <button className="mt-4 rounded-full bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
+            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-['Montserrat',sans-serif] text-[14px] font-semibold leading-none capitalize text-white">
               Read More
             </button>
           </div>

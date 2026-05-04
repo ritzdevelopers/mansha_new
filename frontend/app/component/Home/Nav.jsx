@@ -111,7 +111,7 @@ const Navbar = () => {
 
       <aside
         id="mobile-navigation"
-        className={`fixed top-0 right-0 z-50 flex h-screen w-[450px] max-w-[90vw] flex-col bg-[#ECECEC] p-8 transition-transform duration-500 ${
+        className={`fixed top-0 right-0 z-50 flex h-screen w-[450px] max-w-[90vw] flex-col bg-white p-8 transition-transform duration-500 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         aria-label="Main mobile"

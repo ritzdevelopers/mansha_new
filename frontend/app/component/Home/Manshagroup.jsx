@@ -82,7 +82,7 @@ const Manshagroup = () => {
                     aria-label={`Read more about ${card.title}`}
                     className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#515151] text-[#144168] transition-colors hover:border-[#144168] hover:bg-[#f8f8f8]"
                   >
-                    <i className="ri-arrow-right-up-line text-xl leading-none text-[#515151]" />
+                    <i className="ri-arrow-right-up-line text-xl leading-none text-[#515151] hover:border-[#144168] hover:text-[#144168]" />
                   </Link>
                 </div>
                 <p className="lg:mt-0 mt-0 font-['Montserrat',sans-serif] text-[14px] font-medium leading-[100%] tracking-normal text-[#515151]">
