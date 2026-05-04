@@ -37,7 +37,7 @@ const Dream = () => {
       <div className="w-full bg-[#FFFFFF] mx-auto max-w-[1300px]" />
       <div className="mx-auto flex max-w-8xl flex-col items-center gap-[15px] px-5 py-[35px] text-center sm:px-8 md:items-start md:text-left lg:flex-row lg:items-center lg:gap-[0px] lg:justify-between lg:px-[75px] lg:py-[70px] 2xl:justify-center 2xl:gap-12">
       <div className="w-full shrink-0 lg:w-[28%] 2xl:w-auto">
-      <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] md:text-[36px] lg:text-[30px] xl:text-[36px] font-[400] not-italic leading-[30px] md:leading-[37px] tracking-normal capitalize text-[#111111]">
+      <h2 className="font-optima text-[28px] md:text-[36px] lg:text-[30px] xl:text-[36px] font-[400] not-italic leading-[30px] md:leading-[37px] tracking-normal capitalize text-[#111111]">
   Shaping Dreams <br /> Into Masterpieces
 </h2>
 </div>
@@ -91,7 +91,7 @@ const Dream = () => {
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-            <p className="absolute left-4 top-4 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[24px] font-[500] leading-none capitalize text-white">
+            <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
               Residentail
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -113,7 +113,7 @@ const Dream = () => {
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-transparent" />
-            <p className="absolute left-4 top-4 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[24px] font-[500] leading-none capitalize text-white">
+            <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
               Commerical
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -135,7 +135,7 @@ const Dream = () => {
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-            <p className="absolute left-4 top-4 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[24px] font-[500] leading-none capitalize text-white">
+            <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
               Residential
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -157,7 +157,7 @@ const Dream = () => {
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-            <p className="absolute left-4 top-4 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[24px] font-[550] leading-none capitalize text-white">
+            <p className="absolute left-4 top-4 font-optima text-[24px] font-[550] leading-none capitalize text-white">
               Residential
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -182,7 +182,7 @@ const Dream = () => {
             sizes="33vw"
           />
           <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-          <p className="absolute left-4 top-4 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[24px] font-[500] leading-none capitalize text-white">
+          <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Residential
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -204,7 +204,7 @@ const Dream = () => {
             sizes="(max-width: 1024px) 100vw, 40vw"
           />
           <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-transparent" />
-          <p className="absolute left-4 top-4 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[24px] font-[500] leading-none capitalize text-white">
+          <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Commerical
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -226,7 +226,7 @@ const Dream = () => {
             sizes="33vw"
           />
           <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-          <p className="absolute left-4 top-4 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[24px] font-[500] leading-none capitalize text-white">
+          <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Residential
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -248,7 +248,7 @@ const Dream = () => {
             sizes="33vw"
           />
           <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-          <p className="absolute left-4 top-4 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[24px] font-[500] leading-none capitalize text-white">
+          <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Residential
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
