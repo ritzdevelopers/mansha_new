@@ -104,7 +104,7 @@ const Navbar = () => {
               aria-label={open ? "Close menu" : "Open menu"}
       onClick={()=>setOpen((prev)=>!prev)}
             >
-              <Image src="/mansha-image/humburger.svg" width={22} height={22} alt="menu" />
+              <Image src="/mansha-svg/humburger-sanskar.svg" width={22} height={22} alt="menu" className="brightness-0" />
             </button>
           </div>
         </div>

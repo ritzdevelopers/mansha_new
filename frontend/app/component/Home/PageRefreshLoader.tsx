@@ -2,9 +2,9 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 
-/** Bottom→top wave fill `SPLASH_MS`; phir MANSHA zoom+fade 2s smooth; phir unmount (`+ ZOOM_IN_MS`). */
-const SPLASH_MS = 6000;
-const ZOOM_IN_MS = 2000;
+/** Wave fill `SPLASH_MS`; 5s ke baad MANSHA zoom+fade (`ZOOM_IN_MS`); phir unmount. */
+const SPLASH_MS = 7000;
+const ZOOM_IN_MS = 3000;
 
 type SplashPhase = "wave" | "exit";
 
