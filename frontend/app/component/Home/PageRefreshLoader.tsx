@@ -2,9 +2,9 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 
-/** Bottom→top wave fill exactly 4s; turant baad zoom-in; phir home (`+ ZOOM_IN_MS`). */
-const SPLASH_MS = 4000;
-const ZOOM_IN_MS = 550;
+/** Bottom→top wave fill `SPLASH_MS`; phir MANSHA zoom+fade 2s smooth; phir unmount (`+ ZOOM_IN_MS`). */
+const SPLASH_MS = 6000;
+const ZOOM_IN_MS = 2000;
 
 type SplashPhase = "wave" | "exit";
 
@@ -13,7 +13,8 @@ export type PageRefreshLoaderProps = {
   onComplete?: () => void;
 };
 
-export default function PageRefreshLoader({
+export default function 
+PageRefreshLoader({
   onComplete,
 }: PageRefreshLoaderProps) {
   const [visible, setVisible] = useState(true);
@@ -90,8 +91,8 @@ export default function PageRefreshLoader({
         }
 
         .loader-root--exit {
-          animation: loader-root-fade var(--zoom-in-duration, ${ZOOM_IN_MS}ms) ease-in
-            forwards;
+          animation: loader-root-fade var(--zoom-in-duration, ${ZOOM_IN_MS}ms)
+            cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         @keyframes loader-root-fade {
@@ -157,7 +158,7 @@ export default function PageRefreshLoader({
         /* Zoom wrapper pe transform — andar wave-filled text same rang/texture ke saath scale */
         .splash-title-zoom--out {
           animation: mansha-zoom-in var(--zoom-in-duration, ${ZOOM_IN_MS}ms)
-            cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+            cubic-bezier(0.4, 0, 0.2, 1) forwards;
           will-change: transform, opacity;
         }
 

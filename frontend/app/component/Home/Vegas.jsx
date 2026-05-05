@@ -72,10 +72,17 @@ const Vegas = () => {
               </div>
               <button
   type="button"
-  className="inline-flex items-center gap-2 bg-[#6d2b2b] px-6 py-4 font-montserrat text-[12px] md:text-[16px] font-semibold leading-[100%] tracking-normal text-white rounded-full cursor-pointer"
+  className="group relative cursor-pointer inline-flex items-center gap-2 overflow-hidden rounded-full border border-[#6d2b2b] px-6 py-3 font-montserrat text-[12px] font-semibold text-[#6d2b2b] transition-colors duration-300 md:text-[16px]"
 >
-  Book A Site Visit!
-  <i class="ri-arrow-right-line"></i>
+  {/* Background Animation */}
+  <span className="absolute inset-0 -translate-x-full bg-[#6d2b2b] transition-transform duration-300 group-hover:translate-x-0"></span>
+
+  {/* Content */}
+  <span className="relative z-10 flex items-center gap-2 transition-colors duration-300 group-hover:text-white">
+    Book A Site Visit!
+
+    <i className="ri-arrow-right-line transition-all duration-300 group-hover:translate-x-2 group-hover:text-white"></i>
+  </span>
 </button>
             </div>
           </div>

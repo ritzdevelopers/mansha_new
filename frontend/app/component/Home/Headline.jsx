@@ -21,16 +21,16 @@ const Headline = () => {
               <span className="block leading-[30px] xl:leading-[30px]">with a leading real</span>
               <span className="block">estate agency</span>
             </p>
-
+            {/* hover:translate-x-0 */}
             <Link
   href="#contact"
   className="group relative inline-flex w-fit items-center gap-4 overflow-hidden rounded-full border border-[#652A27] px-5 py-[10px] text-[#652A27] transition-colors duration-300"
 >
   {/* Background Animation */}
-  <span className="absolute inset-0 -translate-x-full bg-[#652A27] transition-transform duration-300 group-hover:translate-x-0 group-active:translate-x-0"></span>
+  <span className="absolute inset-0 -translate-x-full bg-[#652A27] transition-transform duration-300 group-hover:translate-x-0 group-focus-visible:translate-x-0 group-active:translate-x-0"></span>
 
   {/* Content */}
-  <span className="relative z-10 flex items-center gap-2 md:gap-6 transition-colors duration-300 group-hover:text-white group-active:text-white">
+  <span className="relative z-10 flex items-center gap-2 md:gap-6 transition-colors duration-300 group-hover:text-white group-focus-visible:text-white group-active:text-white font-montserrat font-[500]">
     Get consultation
 
     <Image
