@@ -1,14 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+/** Row index → image (3 assets, last 2 rows repeat order). */
+const FACILITY_IMAGES = [
+  "/mansha-image/facility-3.avif",
+  "/mansha-image/facitlity-04.avif",
+  "/mansha-image/facility-05.avif",
+  "/mansha-image/facility-3.avif",
+  "/mansha-image/facitlity-04.avif",
+];
 
 const Facility = () => {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
-  const [activeFacility, setActiveFacility] = useState(null);
+  /** Default: first row active → facility-3.avif */
+  const [activeFacility, setActiveFacility] = useState(0);
+  /** Hover row previews its image; leave → wapas activeFacility */
+  const [hoveredFacility, setHoveredFacility] = useState(null);
+  /** Settled image index after slide-up animation completes */
+  const [baseImageIndex, setBaseImageIndex] = useState(0);
+  const incomingLayerRef = useRef(null);
+
+  const displayFacilityIndex =
+    hoveredFacility !== null ? hoveredFacility : activeFacility;
 
   useEffect(() => {
     if (!titleRef.current || !subtitleRef.current) return;
@@ -49,6 +67,28 @@ const Facility = () => {
     );
   }, []);
 
+  useLayoutEffect(() => {
+    const target = displayFacilityIndex;
+    if (target === baseImageIndex) {
+      if (incomingLayerRef.current) {
+        gsap.killTweensOf(incomingLayerRef.current);
+      }
+      return;
+    }
+
+    const el = incomingLayerRef.current;
+    if (!el) return;
+
+    gsap.killTweensOf(el);
+    gsap.set(el, { yPercent: 100 });
+    gsap.to(el, {
+      yPercent: 0,
+      duration: 0.65,
+      ease: "power2.out",
+      onComplete: () => setBaseImageIndex(target),
+    });
+  }, [displayFacilityIndex, baseImageIndex]);
+
   return (
     <section className="w-full overflow-hidden bg-[#F8F8F8] ">
       <div className="mx-auto grid max-w-8xl grid-cols-1 gap-3 lg:gap-8 px-5 py-[35px] sm:px-8 lg:grid-cols-2 lg:items-start lg:px-[75px] lg:py-[70px] max-w-[1490px]">
@@ -67,21 +107,32 @@ const Facility = () => {
       </div>
 
 
-      <div className="group/facility mx-auto grid max-w-8xl grid-cols-1 gap-8 px-5 pb-[0px] sm:px-8 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-[50px] lg:px-[75px] lg:pb-[70px] 2xl:mx-auto 2xl:flex 2xl:w-fit 2xl:max-w-full 2xl:flex-row 2xl:justify-center 2xl:gap-[50px]">
+      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-8 px-5 pb-[0px] sm:px-8 lg:grid lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-[50px] lg:px-[75px] lg:pb-[70px] 2xl:mx-auto 2xl:flex 2xl:w-fit 2xl:max-w-full 2xl:flex-row 2xl:justify-center 2xl:gap-[50px]">
         <div className="shrink-0 lg:flex lg:h-full lg:items-center">
           <div className="relative h-[340px] w-full overflow-hidden md:h-[440px] md:w-full lg:h-[400px] lg:w-[400px] xl:h-[620px] xl:w-[620px]">
             <Image
-              src="/mansha-image/residentail.jpg"
-              alt="residentail"
+              src={FACILITY_IMAGES[baseImageIndex]}
+              alt="Facility"
               fill
-              className="object-cover transition-transform duration-700 ease-out lg:group-hover/facility:-translate-y-full"
+              sizes="(max-width: 1024px) 100vw, 620px"
+              className="object-cover"
+              priority={false}
             />
-            <Image
-              src="/mansha-image/facility-image.jpg"
-              alt="facility"
-              fill
-              className="translate-y-full object-cover transition-transform duration-700 ease-out lg:group-hover/facility:translate-y-0"
-            />
+            {displayFacilityIndex !== baseImageIndex && (
+              <div
+                ref={incomingLayerRef}
+                className="absolute inset-0 z-10 will-change-transform"
+              >
+                <Image
+                  src={FACILITY_IMAGES[displayFacilityIndex]}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 620px"
+                  className="object-cover"
+                  priority={false}
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -89,6 +140,8 @@ const Facility = () => {
           <div
             className="group/item relative cursor-pointer overflow-hidden border-t border-[#6c6c6c] px-3 py-4 xl:py-5"
             onClick={() => setActiveFacility(0)}
+            onMouseEnter={() => setHoveredFacility(0)}
+            onMouseLeave={() => setHoveredFacility(null)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 0 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
             <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 0 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
@@ -103,6 +156,8 @@ const Facility = () => {
           <div
             className="group/item relative cursor-pointer overflow-hidden px-3 py-4 xl:py-5 border-t border-[#6c6c6c]"
             onClick={() => setActiveFacility(1)}
+            onMouseEnter={() => setHoveredFacility(1)}
+            onMouseLeave={() => setHoveredFacility(null)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 1 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
             <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 1 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
@@ -117,6 +172,8 @@ const Facility = () => {
           <div
             className="group/item relative cursor-pointer overflow-hidden px-3 py-4 xl:py-5 border-t border-[#6c6c6c]"
             onClick={() => setActiveFacility(2)}
+            onMouseEnter={() => setHoveredFacility(2)}
+            onMouseLeave={() => setHoveredFacility(null)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 2 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
             <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 2 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
@@ -131,6 +188,8 @@ const Facility = () => {
           <div
             className="group/item relative cursor-pointer overflow-hidden border-b border-[#6c6c6c] px-3 py-5 xl:py-8 border-t border-[#6c6c6c]"
             onClick={() => setActiveFacility(3)}
+            onMouseEnter={() => setHoveredFacility(3)}
+            onMouseLeave={() => setHoveredFacility(null)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 3 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
             <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 3 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
@@ -145,6 +204,8 @@ const Facility = () => {
           <div
             className="group/item relative cursor-pointer overflow-hidden px-3 py-4 xl:py-5"
             onClick={() => setActiveFacility(4)}
+            onMouseEnter={() => setHoveredFacility(4)}
+            onMouseLeave={() => setHoveredFacility(null)}
           >
             <span className={`absolute inset-y-0 left-0 z-0 bg-black transition-all duration-500 ${activeFacility === 4 ? "w-full lg:w-0 lg:group-hover/item:w-full" : "w-0 lg:group-hover/item:w-full"}`} />
             <h3 className={`relative z-10 font-montserrat text-[24px] font-semibold not-italic leading-none tracking-normal uppercase transition-colors duration-300 lg:text-[18px] xl:text-[24px] ${activeFacility === 4 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>

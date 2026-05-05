@@ -92,6 +92,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className={iconBtn}
               aria-label="WhatsApp"
+               // onClick={() => setOpen((prev) => !prev)}
             >
               <i className="ri-whatsapp-line text-[22px] leading-none" aria-hidden />
             </a>
@@ -101,7 +102,7 @@ const Navbar = () => {
               aria-controls="mobile-navigation"
               aria-expanded={open}
               aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((prev) => !prev)}
+      onClick={()=>setOpen((prev)=>!prev)}
             >
               <Image src="/mansha-image/humburger.svg" width={22} height={22} alt="menu" />
             </button>

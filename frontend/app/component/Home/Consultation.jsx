@@ -21,10 +21,19 @@ const Consultation = () => {
 
             <button
               type="button"
-              className="mt-0 md:mt-3 lg:mt-5 xl:mt-8  cursor-pointer inline-flex items-center gap-1 md:gap-3 rounded-full bg-white px-3 md:px-6 py-3 font-['Arial',sans-serif] text-[14px] md:text-[16px]  font-normal leading-[100%] tracking-normal text-[#652A27]"
+              className="group relative isolate mt-0 inline-flex cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-white px-3 py-3 font-['Arial',sans-serif] text-[14px] font-normal leading-[100%] tracking-normal transition-colors duration-300 group-hover:bg-[#652A27] md:mt-3 md:gap-3 md:px-7 md:py-4 md:text-[16px] lg:mt-5 xl:mt-8"
             >
-              Get consultation
-              <i className="ri-arrow-right-line text-[18px]" />
+              {/* Maroon fill slides in on hover only */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 left-0 z-0 h-full w-full origin-left translate-x-[-101%] rounded-full bg-[#652A27] transition-transform duration-300 ease-out group-hover:translate-x-0"
+              />
+
+              <span className="relative z-10 flex items-center gap-1 text-[#652A27] transition-colors duration-300 group-hover:text-white md:gap-3">
+                Get consultation
+
+                <i className="ri-arrow-right-line text-[18px] transition-all duration-300 group-hover:translate-x-2" />
+              </span>
             </button>
           </div>
         </div>
