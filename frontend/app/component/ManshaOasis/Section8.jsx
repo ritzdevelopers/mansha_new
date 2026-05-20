@@ -5,34 +5,33 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "Is the project RERA registered and approved?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi "
+      "Yes, the project is RERA registered and complies with all necessary approvals and regulations."
   },
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "What amenities are offered in the residential community?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      " The community offers thoughtfully designed amenities for comfort, leisure, and everyday convenience.",
   },
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "How well is the project connected to nearby areas?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "The project enjoys excellent connectivity to key areas, ensuring smooth access to major destinations.",
   },
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "Are there security features in the gated community?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      " Yes, the gated community is equipped with advanced security systems and round-the-clock monitoring."
   },
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "What lifestyle facilities are available for residents?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      " Residents can enjoy a range of lifestyle facilities designed to enhance wellness, recreation, and social living.",
   },
 ];
 
-const 
-FAQCommerical = () => {
+const  Section8 = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleItem = (index) => {
@@ -41,7 +40,7 @@ FAQCommerical = () => {
 
   return (
     <section className="mx-auto w-full max-w-[1500px] bg-white px-0">
-      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-5 pb-[35px] sm:px-8 lg:grid-cols-[420px_1fr] lg:gap-0 lg:px-[75px] lg:pb-[0px] xl:grid-cols-[500px_1fr]">
+      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-5 pb-[35px] sm:px-8 lg:grid-cols-[420px_1fr] lg:gap-0 lg:px-[75px] lg:pb-[70px] xl:grid-cols-[500px_1fr]">
         <div>
           <h2 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[30px] tracking-normal capitalize text-[#111111] md:text-[36px] md:leading-[42px] md:text-left lg:whitespace-nowrap">
             Frequently Asked Questions
@@ -118,4 +117,4 @@ FAQCommerical = () => {
   );
 };
 
-export default FAQCommerical;
+export default Section8;       

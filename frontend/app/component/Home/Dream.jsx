@@ -82,7 +82,7 @@ const Dream = () => {
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
               src="/mansha-image/residentail.jpg"
-              alt="residentail"
+              alt="Mansha Heritage"
               fill
               unoptimized
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -90,7 +90,7 @@ const Dream = () => {
             />
             <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
             <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-              Residentail
+              Mansha Heritage
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
@@ -105,14 +105,14 @@ const Dream = () => {
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
               src="/mansha-image/residentail.jpg"
-              alt="commerical"
+              alt="Mansha Vega Street"
               fill
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-transparent" />
             <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-              Commerical
+              Mansha Vega Street
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
@@ -127,14 +127,14 @@ const Dream = () => {
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
               src="/mansha-image/residentail.jpg"
-              alt="residentail"
+              alt="Mansha Orchid"
               fill
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
             <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-              Residential
+              Mansha Orchid
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
@@ -149,14 +149,14 @@ const Dream = () => {
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
               src="/mansha-image/residentail.jpg"
-              alt="residentail"
+              alt="Aagman by Mansha"
               fill
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
             <p className="absolute left-4 top-4 font-optima text-[24px] font-[550] leading-none capitalize text-white">
-              Residential
+              Aagman by Mansha
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
@@ -174,14 +174,14 @@ const Dream = () => {
         <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
           <Image
             src="/mansha-image/residentail.jpg"
-            alt="residentail"
+            alt="Mansha Heritage"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             sizes="33vw"
           />
           <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-            Residential
+            Mansha Heritage
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
@@ -196,14 +196,14 @@ const Dream = () => {
         <article className="group relative min-h-[460px] w-full overflow-hidden transition-all duration-500 lg:min-h-[520px] lg:flex-[1.7] lg:hover:flex-[1.7] cursor-pointer">
           <Image
             src="/mansha-image/residentail.jpg"
-            alt="commerical"
+            alt="Mansha vega street"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             sizes="(max-width: 1024px) 100vw, 40vw"
           />
           <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-transparent" />
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-            Commerical
+            Mansha Vega Street
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
@@ -218,14 +218,14 @@ const Dream = () => {
         <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
           <Image
             src="/mansha-image/residentail.jpg"
-            alt="residentail"
+            alt="Mansha Orchid"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             sizes="33vw"
           />
           <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-            Residential
+            Mansha Orchid
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
@@ -240,14 +240,14 @@ const Dream = () => {
         <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
           <Image
             src="/mansha-image/residentail.jpg"
-            alt="residentail"
+            alt="Aagman by Mansha"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             sizes="33vw"
           />
           <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-            Residential
+            Aagman by Mansha
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">

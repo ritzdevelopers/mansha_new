@@ -15,25 +15,23 @@ const Footer = () => {
               className="h-auto w-[80px]"
             />
             <p className="mt-4 max-w-[380px] font-montserrat text-[15px] font-normal leading-[22px] tracking-normal text-[#FFFFFF]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation
+            Refined living blends elegant design, curated spaces, and seamless comfort, creating a sophisticated lifestyle where every detail enhances daily experience with effortless ease.
             </p>
           </div>
 
-          <div>
+          {/* <div>
             <h3 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#FFFFFF]">Projects</h3>
             <ul className="lg:mt-4 mt-0 space-y-0 font-montserrat text-[15px] font-normal leading-[39px] tracking-normal text-[#FFFFFF]">
               <li><Link href="/residential">Residential</Link></li>
               <li><Link href="commerical">Commercial</Link></li>
             </ul>
-          </div>
+          </div> */}
 
           <div className="xl:-ml-[70px]">
             <h3 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#FFFFFF]">Our Story</h3>
             <ul className="lg:mt-4 mt-0 space-y-0 font-montserrat text-[15px] font-normal leading-[39px] tracking-normal text-[#FFFFFF]">
               <li><Link href="/about-us">About Us</Link></li>
-              <li><Link href="#">Blogs</Link></li>
+              <li><Link href="/blog">Blogs</Link></li>
               <li><Link href="#">FAQ</Link></li>
               <li><Link href="contact">Contact Us</Link></li>
             </ul>
@@ -79,33 +77,46 @@ const Footer = () => {
           <div>
             <h4 className=" font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] text-left">Corporate Office</h4>
             <p className="mt-2 max-w-[400px] font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
-              41st Floor, Tower-1, M3M International Financial Center, Sector-66, Golf
-              Course Road (Extn.), Gurugram-122101, Haryana, India.
+           P-23, Sector 75, Faridabad
+Project Address (Sonipat): Sector 83 & 84, Sonipat, Bang on Main GT Karnal Road
             </p>
           </div>
 
           <div className="space-y-4 lg:pt-1">
             <div>
-              <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF]">Faridabad</p>
-              <p className="mt-1 font-montserrat text-[13px] lg:text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">2715 Ash Dr. San Jose, South Dakota 83475</p>
+              <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF]">Address</p>
+              <p className="mt-1 font-montserrat text-[13px] lg:text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]"> P-23, Sector 75, Faridabad</p>
             </div>
-            <div>
-              <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF]">Faridabad</p>
-              <p className="mt-1 font-montserrat text-[13px] lg:text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">2715 Ash Dr. San Jose, South Dakota 83475</p>
-            </div>
+            <div className="space-y-2">
+  {/* Phone */}
+  <div className="flex items-center gap-3">
+    <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
+      Phone :
+    </p>
+
+    <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
+      +91-8010003838
+    </p>
+  </div>
+
+  {/* Email */}
+  <div className="flex items-center gap-3">
+    <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
+      Email :
+    </p>
+
+    <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
+      info@manshagroup.in
+    </p>
+  </div>
+</div>
           </div>
         </div>
 
         <div className="mt-10 max-w-[800px]">
           <h4 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] lg:text-left">Disclaimer</h4>
           <p className="mt-3 pb-8 max-width-[700px] text-justify font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
-            Mansha buildcon private limited, a trusted real estate developer, aims to
-            provide accurate project information including pricing, layouts, and
-            availability. However, all details are subject to change without prior
-            notice. Images and amenities shown are for illustration purposes and may
-            vary in actual delivery. We advise all buyers to verify information with
-            authorized Mansha Group representatives before making investment decisions.
-            Mansha Group is not liable for any discrepancies that may arise.
+           Mansha buildcon private limited, a trusted real estate developer, aims to provide accurate project information including pricing, layouts, and availability. However, all details are subject to change without prior notice. Images and amenities shown are for illustration purposes and may vary in actual delivery. We advise all buyers to verify information with authorized Mansha Group representatives before making investment decisions. Mansha Group is not liable for any discrepancies that may arise.
           </p>
           <div className="h-px w-screen bg-[#833E3B] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]" />
           <p className="mt-5 font-montserrat text-[16px] font-normal leading-[26px] text-[#FFFFFFCC]">

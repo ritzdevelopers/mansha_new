@@ -41,7 +41,7 @@ const Vegas = () => {
               Vegas Street
             </h3>
             <p className="md:mt-7 mt-4 inline-block bg-white  font-['Open_Sans','Open Sans',sans-serif] text-[18px] font-normal leading-[26px] tracking-normal text-[#000000] rounded-full px-4 py-2">
-              3/4 BHK Residences
+            Project Overview
             </p>
 
             <div className="md:mt-10 mt-4 space-y-2 font-['Open_Sans','Open Sans',sans-serif] text-[16px] font-normal leading-[24px] tracking-normal text-[#000000]">

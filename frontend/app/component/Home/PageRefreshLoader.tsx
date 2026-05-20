@@ -114,6 +114,7 @@ export default function PageRefreshLoader({
           100% {
             opacity: 0;
           }
+            
         }
 
         .loader-body {

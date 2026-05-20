@@ -15,10 +15,11 @@ import Consultation from "./component/Home/Consultation";
 import Footer from "./component/Home/Footer";
 import TestimoniaCommon from "./component/common/Testimonia-common";
 import ConsultationCommon from "./component/common/Consultation-common";
+import FAQCommon from "./component/common/FAQCommon";
 export default function Home() {
   return (
     <div>
-      <PageRefreshLoader />
+      {/* <PageRefreshLoader /> */}
       <Navbar />
       <Headline />
       <ImageSection />
@@ -30,10 +31,10 @@ export default function Home() {
       <Manshagroup />
       <Investment />
       <div className="pt-[35px] lg:pt-[70px]">
-      <Faq />
+          <FAQCommon />
       </div>
       {/* <Testiimonial /> */}
-      <TestimoniaCommon />
+      <TestimoniaCommon/>
       {/* <Consultation /> */}
       <ConsultationCommon />
       <Footer />

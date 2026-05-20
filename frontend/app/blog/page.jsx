@@ -1,10 +1,22 @@
 import React from 'react'
 import Navbar from '../component/blog/Navbar'
-
+import Footer from '../component/Home/Footer'
+import Smart from '../component/blog/Smart'
+import RecentPosts from '../component/blog/Recent-Posts'
+import ContactFAQ from '../component/contact/Contact-FAQ'
+import TestimoniaCommon from '../component/common/Testimonia-common'
 const page = () => {
   return (
     <div>
       <Navbar />
+      <Smart />
+      <RecentPosts />
+
+      <ContactFAQ />
+      <div className="pb-[35px] lg:pb-[70px]">
+        <TestimoniaCommon />
+      </div>
+      <Footer />
     </div>
   )
 }
