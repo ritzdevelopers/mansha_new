@@ -31,7 +31,7 @@ export default function TestimoniaCommon() {
   return (
     <section className="relative w-full max-w-[1500px] bg-[#FFFFFF] px-0 mx-auto">
       <div className="absolute bottom-0 left-[45%] right-0 top-16 z-0 hidden bg-[#F7F7F7] lg:block" />
-      <div className="relative z-10 mx-auto w-full max-w-8xl overflow-x-hidden px-5 py-[35px] sm:px-8 lg:px-[75px] lg:py-[70px]">
+      <div className="relative z-10 mx-auto w-full max-w-8xl overflow-x-hidden px-5 pb-[35px] sm:px-8 lg:px-[75px] lg:pb-[70px]">
         <div className="flex flex-col items-start lg:gap-8 gap-3 lg:flex-row lg:items-center xl:items-start">
           <div className="mt-0 flex w-full flex-col items-center pt-1 text-center lg:mt-0 lg:w-[30%] lg:items-start lg:text-left xl:mt-[100px] xl:w-[26%]">
             <h2 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#652A27]">

@@ -63,12 +63,13 @@ const Section7 = () => {
         <div ref={gridRef} className="md:mt-4 mt-0 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 lg:gap-7">
           <article className="gallery-card border border-[#E6E6E6] bg-white p-4">
             <h3 className="font-optima text-[24px] font-medium leading-[25px] lg:leading-[100%] tracking-[0] capitalize text-black lg:text-[28px] ">
-            A Glimpse of Elegance
+            Frames Of Elegance
             </h3>
             <p className="mt-4 font-montserrat text-[16px] font-normal md:leading-[25px] lg:leading-[28px] tracking-[0] text-[#00000099]">
-            A visual journey through elevated lifestyles, where every frame reflects thoughtful design.
-Designed with detail, defined by sophistication and a refined sense of style.
-Where every space reflects timeless elegance, comfort, and effortless living.
+            A visual journey through beautifully curated spaces and modern design.
+ Where sophistication blends seamlessly with comfort and serenity.
+ Every detail reflects a lifestyle thoughtfully envisioned.
+ Crafted to inspire timeless living experiences every day.
 
             </p>
           </article>

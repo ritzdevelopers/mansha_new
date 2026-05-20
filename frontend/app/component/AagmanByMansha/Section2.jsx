@@ -36,21 +36,22 @@ const Section2 = () => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.05fr_0.95fr] xl:gap-15 lg:gap-0">
           <div>
             <p className="font-montserrat text-[16px] font-normal leading-[100%] capitalize text-[#333333]">
-              Home | Residential | <span className="text-[#652A27]">OASIS</span>
+              Home | Residential | <span className="text-[#652A27]">Aagman</span>
             </p>
 
             <h2 className="xl:mt-15 mt-5 font-optima xl:text-[36px] text-[28px] font-[550] xl:leading-[54px] md:leading-[40px] leading-[30px] capitalize text-[#000000]">
-            An initiative by Mansha Group
+            Crafted by Mansha Group
             </h2>
 
             <p className="xl:mt-7 mt-2 font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px] xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-            Mansha Oasis is crafted to offer a modern lifestyle surrounded by comfort, greenery, and connectivity. Designed with thoughtful planning and contemporary infrastructure, the project blends urban convenience with peaceful living. Wide roads, landscaped surroundings, and premium amenities create a vibrant residential environment. The project focuses on quality construction, sustainable development, and community living. Strategically located, Mansha Oasis ensures seamless access to schools, healthcare, shopping, and major city hubs. Every space is designed to maximize openness, natural light, and everyday comfort. 
+            Mansha Heritage is thoughtfully envisioned to offer a refined lifestyle enriched with comfort, greenery, and seamless connectivity. Designed with modern planning and elegant infrastructure, the project creates a perfect balance between contemporary convenience and peaceful surroundings. Spacious roads, landscaped greens, and premium amenities together shape a vibrant residential experience. Focused on quality development, sustainable living, and community values, Mansha Heritage reflects excellence in every detail. Strategically positioned, the project provides effortless access to educational institutions, healthcare facilities, shopping destinations, and key city landmarks. Every space is planned to enhance openness, natural light, and everyday ease.
+
 
             </p>
 
             <div className="xl:mt-5 mt-2">
               <p className="font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px]  xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-              With a vision to redefine modern living, Mansha Oasis offers an ideal destination for families and future investments. Experience a lifestyle where luxury, convenience, and serenity come together seamlessly.
+              With a vision to elevate modern living, Mansha Heritage presents an ideal destination for families and future investments. Experience a lifestyle where elegance, comfort, and tranquility exist in perfect harmony.
               </p>
             </div>
 
@@ -64,7 +65,7 @@ const Section2 = () => {
                   className="h-[50px] w-[50px] object-contain xl:h-15 xl:w-15"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
-                Gated community
+                2400+ happy customers
                 </p>
               </div>
 
@@ -77,7 +78,7 @@ const Section2 = () => {
                   className="h-[50px] w-[50px] object-contain xl:h-15 xl:w-15"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
-                3-Tier security
+                Well connected
                 </p>
               </div>
             </div>

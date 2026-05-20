@@ -10,20 +10,20 @@ const LEFT_SLIDES = [
   {
     src: "/mansha-image/outdoor-cafe-big.jpg",
     alt: "A terrace for every home",
-    title: "Elevated Living",
-    text: " Terraces, skyline views, clubhouse, fitness, and lush greenery—crafted for a refined lifestyle.",
+    title: "Spaces That Inspire",
+    text: " Courtyards, open gym areas, kids’ play zones, and round-the-clock security—designed for effortless everyday living.",
   },
   {
     src: "/mansha-image/club-with-lawn-big.jpg",
     alt: "Club with lawn",
-    title: "Life Above It All",
-    text: " Where terraces, skyline, clubhouse, fitness, and greenery come together seamlessly.",
+    title: "Balanced By Design",
+    text: " From landscaped courtyards to fitness spaces and safe play areas—every amenity adds comfort to life.",
   },
   {
     src: "/mansha-image/club-pool-big.jpg",
     alt: "Club pool",
-    title: "The Art of Living Well",
-    text: " A perfect blend of terraces, skyline, clubhouse, fitness, and green open spaces.",
+    title: "Life Within Reach",
+    text: "Open gyms, vibrant courtyards, kids’ play areas, and 24/7 CCTV—crafted for modern community living.",
   },
 ];
 
@@ -31,14 +31,20 @@ const RIGHT_SLIDES = [
   {
     src: "/mansha-image/central-landscape-bog.jpg",
     alt: "Linear greens and themed landscapes",
-    title: "Designed for Balance",
-    text: " From terraces to skyline views, clubhouse to fitness and greenery—every detail matters.",
+    title: "Everyday Comes Alive",
+    text: "Green courtyards, active fitness zones, secure surroundings, and joyful play spaces—made for all generations.",
   },
   {
     src: "/mansha-image/outdoor-cafe-big.jpg",
     alt: "Gym",
-    title: "Everyday Luxury",
-    text: "A lifestyle that defines excellence, shaped by thoughtful design and refined living.",
+    title: "Thoughtfully Elevated",
+    text: " A lifestyle enriched with open spaces, wellness zones, children’s play areas, and seamless security.",
+  },
+  {
+    src: "/mansha-image/central-landscape-bog.jpg",
+    alt: "Linear greens and themed landscapes",
+    title: "Designed Around You",
+    text: "  Courtyard living, outdoor fitness, playful spaces for kids, and complete security—everything thoughtfully connected.",
   },
 ];
 const ALL_SLIDES = [...LEFT_SLIDES, ...RIGHT_SLIDES];

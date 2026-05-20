@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Is the project RERA registered and approved?",
+    question: "What makes the location in Sonipat advantageous for businesses?",
     answer:
-      "Yes, the project is RERA registered and complies with all necessary approvals and regulations."
+      " The project is strategically located in Sonipat, offering strong connectivity to Delhi NCR and rapidly developing urban infrastructure."
   },
   {
-    question: "What amenities are offered in the residential community?",
+    question: "What type of businesses can operate in this commercial workspace?",
     answer:
-      " The community offers thoughtfully designed amenities for comfort, leisure, and everyday convenience.",
+      " It is suitable for offices, retail outlets, startups, and service-based businesses, offering flexible usage options.",
   },
   {
-    question: "How well is the project connected to nearby areas?",
+    question: "Are there provisions for parking within the commercial complex?",
     answer:
-      "The project enjoys excellent connectivity to key areas, ensuring smooth access to major destinations.",
+      " Yes, the project includes planned parking spaces for visitors and occupants to ensure smooth accessibility.",
   },
   {
-    question: "Are there security features in the gated community?",
+    question: "What kind of infrastructure is provided for daily operations?",
     answer:
-      " Yes, the gated community is equipped with advanced security systems and round-the-clock monitoring."
+      " The project offers modern infrastructure with reliable utilities, power backup, and well-planned workspace design."
   },
   {
-    question: "What lifestyle facilities are available for residents?",
+    question: "Is the project suitable for investment purposes?",
     answer:
-      " Residents can enjoy a range of lifestyle facilities designed to enhance wellness, recreation, and social living.",
+      "Yes, its location in a growing Sonipat corridor makes it a promising option for long-term commercial investment.",
   },
 ];
 
