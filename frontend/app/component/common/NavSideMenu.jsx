@@ -33,7 +33,7 @@ const DROPDOWN_NAV = [
     id: "commercial",
     label: "Commercial",
     delay: "440ms",
-    items: [{ label: "Mansha vega street", href: "/commerical" }],
+    items: [{ label: "Mansha vega street", href: "/vega-street" }],
   },
 ];
 
