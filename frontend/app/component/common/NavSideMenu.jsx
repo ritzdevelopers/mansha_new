@@ -26,7 +26,7 @@ const DROPDOWN_NAV = [
       { label: "Mansha Heritage", href: "/Mansha-Heritage" },
       { label: "Mansha Orchid", href: "#" },
       { label: "Aagman by mansha", href: "#" },
-      { label: "Mansha Oasis", href: "/Mansha-Oasis" },
+      { label: "Mansha Oasis", href: "/mansha-oasis" },
     ],
   },
   {
