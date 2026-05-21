@@ -24,7 +24,7 @@ const DROPDOWN_NAV = [
     delay: "380ms",
     items: [
       { label: "Mansha Heritage", href: "/Mansha-Heritage" },
-      { label: "Mansha Orchid", href: "#" },
+      { label: "Mansha Orchid", href: "/mansha-orchid" },
       { label: "Aagman by mansha", href: "/aagman-by-mansha" },
       { label: "Mansha Oasis", href: "/mansha-oasis" },
     ],
