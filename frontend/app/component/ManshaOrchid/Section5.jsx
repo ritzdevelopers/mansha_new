@@ -3,10 +3,10 @@ import React from "react";
 
 const luxuryItems = [
   { icon: "/mansha-svg/clubhouse.svg", label: "24/7 Security " },
-  { icon: "/mansha-svg/playarea.svg", label: "Community Gathering Spaces" },
-  { icon: "/mansha-svg/swimming.svg", label: "Three- Tier Security" },
-  { icon: "/mansha-svg/jogging.svg", label: "Jogging Pathways" },
-  { icon: "/mansha-svg/facility.svg", label: "Meditation Zones" },
+  { icon: "/mansha-svg/playarea.svg", label: "Kids play area " },
+  { icon: "/mansha-svg/swimming.svg", label: "Open gym" },
+  { icon: "/mansha-svg/jogging.svg", label: "Mediation zone" },
+  { icon: "/mansha-svg/facility.svg", label: "Gated community" },
 ];
 
 const Section5 = () => {
@@ -23,7 +23,7 @@ const Section5 = () => {
           />
           <div className=" xl:mt-10 md:mt-0 mt-0 relative z-10 mx-auto max-w-[1100px]">
             <h2 className="mx-auto max-w-[540px] text-center font-optima xl:text-[36px] md:text-[25px] text-[16px] font-[500] leading-[43px] capitalize text-[#000000]">
-            Thoughtful Comforts That Brighten Your Day
+            Comfort that brings ease to your day
             </h2>
 
             <div className="xl:mt-16 lg:mt-5 mt-3 grid grid-cols-2 gap-0 text-center sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 lg:gap-0 xl:gap-6">

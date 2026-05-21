@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Is the project RERA registered and approved?",
+    question: "What makes Mansha Orchid a good investment?",
     answer:
-      "Yes, the project is RERA registered and complies with all necessary approvals and regulations."
+      " Its prime location, strong connectivity, and planned development ensure long-term value."
   },
   {
-    question: "What amenities are offered in the residential community?",
+    question: "What types of units are available in the project?",
     answer:
-      " The community offers thoughtfully designed amenities for comfort, leisure, and everyday convenience.",
+      " The project offers well-planned residential plots designed for modern living.",
   },
   {
-    question: "How well is the project connected to nearby areas?",
+    question: "Is Mansha Orchid a gated community?",
     answer:
-      "The project enjoys excellent connectivity to key areas, ensuring smooth access to major destinations.",
+      " Yes, it is a secure gated community with controlled access.",
   },
   {
-    question: "Are there security features in the gated community?",
+    question: "What kind of surroundings can residents expect?",
     answer:
-      " Yes, the gated community is equipped with advanced security systems and round-the-clock monitoring."
+      " Green landscapes, open spaces, and a peaceful residential environment."
   },
   {
-    question: "What lifestyle facilities are available for residents?",
+    question: "Are there recreational spaces within the project?",
     answer:
-      " Residents can enjoy a range of lifestyle facilities designed to enhance wellness, recreation, and social living.",
+      " Yes, it includes kids’ play areas and open spaces for leisure and activity.",
   },
 ];
 

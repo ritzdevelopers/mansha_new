@@ -12,8 +12,8 @@ const EMAIL_TEXT = "info@manshagroup.in";
 const NAV_ITEMS = [
   { label: "Home", href: "/", delay: "200ms" },
   { label: "About", href: "/about-us", delay: "320ms" },
-  { label: "Contact", href: "/contact", delay: "560ms" },
-  { label: "Carrers", href: "#", delay: "680ms" },
+  { label: "Contact", href: "/contact-us", delay: "560ms" },
+  { label: "Carrers", href: "careers", delay: "680ms" },
   { label: "Blogs", href: "/blog", delay: "800ms" },
 ];
 

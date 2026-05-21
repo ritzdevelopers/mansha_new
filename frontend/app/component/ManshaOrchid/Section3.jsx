@@ -10,20 +10,20 @@ const LEFT_SLIDES = [
   {
     src: "/mansha-image/outdoor-cafe-big.jpg",
     alt: "A terrace for every home",
-    title: "Elevated Living",
-    text: " Terraces, skyline views, clubhouse, fitness, and lush greenery—crafted for a refined lifestyle.",
+    title: "Living Made Better",
+    text: " Open gym areas, landscaped greens, kids’ play zones, and secure spaces shaped for connected community living.",
   },
   {
     src: "/mansha-image/club-with-lawn-big.jpg",
     alt: "Club with lawn",
-    title: "Life Above It All",
-    text: " Where terraces, skyline, clubhouse, fitness, and greenery come together seamlessly.",
+    title: "Harmony In Spaces",
+    text: "Landscaped greens, open gym zones, and safe play areas bringing comfort, security, and community together.",
   },
   {
     src: "/mansha-image/club-pool-big.jpg",
     alt: "Club pool",
-    title: "The Art of Living Well",
-    text: " A perfect blend of terraces, skyline, clubhouse, fitness, and green open spaces.",
+    title: "Closer Everyday Living",
+    text: " Open gyms, green landscapes, children’s play areas, and strong security—built for easy community living.",
   },
 ];
 
@@ -31,14 +31,20 @@ const RIGHT_SLIDES = [
   {
     src: "/mansha-image/central-landscape-bog.jpg",
     alt: "Linear greens and themed landscapes",
-    title: "Designed for Balance",
-    text: " From terraces to skyline views, clubhouse to fitness and greenery—every detail matters.",
+    title: "Where Life Thrives",
+    text: "Green landscapes, open fitness zones, secure surroundings, and fun play areas created for every community.",
   },
   {
     src: "/mansha-image/outdoor-cafe-big.jpg",
     alt: "Gym",
-    title: "Everyday Luxury",
-    text: "A lifestyle that defines excellence, shaped by thoughtful design and refined living.",
+    title: "Elevated Daily Living",
+    text: " A lifestyle with landscaped greens, open gym areas, kids’ play zones, and dependable community security.",
+  },
+  {
+    src: "/mansha-image/central-landscape-bog.jpg",
+    alt: "Gym",
+    title: "Crafted For Living",
+    text: " Landscaped greens, outdoor gym spaces, kids’ play areas, and secure surroundings designed for community comfort.",
   },
 ];
 const ALL_SLIDES = [...LEFT_SLIDES, ...RIGHT_SLIDES];

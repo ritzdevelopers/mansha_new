@@ -82,7 +82,7 @@ const Section2 = () => {
               </div>
             </div>
 
-            <div className="xl:mt-12 md:mt-7 mt-4 flex flex-wrap items-center gap-3">
+            {/* <div className="xl:mt-12 md:mt-7 mt-4 flex flex-wrap items-center gap-3">
               <button
                 type="button"
                 className="group relative isolate inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-transparent bg-[#652A27] px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] text-white transition-colors duration-300 hover:border-[#652A27]"
@@ -109,7 +109,7 @@ const Section2 = () => {
                   <i className="ri-arrow-right-line transition-all duration-300 group-hover:translate-x-1.5" />
                 </span>
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="relative xl:mt-22 lg:mt-10 md:mt-3 mt-0">
