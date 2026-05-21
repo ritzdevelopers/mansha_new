@@ -111,14 +111,14 @@ const Navbar = () => {
         <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-8xl items-end px-5 pb-8 sm:px-8 lg:px-[75px]">
           <div className="text-white">
             <h1 className="font-[Optima] text-[36px] font-[500] leading-[48px] tracking-[0] text-center capitalize text-white">
-              Contact Us
+              Blogs
             </h1>
             <div className="mt-0 md:mt-2 flex items-center gap-1 font-[Montserrat] text-[16px] font-medium leading-[100%] tracking-[0] capitalize text-white">
               <Link href="/" className="hover:opacity-80">
                 Home
               </Link>
               <i className="ri-arrow-right-s-line text-base" aria-hidden />
-              <span>Contact us</span>
+              <span>Blogs</span>
             </div>
           </div>
         </div>

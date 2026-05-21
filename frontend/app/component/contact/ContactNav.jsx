@@ -31,7 +31,7 @@ const ContactNav = () => {
     <>
       <section className="about-hero relative min-h-screen overflow-hidden">
         <Image
-          src="/contact-image/contact-hero.jpg"
+          src="/mansha-image/about-hero-section.png"
           alt="About Hero"
           fill
           priority

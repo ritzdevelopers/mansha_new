@@ -6,14 +6,16 @@ import Touch from '../component/contact/Touch'
 import ContactFAQ from '../component/contact/Contact-FAQ'
 import TestimoniaCommon from '../component/common/Testimonia-common'
 import Consultation from '../component/Home/Consultation'
-
+import FAQCommon from '../component/common/FAQCommon'
 const page = () => {
   return (
     <div>
       <ContactNav/>
       <Happen/>
       <Touch/>
-      <ContactFAQ/>
+      <div className="pt-[35px] lg:pt-[70px]">
+          <FAQCommon />
+      </div>  
       <TestimoniaCommon/>
       <Consultation/>
       <Footer/>
