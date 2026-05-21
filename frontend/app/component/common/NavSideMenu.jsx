@@ -23,7 +23,7 @@ const DROPDOWN_NAV = [
     label: "Residential",
     delay: "380ms",
     items: [
-      { label: "Mansha Heritage", href: "/Mansha-Heritage" },
+      { label: "Mansha Heritage", href: "/mansha-heritage" },
       { label: "Mansha Orchid", href: "/mansha-orchid" },
       { label: "Aagman by mansha", href: "/aagman-by-mansha" },
       { label: "Mansha Oasis", href: "/mansha-oasis" },
