@@ -31,7 +31,7 @@ const DROPDOWN_NAV = [
     delay: "380ms",
     categories: [
       { id: "ongoing", label: "Ongoing", items: ONGOING_RESIDENTIAL },
-      { id: "delivered", label: "Delivered", items: [] },
+      { id: "delivered", label: "Delivered", href: "/delivered-one-page" },
     ],
   },
   {
@@ -153,6 +153,28 @@ const NavSideMenu = ({ open, onClose }) => {
                         const isSubOpen = openSubDropdown === subKey;
                         const isDelivered = category.label === "Delivered";
 
+                        if (category.href) {
+                          return (
+                            <li key={subKey}>
+                              <Link
+                                href={category.href}
+                                onClick={onClose}
+                                className={`${sidebarLinkClass} !translate-x-0 !opacity-100`}
+                              >
+                                <span
+                                  className={`${sidebarLabelClass} text-[16px] ${
+                                    isDelivered
+                                      ? "font-semibold text-[#652A27]"
+                                      : "font-normal"
+                                  }`}
+                                >
+                                  {category.label}
+                                </span>
+                              </Link>
+                            </li>
+                          );
+                        }
+
                         return (
                           <li key={subKey}>
                             <button
@@ -180,13 +202,13 @@ const NavSideMenu = ({ open, onClose }) => {
 
                             <div
                               className={`transition-[max-height,opacity,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                                isSubOpen && category.items.length > 0
+                                isSubOpen && category.items?.length > 0
                                   ? "max-h-56 overflow-visible py-2 opacity-100"
                                   : "max-h-0 overflow-hidden py-0 opacity-0"
                               }`}
                             >
                               <ul className="space-y-1 border-l border-[#E0E0E0] pl-4">
-                                {category.items.map((sub, index) => (
+                                {category.items?.map((sub, index) => (
                                   <li key={sub.label}>
                                     <Link
                                       href={sub.href}

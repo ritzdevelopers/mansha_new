@@ -30,7 +30,7 @@ const ConsultationCommon = () => {
         className="pointer-events-none absolute inset-y-0 left-0 z-0 h-full w-full origin-left translate-x-[-101%] rounded-full bg-[#652A27] transition-transform duration-300 ease-out group-hover:translate-x-0"
       />
 
-      <span className="relative z-10 flex items-center gap-1 text-[#652A27] transition-colors duration-300 group-hover:text-white md:gap-3 text-[5px]">
+      <span className="relative z-10 flex items-center gap-1 text-[#652A27] transition-colors duration-300 group-hover:text-white md:gap-3 ">
         Get consultation
 
         <i className="ri-arrow-right-line text-[18px] transition-all duration-300 group-hover:translate-x-2" />

@@ -16,6 +16,7 @@ import Footer from "./component/Home/Footer";
 import TestimoniaCommon from "./component/common/Testimonia-common";
 import ConsultationCommon from "./component/common/Consultation-common";
 import FAQCommon from "./component/common/FAQCommon";
+import InvertmentCommmon from "./component/common/InvertmentCommmon";
 export default function Home() {
   return (
     <div>
@@ -29,7 +30,8 @@ export default function Home() {
       <Vegas />
      <Signature/>
       <Manshagroup />
-      <Investment />
+      <InvertmentCommmon />
+      {/* <Investment /> */}
       <div className="pt-[35px] lg:pt-[70px]">
           <FAQCommon />
       </div>
