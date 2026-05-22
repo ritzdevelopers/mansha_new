@@ -48,6 +48,7 @@ const DELIVERED_PROJECTS = [
     location: "SRS CITY, SECTOR-6, Palwal",
     image: "/delieverd/mansha-floor.png",
     alt: "Mansha Floor",
+    href: "/mansha-floors-2",
   },
   {
     location: "JUNDLA, KARNAL",
