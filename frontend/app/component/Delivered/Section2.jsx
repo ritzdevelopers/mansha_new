@@ -12,6 +12,7 @@ const DELIVERED_PROJECTS = [
     location: "Sector-9, Palwal",
     image: "/delieverd/mansha-city-palwal.png",
     alt: "Mansha City Palwal",
+    href: "/mansha-city-palwal-2",
   },
   {
     location: "Aligarh Road, Palwal",
