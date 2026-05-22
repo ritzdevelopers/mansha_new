@@ -9,7 +9,7 @@ import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TABS = ["DESCRIPTION", "FEATURES", "UPDATION", "STATUS"];
+const TABS = ["DESCRIPTION", "FEATURES", "STATUS"];
 
 const FEATURES = [
   "Air Conditioning",
@@ -96,12 +96,12 @@ const CORPORATE_CONTACTS = [
   },
   {
     icon: "ri-mail-line",
-    label: " info@manshagroup.in",
+    label: "E-mail: info@manshagroup.in",
     href: "mailto:info@manshagroup.in",
   },
   {
     icon: "ri-global-line",
-    label: " www.manshagroup.in",
+    label: "Website: www.manshagroup.in",
     href: "https://www.manshagroup.in",
   },
   {
@@ -155,24 +155,26 @@ const Section2 = () => {
     const section = infoSectionRef.current;
     const leftPanel = leftPanelRef.current;
     const rightPanel = rightPanelRef.current;
-    if (!section || !leftPanel || !rightPanel) return;
+    if (!section || !rightPanel) return;
 
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        leftPanel,
-        { autoAlpha: 0, x: -72 },
-        {
-          autoAlpha: 1,
-          x: 0,
-          duration: 0.85,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 82%",
-            once: true,
-          },
-        }
-      );
+      if (leftPanel) {
+        gsap.fromTo(
+          leftPanel,
+          { autoAlpha: 0, x: -72 },
+          {
+            autoAlpha: 1,
+            x: 0,
+            duration: 0.85,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 82%",
+              once: true,
+            },
+          }
+        );
+      }
 
       gsap.fromTo(
         rightPanel,
@@ -206,10 +208,10 @@ const Section2 = () => {
                     Delivered Project
                   </p>
                   <h1 className="mt-1 font-optima text-[24px] font-medium uppercase leading-tight tracking-wide text-black  md:text-[38px]">
-                    Mansha City Palwal
+                  MANSHA Royal City
                   </h1>
                   <p className="mt-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-black sm:text-[15px]">
-                    Mansha City, Sector-9, Palwal
+                  Palwal – Palwal Aligarh
                   </p>
                 </div>
                 <span className="inline-flex w-fit items-center justify-center rounded-md border border-[#652A27]/30 bg-[#652A27]/10 px-5 py-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-[#652A27] sm:text-[14px]">
@@ -278,7 +280,8 @@ const Section2 = () => {
                         aria-hidden
                       />
                       <span className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333]">
-                        Mansha City, Sector-9, Palwal
+                        
+Palwal - Palwal Aligarh
                       </span>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
@@ -290,7 +293,7 @@ const Section2 = () => {
                         href="mailto:info@manshagroup.in"
                         className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333] transition-colors hover:text-[#652A27]"
                       >
-                        E-mail: info@manshagroup.in
+                        info@manshagroup.in
                       </a>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
@@ -310,7 +313,7 @@ const Section2 = () => {
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/mansha-city-palwal.png"
+                    src="/delieverd/mansha-royal-city.png"
                     alt="Mansha City Palwal"
                     width={160}
                     height={70}
@@ -426,44 +429,8 @@ const Section2 = () => {
         className="w-full max-w-[1525px] mx-auto overflow-hidden pb-[35px] pt-2 lg:pb-[70px] lg:pt-0"
       >
         <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[75px]">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-1 xl:grid-cols-2 lg:gap-8">
-            <div
-              ref={leftPanelRef}
-              className="overflow-hidden rounded-xl border border-[#D8DEE6] bg-white opacity-0"
-            >
-              <div className="flex items-center gap-3 border-b border-[#D8DEE6] bg-[#652A27]/5 px-5 py-4 sm:px-6">
-                <span
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#652A27] font-montserrat text-[13px] font-bold text-white"
-                  aria-hidden
-                >
-                  5
-                </span>
-                <h2 className="font-montserrat text-[13px] font-bold uppercase leading-snug tracking-wide text-[#652A27] sm:text-[14px]">
-                  Past Project In Last Five Year Developed By Promoter
-                </h2>
-              </div>
-              <ul className="divide-y divide-[#E8ECF0] p-4 sm:p-6">
-                {PAST_PROJECTS.map((project, index) => (
-                  <li
-                    key={project.name}
-                    className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4"
-                  >
-                    <div className="flex min-w-0 items-center gap-3">
-                      <span className="font-montserrat text-[12px] font-bold uppercase text-[#652A27]">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <p className="font-montserrat text-[14px] font-bold uppercase leading-snug text-[#111111] sm:text-[15px]">
-                        {project.name}
-                      </p>
-                    </div>
-                    <p className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333] sm:text-right sm:text-[14px]">
-                      Situated at {project.location}{" "}
-                      <span className="text-[#652A27]">({project.note})</span>
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="grid grid-cols-1 gap-6  lg:gap-8">
+          
 
             <div
               ref={rightPanelRef}

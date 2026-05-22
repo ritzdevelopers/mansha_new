@@ -18,6 +18,7 @@ const DELIVERED_PROJECTS = [
     location: "Aligarh Road, Palwal",
     image: "/delieverd/mansha-royal-city.png",
     alt: "Mansha Royal City",
+    href: "/mansha-royal-city",
   },
   {
     location: "Sector 72, Greater Faridabad",
