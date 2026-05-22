@@ -42,6 +42,7 @@ const DELIVERED_PROJECTS = [
     location: "HASANPUR ROAD, DEEGHOT, HARYANA 121105",
     image: "/delieverd/mansha-estate.png",
     alt: "Mansha Estate",
+    href: "/mansha-estate",
   },
   {
     location: "SRS CITY, SECTOR-6, Palwal",
