@@ -9,7 +9,7 @@ import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TABS = ["DESCRIPTION", "FEATURES", "STATUS"];
+const TABS = ["DESCRIPTION", "FEATURES", "UPDATION", "STATUS"];
 
 const FEATURES = [
   "Air Conditioning",
@@ -96,12 +96,12 @@ const CORPORATE_CONTACTS = [
   },
   {
     icon: "ri-mail-line",
-    label: "info@manshagroup.in",
+    label: " info@manshagroup.in",
     href: "mailto:info@manshagroup.in",
   },
   {
     icon: "ri-global-line",
-    label: " www.manshagroup.in",
+    label: "www.manshagroup.in",
     href: "https://www.manshagroup.in",
   },
   {
@@ -208,10 +208,10 @@ const Section2 = () => {
                     Delivered Project
                   </p>
                   <h1 className="mt-1 font-optima text-[24px] font-medium uppercase leading-tight tracking-wide text-black  md:text-[38px]">
-                  MANSHA LUXURY FLOORS
+                  eden-slf city
                   </h1>
                   <p className="mt-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-black sm:text-[15px]">
-                  Sector 72, Greater Faridabad
+                  Sector 1 Eden SLF City, Taraori, Haryana
                   </p>
                 </div>
                 <span className="inline-flex w-fit items-center justify-center rounded-md border border-[#652A27]/30 bg-[#652A27]/10 px-5 py-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-[#652A27] sm:text-[14px]">
@@ -280,8 +280,7 @@ const Section2 = () => {
                         aria-hidden
                       />
                       <span className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333]">
-                        
-                      Sector 72, Greater Faridabad
+                        Mansha City, Sector-9, Palwal
                       </span>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
@@ -293,7 +292,7 @@ const Section2 = () => {
                         href="mailto:info@manshagroup.in"
                         className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333] transition-colors hover:text-[#652A27]"
                       >
-                        info@manshagroup.in
+                         info@manshagroup.in
                       </a>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
@@ -313,8 +312,8 @@ const Section2 = () => {
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/mansha-luxury-floor.png"
-                    alt="Mansha City Palwal"
+                    src="/delieverd/eden-city.png"
+                    alt="Eden SLF City"
                     width={160}
                     height={70}
                     className="h-auto max-w-[160px] object-contain opacity-90"
@@ -429,7 +428,7 @@ const Section2 = () => {
         className="w-full max-w-[1525px] mx-auto overflow-hidden pb-[35px] pt-2 lg:pb-[70px] lg:pt-0"
       >
         <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[75px]">
-          <div className="grid grid-cols-1 gap-6  lg:gap-8">
+          <div className="grid grid-cols-1 gap-6 lg:gap-8">
           
 
             <div

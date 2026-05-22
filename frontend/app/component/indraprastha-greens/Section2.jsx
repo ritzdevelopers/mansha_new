@@ -9,7 +9,7 @@ import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TABS = ["DESCRIPTION", "FEATURES", "STATUS"];
+const TABS = ["DESCRIPTION", "FEATURES", "sitemap", "Route map"];
 
 const FEATURES = [
   "Air Conditioning",
@@ -49,15 +49,20 @@ const TAB_CONTENT = {
       ))}
     </ul>
   ),
-  UPDATION: (
+  sitemap: (
     <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Project updates and construction milestones will be shared here. For the
-      latest progress, please contact our team.
+      Explore the project site layout with plot planning, road network, and key
+      zones across the development. The sitemap highlights residential blocks,
+      internal roads, open spaces, and entry points for easy navigation across
+      the township.
     </p>
   ),
-  STATUS: (
+  "Route map": (
     <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Delivered project — fully developed and operational in Sector-9, Palwal.
+      View connectivity and approach routes to the project location with nearby
+      landmarks and major roads. The route map outlines key highways, local
+      connectors, and convenient access from surrounding cities and daily-use
+      destinations.
     </p>
   ),
 };
@@ -96,12 +101,12 @@ const CORPORATE_CONTACTS = [
   },
   {
     icon: "ri-mail-line",
-    label: "info@manshagroup.in",
+    label: " info@manshagroup.in",
     href: "mailto:info@manshagroup.in",
   },
   {
     icon: "ri-global-line",
-    label: " www.manshagroup.in",
+    label: "www.manshagroup.in",
     href: "https://www.manshagroup.in",
   },
   {
@@ -208,10 +213,10 @@ const Section2 = () => {
                     Delivered Project
                   </p>
                   <h1 className="mt-1 font-optima text-[24px] font-medium uppercase leading-tight tracking-wide text-black  md:text-[38px]">
-                  MANSHA LUXURY FLOORS
+                  MANSHA INDRAPRASTHA GREENS
                   </h1>
                   <p className="mt-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-black sm:text-[15px]">
-                  Sector 72, Greater Faridabad
+                  SECTOR-1 , KARNAL , HARYANA.
                   </p>
                 </div>
                 <span className="inline-flex w-fit items-center justify-center rounded-md border border-[#652A27]/30 bg-[#652A27]/10 px-5 py-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-[#652A27] sm:text-[14px]">
@@ -281,7 +286,8 @@ const Section2 = () => {
                       />
                       <span className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333]">
                         
-                      Sector 72, Greater Faridabad
+SECTOR-1 , KARNAL , HARYANA
+
                       </span>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
@@ -313,8 +319,8 @@ const Section2 = () => {
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/mansha-luxury-floor.png"
-                    alt="Mansha City Palwal"
+                    src="/delieverd/eden-city.png"
+                    alt="Eden SLF City"
                     width={160}
                     height={70}
                     className="h-auto max-w-[160px] object-contain opacity-90"
@@ -429,7 +435,7 @@ const Section2 = () => {
         className="w-full max-w-[1525px] mx-auto overflow-hidden pb-[35px] pt-2 lg:pb-[70px] lg:pt-0"
       >
         <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[75px]">
-          <div className="grid grid-cols-1 gap-6  lg:gap-8">
+          <div className="grid grid-cols-1 gap-6 lg:gap-8">
           
 
             <div

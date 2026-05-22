@@ -30,11 +30,13 @@ const DELIVERED_PROJECTS = [
     location: "Sector 1 Eden SLF City, Taraori, Haryana",
     image: "/delieverd/eden-city.png",
     alt: "Eden City",
+    href: "/eden-slf-city",
   },
   {
     location: "SECTOR-1, G.T. RD, TARAORI-NILOKHORI, KARNAL",
     image: "/delieverd/mansha-indr-green.png",
     alt: "Mansha Indr Green",
+    href: "/indraprastha-greens",
   },
   {
     location: "HASANPUR ROAD, DEEGHOT, HARYANA 121105",
