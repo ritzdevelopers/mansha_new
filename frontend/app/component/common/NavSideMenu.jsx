@@ -17,31 +17,55 @@ const NAV_ITEMS = [
   { label: "Blogs", href: "/blog", delay: "800ms" },
 ];
 
+const ONGOING_RESIDENTIAL = [
+  { label: "Mansha Heritage", href: "/mansha-heritage" },
+  { label: "Mansha Orchid", href: "/mansha-orchid" },
+  { label: "Aagman by mansha", href: "/aagman-by-mansha" },
+  { label: "Mansha Oasis", href: "/mansha-oasis" },
+];
+
 const DROPDOWN_NAV = [
   {
     id: "residential",
     label: "Residential",
     delay: "380ms",
-    items: [
-      { label: "Mansha Heritage", href: "/mansha-heritage" },
-      { label: "Mansha Orchid", href: "/mansha-orchid" },
-      { label: "Aagman by mansha", href: "/aagman-by-mansha" },
-      { label: "Mansha Oasis", href: "/mansha-oasis" },
+    categories: [
+      { id: "ongoing", label: "Ongoing", items: ONGOING_RESIDENTIAL },
+      { id: "delivered", label: "Delivered", items: [] },
     ],
   },
   {
     id: "commercial",
     label: "Commercial",
     delay: "440ms",
-    items: [{ label: "Mansha vega street", href: "/vega-street" }],
+    categories: [
+      {
+        id: "delivered",
+        label: "Delivered",
+        items: [{ label: "Mansha vega street", href: "/vega-street" }],
+      },
+    ],
   },
 ];
 
 const NavSideMenu = ({ open, onClose }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openSubDropdown, setOpenSubDropdown] = useState(null);
 
   const toggleDropdown = (id) => {
-    setOpenDropdown((prev) => (prev === id ? null : id));
+    setOpenDropdown((prev) => {
+      if (prev === id) {
+        setOpenSubDropdown(null);
+        return null;
+      }
+      setOpenSubDropdown(null);
+      return id;
+    });
+  };
+
+  const toggleSubDropdown = (sectionId, categoryId) => {
+    const key = `${sectionId}-${categoryId}`;
+    setOpenSubDropdown((prev) => (prev === key ? null : key));
   };
   const sidebarLinkClass = `optima-menu-link mobile-nav-item-link block cursor-pointer text-[30px] text-black ${
     open ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
@@ -111,38 +135,84 @@ const NavSideMenu = ({ open, onClose }) => {
                   >
                     <span className={sidebarLabelClass}>{section.label}</span>
                     <i
-                      className={`ri-add-line shrink-0 text-[22px] text-black transition-transform duration-500 ease-in-out ${
-                        isOpen ? "rotate-45" : ""
-                      }`}
+                      className={`${
+                        isOpen ? "ri-subtract-line" : "ri-add-line"
+                      } shrink-0 text-[22px] text-black transition-all duration-500 ease-in-out`}
                       aria-hidden
                     />
                   </button>
 
                   <div
                     className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
-                      isOpen
-                        ? section.id === "residential"
-                          ? "max-h-56 py-3 opacity-100"
-                          : "max-h-24 pt-3 opacity-100"
-                        : "max-h-0 pt-0 opacity-0"
+                      isOpen ? "max-h-[28rem] py-3 opacity-100" : "max-h-0 pt-0 opacity-0"
                     }`}
                   >
                     <ul className="space-y-1 border-l border-[#E0E0E0] pl-4">
-                      {section.items.map((sub) => (
-                        <li key={sub.label}>
-                          <Link
-                            href={sub.href}
-                            onClick={onClose}
-                            className={`${sidebarLinkClass} !translate-x-0 !opacity-100`}
-                          >
-                            <span
-                              className={`${sidebarLabelClass} text-[16px] font-normal`}
+                      {section.categories.map((category) => {
+                        const subKey = `${section.id}-${category.id}`;
+                        const isSubOpen = openSubDropdown === subKey;
+                        const isDelivered = category.label === "Delivered";
+
+                        return (
+                          <li key={subKey}>
+                            <button
+                              type="button"
+                              onClick={() => toggleSubDropdown(section.id, category.id)}
+                              className={`${sidebarLinkClass} flex w-full items-center justify-between gap-3 text-left !translate-x-0 !opacity-100`}
+                              aria-expanded={isSubOpen}
                             >
-                              {sub.label}
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
+                              <span
+                                className={`${sidebarLabelClass} text-[16px] ${
+                                  isDelivered
+                                    ? "font-semibold text-[#652A27]"
+                                    : "font-normal"
+                                }`}
+                              >
+                                {category.label}
+                              </span>
+                              <i
+                                className={`${
+                                  isSubOpen ? "ri-subtract-line" : "ri-add-line"
+                                } shrink-0 text-[18px] text-black transition-all duration-500 ease-in-out`}
+                                aria-hidden
+                              />
+                            </button>
+
+                            <div
+                              className={`transition-[max-height,opacity,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                                isSubOpen && category.items.length > 0
+                                  ? "max-h-56 overflow-visible py-2 opacity-100"
+                                  : "max-h-0 overflow-hidden py-0 opacity-0"
+                              }`}
+                            >
+                              <ul className="space-y-1 border-l border-[#E0E0E0] pl-4">
+                                {category.items.map((sub, index) => (
+                                  <li key={sub.label}>
+                                    <Link
+                                      href={sub.href}
+                                      onClick={onClose}
+                                      className={`optima-menu-link mobile-nav-sub-item-link block cursor-pointer text-black ${
+                                        isSubOpen ? "mobile-nav-sub-item-visible" : "mobile-nav-sub-item-hidden"
+                                      }`}
+                                      style={{
+                                        transitionDelay: isSubOpen
+                                          ? `${80 + index * 100}ms`
+                                          : "0ms",
+                                      }}
+                                    >
+                                      <span
+                                        className={`${sidebarLabelClass} text-[15px] font-normal`}
+                                      >
+                                        {sub.label}
+                                      </span>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 </li>
@@ -192,6 +262,24 @@ const NavSideMenu = ({ open, onClose }) => {
           transition-property: transform, opacity;
           transition-duration: 700ms;
           transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .mobile-nav-sub-item-link {
+          transition:
+            transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+            opacity 900ms cubic-bezier(0.22, 1, 0.36, 1);
+          will-change: transform, opacity;
+        }
+
+        .mobile-nav-sub-item-hidden {
+          opacity: 0;
+          transform: translateX(2.5rem);
+          pointer-events: none;
+        }
+
+        .mobile-nav-sub-item-visible {
+          opacity: 1;
+          transform: translateX(0);
         }
       `}</style>
     </>
