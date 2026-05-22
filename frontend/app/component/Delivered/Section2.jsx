@@ -24,6 +24,7 @@ const DELIVERED_PROJECTS = [
     location: "Sector 72, Greater Faridabad",
     image: "/delieverd/mansha-luxury-floor.png",
     alt: "Mansha Luxury Floor",
+    href: "/mansha-luxury-floors",
   },
   {
     location: "Sector 1 Eden SLF City, Taraori, Haryana",

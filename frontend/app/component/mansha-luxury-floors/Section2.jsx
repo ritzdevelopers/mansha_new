@@ -208,10 +208,10 @@ const Section2 = () => {
                     Delivered Project
                   </p>
                   <h1 className="mt-1 font-optima text-[24px] font-medium uppercase leading-tight tracking-wide text-black  md:text-[38px]">
-                  MANSHA Royal City
+                  MANSHA LUXURY FLOORS
                   </h1>
                   <p className="mt-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-black sm:text-[15px]">
-                  Palwal – Palwal Aligarh
+                  Sector 72, Greater Faridabad
                   </p>
                 </div>
                 <span className="inline-flex w-fit items-center justify-center rounded-md border border-[#652A27]/30 bg-[#652A27]/10 px-5 py-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-[#652A27] sm:text-[14px]">
@@ -281,7 +281,7 @@ const Section2 = () => {
                       />
                       <span className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333]">
                         
-Palwal - Palwal Aligarh
+                      Sector 72, Greater Faridabad
                       </span>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
