@@ -5,34 +5,33 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "What makes this commercial project in Greater Faridabad a strong investment?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi "
+      "Its prime location, growing infrastructure, and increasing commercial demand position it as a high-potential investment opportunity."
   },
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "What type of spaces are available in the project?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      " The project offers well-planned retail shops and commercial spaces designed for high visibility and footfall.",
   },
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "Is this a well-planned commercial development?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      " Yes, it is a thoughtfully designed commercial hub with organized layouts and modern infrastructure.",
   },
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "What kind of surroundings can businesses expect?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      " A thriving catchment of residential communities, strong footfall, and a rapidly developing commercial ecosystem.",
   },
   {
-    question: "What is off-plan real estate and is it worth investing in it?",
+    question: "Are there features that enhance business and visitor experience?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      " Yes, wide internal roads, easy accessibility, and well-planned open areas ensure smooth movement and a vibrant retail environment.",
   },
 ];
 
-const 
-FAQCommerical = () => {
+const FAQCommerical = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleItem = (index) => {
@@ -40,8 +39,8 @@ FAQCommerical = () => {
   };
 
   return (
-    <section className="mx-auto w-full max-w-[1500px] bg-white px-0">
-      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-5 pb-[35px] sm:px-8 lg:grid-cols-[420px_1fr] lg:gap-0 lg:px-[75px] lg:pb-[0px] xl:grid-cols-[500px_1fr]">
+    <section className="w-full bg-white max-w-[1500px] mx-auto">
+      <div className="mx-auto grid w-full max-w-8xl grid-cols-1 gap-4 px-5 pb-[35px] sm:px-8 lg:grid-cols-[420px_1fr] lg:gap-0 lg:px-[75px] lg:pb-[70px] xl:grid-cols-[500px_1fr]">
         <div>
           <h2 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[30px] tracking-normal capitalize text-[#111111] md:text-[36px] md:leading-[42px] md:text-left lg:whitespace-nowrap">
             Frequently Asked Questions
@@ -84,9 +83,9 @@ FAQCommerical = () => {
                 <button
                   type="button"
                   onClick={() => toggleItem(index)}
-                  className="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
+                  className="flex w-full cursor-pointer items-start justify-between gap-4 text-left"
                 >
-                  <span className="min-w-0 flex-1 truncate pr-2 font-montserrat text-[16px] font-medium capitalize tracking-normal text-[#333333] leading-[20px] md:text-[20px] md:leading-[20px] lg:text-[15px] lg:font-normal lg:leading-[22px] xl:text-[24px] xl:font-medium xl:leading-[100%]">
+                  <span className="min-w-0 flex-1 break-words pr-2 font-montserrat text-[16px] font-medium capitalize tracking-normal text-[#333333] leading-[22px] md:text-[20px] md:leading-[24px] lg:text-[15px] lg:font-normal lg:leading-[22px] xl:text-[24px] xl:font-medium xl:leading-[28px]">
                     {item.question}
                   </span>
                   <span
@@ -102,7 +101,7 @@ FAQCommerical = () => {
 
                 <div
                   className={`w-full overflow-hidden text-left transition-all duration-500 ease-in-out ${
-                    isOpen ? "max-h-60 lg:pt-4 pt-0 opacity-100" : "max-h-0 pt-0 opacity-0"
+                    isOpen ? "max-h-60 lg:pt-3 pt-0 opacity-100" : "max-h-0 pt-0 opacity-0"
                   }`}
                 >
                   <p className="mt-2 md:mt-0 font-montserrat text-[16px] font-normal leading-[20px] md:leading-[24px] tracking-normal text-left text-[#00000099] lg:text-[14px] lg:leading-[20px] xl:text-[16px] xl:leading-[24px]">

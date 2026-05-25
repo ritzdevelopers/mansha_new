@@ -54,6 +54,7 @@ const DELIVERED_PROJECTS = [
     location: "JUNDLA, KARNAL",
     image: "/delieverd/mansha-model-town.png",
     alt: "Mansha Model Town",
+    href: "/mansha-model-town",
   },
   {
     location: "DELHI – MATHURA ROAD, NH-2 palwal",

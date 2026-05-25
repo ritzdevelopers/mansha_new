@@ -319,7 +319,7 @@ SECTOR-1 , KARNAL , HARYANA
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/eden-city.png"
+                    src="/delieverd/mansha-indr-green.png"
                     alt="Eden SLF City"
                     width={160}
                     height={70}

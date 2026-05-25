@@ -20,10 +20,7 @@ const Brandsection = () => {
 
           <div className="absolute inset-x-0 top-0 z-10 px-5 pt-6 sm:px-8 sm:pt-8 lg:px-[70px] lg:pt-16">
             <p className="max-w-[700px] text-center md:text-left font-montserrat text-[16px] font-semibold leading-[22px] md:leading-[24px] tracking-[0] text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis officia deserunt mollit anim id est
-              laborum.
+            A setting where refined tastes and distinguished labels quietly come together.Spaces that reflect elegance, presence, and a certain standard of living. An address for those who appreciate the finer side of everyday experiences.
             </p>
           </div>
 

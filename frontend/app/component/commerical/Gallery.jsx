@@ -31,12 +31,10 @@ const Gallery = () => {
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 lg:gap-5">
           <article className="border border-[#E6E6E6] bg-white p-4">
             <h3 className="font-optima text-[24px] font-medium leading-[25px] lg:leading-[100%] tracking-[0] capitalize text-black lg:text-[28px] ">
-              Commercial Hub Of Greater Faridabad
+            Prime Commercial Hub Faridabad 
             </h3>
             <p className="mt-4 lg:mt-4 font-montserrat text-[16px] font-normal md:leading-[25px] lg:leading-[28px] tracking-[0] text-[#00000099]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-              ad minim veniam, quis officia deserunt
+            At the heart of Faridabad’s evolving commercial landscape, where energy and opportunity converge. A destination shaped by growing footfall, vibrant surroundings, and urban momentum. Where business, lifestyle, and a thriving city come together seamlessly.
             </p>
           </article>
 

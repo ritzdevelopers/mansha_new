@@ -86,7 +86,7 @@ const NavSideMenu = ({ open, onClose }) => {
           type="button"
           onClick={onClose}
           aria-label="Close sidebar"
-          className="absolute right-5 top-5 inline-flex h-9 w-9 cursor-pointer items-center justify-center text-black transition-opacity hover:opacity-70"
+          className="absolute right-5 top-5 inline-flex h-9 w-9 cursor-pointer items-center justify-center text-black transition-opacity hover:text-[#652A27]"
         >
           <i className="ri-close-large-line text-[20px]" aria-hidden />
         </button>
@@ -261,13 +261,13 @@ const NavSideMenu = ({ open, onClose }) => {
         <div className="mt-auto pl-2 pt-8">
           <a
             href={PHONE}
-            className="optima-menu-link block cursor-pointer text-[22px] font-medium text-black transition-colors hover:text-[#652A27]"
+            className="optima-menu-link block cursor-pointer text-[18px] font-medium text-black transition-colors hover:text-[#652A27]"
           >
             {PHONE_TEXT}
           </a>
           <a
             href={EMAIL}
-            className="optima-menu-link mt-3 block cursor-pointer text-[22px] font-medium text-black transition-colors hover:text-[#652A27]"
+            className="optima-menu-link mt-3 block cursor-pointer text-[18px] font-medium text-black transition-colors hover:text-[#652A27]"
           >
             {EMAIL_TEXT}
           </a>

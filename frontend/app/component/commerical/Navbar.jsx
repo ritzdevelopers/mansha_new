@@ -119,10 +119,10 @@ const Navbar = () => {
             <span className="hidden w-px shrink-0 self-stretch bg-white md:block" aria-hidden />
             <div className="text-center text-white md:text-left">
               <h1 className="whitespace-nowrap font-optima text-[18px] md:text-[25px] lg:text-[36px] font-medium leading-[42px] tracking-[0] capitalize text-white">
-                The Future of Commercial Spaces
+              Designed For Modern Luxury
               </h1>
               <p className="mt-0 md:mt-2 font-optima text-[16px] md:text-[18px] lg:text-[27px] font-medium leading-[100%] tracking-[0] capitalize text-white">
-                Premium Office Spaces
+              Refined Urban Living
               </p>
             </div>
           </div>
@@ -193,33 +193,34 @@ const Navbar = () => {
           <div className="grid grid-cols-1 justify-items-center gap-4 lg:grid-cols-[1fr_1.7fr] md:justify-items-start xl:gap-0">
             <div className="flex flex-col items-center lg:items-start">
               <h2 className="font-optima text-[24px] md:text-[36px] lg:text-[36px] font-medium leading-[100%] tracking-[0] text-black">
-                About Vega Street
+              The Future of High-Street Living
               </h2>
+              <Link href="/contact">
               <button
-                type="button"
-                className="mt-4 hidden w-fit items-center gap-2 rounded-full bg-[#652A27] px-6 py-4 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0] text-white lg:mt-8 lg:inline-flex"
-              >
-                Enquire Now
-                <i className="ri-arrow-right-line text-[20px]" aria-hidden />
-              </button>
-            </div>
+  type="button"
+  className="group relative mt-4 hidden w-fit items-center gap-2 overflow-hidden rounded-full border border-[#652A27] bg-[#652A27] px-6 py-4 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0] text-white transition-all duration-500 lg:mt-8 lg:inline-flex cursor-pointer"
+>
+  {/* Hover Background */}
+  <span className="absolute inset-0 -translate-x-full bg-white transition-transform duration-500 ease-in-out group-hover:translate-x-0"></span>
 
+  {/* Text */}
+  <span className="relative z-10 transition-colors duration-500 group-hover:text-[#652A27]">
+    Enquire Now
+  </span>
+
+  {/* Icon */}
+  <i
+    className="ri-arrow-right-line relative z-10 text-[20px] transition-colors duration-500 group-hover:text-[#652A27]"
+    aria-hidden
+  />
+</button>
+            </Link>
+            </div>
             <p className="text-center font-montserrat text-[16px] font-normal leading-[25px] md:leading-[28px] tracking-[0px] capitalize text-[#333333] md:text-left">
-              Welcome to{" "}
-              <span className="text-[#652A27]">Vega Street by Mansha Group</span>,
-              your new business hub. This commercial space is designed with your
-              success in mind, offering high visibility, modern amenities, and a
-              location that can&apos;t be beat. Vega Street is the smart choice for
-              businesses ready to make their mark. Welcome to{" "}
-         Vega Street by Mansha Group,
-              your new business hub. This premier commercial space is meticulously
-              designed with your success in mind, offering high visibility, modern
-              amenities, and a location that simply can&apos;t be beat. Situated in
-              the heart of a bustling area, Vega Street provides a vibrant
-              environment that attracts both foot traffic and business
-              opportunities. With state-of-the-art infrastructure, flexible spaces,
-              and a commitment to
+            An initiative by Mansha Group, Vega Street is envisioned as a landmark destination that brings together premium retail, lifestyle, and leisure. Designed to reflect global high-street experiences, it creates a space where brands,people, and experiences seamlessly connect. With a thoughtfully planned layout and modern infrastructure, it offers the perfect blend of accessibility and elegance. Curated to host renowned brands, fine dining, and vibrant social spaces, it redefines everyday experiences. Every element is crafted to enhance footfall, engagement, and long-term value. Its strategic location ensures excellent visibility and consistent growth potential. More than just a commercial space, it is designed to become a thriving lifestyle hub.
+
             </p>
+            
             <button
               type="button"
               className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-[#652A27] px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0] text-white lg:hidden"
