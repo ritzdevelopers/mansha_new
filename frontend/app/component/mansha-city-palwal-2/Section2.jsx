@@ -27,11 +27,40 @@ const FEATURES = [
 
 const TAB_CONTENT = {
   DESCRIPTION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
-      surroundings, and essential amenities for families.
-    </p>
+    <div className="flex flex-col gap-4">
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        The beautiful City Palwal is situated on the national highway 2 from
+        Delhi to Agra-Allahabad and falls in the national capital region just 40
+        km from south Delhi. It has an ancient connection from the time of Lord
+        Krishna. It was prominent during the regime of British as Mahatma Gandhi
+        was arrested for the first time from Railway station Palwal. It was
+        initially a part of Gurgaon (Now Gurugram) District and then Faridabad
+        District. Now, it is the fastest growing full-fledged District of
+        Haryana, since 15 August 2008. Because of the remarkable connectivity it
+        has become the choice of businessmen and common people. It is becoming
+        the hub of industries and education and is becoming the choice of
+        builders and developers.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        The connectivity of this historic city is through 6 lane national Highway
+        No.2, KMP (Kundli-Manesar-Palwal), Eastern Periphery (Greater Noida,
+        Noida, Ghaziabad, Panipat). It falls on the largest railway network.
+        Palwal is very near to Gurugram and Faridabad. These two cities have
+        attained saturation and so the attraction of people is towards Palwal.
+        One of the biggest dry port is also being planned by the Govt in Palwal
+        Distt.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Mansha City Palwal is guided by its founding values—values of delivering
+        quality and excellent real estate spaces, ensuring customer satisfaction,
+        and redefining lifestyle. Mansha Group forayed into delivering our project
+        namely Mansha City, Sector-9, Palwal. Sensing an opportunity in tier II
+        and III cities, the company made a conscious decision to venture into
+        cities like Palwal and, true to its motto, &ldquo;Turning Dreams into
+        Reality&rdquo;, the company is currently executing quality affordable
+        homes in Palwal, Faridabad, Karnal and Rufrapur etc. to name a few.
+      </p>
+    </div>
   ),
   FEATURES: (
     <ul className="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
@@ -49,16 +78,130 @@ const TAB_CONTENT = {
       ))}
     </ul>
   ),
-  UPDATION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Project updates and construction milestones will be shared here. For the
-      latest progress, please contact our team.
-    </p>
+  "UPDATION": (
+    <div className="flex flex-col gap-6">
+      <dl className="flex flex-col gap-4">
+        <div>
+                  <h3 className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[20px]">
+                  UPDATION & INVOLVEMENT
+        </h3>
+          
+          <dt className="mt-4 font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[15px]">
+            Site Progress
+          </dt>
+          <dd className="mt-1 font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+            COMPLETION GRANTED
+          </dd>
+        </div>
+        <div>
+          <dt className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[15px]">
+            Number of Plots Booked and Types
+          </dt>
+          <dd className="mt-1 font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+            135 PLOTS AND 8 TYPES
+          </dd>
+        </div>
+        <div>
+          <dt className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[15px]">
+            Infrastructure Facilities to be done in Next Quarter
+          </dt>
+          <dd className="mt-1 font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+            COMPLETION GRANTED
+          </dd>
+        </div>
+      </dl>
+
+      <div className="border-t border-[#E8ECF0] pt-6">
+        <h3 className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[20px]">
+          Detail of the Persons involved in the development of the projects
+        </h3>
+        <dl className="mt-4 flex flex-col gap-5">
+          <div>
+            <dt className="font-montserrat text-[14px] font-semibold text-[#111111] md:text-[15px]">
+              Consultant
+            </dt>
+            <dd className="mt-1 font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+              No Consultancy Taken
+            </dd>
+          </div>
+          <div>
+            <dt className="font-montserrat text-[14px] font-semibold text-[#111111] md:text-[15px]">
+              Contractor
+            </dt>
+            <dd className="mt-1 font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+              Self Development
+            </dd>
+          </div>
+          <div>
+            <dt className="font-montserrat text-[14px] font-semibold text-[#111111] md:text-[15px]">
+              Architects
+            </dt>
+            <dd className="mt-1 flex flex-col gap-1 font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+              <span>Kumar Architect &amp; Associates</span>
+              <span>H.No. 180, Sector-10, Faridabad</span>
+              <span>
+                Phone No.{" "}
+                <a
+                  href="tel:+919311894161"
+                  className="text-[#652A27] transition-colors hover:underline"
+                >
+                  9311894161
+                </a>
+              </span>
+              <span>
+                Email Id:{" "}
+                <a
+                  href="mailto:kumararchitect02@gmail.com"
+                  className="text-[#652A27] transition-colors hover:underline"
+                >
+                  kumararchitect02@gmail.com
+                </a>
+              </span>
+            </dd>
+          </div>
+          <div>
+            <dt className="font-montserrat text-[14px] font-semibold text-[#111111] md:text-[15px]">
+              Structure Engineer
+            </dt>
+            <dd className="mt-1 flex flex-col gap-1 font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+              <span>LKT Engineering Consultants Ltd.</span>
+              <span>
+                63/12A, 2nd Floor, Main Rama Road, New Delhi - 110015
+              </span>
+              <span>
+                Phone No.:{" "}
+                <a
+                  href="tel:+911145565818"
+                  className="text-[#652A27] transition-colors hover:underline"
+                >
+                  011-45565818
+                </a>
+              </span>
+              <span>
+                Website:{" "}
+                <a
+                  href="https://www.lktengineering.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#652A27] transition-colors hover:underline"
+                >
+                  www.lktengineering.com
+                </a>
+              </span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
   ),
   STATUS: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Delivered project — fully developed and operational in Sector-9, Palwal.
-    </p>
+    <ul className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px] list-disc pl-5">
+  <li>Boundary Wall Completed</li>
+  <li>Sewerage Lines Completed</li>
+  <li>Park Completed</li>
+  <li>Water Lines Completed</li>
+  <li>Drainage Work Completed</li>
+</ul>
   ),
 };
 

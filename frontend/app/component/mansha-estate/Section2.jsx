@@ -11,50 +11,65 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TABS = ["DESCRIPTION", "FEATURES", "LAYOUT PLAN"];
 
-const FEATURES = [
-  "Air Conditioning",
-  "Swimming Pool",
-  "Central Heating",
-  "Spa & Massage",
-  "Pets Allow",
-  "Gym",
-  "Alarm",
-  "Window Covering",
-  "Free WiFi",
-  "Car Parking",
-  "School",
+const PROJECT_FEATURES = [
+  "Street Lights",
+  "Gated Complex",
+  "Metalled Roads",
+  "24 X 7 Security",
+  "Water Supply",
+  "Schools & Colleges Nearby",
+  "Eco-Friendly Sewerage System",
 ];
+
+const PlanImage = ({ src, alt }) => (
+  <div className="relative aspect-[4/3] w-full max-w-2xl overflow-hidden rounded-lg border border-[#E8ECF0] bg-[#FAFBFC]">
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-contain p-2"
+      sizes="(max-width: 768px) 100vw, 672px"
+    />
+  </div>
+);
+
+const FeatureList = ({ items }) => (
+  <ul className="flex w-full flex-col gap-y-2.5">
+    {items.map((item) => (
+      <li
+        key={item}
+        className="flex w-full items-start gap-2.5 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
+      >
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        <span className="min-w-0 flex-1">{item}</span>
+      </li>
+    ))}
+  </ul>
+);
 
 const TAB_CONTENT = {
   DESCRIPTION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
-      surroundings, and essential amenities for families.
-    </p>
+    <div className="flex flex-col gap-4">
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        In Mansha Estate, we are offering a wide range of freehold plots starting
+        from 100 sq. yards to 500 sq. yards. These well planned plots will prove
+        to be the perfect choice for your residence.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        A wide variety of affordable freehold plots beckon you to come, build
+        your dream home and settle down to a calm and peaceful future.
+      </p>
+    </div>
   ),
-  FEATURES: (
-    <ul className="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
-      {FEATURES.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
-        >
-          <span
-            className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
-            aria-hidden
-          />
-          {item}
-        </li>
-      ))}
-    </ul>
-  ),
+  FEATURES: <FeatureList items={PROJECT_FEATURES} />,
   "LAYOUT PLAN": (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      The layout plan presents a clear overview of plot distribution, internal
-      roads, open spaces, and key zones within the development for informed
-      planning and easy navigation.
-    </p>
+    <PlanImage
+      src="/mansha-image/galleryimage-1.jpg"
+      alt="Mansha Estate layout plan"
+    />
   ),
 };
 
@@ -204,10 +219,10 @@ const Section2 = () => {
                     Delivered Project
                   </p>
                   <h1 className="mt-1 font-optima text-[24px] font-medium uppercase leading-tight tracking-wide text-black  md:text-[38px]">
-                  eden-slf city
+                  MANSHA ESTATE
                   </h1>
                   <p className="mt-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-black sm:text-[15px]">
-                  Sector 1 Eden SLF City, Taraori, Haryana
+                  HASANPUR ROAD, DEEGHOT, HARYANA 121105
                   </p>
                 </div>
                 <span className="inline-flex w-fit items-center justify-center rounded-md border border-[#652A27]/30 bg-[#652A27]/10 px-5 py-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-[#652A27] sm:text-[14px]">
@@ -276,7 +291,7 @@ const Section2 = () => {
                         aria-hidden
                       />
                       <span className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333]">
-                        Mansha City, Sector-9, Palwal
+                      HASANPUR ROAD, DEEGHOT, HARYANA 121105
                       </span>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">

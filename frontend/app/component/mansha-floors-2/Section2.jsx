@@ -11,55 +11,142 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TABS = ["DESCRIPTION", "FEATURES", "LAYOUT PLAN", "STATUS"];
 
-const FEATURES = [
-  "Air Conditioning",
-  "Swimming Pool",
-  "Central Heating",
-  "Spa & Massage",
-  "Pets Allow",
-  "Gym",
-  "Alarm",
-  "Window Covering",
-  "Free WiFi",
-  "Car Parking",
-  "School",
+const FEATURE_SECTIONS = [
+  {
+    title: "Wall Finish",
+    items: [
+      "Living/Dining/Bed Rooms: Painted In Distemper/White Wash",
+      "Earthquake Resistant RCC Framed Constructions.",
+      "Stairs External Facade: Paint Finish",
+    ],
+  },
+  {
+    title: "Flooring",
+    items: [
+      "Living/Dining: Tiles",
+      "Bed Rooms: Tiles",
+      "Kitchen: Tiles",
+      "Toilets: Tiles",
+      "Balcony: Tiles",
+    ],
+  },
+  {
+    title: "Kitchen",
+    items: [
+      "Platform: Stone With Single Bowl Stainless Steel Sink.",
+      "Dado: Tiles Above Working Platform Upto 2 Ft.",
+      "Doors: Seasoned Hard Wood Flush Doors With Veneer Finished.",
+    ],
+  },
+  {
+    title: "Toilets",
+    items: [
+      "Fittings: Stone Counter, White Sanitary Fixture & CP Fitting",
+    ],
+  },
+  {
+    title: "Doors & Windows",
+    items: [
+      "Doors: Hardwood Frames With Painted Board Shutters",
+      "Windows: Wooden Painted/Aluminium/Steel",
+    ],
+  },
+  {
+    title: "Electrical",
+    items: [
+      "Conduit Copper Electrical Wiring For All Light And Power Points",
+    ],
+  },
 ];
+
+const PlanImage = ({ src, alt }) => (
+  <div className="relative aspect-[4/3] w-full max-w-2xl overflow-hidden rounded-lg border border-[#E8ECF0] bg-[#FAFBFC]">
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-contain p-2"
+      sizes="(max-width: 768px) 100vw, 672px"
+    />
+  </div>
+);
+
+const FeatureList = ({ items }) => (
+  <ul className="mt-2 flex w-full flex-col gap-y-2.5">
+    {items.map((item) => (
+      <li
+        key={item}
+        className="flex w-full items-start gap-2.5 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
+      >
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        <span className="min-w-0 flex-1">{item}</span>
+      </li>
+    ))}
+  </ul>
+);
 
 const TAB_CONTENT = {
   DESCRIPTION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
-      surroundings, and essential amenities for families.
-    </p>
+    <div className="flex flex-col gap-4">
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Away from the city yet close to its heart, Mansha Floors at SRS City,
+        Sector-6, Palwal boasts of an alluring landscaped surrounding equipped
+        with world-class amenities. These three bedroom, low rise homes give you
+        the luxury of having your own independent floor, a space of your own in
+        the secure urban oasis.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        The design of executive floors is exquisitely expressed through the airy
+        bedrooms, captivating views and lots of room to stretch. Each floor is
+        designed with a contemporary touch, allowing you your own private space
+        to relax and share quality time with your family.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Mansha Floors site is adjacent to national highway (NH-2) and closer to
+        reputed schools and hospitals.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        The information provided herein have been collected from publicly
+        available sources, and is yet to be verified as per RERA guidelines.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Walk into your home and experience a great sense of space. Enjoy the
+        feeling of luxury, quality and workmanship. Truly a lifestyle unlike any
+        other.
+      </p>
+    </div>
   ),
   FEATURES: (
-    <ul className="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
-      {FEATURES.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
-        >
-          <span
-            className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
-            aria-hidden
-          />
-          {item}
-        </li>
+    <div className="flex flex-col gap-6">
+      {FEATURE_SECTIONS.map((section) => (
+        <div key={section.title}>
+          <h3 className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[15px]">
+            {section.title}
+          </h3>
+          <FeatureList items={section.items} />
+        </div>
       ))}
-    </ul>
+    </div>
   ),
   "LAYOUT PLAN": (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      The layout plan presents a clear overview of plot distribution, internal
-      roads, open spaces, and key zones within the development for informed
-      planning and easy navigation.
-    </p>
+    <PlanImage
+      src="/mansha-image/galleryimage-1.jpg"
+      alt="Mansha Floors layout plan"
+    />
   ),
   STATUS: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Delivered project — fully developed and operational in Sector-9, Palwal.
-    </p>
+    <ul className="flex flex-col gap-y-2">
+      <li className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]">
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        Delivered
+      </li>
+    </ul>
   ),
 };
 
@@ -281,7 +368,7 @@ const Section2 = () => {
                         aria-hidden
                       />
                       <span className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333]">
-                        Mansha City, Sector-9, Palwal
+                        SRS City, Sector-6, Haryana 121105
                       </span>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
@@ -314,7 +401,7 @@ const Section2 = () => {
                 <div className="mt-6 flex justify-center">
                   <Image
                     src="/delieverd/mansha-floor.png"
-                    alt="Eden SLF City"
+                    alt="Mansha Floors"
                     width={160}
                     height={70}
                     className="h-auto max-w-[160px] object-contain opacity-90"

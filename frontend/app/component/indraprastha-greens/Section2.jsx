@@ -9,61 +9,117 @@ import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TABS = ["DESCRIPTION", "FEATURES", "sitemap", "Route map"];
+const TABS = ["DESCRIPTION", "FEATURES", "SITE PLAN", "ROUTE MAP"];
 
-const FEATURES = [
-  "Air Conditioning",
-  "Swimming Pool",
-  "Central Heating",
-  "Spa & Massage",
-  "Pets Allow",
-  "Gym",
-  "Alarm",
-  "Window Covering",
-  "Free WiFi",
-  "Car Parking",
-  "School",
+const PROJECT_FEATURES = [
+  "30-80 Feet Wide Metaled Roads",
+  "Easy Access To Public Transport",
+  "Located On 6 Lane National Highway-1",
+  "In The Midst Of Delhi – Chandigarh Cities",
+  "Facility Of Street Lights In Every Lane",
+  "World Class Schools Nearby",
+  "Facility Of Water, Sewer, Electricity & Security",
+  "Close To Reputed Multi-Speciality World Class Hospitals",
+  "Green & Natural Atmosphere With Lined Trees & Park Areas",
+  "Community Facilities Like Shopping Center Etc. Within Project.",
 ];
+
+const PROJECT_DETAILS = [
+  "Project License No. 74 of 2017 from DTCP Haryana",
+  "Commercial Area 0.22 Acre",
+  "Total Number of Residential Plots 159",
+  "Parks 02",
+];
+
+const LOCATION_ADVANTAGES = [
+  "90 KM From Delhi",
+  "6 KM From Karnal",
+  "Walking Distance From Bus Stand On NH-1",
+  "Walking Distance From Railway Station Opposite To Site",
+  "20 KM From Kalpana Chawla Medical College, Karnal",
+  "21 KM From Kurukshetra",
+  "40 KM From Panipat",
+  "100 KM From Chandigarh",
+  "Adjacent To National Highway-1 (GT Karnal Road)",
+  "Near To Famous Tourist Spots Like Karna Lake, Miran Tomb, Noor Mahal, Haweli Restaurant, Brahma Sarovar Etc.",
+];
+
+const PlanImage = ({ src, alt }) => (
+  <div className="relative aspect-[4/3] w-full max-w-2xl overflow-hidden rounded-lg border border-[#E8ECF0] bg-[#FAFBFC]">
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-contain p-2"
+      sizes="(max-width: 768px) 100vw, 672px"
+    />
+  </div>
+);
+
+const FeatureList = ({ items, vertical = false }) => (
+  <ul
+    className={
+      vertical
+        ? "flex w-full flex-col gap-y-2.5"
+        : "grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8"
+    }
+  >
+    {items.map((item) => (
+      <li
+        key={item}
+        className="flex w-full items-start gap-2.5 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
+      >
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        <span className="min-w-0 flex-1">{item}</span>
+      </li>
+    ))}
+  </ul>
+);
 
 const TAB_CONTENT = {
   DESCRIPTION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
-      surroundings, and essential amenities for families.
-    </p>
+    <div className="flex flex-col gap-4">
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Mansha Indraprastha Greens, a unique township in Taraori, Nilokheri
+        promising a comfortable life and the best of modern facilities. In an
+        effort to find a serene and peaceful living environment, we often end up
+        making compromises in terms of infrastructure, basic amenities,
+        connectivity or other cost factors. Thankfully, Mansha Indraprastha
+        Greens will be a lively experience without any compromises on quality,
+        amenities, connectivity and affordability.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Eden-SLF Group is the perfect amalgamation of two real estate groups
+        Eden &amp; SLF who have by their diligence made a niche for themselves
+        in the National Capital Region.
+      </p>
+      <FeatureList items={PROJECT_DETAILS} />
+    </div>
   ),
   FEATURES: (
-    <ul className="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
-      {FEATURES.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
-        >
-          <span
-            className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
-            aria-hidden
-          />
-          {item}
-        </li>
-      ))}
-    </ul>
+    <FeatureList
+      items={[
+        ...PROJECT_FEATURES,
+        "Location Advantage (Approx.)",
+        ...LOCATION_ADVANTAGES,
+      ]}
+      vertical
+    />
   ),
-  sitemap: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Explore the project site layout with plot planning, road network, and key
-      zones across the development. The sitemap highlights residential blocks,
-      internal roads, open spaces, and entry points for easy navigation across
-      the township.
-    </p>
+  "SITE PLAN": (
+    <PlanImage
+      src="/mansha-image/galleryimage-1.jpg"
+      alt="Mansha Indraprastha Greens site plan"
+    />
   ),
-  "Route map": (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      View connectivity and approach routes to the project location with nearby
-      landmarks and major roads. The route map outlines key highways, local
-      connectors, and convenient access from surrounding cities and daily-use
-      destinations.
-    </p>
+  "ROUTE MAP": (
+    <PlanImage
+      src="/mansha-image/gallery-image-2.jpg"
+      alt="Mansha Indraprastha Greens route map"
+    />
   ),
 };
 
@@ -320,7 +376,7 @@ SECTOR-1 , KARNAL , HARYANA
                 <div className="mt-6 flex justify-center">
                   <Image
                     src="/delieverd/mansha-indr-green.png"
-                    alt="Eden SLF City"
+                    alt="Mansha Indraprastha Greens"
                     width={160}
                     height={70}
                     className="h-auto max-w-[160px] object-contain opacity-90"

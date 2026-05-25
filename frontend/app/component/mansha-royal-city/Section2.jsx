@@ -12,26 +12,42 @@ gsap.registerPlugin(ScrollTrigger);
 const TABS = ["DESCRIPTION", "FEATURES", "STATUS"];
 
 const FEATURES = [
-  "Air Conditioning",
-  "Swimming Pool",
-  "Central Heating",
-  "Spa & Massage",
-  "Pets Allow",
-  "Gym",
-  "Alarm",
-  "Window Covering",
-  "Free WiFi",
-  "Car Parking",
-  "School",
+  "24*7 Security With Gated Community.",
+  "Roads Main 40 Feet Internal 30 Feet Wide.",
+  "Proper Sewerage Lines.",
+  "Street Lights",
+  "Gated Complex",
+  "Metalled Roads",
+  "Finance Available",
+  "Ample Green Area",
+  "Rain Water Harvesting",
+  "Schools & Colleges Nearby",
+  "Proper Govt Electricity, Street Lights, Proper Water Supply.",
+  "STP Plant And Rain Harvesting System.",
 ];
 
 const TAB_CONTENT = {
   DESCRIPTION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
-      surroundings, and essential amenities for families.
-    </p>
+    <div className="flex flex-col gap-4">
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        In Mansha Royal City, we are offering a wide range of freehold plots
+        starting from 100 sq. yards to 250 sq. yards. These well planned plots
+        will prove to be the perfect choice for your residence. We offer a
+        better lifestyle and for all those who want to build a dream home in
+        serene surroundings, this is just the right place!
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        In Mansha Royal Farms, we are offering a wide range of freehold Villas
+        starting from 175 sq. yards to 500 sq. yards.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        A wide variety of affordable freehold Farm Houses beckon you to come,
+        build your dream home and settle down to a calm and peaceful future.
+        Mansha Royal Farms site is situated 10 Km from both Palwal and Taj
+        Expressway, 4 Km from Kundli-Manesar-Palwal-Noida Expressway and 2 Km
+        from Yamuna River.
+      </p>
+    </div>
   ),
   FEATURES: (
     <ul className="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
@@ -49,16 +65,21 @@ const TAB_CONTENT = {
       ))}
     </ul>
   ),
-  UPDATION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Project updates and construction milestones will be shared here. For the
-      latest progress, please contact our team.
-    </p>
-  ),
   STATUS: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Delivered project — fully developed and operational in Sector-9, Palwal.
-    </p>
+    <ul className="flex flex-col gap-y-2">
+      {["Completion Granted", "Ready To Move"].map((item) => (
+        <li
+          key={item}
+          className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
+        >
+          <span
+            className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+            aria-hidden
+          />
+          {item}
+        </li>
+      ))}
+    </ul>
   ),
 };
 

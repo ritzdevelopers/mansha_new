@@ -94,7 +94,7 @@ const Dream = () => {
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
-                Elegant living spaces designed for modern families.
+              Refined living that blends comfort greenery connectivity and timeless elegance.
               </p>
               <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
@@ -116,7 +116,7 @@ const Dream = () => {
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
-                Elegant living spaces designed for modern families.
+              A dynamic commercial space designed for modern business success
               </p>
               <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
@@ -138,7 +138,7 @@ const Dream = () => {
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
-                Elegant living spaces designed for modern families.
+                A promising location designed for secure and future ready living
               </p>
               <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
@@ -160,7 +160,8 @@ const Dream = () => {
             </p>
             <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
               <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
-                Elegant living spaces designed for modern families.
+                Where everyday comfort meets seamless connectivity and calm
+                living
               </p>
               <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
                 Read More
@@ -185,7 +186,8 @@ const Dream = () => {
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
-              Elegant living spaces designed for modern families.
+              Refined living that blends comfort greenery connectivity and
+              timeless elegance.
             </p>
             <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
               Read More
@@ -205,9 +207,9 @@ const Dream = () => {
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Mansha Vega Street
           </p>
-          <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300 lg:translate-y-0 lg:opacity-100">
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
-              Elegant living spaces designed for modern families.
+              A dynamic commercial space designed for modern business success
             </p>
             <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
               Read More
@@ -229,7 +231,7 @@ const Dream = () => {
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
-              Elegant living spaces designed for modern families.
+              A promising location designed for secure and future ready living
             </p>
             <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
               Read More
@@ -251,7 +253,7 @@ const Dream = () => {
           </p>
           <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
-              Elegant living spaces designed for modern families.
+              Where everyday comfort meets seamless connectivity and calm living
             </p>
             <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
               Read More

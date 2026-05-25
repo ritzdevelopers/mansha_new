@@ -11,54 +11,136 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TABS = ["DESCRIPTION", "FEATURES", "STATUS"];
 
-const FEATURES = [
-  "Air Conditioning",
-  "Swimming Pool",
-  "Central Heating",
-  "Spa & Massage",
-  "Pets Allow",
-  "Gym",
-  "Alarm",
-  "Window Covering",
-  "Free WiFi",
-  "Car Parking",
-  "School",
+const FEATURE_SECTIONS = [
+  {
+    title: "Structure",
+    items: [
+      "Vastu Friendly Design, Ample Natural Lighting Energy Saving.",
+      "Earthquake Resistant RCC Framed Constructions.",
+      "Sufficient Car Parking",
+      "Cupboard In Master Bed Room",
+      "Provision Of Split Air-Conditioners In Lobby/Drawing Room.",
+    ],
+  },
+  {
+    title: "Kitchen",
+    items: [
+      "Cabinets: Modular Cabinets.",
+      "Electrical: Light, Exhaust Fan, RO.",
+      "Sufficient Car Parking",
+    ],
+  },
+  {
+    title: "Flooring",
+    items: [
+      "Living/Dining: Digital Vitrified Tiles.",
+      "Bed Rooms: Digital Vitrified Tiles.",
+      "Master Bed-Rooms: Wooden Flooring/ Vitrified Tiles.",
+      "Balcony: Anti Skid Ceramic Tiles/Marble.",
+    ],
+  },
+  {
+    title: "Bathrooms",
+    items: [
+      "Dado: Selected Ceramic Tiles Up To Roof.",
+      "Fittings: Branded Chinaware & Superior CP Fittings Make Cera/Hindware.",
+      "Flooring: Anti Skid Ceramic Tiles.",
+    ],
+  },
+  {
+    title: "Doors & Windows",
+    items: [
+      "Windows: Hard Wood.",
+      'Main Door: 8" Height Of Teak Wood.',
+      "Doors: Seasoned Hard Wood Flush Doors With Veneer Finished.",
+    ],
+  },
+  {
+    title: "Facilities",
+    items: [
+      "Water: CPVC Fittings, + Individual 1000 Ltr Tank At Terrace.",
+      "Electrical: Concealed ISI Mark Copper Electrical Wiring For All Light & Power Points, Fans, Tube-Light, Fancy-Light Etc.",
+      "Electrical: False Ceiling In Master Bed Rooms & Drawing/Living Area.",
+    ],
+  },
 ];
+
+const FeatureList = ({ items }) => (
+  <ul className="mt-2 flex flex-col gap-y-2">
+    {items.map((item) => (
+      <li
+        key={item}
+        className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
+      >
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        {item}
+      </li>
+    ))}
+  </ul>
+);
 
 const TAB_CONTENT = {
   DESCRIPTION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
-      surroundings, and essential amenities for families.
-    </p>
+    <div className="flex flex-col gap-4">
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Mansha Luxury Floors is an ultimate reflection of the urban chic
+        lifestyle located in Sector 72, Faridabad. The project hosts in its lap
+        exclusively designed Residential Independent Floors, each being an
+        epitome of elegance and simplicity.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Situated at Sector 72, Greater Faridabad, Low rise independent Floors
+        are thoughtfully designed and crafted to make a fine habitat. Sprawling
+        rooms laid out with an accent on spaciousness. All the amenities that
+        define modern living. Mansha Luxury Floors are set against an idyllic
+        surrounding. Away from noise, crowd and pollution, it is a home where
+        you can sense pleasure, peace and the delight of green and comfortable
+        surrounding with exclusive features.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Amenities and security features: Mansha Luxury Floors offers an array of
+        world class amenities such as Independent Floors. Besides that proper
+        safety equipments are installed to ensure that you live safely and
+        happily with your family in these apartments at Sector 72.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        The information provided herein have been collected from publicly
+        available sources, and is yet to be verified as per RERA guidelines.
+      </p>
+    </div>
   ),
   FEATURES: (
-    <ul className="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
-      {FEATURES.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
-        >
-          <span
-            className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
-            aria-hidden
-          />
-          {item}
-        </li>
+    <div className="flex flex-col gap-6">
+      {FEATURE_SECTIONS.map((section) => (
+        <div key={section.title}>
+          <h3 className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[15px]">
+            {section.title}
+          </h3>
+          <FeatureList items={section.items} />
+        </div>
       ))}
-    </ul>
-  ),
-  UPDATION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Project updates and construction milestones will be shared here. For the
-      latest progress, please contact our team.
-    </p>
+      <a
+        // href="/mansha-luxury-floors-route-map.pdf"
+        download
+        className="inline-flex font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] transition-colors hover:underline md:text-[15px]"
+      >
+        Route Map (Click To Download)
+      </a>
+    </div>
   ),
   STATUS: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Delivered project — fully developed and operational in Sector-9, Palwal.
-    </p>
+    <ul className="flex flex-col gap-y-2">
+      <li className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]">
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        Possession Offered
+      </li>
+    </ul>
   ),
 };
 

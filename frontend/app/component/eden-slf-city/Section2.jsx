@@ -9,56 +9,111 @@ import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TABS = ["DESCRIPTION", "FEATURES", "UPDATION", "STATUS"];
+const TABS = ["DESCRIPTION", "FEATURES", "LAYOUT PLAN", "STATUS"];
 
-const FEATURES = [
-  "Air Conditioning",
-  "Swimming Pool",
-  "Central Heating",
-  "Spa & Massage",
-  "Pets Allow",
-  "Gym",
-  "Alarm",
-  "Window Covering",
-  "Free WiFi",
-  "Car Parking",
-  "School",
+const PROPERTY_FEATURES = [
+  {
+    label: "Amenities",
+    text: "24 Hours Water And Power Back Up, Wide Parking Spaces.",
+  },
+  {
+    label: "Connectivity",
+    text: "Perfect Location Advantage 40 To 80 Feet Wide Roads, Near Railway Station, And Main Highway.",
+  },
+  {
+    label: "Security",
+    text: "24 * 7 Security Guards, Fully Manned Security Round-The-Clock.",
+  },
+  {
+    label: "Nature",
+    text: "Green Landscaping, Gardens And Path Way Trees.",
+  },
+  {
+    label: "Facilities",
+    text: "Schools, Shopping Center, Nursing Homes, Taxi Stand And Religious Places.",
+  },
 ];
 
 const TAB_CONTENT = {
   DESCRIPTION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
-      surroundings, and essential amenities for families.
-    </p>
+    <div className="flex flex-col gap-4">
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Welcome to Eden-SLF City, a unique township coming up in Taraori,
+        promising a comfortable life and the best of modern facilities.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        In an effort to find a serene and peaceful living environment, we often
+        end up making compromises in terms of infrastructure, basic amenities,
+        connectivity or cost factor.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Thankfully, Eden-SLF City will be a lively experience without any
+        compromises on quality, amenities, connectivity and affordability.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Here you can experience the comfort of well-maintained roads without
+        pollution and traffic congestion, proper sewerage system and 24 hour
+        water supply without erratic water supply and drainage problems. This
+        township promises the joy of living in neat and clean surrounding where
+        peace of mind and classy lifestyle is guaranteed. Eden-SLF City offers a
+        better lifestyle and for all those who want to build a dream home in
+        serene surrounding, this is just the right place!
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        A wide variety of affordable freehold plots beckon you to come, build
+        your dream home and settle down to a calm and peaceful future.
+      </p>
+    </div>
   ),
   FEATURES: (
-    <ul className="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
-      {FEATURES.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
-        >
-          <span
-            className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
-            aria-hidden
-          />
-          {item}
-        </li>
-      ))}
-    </ul>
+    <div className="flex flex-col gap-6">
+      <div>
+        <h3 className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[15px]">
+          Project Features
+        </h3>
+        <p className="mt-2 font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+          In the first phase, we are offering a wide range of freehold plots
+          starting from 160 sq. yards to 1000 sq. yards. These well planned plots
+          will prove to be the perfect choice for your residence. Later on in
+          phase-II, Eden-SLF City will also have a wide range of built-up villas,
+          for people who don&apos;t want any construction hassles. The township
+          will have a shopping needs and also offer commercial facilities like
+          ATM&apos;s, Showrooms, Restaurants, Banks etc. The majestic experience
+          of living in luxurious multi stories apartments will also be offered by
+          the company in phase-III.
+        </p>
+      </div>
+      <div>
+        <h3 className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[15px]">
+          Property Features
+        </h3>
+        <ul className="mt-3 flex flex-col gap-3">
+          {PROPERTY_FEATURES.map((item) => (
+            <li
+              key={item.label}
+              className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]"
+            >
+              <span className="font-semibold text-[#111111]">
+                {item.label}:{" "}
+              </span>
+              {item.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   ),
-  UPDATION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Project updates and construction milestones will be shared here. For the
-      latest progress, please contact our team.
-    </p>
-  ),
+  "LAYOUT PLAN": null,
   STATUS: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Delivered project — fully developed and operational in Sector-9, Palwal.
-    </p>
+    <ul className="flex flex-col gap-y-2">
+      <li className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]">
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        Delivered
+      </li>
+    </ul>
   ),
 };
 
@@ -280,7 +335,7 @@ const Section2 = () => {
                         aria-hidden
                       />
                       <span className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333]">
-                        Mansha City, Sector-9, Palwal
+                        Sector 1 Eden SLF City, Taraori, Haryana
                       </span>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">

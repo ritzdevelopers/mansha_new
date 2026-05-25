@@ -9,56 +9,145 @@ import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TABS = ["DESCRIPTION", "FEATURES", "UPDATION", "STATUS"];
+const TABS = ["DESCRIPTION", "FEATURES", "LAYOUT PLAN", "STATUS"];
 
-const FEATURES = [
-  "Air Conditioning",
-  "Swimming Pool",
-  "Central Heating",
-  "Spa & Massage",
-  "Pets Allow",
-  "Gym",
-  "Alarm",
-  "Window Covering",
-  "Free WiFi",
-  "Car Parking",
-  "School",
+const FEATURE_SECTIONS = [
+  {
+    title: "Internal",
+    items: [
+      "Living/Dining/Bed Rooms: Painted In Pleasing Shades Of Acrylic Emulsion Paint",
+      "Servant Room: Painted In Oil Bound Distemper.",
+      "Lift Lobbies: Selected Marble / Granite Cladding & Acrylic Emulsion Paint.",
+      "External: Combination Of Stone & Textured Paint Finish.",
+    ],
+  },
+  {
+    title: "Flooring",
+    items: [
+      "Living/Dining: Vitrified Tile",
+      "Bed Rooms: Vitrified Tile",
+      "Servant Room: Ceramic Tiles.",
+    ],
+  },
+  {
+    title: "Kitchen",
+    items: [
+      "Flooring: Vitrified Tile",
+      "Dado: Vitrified Tiles Above Working Platform, Rest Acrylic Emulsion Paint.",
+      "Platform: Granite Counter With Double Bowl Stainless Steel Sink With Drain Board.",
+    ],
+  },
+  {
+    title: "Toilets",
+    items: [
+      "Dado: Selected Ceramic Tiles",
+      "Flooring: Vitrified Tiles / Granite / Marble.",
+      "Fittings: Granite Counter With Double Bowl Stainless Steel Sink With Drain Board & Geysers.",
+    ],
+  },
+  {
+    title: "Doors & Windows",
+    items: [
+      "Doors: Seasoned Hardwood Frames With European Style Moulded Shutters.",
+      "Windows: Hard Wood Frames With Glass.",
+      "Electrical: Conduit Copper Electrical Wiring For All Light & Power Points.",
+    ],
+  },
+  {
+    title: "Green Area",
+    items: [
+      "Fountains, Kids Theme Parks, Jogging And Walking Track, Sitting Areas, Water Bodies In The Green Areas.",
+    ],
+  },
 ];
+
+const PlanImage = ({ src, alt }) => (
+  <div className="relative aspect-[4/3] w-full max-w-2xl overflow-hidden rounded-lg border border-[#E8ECF0] bg-[#FAFBFC]">
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-contain p-2"
+      sizes="(max-width: 768px) 100vw, 672px"
+    />
+  </div>
+);
+
+const FeatureList = ({ items }) => (
+  <ul className="mt-2 flex w-full flex-col gap-y-2.5">
+    {items.map((item) => (
+      <li
+        key={item}
+        className="flex w-full items-start gap-2.5 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
+      >
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        <span className="min-w-0 flex-1">{item}</span>
+      </li>
+    ))}
+  </ul>
+);
 
 const TAB_CONTENT = {
   DESCRIPTION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
-      surroundings, and essential amenities for families.
-    </p>
+    <div className="flex flex-col gap-4">
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        After the stupendous success of Mansha Residency, a luxury farm-villa
+        project on main Delhi-Mathura road, the company has now endeavored to
+        offer affordable housing solutions in the form of its new ambitious
+        housing project Mansha Residency.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Like its predecessor, Mansha Residency is also located on the prestigious
+        National Highway connecting the capital of India, New Delhi to the famous
+        tourist destination, Agra.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Mansha Residency, apart from its vantage location, is also in the midst of
+        a very well-developed educational hub that has come upon the outskirts
+        of Palwal, the newly formed district in Haryana.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Built on govt. notified de-controlled and freehold land, Mansha
+        Residency offers to its residents all the facilities, synonymous with
+        other expensive housing projects, at a very reasonable and affordable
+        cost.
+      </p>
+      <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+        Your search for a new abode has finally ended.
+      </p>
+    </div>
   ),
   FEATURES: (
-    <ul className="grid grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
-      {FEATURES.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]"
-        >
-          <span
-            className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
-            aria-hidden
-          />
-          {item}
-        </li>
+    <div className="flex flex-col gap-6">
+      {FEATURE_SECTIONS.map((section) => (
+        <div key={section.title}>
+          <h3 className="font-montserrat text-[14px] font-semibold uppercase tracking-wide text-[#652A27] md:text-[15px]">
+            {section.title}
+          </h3>
+          <FeatureList items={section.items} />
+        </div>
       ))}
-    </ul>
+    </div>
   ),
-  UPDATION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Project updates and construction milestones will be shared here. For the
-      latest progress, please contact our team.
-    </p>
+  "LAYOUT PLAN": (
+    <PlanImage
+      src="/mansha-image/galleryimage-1.jpg"
+      alt="Mansha Residency layout plan"
+    />
   ),
   STATUS: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Delivered project — fully developed and operational in Sector-9, Palwal.
-    </p>
+    <ul className="flex flex-col gap-y-2">
+      <li className="flex items-start gap-2 font-montserrat text-[14px] font-normal leading-[24px] text-[#333333] md:text-[16px]">
+        <span
+          className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#652A27]"
+          aria-hidden
+        />
+        Delivered
+      </li>
+    </ul>
   ),
 };
 
@@ -280,7 +369,7 @@ const Section2 = () => {
                         aria-hidden
                       />
                       <span className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333]">
-                        Mansha City, Sector-9, Palwal
+                      DELHI - MATHURA ROAD
                       </span>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
@@ -313,7 +402,7 @@ const Section2 = () => {
                 <div className="mt-6 flex justify-center">
                   <Image
                     src="/delieverd/mansha-residence.png"
-                    alt="Eden SLF City"
+                    alt="Mansha Residency"
                     width={160}
                     height={70}
                     className="h-auto max-w-[160px] object-contain opacity-90"

@@ -150,7 +150,7 @@ const Facility = () => {
               BUSINESS HUB
             </h3>
             <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 0 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
-            A space designed for performance and visibility, where businesses operate seamlessly and grow with confidence. From strategic locations to efficient layouts, everything is built to support productivity and long-term success.
+            A high visibility space designed for seamless operations productivity and confident business growth.
 
             </p>
           </div>
@@ -166,7 +166,7 @@ const Facility = () => {
             RESIDENTIAL SPACES
             </h3>
             <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 1 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
-            Thoughtfully planned homes that bring together comfort, convenience, and a sense of belonging. Designed to offer a balanced lifestyle with easy access to everyday essentials and open spaces.
+            Thoughtfully planned homes offering comfort convenience and a balanced lifestyle with easy everyday access.
 
             </p>
           </div>
@@ -182,7 +182,7 @@ const Facility = () => {
             COMMERCIAL GROWTH ZONES
             </h3>
             <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 2 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
-            High-potential environments built for brands to thrive, attract, and scale. Every detail is aligned to maximize visibility, engagement, and return on investment.
+            High potential spaces built for brands to attract engage and scale with strong visibility.
             </p>
           </div>
 
@@ -197,8 +197,7 @@ const Facility = () => {
             INVESTMENT ZONE
             </h3>
             <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 3 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
-            Built for those who think long-term, these spaces are positioned in high-growth corridors with strong appreciation potential. A smart choice for investors looking to secure value and steady returns.
-
+            Strategically located spaces offering strong appreciation potential and long term value for smart investors.
             </p>
           </div>
 
@@ -215,7 +214,7 @@ const Facility = () => {
 
             </h3>
             <p className={`relative z-10 mt-2 font-montserrat text-[14px] font-normal not-italic leading-5 tracking-normal transition-colors duration-300 lg:text-[12px] lg:leading-[20px] xl:text-[16px] xl:leading-7 ${activeFacility === 4 ? "text-white lg:text-[#000000] lg:group-hover/item:text-white" : "text-[#000000] lg:group-hover/item:text-white"}`}>
-            Designed beyond just functionality, these spaces bring comfort, openness, and everyday ease together. A setting where living feels effortless and experiences feel complete.
+            Spaces designed for comfort openness and effortless living creating a complete everyday experience.
             </p>
           </div>
         </div>
