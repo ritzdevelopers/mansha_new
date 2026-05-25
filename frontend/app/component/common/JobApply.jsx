@@ -98,7 +98,6 @@ export const JOBS = [
 ];
 
 const modalStyle = {
-  width: "700px",
   maxWidth: "calc(100vw - 32px)",
   borderRadius: "15px",
 };
@@ -187,7 +186,7 @@ const JobApply = ({ job, onApplyForm }) => {
           >
             <div className="career-modal-overlay absolute inset-0" aria-hidden />
             <div
-              className="career-modal-panel relative flex max-h-[90vh] w-full overflow-hidden bg-white shadow-xl"
+              className="career-modal-panel relative flex max-h-[90vh] w-full overflow-hidden bg-white shadow-xl sm:w-[700px] md:w-[1000px]"
               style={modalStyle}
               onClick={(event) => event.stopPropagation()}
               role="dialog"
@@ -203,9 +202,9 @@ const JobApply = ({ job, onApplyForm }) => {
                 <i className="ri-close-line text-[22px] leading-none" aria-hidden />
               </button>
 
-              <div className="relative hidden min-h-[420px] w-[350px] shrink-0 overflow-hidden rounded-l-[15px] sm:block">
+              <div className="relative hidden min-h-[420px] w-[350px] shrink-0 overflow-hidden rounded-l-[15px] sm:block md:hidden lg:block">
                 <Image
-                  src="/carrer/carrer-banner.jpg"
+                  src="/carrer/career-banner.png"
                   alt="Careers at Mansha"
                   fill
                   className="object-cover"
@@ -213,7 +212,7 @@ const JobApply = ({ job, onApplyForm }) => {
                 />
               </div>
 
-              <div className="flex max-h-[90vh] min-h-[420px] w-full flex-col overflow-hidden rounded-r-[15px] sm:w-[350px]">
+              <div className="flex max-h-[90vh] min-h-[420px] w-full flex-col overflow-hidden rounded-[15px] sm:w-[350px] sm:rounded-r-[15px] sm:rounded-l-none md:w-full lg:w-[650px] lg:rounded-l-none lg:rounded-r-[15px]">
                 <div className="min-h-0 flex-1 overflow-y-auto px-6 pt-8 text-left sm:px-7 sm:pt-10 sm:pb-6">
                   <Image
                     src="/mansha-svg/mansha-logo.svg"
@@ -225,15 +224,15 @@ const JobApply = ({ job, onApplyForm }) => {
 
                   <h3
                     id="career-modal-title"
-                    className="mt-2 font-optima text-[15px] font-medium leading-[1.35] text-[#111111] md:text-[25px]"
+                    className="mt-2 font-optima text-[15px] font-medium leading-[1.35] text-[#111111] md:text-[20px]"
                   >
                     {job.title}
                   </h3>
-                  <p className="mt-2 font-montserrat text-[15px] font-normal leading-[1.65] tracking-wide text-[#64748b]">
+                  <p className="mt-0 font-montserrat text-[15px] font-normal leading-[1.65] tracking-wide text-[#64748b]">
                     Join Mansha Group and build your career in real estate
                   </p>
 
-                  <div className="mt-2 flex flex-col items-start gap-2">
+                  <div className="mt-2 flex flex-col items-start gap-1">
                     <p className="flex items-center gap-1.5 font-montserrat text-[15px] text-[#64748b]">
                       <i className="ri-briefcase-line text-[16px] text-[#94a3b8]" aria-hidden />
                       {job.experience}
