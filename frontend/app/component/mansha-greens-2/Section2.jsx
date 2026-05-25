@@ -9,7 +9,7 @@ import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TABS = ["DESCRIPTION", "FEATURES", "UPDATION", "STATUS"];
+const TABS = ["DESCRIPTION", "Site plan", "FEATURES", "STATUS"];
 
 const FEATURES = [
   "Air Conditioning",
@@ -28,9 +28,16 @@ const FEATURES = [
 const TAB_CONTENT = {
   DESCRIPTION: (
     <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Mansha City Palwal is a thoughtfully planned residential development in
-      Sector-9, offering modern living with quality infrastructure, landscaped
+      Mansha Model Town is a thoughtfully planned residential development,
+      offering modern living with quality infrastructure, landscaped
       surroundings, and essential amenities for families.
+    </p>
+  ),
+  "Site plan": (
+    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
+      The site plan presents a clear overview of plot distribution, internal
+      roads, open spaces, and key zones within Mansha Model Town for informed
+      planning and easy navigation.
     </p>
   ),
   FEATURES: (
@@ -49,15 +56,9 @@ const TAB_CONTENT = {
       ))}
     </ul>
   ),
-  UPDATION: (
-    <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Project updates and construction milestones will be shared here. For the
-      latest progress, please contact our team.
-    </p>
-  ),
   STATUS: (
     <p className="font-montserrat text-[14px] font-normal leading-[26px] text-[#333333] md:text-[16px] md:leading-[28px]">
-      Delivered project — fully developed and operational in Sector-9, Palwal.
+      Delivered project — fully developed and operational.
     </p>
   ),
 };
@@ -101,12 +102,12 @@ const CORPORATE_CONTACTS = [
   },
   {
     icon: "ri-global-line",
-    label: "www.manshagroup.in",
+    label: " www.manshagroup.in",
     href: "https://www.manshagroup.in",
   },
   {
     icon: "ri-phone-line",
-    label: "+91- 8010003838",
+    label: "Contact Us: +91- 8010003838",
     href: "tel:+918010003838",
   },
 ];
@@ -155,7 +156,13 @@ const Section2 = () => {
     const section = infoSectionRef.current;
     const leftPanel = leftPanelRef.current;
     const rightPanel = rightPanelRef.current;
-    if (!section || !rightPanel) return;
+    if (!section || (!leftPanel && !rightPanel)) return;
+
+    const scrollTrigger = {
+      trigger: section,
+      start: "top 82%",
+      once: true,
+    };
 
     const ctx = gsap.context(() => {
       if (leftPanel) {
@@ -167,30 +174,24 @@ const Section2 = () => {
             x: 0,
             duration: 0.85,
             ease: "power3.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 82%",
-              once: true,
-            },
+            scrollTrigger,
           }
         );
       }
 
-      gsap.fromTo(
-        rightPanel,
-        { autoAlpha: 0, x: 72 },
-        {
-          autoAlpha: 1,
-          x: 0,
-          duration: 0.85,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 82%",
-            once: true,
-          },
-        }
-      );
+      if (rightPanel) {
+        gsap.fromTo(
+          rightPanel,
+          { autoAlpha: 0, x: leftPanel ? 72 : 0 },
+          {
+            autoAlpha: 1,
+            x: 0,
+            duration: 0.85,
+            ease: "power3.out",
+            scrollTrigger,
+          }
+        );
+      }
     }, section);
 
     return () => ctx.revert();
@@ -208,10 +209,10 @@ const Section2 = () => {
                     Delivered Project
                   </p>
                   <h1 className="mt-1 font-optima text-[24px] font-medium uppercase leading-tight tracking-wide text-black  md:text-[38px]">
-                  MANSHA RESIDENCY
+                  Mansha Model Town
                   </h1>
                   <p className="mt-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-black sm:text-[15px]">
-                  DELHI – MATHURA ROAD
+                  Mansha Model Town
                   </p>
                 </div>
                 <span className="inline-flex w-fit items-center justify-center rounded-md border border-[#652A27]/30 bg-[#652A27]/10 px-5 py-2 font-montserrat text-[13px] font-semibold uppercase tracking-wide text-[#652A27] sm:text-[14px]">
@@ -292,7 +293,7 @@ const Section2 = () => {
                         href="mailto:info@manshagroup.in"
                         className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333] transition-colors hover:text-[#652A27]"
                       >
-                         info@manshagroup.in
+                        E-mail: info@manshagroup.in
                       </a>
                     </li>
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
@@ -312,8 +313,8 @@ const Section2 = () => {
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/mansha-residence.png"
-                    alt="Eden SLF City"
+                    src="/delieverd/mansha-model-town.png"
+                    alt="Mansha City Palwal"
                     width={160}
                     height={70}
                     className="h-auto max-w-[160px] object-contain opacity-90"
@@ -422,15 +423,12 @@ const Section2 = () => {
           </div>
         )}
       </section>
-
       <section
         ref={infoSectionRef}
         className="w-full max-w-[1525px] mx-auto overflow-hidden pb-[35px] pt-2 lg:pb-[70px] lg:pt-0"
       >
         <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[75px]">
           <div className="grid grid-cols-1 gap-6 lg:gap-8">
-          
-
             <div
               ref={rightPanelRef}
               className="overflow-hidden rounded-xl border border-[#D8DEE6] bg-white opacity-0"

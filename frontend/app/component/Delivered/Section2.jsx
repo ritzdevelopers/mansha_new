@@ -66,6 +66,7 @@ const DELIVERED_PROJECTS = [
     location: "NH NO. 2, MAIN MATHURA ROAD",
     image: "/delieverd/Logos-For-Website-11.png",
     alt: "Mansha project",
+    href: "/mansha-greens-2",
   },
 ];
 
