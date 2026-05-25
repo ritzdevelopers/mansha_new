@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const PHONE = "tel:+919876543210";
 const PHONE_TEXT = "+91 98765 43210";
@@ -23,6 +23,20 @@ const ONGOING_RESIDENTIAL = [
   { label: "Mansha Orchid", href: "/mansha-orchid" },
   { label: "Aagman by mansha", href: "/aagman-by-mansha" },
   { label: "Mansha Oasis", href: "/mansha-oasis" },
+];
+
+const DELIVERED_NAV_PROJECTS = [
+  { name: "Mansha Oaks", image: "/delieverd/mansha.png", href: "/mansha-oaks-4" },
+  { name: "Mansha City Palwal", image: "/delieverd/mansha-city-palwal.png", href: "/mansha-city-palwal-2" },
+  { name: "Mansha Royal City", image: "/delieverd/mansha-royal-city.png", href: "/mansha-royal-city" },
+  { name: "Mansha Luxury Floors", image: "/delieverd/mansha-luxury-floor.png", href: "/mansha-luxury-floors" },
+  { name: "Eden SLF City", image: "/delieverd/eden-city.png", href: "/eden-slf-city" },
+  { name: "Mansha Indraprastha Greens", image: "/delieverd/mansha-indr-green.png", href: "/indraprastha-greens" },
+  { name: "Mansha Estate", image: "/delieverd/mansha-estate.png", href: "/mansha-estate" },
+  { name: "Mansha Floors", image: "/delieverd/mansha-floor.png", href: "/mansha-floors-2" },
+  { name: "Mansha Model Town", image: "/delieverd/mansha-model-town.png", href: "/mansha-model-town" },
+  { name: "Mansha Residency", image: "/delieverd/mansha-residence.png", href: "/mansha-residency" },
+  { name: "Mansha Greens", image: "/delieverd/Logos-For-Website-11.png", href: "/mansha-greens-2" },
 ];
 
 const DROPDOWN_NAV = [
@@ -48,6 +62,58 @@ const DROPDOWN_NAV = [
     ],
   },
 ];
+
+const NavProjectSlider = ({ open, onClose }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (!open) {
+      setActiveIndex(0);
+      return undefined;
+    }
+
+    const id = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % DELIVERED_NAV_PROJECTS.length);
+    }, 2800);
+
+    return () => window.clearInterval(id);
+  }, [open]);
+
+  return (
+    <div className="relative mt-8 w-full overflow-hidden">
+      <p className="optima-menu-link mb-2 text-center font-montserrat text-[25px] font-medium text-black">
+        Projects
+      </p>
+      <div
+        className="flex transition-transform duration-700 ease-out"
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      >
+        {DELIVERED_NAV_PROJECTS.map((project) => (
+          <Link
+            key={project.href}
+            href={project.href}
+            onClick={onClose}
+            className="w-full shrink-0 cursor-pointer"
+          >
+            <div className="mx-auto w-full max-w-[280px] overflow-hidden rounded-md border border-[#E0E0E0] bg-[#FAFAFA]">
+              <Image
+                src={project.image}
+                alt={project.name}
+                width={280}
+                height={120}
+                className="h-auto w-full object-contain"
+                sizes="280px"
+              />
+            </div>
+            <p className="optima-menu-link mt-2 text-center font-montserrat text-[18px] font-normal leading-snug text-black transition-colors hover:text-[#652A27]">
+              {project.name}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const NavSideMenu = ({ open, onClose }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -78,7 +144,7 @@ const NavSideMenu = ({ open, onClose }) => {
     <>
       <aside
         id="mobile-navigation"
-        className={`fixed right-0 top-0 z-50 flex h-screen w-[450px] max-w-[90vw] flex-col bg-white p-8 transition-transform duration-500 ${
+        className={`fixed right-0 top-0 z-50 flex h-screen w-[450px] max-w-[90vw] flex-col overflow-hidden bg-white p-8 transition-transform duration-500 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         aria-label="Main mobile"
@@ -87,24 +153,13 @@ const NavSideMenu = ({ open, onClose }) => {
           type="button"
           onClick={onClose}
           aria-label="Close sidebar"
-          className="absolute right-5 top-5 inline-flex h-9 w-9 cursor-pointer items-center justify-center text-black transition-opacity hover:text-[#652A27]"
+          className="absolute right-5 top-5 z-10 inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center text-black transition-opacity hover:text-[#652A27]"
         >
           <i className="ri-close-large-line text-[20px]" aria-hidden />
         </button>
-{/* 
-        <div className="flex justify-center">
-          <Link href="/" onClick={onClose}>
-            <Image
-              src="/mansha-svg/mansha-logo.svg"
-              width={100}
-              height={56}
-              alt="Mansha"
-              className="h-auto w-[100px]"
-            />
-          </Link>
-        </div> */}
 
-        <nav className="mt-8" aria-label="Sidebar menu">
+        <div className="nav-menu-scroll mt-8 min-h-0 flex-1 overflow-y-auto overscroll-y-contain [-webkit-overflow-scrolling:touch]">
+        <nav aria-label="Sidebar menu">
           <ul className="space-y-5 pl-2 md:space-y-2 ">
             {NAV_ITEMS.slice(0, 2).map((item) => (
               <li key={item.label}>
@@ -145,7 +200,7 @@ const NavSideMenu = ({ open, onClose }) => {
 
                   <div
                     className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
-                      isOpen ? "max-h-[28rem] py-3 opacity-100" : "max-h-0 pt-0 opacity-0"
+                      isOpen ? "max-h-[2000px] py-3 opacity-100" : "max-h-0 pt-0 opacity-0"
                     }`}
                   >
                     <ul className="space-y-1 border-l border-[#E0E0E0] pl-4">
@@ -204,7 +259,7 @@ const NavSideMenu = ({ open, onClose }) => {
                             <div
                               className={`transition-[max-height,opacity,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                                 isSubOpen && category.items?.length > 0
-                                  ? "max-h-56 overflow-visible py-2 opacity-100"
+                                  ? "max-h-[500px] overflow-visible py-2 opacity-100"
                                   : "max-h-0 overflow-hidden py-0 opacity-0"
                               }`}
                             >
@@ -242,7 +297,7 @@ const NavSideMenu = ({ open, onClose }) => {
               );
             })}
 
-            {NAV_ITEMS.slice(2).map((item) => (
+            {NAV_ITEMS.slice(2, 4).map((item) => (
               <li key={item.label}>
                 <Link
                   href={item.href}
@@ -256,10 +311,32 @@ const NavSideMenu = ({ open, onClose }) => {
                 </Link>
               </li>
             ))}
+
+            <li>
+              <Link
+                href={NAV_ITEMS[4].href}
+                onClick={onClose}
+                className={sidebarLinkClass}
+                style={{
+                  transitionDelay: open ? NAV_ITEMS[4].delay : "0ms",
+                }}
+              >
+                <span className={sidebarLabelClass}>{NAV_ITEMS[4].label}</span>
+              </Link>
+            </li>
+
+            <li
+              className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                open ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+              }`}
+              style={{ transitionDelay: open ? "920ms" : "0ms" }}
+            >
+              <NavProjectSlider open={open} onClose={onClose} />
+            </li>
           </ul>
         </nav>
 
-        <div className="mt-auto pl-2 pt-8">
+        <div className="pl-2 pb-4 pt-8">
           <a
             href={PHONE}
             className="optima-menu-link block cursor-pointer text-[18px] font-medium text-black transition-colors hover:text-[#652A27]"
@@ -273,9 +350,19 @@ const NavSideMenu = ({ open, onClose }) => {
             {EMAIL_TEXT}
           </a>
         </div>
+        </div>
       </aside>
 
       <style>{`
+        .nav-menu-scroll {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+
+        .nav-menu-scroll::-webkit-scrollbar {
+          display: none;
+        }
+
         .optima-menu-link {
           font-family: Optima, "Segoe UI", Candara, "Noto Sans", sans-serif;
           line-height: 1.2;
