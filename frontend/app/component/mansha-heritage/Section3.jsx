@@ -10,20 +10,20 @@ const LEFT_SLIDES = [
   {
     src: "/mansha-image/outdoor-cafe-big.jpg",
     alt: "A terrace for every home",
-    title: "Living Made Better",
-    text: " Open gym areas, landscaped greens, kids’ play zones, and secure spaces shaped for connected community living.",
+    title: "Spaces That Inspire",
+    text: "Courtyards, open gym areas, kids’ play zones, and round-the-clock security—designed for effortless everyday living.",
   },
   {
     src: "/mansha-image/club-with-lawn-big.jpg",
     alt: "Club with lawn",
-    title: "Harmony In Spaces",
-    text: "Landscaped greens, open gym zones, and safe play areas bringing comfort, security, and community together.",
+    title: "Balanced By Design",
+    text: " From landscaped courtyards to fitness spaces and safe play areas—every amenity adds comfort to life.",
   },
   {
     src: "/mansha-image/club-pool-big.jpg",
     alt: "Club pool",
-    title: "Closer Everyday Living",
-    text: " Open gyms, green landscapes, children’s play areas, and strong security—built for easy community living.",
+    title: "Life Within Reach",
+    text: "  Open gyms, vibrant courtyards, kids’ play areas, and 24/7 CCTV—crafted for modern community living.",
   },
 ];
 
@@ -31,20 +31,20 @@ const RIGHT_SLIDES = [
   {
     src: "/mansha-image/central-landscape-bog.jpg",
     alt: "Linear greens and themed landscapes",
-    title: "Where Life Thrives",
-    text: "Green landscapes, open fitness zones, secure surroundings, and fun play areas created for every community.",
+    title: "Everyday Comes Alive",
+    text: " Green courtyards, active fitness zones, secure surroundings, and joyful play spaces—made for all generations.",
   },
   {
     src: "/mansha-image/outdoor-cafe-big.jpg",
     alt: "Gym",
-    title: "Elevated Daily Living",
-    text: " A lifestyle with landscaped greens, open gym areas, kids’ play zones, and dependable community security.",
+    title: "Thoughtfully Elevated",
+    text: " A lifestyle enriched with open spaces, wellness zones, children’s play areas, and seamless security.",
   },
   {
     src: "/mansha-image/central-landscape-bog.jpg",
     alt: "Gym",
-    title: "Crafted For Living",
-    text: " Landscaped greens, outdoor gym spaces, kids’ play areas, and secure surroundings designed for community comfort.",
+    title:"Designed Around You",
+    text: " Courtyard living, outdoor fitness, playful spaces for kids, and complete security—everything thoughtfully connected.",
   },
 ];
 const ALL_SLIDES = [...LEFT_SLIDES, ...RIGHT_SLIDES];

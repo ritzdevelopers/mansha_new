@@ -38,11 +38,12 @@ export default function TestimoniaCommon() {
               Clients Testimonials
             </h2>
             <h3 className="lg:mt-3 mt-0 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] md:text-[34px] font-bold xl:leading-[50px] leading-[35px] tracking-normal text-[#000000]">
-              What Our Clients Say
+            Trusted By Many 
             </h3>
             <p className="lg:mt-3 mt-0 w-full max-lg:max-w-none font-montserrat text-[16px] font-normal xl:leading-[28px] leading-[25px] tracking-normal text-[#000000] lg:mx-0 lg:max-w-[281px]">
-              Don&apos;t just take our word for it, hear from the brands we&apos;ve
-              helped transform.
+            Hear from our valued clients who have experienced trust, quality, and excellence firsthand.Their words reflect confidence in our vision and delivery.
+ Every testimonial stands as a mark of satisfaction and lasting relationships.
+
             </p>
           </div>
 

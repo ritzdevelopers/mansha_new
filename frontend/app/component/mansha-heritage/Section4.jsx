@@ -7,12 +7,12 @@ const VEGA_STREET_MAP_EMBED =
 
 /** 8 rows: same 5 icons cycled (metro → side-metro → School → Hospital → Hospital2 → …) */
 const amenityItems = [
-  { image: "/mansha-osis/mansha-osis-plan.png", time: "24 mtr*", title: "wide main sector road " },
-  { image: "/mansha-osis/mansha-osis-expressway.png", time: "2 Min*", title: "IMT Faridabad" },
-  { image: "/mansha-svg/School.svg", time: "15 Mins*", title: "KGP Expressway" },
-  { image: "/mansha-svg/Hospital.svg", time: "5 Mins*", title: "Delhi–Mumbai Expressway" },
-  { image: "/mansha-svg/Hospital2.svg", time: "25 Mins*", title: "Jewar Airport Road" },
-  { image: "/mansha-svg/metro.svg", time: "20 Mins*", title: " Amrita Hospital" },
+  { image: "/mansha-osis/mansha-osis-plan.png", time: "10 mins*", title: "Kundli" },
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "15 Min*", title: "Delhi Border" },
+  { image: "/mansha-svg/School.svg", time: "25 Mins*", title: "Rohini " },
+  { image: "/mansha-svg/Hospital.svg", time: "30 Mins*", title: "Pitampura " },
+  { image: "/mansha-svg/Hospital2.svg", time: "40 Mins*", title: "IGI Airport" },
+  { image: "/mansha-svg/metro.svg", time: "45 Mins*", title: " Gurugram  " },
   // { image: "/mansha-svg/side-metro.svg", time: "4 Min*", title: "Transit Hub" },
   // { image: "/mansha-svg/School.svg", time: "3 Min*", title: "Education Centre" },
 ];
@@ -22,10 +22,11 @@ const Section4 = () => {
     <section className="w-full pb-[35px] lg:pb-[70px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <h2 className="font-optima text-[28px] md:text-[36px] text-center md:text-left font-[500] leading-[100%] tracking-[0] capitalize text-[#000000]">
-        Ease At Every Step
+        Closer To Convenience
         </h2>
         <p className=" mt-4  font-montserrat text-[16px] font-normal text-center md:text-left leading-[25px] md:leading-[28px] tracking-[0px] capitalize text-[#333333] ">
-        From education to recreation, everything is placed within easy reach. 
+        From education to entertainment, everything you need stays within easy reach. 
+ 
         </p>
 
         <div className="relative mt-8 lg:mt-14">

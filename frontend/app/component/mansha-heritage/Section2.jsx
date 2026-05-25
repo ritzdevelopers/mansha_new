@@ -40,18 +40,17 @@ const Section2 = () => {
             </p>
 
             <h2 className="xl:mt-15 mt-5 font-optima xl:text-[36px] text-[28px] font-[550] xl:leading-[54px] md:leading-[40px] leading-[30px] capitalize text-[#000000]">
-            A Smarter Place To Belong
+            Crafted by Mansha Group
             </h2>
 
             <p className="xl:mt-7 mt-2 font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px] xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-            Mansha Orchid brings you an opportunity to be part of one of Haryana’s most promising and fast-developing regions, Faridabad. As a key part of the NCR and included in the Smart City vision, the location offers the perfect balance of urban progress and natural surroundings.Surrounded by expanding residential zones and close to major infrastructure developments, the project is positioned to benefit from continuous growth. Its proximity to key healthcare institutions and essential services ensures that everyday needs are always within reach. With a focus on creating a secure and dependable living environment, every aspect is planned to complement the surroundings while enhancing quality of life. The layout, landscaping, and overall design reflect attention to detail and long-term vision.
+            Mansha Heritage is thoughtfully envisioned to offer a refined lifestyle enriched with comfort, greenery, and seamless connectivity. Designed with modern planning and elegant infrastructure, the project creates a perfect balance between contemporary convenience and peaceful surroundings. Spacious roads, landscaped greens, and premium amenities together shape a vibrant residential experience. Focused on quality development, sustainable living, and community values, Mansha Heritage reflects excellence in every detail. Strategically positioned, the project provides effortless access to educational institutions, healthcare facilities, shopping destinations, and key city landmarks. Every space is planned to enhance openness, natural light, and everyday ease.
 
             </p>
 
             <div className="xl:mt-5 mt-2">
               <p className="font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px]  xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-              Mansha Orchid is not just a place to own land, it’s an opportunity to be part of a growing destination where lifestyle, location, and future potential come together.
-
+              With a vision to elevate modern living, Mansha Heritage presents an ideal destination for families and future investments. Experience a lifestyle where elegance, comfort, and tranquility exist in perfect harmony.
               </p>
             </div>
 
@@ -65,7 +64,7 @@ const Section2 = () => {
                   className="h-[50px] w-[50px] object-contain xl:h-15 xl:w-15"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
-                Gated community 
+                2400+ happy customers
                 </p>
               </div>
 
@@ -78,7 +77,7 @@ const Section2 = () => {
                   className="h-[50px] w-[50px] object-contain xl:h-15 xl:w-15"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
-                24/7 security
+                Well connected
                 </p>
               </div>
             </div>

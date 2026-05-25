@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What makes Mansha Orchid a good investment?",
+    question: "What makes the location in Sonipat advantageous for businesses?",
     answer:
-      " Its prime location, strong connectivity, and planned development ensure long-term value."
+      " The project is strategically located in Sonipat, offering strong connectivity to Delhi NCR and rapidly developing urban infrastructure."
   },
   {
-    question: "What types of units are available in the project?",
+    question: "What type of businesses can operate in this commercial workspace?",
     answer:
-      " The project offers well-planned residential plots designed for modern living.",
+      " It is suitable for offices, retail outlets, startups, and service-based businesses, offering flexible usage options.",
   },
   {
-    question: "Is Mansha Orchid a gated community?",
+    question: "Are there provisions for parking within the commercial complex?",
     answer:
-      " Yes, it is a secure gated community with controlled access.",
+      "Yes, the project includes planned parking spaces for visitors and occupants to ensure smooth accessibility.",
   },
   {
-    question: "What kind of surroundings can residents expect?",
+    question: "What kind of infrastructure is provided for daily operations?",
     answer:
-      " Green landscapes, open spaces, and a peaceful residential environment."
+      " The project offers modern infrastructure with reliable utilities, power backup, and well-planned workspace design"
   },
   {
-    question: "Are there recreational spaces within the project?",
+    question: "Is the project suitable for investment purposes?",
     answer:
-      " Yes, it includes kids’ play areas and open spaces for leisure and activity.",
+      "  Yes, its location in a growing Sonipat corridor makes it a promising option for long-term commercial investment.",
   },
 ];
 
