@@ -60,6 +60,7 @@ const DELIVERED_PROJECTS = [
     location: "DELHI – MATHURA ROAD, NH-2 palwal",
     image: "/delieverd/mansha-residence.png",
     alt: "Mansha Residence",
+    href: "/mansha-residency",
   },
   {
     location: "NH NO. 2, MAIN MATHURA ROAD",
