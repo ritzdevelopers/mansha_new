@@ -48,7 +48,7 @@ const Mansha = () => {
         </div>
 
         <div className="flex flex-col items-start gap-[10px] md:gap-[20px] lg:gap-[20px] xl:gap-[120px] lg:flex-row lg:items-start">
-          <div className="order-1 w-full max-w-[330] overflow-hidden md:hidden lg:order-none lg:mt-[60px] lg:block lg:self-end">
+          <div className="order-1 mx-auto w-full max-w-[330] overflow-hidden md:hidden lg:order-none lg:mx-0 lg:mt-[60px] lg:block lg:self-end">
             <Image
               src="/mansha-image/building-about.jpg"
               alt="Building about"
@@ -83,7 +83,7 @@ const Mansha = () => {
 </button>
           </div>
 
-          <div className="order-2 w-full max-w-[320px] overflow-hidden md:hidden lg:order-none lg:-mt-[60px] lg:block lg:self-start">
+          <div className="order-2 mx-auto w-full max-w-[320px] overflow-hidden md:hidden lg:order-none lg:mx-0 lg:-mt-[60px] lg:block lg:self-start">
             <Image
               src="/mansha-image/villa-about.jpg"
               alt="Villa about"
