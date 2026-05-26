@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const trendingCards = [
   {
-    image: "/mansha-image/evnet-party.jpg",
+    image: "/facility/evnet-party.jpg",
     title: "Manshagroup Party 2025",
     date: "18 August, 2025",
   },
@@ -13,17 +13,17 @@ const trendingCards = [
     date: "15 August, 2024",
   },
   {
-      image: "/mansha-image/office-event.jpg",
+      image: "/facility/office-event.jpg",
       title: "Office Event 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/mansha-image/community.jpg",
+    image: "/facility/community.jpg",
     title: "Community Gathering 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/mansha-image/wellness.jpg",
+    image: "/facility/wellness.jpg",
     title: "Wellness & Lifestyle Session",
     date: "15 August, 2024",
   },
