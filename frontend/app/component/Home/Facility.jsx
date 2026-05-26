@@ -7,11 +7,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /** Row index → image (4 assets, last row repeats first). */
 const FACILITY_IMAGES = [
-  "/homepage/business-1.jpg",
-  "/homepage/business-slide-2.jpg",
-  "/homepage/business-slide-3.jpg",
-  "/homepage/business-slide-4.jpg",
-  "/homepage/business-slide-1.jpg",
+  "/mansha-image/business-1.jpg",
+  "/mansha-image/business-slide-2.jpg",
+  "/mansha-image/business-slide-3.jpg",
+  "/mansha-image/business-slide-4.jpg",
+  "/mansha-image/business-slide-1.jpg",
 ];
 
 const Facility = () => {
