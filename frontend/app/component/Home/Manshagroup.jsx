@@ -8,7 +8,7 @@ const trendingCards = [
     date: "18 August, 2025",
   },
   {
-    image: "/mansha-image/independence-mansha.jpg",
+    image: "/facility/independence-mansha.jpg",
     title: "Independence Day Celebration",
     date: "15 August, 2024",
   },
