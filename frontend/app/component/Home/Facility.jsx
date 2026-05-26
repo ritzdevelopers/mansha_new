@@ -5,13 +5,13 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-/** Row index → image (3 assets, last 2 rows repeat order). */
+/** Row index → image (4 assets, last row repeats first). */
 const FACILITY_IMAGES = [
-  "/mansha-image/facility-3.avif",
-  "/mansha-image/facitlity-04.avif",
-  "/mansha-image/facility-05.avif",
-  "/mansha-image/facility-3.avif",
-  "/mansha-image/facitlity-04.avif",
+  "/homepage/business-1.jpg",
+  "/homepage/business-slide-2.jpg",
+  "/homepage/business-slide-3.jpg",
+  "/homepage/business-slide-4.jpg",
+  "/homepage/business-slide-1.jpg",
 ];
 
 const Facility = () => {

@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const PHONE = "tel:+919876543210";
-const PHONE_TEXT = "+91 98765 43210";
+const PHONE = "tel:+91-8010003838";
+const PHONE_TEXT = "+91-8010003838";
 const EMAIL = "mailto:info@manshagroup.in";
 const EMAIL_TEXT = "info@manshagroup.in";
 
@@ -13,7 +13,7 @@ const NAV_ITEMS = [
   { label: "Home", href: "/", delay: "200ms" },
   { label: "About", href: "/about-us", delay: "320ms" },
   { label: "Contact", href: "/contact-us", delay: "560ms" },
-  { label: "Carrers", href: "careers", delay: "680ms" },
+  { label: "Careers", href: "careers", delay: "680ms" },
   { label: "Blogs", href: "/blog", delay: "800ms" },
 ];
 

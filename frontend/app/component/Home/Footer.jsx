@@ -32,8 +32,9 @@ const Footer = () => {
             <ul className="lg:mt-4 mt-0 space-y-0 font-montserrat text-[15px] font-normal leading-[39px] tracking-normal text-[#FFFFFF]">
               <li><Link href="/about-us">About Us</Link></li>
               <li><Link href="/blog">Blogs</Link></li>
-              <li><Link href="#">FAQ</Link></li>
-              <li><Link href="contact">Contact Us</Link></li>
+              {/* <li><Link href="#">FAQ</Link></li> */}
+              <li><Link href="/contact">Contact Us</Link></li>
+              <li><Link href="/careers">Career</Link></li>
             </ul>
           </div>
 
@@ -62,14 +63,23 @@ const Footer = () => {
                   <i className="ri-star-fill" />
                 </div>
               </div>
-            </div>
+            </div>  
             <div className="mt-5 flex items-center gap-3 text-[#652A27]">
-              {["ri-facebook-fill", "ri-twitter-x-line", "ri-linkedin-fill", "ri-instagram-line", "ri-youtube-line"].map((icon) => (
-                <span key={icon} className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[16px]">
-                  <i className={icon} />
-                </span>
-              ))}
-            </div>
+  {[
+    "ri-facebook-fill",
+    "ri-twitter-x-line",
+    "ri-linkedin-fill",
+    "ri-instagram-line",
+    "ri-youtube-line",
+  ].map((icon) => (
+    <span
+      key={icon}
+      className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[16px]  transition-all duration-300 hover:bg-[#652A27] hover:text-white hover:shadow-white/40"
+    >
+      <i className={icon} />
+    </span>
+  ))}
+</div>
           </div>
         </div>
 

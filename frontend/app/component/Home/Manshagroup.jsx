@@ -3,27 +3,27 @@ import Link from "next/link";
 
 const trendingCards = [
   {
-    image: "/mansha-image/mansha-party.jpg",
+    image: "/homepage/evnet-party.jpg",
     title: "Manshagroup Party 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/mansha-image/Independence.jpg",
+    image: "/homepage/independence-mansha.jpg",
     title: "Independence Day Celebration",
     date: "15 August, 2024",
   },
   {
-    image: "/mansha-image/mansha-group.jpg",
-    title: "Office Event 2025",
+      image: "/homepage/office-event.jpg",
+      title: "Office Event 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/mansha-image/event.jpg",
+    image: "/homepage/community.jpg",
     title: "Community Gathering 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/mansha-image/yoga-day.jpg",
+    image: "/homepage/wellness.jpg",
     title: "Wellness & Lifestyle Session",
     date: "15 August, 2024",
   },
@@ -45,12 +45,12 @@ const Manshagroup = () => {
             <p className="mt-2 xl:mt-4 lg:mt-1 flex-1 font-montserrat xl:text-[16px] lg:text-[14px] text-[14px] font-normal xl:leading-[28px] lg:leading-[20px] md:leading-[21px] md:text-[14px] leading-[20px] tracking-normal text-[#515151]">
             At Mansha Group, luxury is not just about aesthetics — it’s about creating experiences that elevate everyday living. From thoughtfully planned spaces to vibrant communities, every detail is designed to bring comfort, convenience, and a sense of belonging.
 
-              <Link
+              {/* <Link
                 href="#"
                 className="inline font-montserrat text-[16px] font-semibold leading-[28px] tracking-normal text-[#144168] hover:underline"
               >
                 Read More...
-              </Link>
+              </Link> */}
             </p>
           </article>
 

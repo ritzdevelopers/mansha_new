@@ -3,9 +3,18 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+const BANNERS = [
+  { src: "/homepage/mansha-banner-1.jpg", alt: "Mansha banner 1" },
+  { src: "/homepage/mansha-banner-2.jpg", alt: "Mansha banner 2" },
+  { src: "/homepage/mansha-banner-3.jpg", alt: "Mansha banner 3" },
+  { src: "/homepage/mansha-banner-4.jpg", alt: "Mansha banner 4" },
+];
+
 const ImageSection = () => {
   const sectionRef = useRef(null);
   const [playReveal, setPlayReveal] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [revealKey, setRevealKey] = useState(0);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -22,20 +31,42 @@ const ImageSection = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % BANNERS.length);
+      setRevealKey((prev) => prev + 1);
+    }, 4000);
+
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section ref={sectionRef} id="home-image-section" className="w-full bg-white">
       <div className="relative isolate w-full overflow-hidden [transform:translateZ(0)]">
-        <div className={`${playReveal ? "image-section-slide-reveal" : ""}`}>
+        <div className="relative">
           <Image
-            src="/mansha-image/home-second-section.jpg"
-            alt="image-section"
+            src={BANNERS[activeIndex].src}
+            alt=""
             width={1600}
             height={900}
-            className={`h-auto w-full object-cover ${playReveal ? "image-section-slide-zoom" : ""}`}
-            priority
-            quality={100}
-            sizes="100vw"
+            className="invisible h-auto w-full"
+            aria-hidden
           />
+          <div
+            key={revealKey}
+            className={`absolute inset-0 overflow-hidden ${playReveal ? "image-section-slide-reveal" : ""}`}
+          >
+            <Image
+              src={BANNERS[activeIndex].src}
+              alt={BANNERS[activeIndex].alt}
+              width={1600}
+              height={900}
+              className={`h-auto w-full object-cover ${playReveal ? "image-section-slide-zoom" : ""}`}
+              priority={activeIndex === 0}
+              quality={100}
+              sizes="100vw"
+            />
+          </div>
         </div>
       </div>
 

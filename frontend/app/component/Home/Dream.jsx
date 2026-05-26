@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Dream = () => {
@@ -52,7 +53,8 @@ const Dream = () => {
 
         <div className="w-full shrink-0 lg:w-[20%] 2xl:w-auto">
         <div className="flex justify-center md:justify-start lg:justify-end 2xl:justify-start">
-        <button className="group relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-[#000000] px-3 py-[9px] font-montserrat text-[14px] lg:text-[10px] xl:text-[14px] font-semibold leading-none capitalize text-[#333333] cursor-pointer transition-all duration-300 hover:text-white focus:outline-none">
+          <Link href="/about-us">
+        <button className="group cursor-pointer relative overflow-hidden inline-flex items-center gap-3 rounded-full border border-[#000000] px-3 py-[9px] font-montserrat text-[14px] lg:text-[10px] xl:text-[14px] font-semibold leading-none capitalize text-[#333333] cursor-pointer transition-all duration-300 hover:text-white focus:outline-none">
 
 {/* Background fill */}
 <span className="absolute left-0 top-0 h-full w-0 bg-[#333333] transition-all duration-500 group-hover:w-full group-focus-visible:w-full"></span>
@@ -68,6 +70,7 @@ const Dream = () => {
 </span>
 
 </button>
+</Link>
 </div>
         </div>
       </div>
@@ -81,10 +84,9 @@ const Dream = () => {
         >
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
-              src="/mansha-image/residentail.jpg"
+              src="/homepage/Mansha-Heritage.jpg"
               alt="Mansha Heritage"
               fill
-              unoptimized
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               sizes="100vw"
             />
@@ -104,7 +106,7 @@ const Dream = () => {
 
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
-              src="/mansha-image/residentail.jpg"
+              src="/homepage/mansha-vega-street.jpg"
               alt="Mansha Vega Street"
               fill
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -126,7 +128,7 @@ const Dream = () => {
 
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
-              src="/mansha-image/residentail.jpg"
+              src="/homepage/mansha-orchid.jpg"
               alt="Mansha Orchid"
               fill
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -148,7 +150,7 @@ const Dream = () => {
 
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
-              src="/mansha-image/residentail.jpg"
+              src="/homepage/mansha-agman.jpg"
               alt="Aagman by Mansha"
               fill
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -174,7 +176,7 @@ const Dream = () => {
       <div className="hidden w-full max-w-none gap-3 px-0 pb-[35px] lg:flex lg:pb-[0px]">
         <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
           <Image
-            src="/mansha-image/residentail.jpg"
+            src="/homepage/Mansha-Heritage.jpg"
             alt="Mansha Heritage"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -197,7 +199,7 @@ const Dream = () => {
 
         <article className="group relative min-h-[460px] w-full overflow-hidden transition-all duration-500 lg:min-h-[520px] lg:flex-[1.7] lg:hover:flex-[1.7] cursor-pointer">
           <Image
-            src="/mansha-image/residentail.jpg"
+            src="/homepage/mansha-vega-street.jpg"
             alt="Mansha vega street"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -219,7 +221,7 @@ const Dream = () => {
 
         <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
           <Image
-            src="/mansha-image/residentail.jpg"
+            src="/homepage/mansha-orchid.jpg"
             alt="Mansha Orchid"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -241,7 +243,7 @@ const Dream = () => {
 
         <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
           <Image
-            src="/mansha-image/residentail.jpg"
+            src="/homepage/mansha-agman.jpg"
             alt="Aagman by Mansha"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"

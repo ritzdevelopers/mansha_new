@@ -1,26 +1,32 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import BookASite from "../common/Book-a-site";
 
 const Vegas = () => {
   const [activeImage, setActiveImage] = useState(0);
+  const [bookSiteOpen, setBookSiteOpen] = useState(false);
 
   const rightImages = [
     {
-      src: "/mansha-image/residentail.jpg",
+      src: "/homepage/mansha-vega-streetsection.jpg",
       alt: "Residential property",
-      label: "Vega Street",
+      label: "Mansha Vega Street",
+      href: "/vega-street",
     },
     {
-      src: "/mansha-image/facility-image.jpg",
+      src: "/homepage/mansha-aagman.jpg",
       alt: "Facility area",
       label: "Aagman By Mansha",
+      href: "/aagman-by-mansha",
     },
     {
-      src: "/mansha-image/residentail.jpg",
+      src: "/homepage/mansha-oasis.jpg",
       alt: "Mansha project exterior",
       label: "Mansha Oasis",
+      href: "/mansha-oasis",
     },
   ];
 
@@ -76,6 +82,7 @@ const Vegas = () => {
               </div>
               <button
   type="button"
+  onClick={() => setBookSiteOpen(true)}
   className="group relative cursor-pointer inline-flex items-center gap-2 overflow-hidden rounded-full border border-[#6d2b2b] px-6 py-3 font-montserrat text-[12px] font-semibold text-[#6d2b2b] transition-colors duration-300 md:text-[16px]"
 >
   {/* Background Animation */}
@@ -93,10 +100,10 @@ const Vegas = () => {
 
           <div className="flex flex-col gap-4 sm:flex-row lg:min-h-[420px]">
             {rightImages.map((item, index) => (
-              <div
+              <Link
                 key={`${item.src}-${index}`}
+                href={item.href}
                 onMouseEnter={() => setActiveImage(index)}
-                onClick={() => setActiveImage(index)}
                 className={`relative min-h-[220px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] lg:min-h-[420px] ${
                   activeImage === index ? "flex-1 lg:flex-[2.2]" : "flex-1"
                 }`}
@@ -129,11 +136,13 @@ const Vegas = () => {
                     {item.label}
                   </p>
                 )}
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </div>
+
+      <BookASite open={bookSiteOpen} onClose={() => setBookSiteOpen(false)} />
     </section>
   );
 };

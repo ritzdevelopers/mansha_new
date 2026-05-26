@@ -99,6 +99,15 @@ const BuildTrust = () => {
             className="relative z-10 h-auto w-full object-cover min-[1650px]:translate-x-[100px]"
             priority={false}
           />
+
+           {/* <Image
+            src="/homepage/trust.jpg"
+            width={1600}
+            height={900}
+            alt="Build trust"
+            className="relative z-10 h-auto w-full object-cover min-[1650px]:translate-x-[100px]"
+            priority={false}
+          /> */}
         </div>
       </div>
     </section>
