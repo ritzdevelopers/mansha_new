@@ -4,10 +4,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const BANNERS = [
-  { src: "/homepage/mansha-banner-1.jpg", alt: "Mansha banner 1" },
-  { src: "/homepage/mansha-banner-2.jpg", alt: "Mansha banner 2" },
-  { src: "/homepage/mansha-banner-3.jpg", alt: "Mansha banner 3" },
-  { src: "/homepage/mansha-banner-4.jpg", alt: "Mansha banner 4" },
+  { src: "/mansha-image/mansha-banner-1.jpg", alt: "Mansha banner 1" },
+  { src: "/mansha-image/mansha-banner-2.jpg", alt: "Mansha banner 2" },
+  { src: "/mansha-image/mansha-banner-3.jpg", alt: "Mansha banner 3" },
+  { src: "/mansha-image/mansha-banner-4.jpg", alt: "Mansha banner 4" },
 ];
 
 const ImageSection = () => {
