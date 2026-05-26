@@ -13,12 +13,12 @@ const trendingCards = [
     date: "15 August, 2024",
   },
   {
-      image: "/facility/office-event.jpg",
+      image: "/facility/events.jpg",
       title: "Office Event 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/facility/community.jpg",
+    image: "/facility/community-party.jpg",
     title: "Community Gathering 2025",
     date: "18 August, 2025",
   },
