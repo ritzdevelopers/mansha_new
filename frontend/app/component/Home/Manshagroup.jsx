@@ -3,27 +3,27 @@ import Link from "next/link";
 
 const trendingCards = [
   {
-    image: "/homepage/evnet-party.jpg",
+    image: "/mansha-image/evnet-party.jpg",
     title: "Manshagroup Party 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/homepage/independence-mansha.jpg",
+    image: "/mansha-image/independence-mansha.jpg",
     title: "Independence Day Celebration",
     date: "15 August, 2024",
   },
   {
-      image: "/homepage/office-event.jpg",
+      image: "/mansha-image/office-event.jpg",
       title: "Office Event 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/homepage/community.jpg",
+    image: "/mansha-image/community.jpg",
     title: "Community Gathering 2025",
     date: "18 August, 2025",
   },
   {
-    image: "/homepage/wellness.jpg",
+    image: "/mansha-image/wellness.jpg",
     title: "Wellness & Lifestyle Session",
     date: "15 August, 2024",
   },

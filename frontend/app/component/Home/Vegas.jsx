@@ -11,19 +11,19 @@ const Vegas = () => {
 
   const rightImages = [
     {
-      src: "/homepage/mansha-vega-streetsection.jpg",
+      src: "/mansha-image/mansha-vega-streetsection.jpg",
       alt: "Residential property",
       label: "Mansha Vega Street",
       href: "/vega-street",
     },
     {
-      src: "/homepage/mansha-aagman.jpg",
+      src: "/mansha-image/mansha-aagman.jpg",
       alt: "Facility area",
       label: "Aagman By Mansha",
       href: "/aagman-by-mansha",
     },
     {
-      src: "/homepage/mansha-oasis.jpg",
+      src: "/mansha-image/mansha-oasis.jpg",
       alt: "Mansha project exterior",
       label: "Mansha Oasis",
       href: "/mansha-oasis",

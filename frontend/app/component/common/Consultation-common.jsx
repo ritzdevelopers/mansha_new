@@ -7,7 +7,7 @@ const ConsultationCommon = () => {
       <div className="mx-auto max-w-8xl px-5 pb-[35px] sm:px-8 lg:px-[75px] lg:py-[70px]">
         <div className="consultation-banner relative w-full overflow-hidden md:rounded-[24px] rounded-[20px]">
           <Image
-            src="/homepage/consultation-image.jpg"
+            src="/mansha-image/consultation-image.jpg"
             alt="Consultation banner"
             fill
             className="object-cover"
