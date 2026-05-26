@@ -18,7 +18,7 @@ const trendingCards = [
     date: "18 August, 2025",
   },
   {
-    image: "/facility/community-party.jpg",
+    image: "/facility/Community-party.jpg",
     title: "Community Gathering 2025",
     date: "18 August, 2025",
   },
