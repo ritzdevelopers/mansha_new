@@ -128,7 +128,7 @@ const Dream = () => {
 
           <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
-              src="/mansha-image/mansha-orchid.jpg"
+              src="/mansha-image/orchid.jpg"
               alt="Mansha Orchid"
               fill
               className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
@@ -221,7 +221,7 @@ const Dream = () => {
 
         <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
           <Image
-            src="/mansha-image/mansha-orchid.jpg"
+            src="/mansha-image/orchid.jpg"
             alt="Mansha Orchid"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"

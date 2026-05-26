@@ -7,7 +7,7 @@ const ConsultationCommon = () => {
       <div className="mx-auto max-w-8xl px-5 pb-[35px] sm:px-8 lg:px-[75px] lg:py-[70px]">
         <div className="consultation-banner relative w-full overflow-hidden md:rounded-[24px] rounded-[20px]">
           <Image
-            src="/mansha-image/consultation-image.jpg"
+            src="/mansha-image/consultation-image-new.jpg"
             alt="Consultation banner"
             fill
             className="object-cover"
@@ -50,7 +50,7 @@ const ConsultationCommon = () => {
         @media (min-width: 1280px) {
           .consultation-banner {
             aspect-ratio: auto;
-            height: 550px;
+            height: 300px;
           }
         }
       `}</style>
