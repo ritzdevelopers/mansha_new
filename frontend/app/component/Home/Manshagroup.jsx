@@ -23,7 +23,7 @@ const trendingCards = [
     date: "18 August, 2025",
   },
   {
-    image: "/facility/wellness.jpg",
+    image: "/facility/yoga.jpg",
     title: "Wellness & Lifestyle Session",
     date: "15 August, 2024",
   },
