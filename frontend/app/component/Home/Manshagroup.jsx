@@ -60,7 +60,7 @@ const Manshagroup = () => {
               className="group flex flex-col overflow-hidden border border-[#E0E0E0] bg-white"
             >
               <Link href="#" className="block w-full overflow-hidden">
-                <Image
+                <img
                   src={card.image}
                   alt={card.title}
                   width={1200}
