@@ -53,8 +53,9 @@ FAQCommon = () => {
           <div className="relative mt-5 lg:mt-12 xl:mt-[85px] w-full overflow-hidden">
             <div className="relative mx-auto aspect-[3/4] w-full max-w-[331px] sm:w-[331px] lg:mx-0">
               <Image
-                src="/mansha-image/homepage-faq.jpg"
+                src="/homepage/homepage-faq.jpg"
                 alt="Commercial workspace"
+                
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 100vw, 331px"
