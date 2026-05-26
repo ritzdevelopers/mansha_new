@@ -136,9 +136,9 @@ Project Address (Sonipat): Sector 83 & 84, Sonipat, Bang on Main GT Karnal Road
         </div>
       </div>
 
-      <div className="pointer-events-none absolute -bottom-[70px] -right-[20px] hidden h-[500px] w-[760px] overflow-hidden lg: hidden xl:block">
+      <div className="pointer-events-none absolute -bottom-[70px] -right-[20px] hidden h-[500px] w-[760px] overflow-hidden lg: hidden xl:block ">
         <Image
-          src="/mansha-image/footer-image.png"
+          src="/mansha-image/mansha-footer.png"
           alt="Footer background"
           fill
           className="object-contain object-right-bottom"
