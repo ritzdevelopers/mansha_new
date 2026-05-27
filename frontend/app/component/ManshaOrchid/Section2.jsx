@@ -36,7 +36,7 @@ const Section2 = () => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.05fr_0.95fr] xl:gap-15 lg:gap-0">
           <div>
             <p className="font-montserrat text-[16px] font-normal leading-[100%] capitalize text-[#333333]">
-              Home | Residential | <span className="text-[#652A27]">Mansha Orchid</span>
+              Home | Residential | <span className="text-[#652A27] font-semibold">Mansha Orchid</span>
             </p>
 
             <h2 className="xl:mt-15 mt-5 font-optima xl:text-[36px] text-[28px] font-[550] xl:leading-[54px] md:leading-[40px] leading-[30px] capitalize text-[#000000]">

@@ -67,7 +67,7 @@ const Section3 = () => {
   };
 
   return (
-    <section className="w-full pb-[35px] lg:pb-[70px] bg-[#FCFCFC]">
+    <section className="w-full py-[35px] lg:py-[70px] bg-[#FCFCFC]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <h2 className="font-optima text-center md:text-left md:text-[36px] text-[28px] font-[500] leading-[54px] capitalize text-[#000000]">
           Essence of Excellenc
