@@ -9,10 +9,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const FACILITY_IMAGES = [
   "/mansha-image/business-1.jpg",
   "/mansha-image/business-slide-2.jpg",
+  "/mansha-image/business-slide-1.jpg",
   "/mansha-image/business-slide-3.jpg",
   "/mansha-image/business-slide-4.jpg",
-  "/mansha-image/business-slide-1.jpg",
 ];
+
+
+// const FACILITY_IMAGES = [
+//   "/mansha-image/business-1.jpg",
+//   "/mansha-image/business-slide-2.jpg",
+//   "/mansha-image/business-slide-3.jpg",
+//   "/mansha-image/business-slide-4.jpg",
+//   "/mansha-image/business-slide-1.jpg",
+// ];
 
 const Facility = () => {
   const titleRef = useRef(null);
