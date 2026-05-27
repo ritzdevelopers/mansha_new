@@ -4,8 +4,49 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const DREAM_PROJECTS = [
+  {
+    src: "/mansha-image/Mansha-Heritage.jpg",
+    alt: "Mansha Heritage",
+    title: "Mansha Heritage",
+    description:
+      "Refined living that blends comfort greenery connectivity and timeless elegance.",
+    overlayClass: "bg-black/35",
+    titleClass: "font-[500]",
+  },
+  {
+    src: "/mansha-image/mansha-vega-street.jpg",
+    alt: "Mansha Vega Street",
+    title: "Mansha Vega Street",
+    description:
+      "A dynamic commercial space designed for modern business success",
+    overlayClass: "bg-black/20",
+    titleClass: "font-[500]",
+  },
+  {
+    src: "/mansha-image/orchid.jpg",
+    alt: "Mansha Orchid",
+    title: "Mansha Orchid",
+    description:
+      "A promising location designed for secure and future ready living",
+    overlayClass: "bg-black/35",
+    titleClass: "font-[500]",
+  },
+  {
+    src: "/mansha-image/mansha-agman.jpg",
+    alt: "Aagman by Mansha",
+    title: "Aagman by Mansha",
+    description:
+      "Where everyday comfort meets seamless connectivity and calm living",
+    overlayClass: "bg-black/35",
+    titleClass: "font-[550]",
+  },
+];
+
 const Dream = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeLgCard, setActiveLgCard] = useState(1);
+  const [hoveredXlCard, setHoveredXlCard] = useState(null);
   const [isMdScreen, setIsMdScreen] = useState(false);
 
   useEffect(() => {
@@ -82,7 +123,7 @@ const Dream = () => {
             transform: `translateX(-${activeSlide * (isMdScreen ? 50 : 100)}%)`,
           }}
         >
-          <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
+          <article className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
               src="/mansha-image/Mansha-Heritage.jpg"
               alt="Mansha Heritage"
@@ -94,8 +135,8 @@ const Dream = () => {
             <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
               Mansha Heritage
             </p>
-            <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
+              <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
               Refined living that blends comfort greenery connectivity and timeless elegance.
               </p>
               <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
@@ -104,7 +145,7 @@ const Dream = () => {
             </div>
           </article>
 
-          <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
+          <article className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
               src="/mansha-image/mansha-vega-street.jpg"
               alt="Mansha Vega Street"
@@ -116,8 +157,8 @@ const Dream = () => {
             <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
               Mansha Vega Street
             </p>
-            <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
+              <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
               A dynamic commercial space designed for modern business success
               </p>
               <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
@@ -126,7 +167,7 @@ const Dream = () => {
             </div>
           </article>
 
-          <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
+          <article className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
               src="/mansha-image/orchid.jpg"
               alt="Mansha Orchid"
@@ -138,8 +179,8 @@ const Dream = () => {
             <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
               Mansha Orchid
             </p>
-            <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
+              <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
                 A promising location designed for secure and future ready living
               </p>
               <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
@@ -148,7 +189,7 @@ const Dream = () => {
             </div>
           </article>
 
-          <article className="group relative min-h-[460px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
+          <article className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
             <Image
               src="/mansha-image/mansha-agman.jpg"
               alt="Aagman by Mansha"
@@ -160,8 +201,8 @@ const Dream = () => {
             <p className="absolute left-4 top-4 font-optima text-[24px] font-[550] leading-none capitalize text-white">
               Aagman by Mansha
             </p>
-            <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-              <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
+              <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
                 Where everyday comfort meets seamless connectivity and calm
                 living
               </p>
@@ -173,8 +214,65 @@ const Dream = () => {
         </div>
       </div>
 
-      <div className="hidden w-full max-w-none gap-3 px-0 pb-[35px] lg:flex lg:pb-[0px]">
-        <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
+      <div className="hidden w-full max-w-none items-stretch gap-3 px-0 pb-[35px] lg:flex lg:pb-[0px] xl:hidden">
+        {DREAM_PROJECTS.map((project, index) => {
+          const isActive = activeLgCard === index;
+
+          return (
+            <article
+              key={project.title}
+              onClick={() => setActiveLgCard(index)}
+              className={`group relative h-[400px] min-h-[400px] max-h-[400px] shrink-0 self-stretch overflow-hidden transition-all duration-500 cursor-pointer ${
+                isActive ? "flex-[1.7]" : "flex-1"
+              }`}
+            >
+              <Image
+                src={project.src}
+                alt={project.alt}
+                fill
+                className="object-cover object-center transition-all duration-500"
+                sizes="(min-width: 1024px) and (max-width: 1279px) 50vw, 25vw"
+              />
+              <div
+                className={`absolute inset-0 transition-colors duration-300 ${project.overlayClass} ${
+                  isActive ? "bg-transparent" : ""
+                }`}
+              />
+              <p
+                className={`absolute left-4 top-4 font-optima text-[24px] ${project.titleClass} leading-none capitalize text-white`}
+              >
+                {project.title}
+              </p>
+              <div
+                className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
+                  isActive
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-3 opacity-0"
+                }`}
+              >
+                <p className="max-w-[390px] font-montserrat text-[16px] xl:text-[22px] font-[500] leading-[20px] xl:leading-[25px] capitalize text-white">
+                  {project.description}
+                </p>
+                <button
+                  type="button"
+                  className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white"
+                >
+                  Read More
+                </button>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <div
+        className="hidden w-full max-w-none gap-3 px-0 pb-[35px] xl:flex xl:pb-[0px]"
+        onMouseLeave={() => setHoveredXlCard(null)}
+      >
+        <article
+          className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 xl:block xl:hover:flex-[1.7] cursor-pointer"
+          onMouseEnter={() => setHoveredXlCard(0)}
+        >
           <Image
             src="/mansha-image/Mansha-Heritage.jpg"
             alt="Mansha Heritage"
@@ -186,7 +284,13 @@ const Dream = () => {
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Mansha Heritage
           </p>
-          <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <div
+            className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
+              hoveredXlCard === 0
+                ? "translate-y-0 opacity-100"
+                : "translate-y-3 opacity-0"
+            }`}
+          >
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
               Refined living that blends comfort greenery connectivity and
               timeless elegance.
@@ -197,7 +301,10 @@ const Dream = () => {
           </div>
         </article>
 
-        <article className="group relative min-h-[460px] w-full overflow-hidden transition-all duration-500 lg:min-h-[520px] lg:flex-[1.7] lg:hover:flex-[1.7] cursor-pointer">
+        <article
+          className="group relative min-h-[460px] w-full overflow-hidden transition-all duration-500 xl:min-h-[520px] xl:flex-[1.7] xl:hover:flex-[1.7] cursor-pointer"
+          onMouseEnter={() => setHoveredXlCard(1)}
+        >
           <Image
             src="/mansha-image/mansha-vega-street.jpg"
             alt="Mansha vega street"
@@ -209,7 +316,13 @@ const Dream = () => {
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Mansha Vega Street
           </p>
-          <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300 lg:translate-y-0 lg:opacity-100">
+          <div
+            className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
+              hoveredXlCard === null || hoveredXlCard === 1
+                ? "translate-y-0 opacity-100"
+                : "translate-y-3 opacity-0"
+            }`}
+          >
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
               A dynamic commercial space designed for modern business success
             </p>
@@ -219,7 +332,10 @@ const Dream = () => {
           </div>
         </article>
 
-        <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
+        <article
+          className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 xl:block xl:hover:flex-[1.7] cursor-pointer"
+          onMouseEnter={() => setHoveredXlCard(2)}
+        >
           <Image
             src="/mansha-image/orchid.jpg"
             alt="Mansha Orchid"
@@ -231,7 +347,13 @@ const Dream = () => {
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Mansha Orchid
           </p>
-          <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <div
+            className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
+              hoveredXlCard === 2
+                ? "translate-y-0 opacity-100"
+                : "translate-y-3 opacity-0"
+            }`}
+          >
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
               A promising location designed for secure and future ready living
             </p>
@@ -241,7 +363,10 @@ const Dream = () => {
           </div>
         </article>
 
-        <article className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 lg:block lg:hover:flex-[1.7] cursor-pointer">
+        <article
+          className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 xl:block xl:hover:flex-[1.7] cursor-pointer"
+          onMouseEnter={() => setHoveredXlCard(3)}
+        >
           <Image
             src="/mansha-image/mansha-agman.jpg"
             alt="Aagman by Mansha"
@@ -253,7 +378,13 @@ const Dream = () => {
           <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
             Aagman by Mansha
           </p>
-          <div className="absolute bottom-5 left-4 right-4 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <div
+            className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
+              hoveredXlCard === 3
+                ? "translate-y-0 opacity-100"
+                : "translate-y-3 opacity-0"
+            }`}
+          >
             <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
               Where everyday comfort meets seamless connectivity and calm living
             </p>

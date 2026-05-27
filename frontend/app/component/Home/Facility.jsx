@@ -109,7 +109,7 @@ const Facility = () => {
         </div>
 
         <div className="order-2 lg:order-2">
-          <p ref={subtitleRef} className="font-optima max-w-[560px] md:text-[25px] text-[22px] xl:text-[48px] lg:text-[44px] font-[500]  leading-[1.15] xl:leading-[55px] tracking-normal capitalize text-[#000000] lg:leading-[50px]">
+          <p ref={subtitleRef} className="font-optima max-w-[560px] md:text-[25px] text-[22px] xl:text-[48px] lg:text-[34px] font-[500]  leading-[1.15] xl:leading-[55px] tracking-normal capitalize text-[#000000] lg:leading-[40px]">
             
  Carefully Designed Infrastructure For Living, Working, And Growth
 
