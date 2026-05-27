@@ -66,7 +66,7 @@ const Mansha = () => {
             </p>
 
             <button
-  className="group relative mx-auto mt-3 md:mt-6 inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-[#652A27]/40 px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0%] text-[#652A27] transition-colors duration-300 md:mx-0"
+  className="group relative mx-auto mt-3 md:mt-6 inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-[#652A27]/90 px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0%] text-[#652A27] transition-colors duration-300 md:mx-0"
 >
   {/* Background Animation */}
   <span className="absolute inset-0 -translate-x-full bg-[#652A27] transition-transform duration-500 ease-out group-hover:translate-x-0"></span>

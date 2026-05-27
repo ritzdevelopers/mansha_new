@@ -4,7 +4,7 @@ import React from "react";
 const Leadership = () => {
   return (
     <section className="w-full ">
-      <div className="mx-auto max-w-8xl px-5 pb-[35px] text-center sm:px-8 lg:px-[75px] lg:pb-[70px]">
+      <div className="mx-auto max-w-8xl px-5 py-[35px] text-center sm:px-8 lg:px-[75px] lg:py-[70px] bg-[#FDFDFD]">
         <h2 className="font-optima text-[28px] md:text-[36px] lg:text-[30px] xl:text-[36px] font-[500] leading-[30px] md:leading-[48px] tracking-[0%] capitalize text-[#111111]">
         Growth Driven By Leadership
 

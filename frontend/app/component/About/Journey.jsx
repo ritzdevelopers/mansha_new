@@ -32,7 +32,7 @@ const Journey = () => {
       { 
         image: "/mansha-image/Journey-2.jpg",
         year: "2011-2015",
-        text: "Mansha Model Town, Mansha City, Mansha Floors, Mansha Luxury Floors",
+        text: "Mansha Model Town, Mansha City, Mansha Floors, Mansha Luxury Floors.",
       },
       {
         image: "/mansha-image/Journey-1.jpg",
