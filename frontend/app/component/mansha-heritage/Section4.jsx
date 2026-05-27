@@ -19,7 +19,7 @@ const amenityItems = [
 
 const Section4 = () => {
   return (
-    <section className="w-full pb-[35px] lg:pb-[70px]">
+    <section className="w-full py-[35px] lg:py-[70px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <h2 className="font-optima text-[28px] md:text-[36px] text-center md:text-left font-[500] leading-[100%] tracking-[0] capitalize text-[#000000]">
         Closer To Convenience

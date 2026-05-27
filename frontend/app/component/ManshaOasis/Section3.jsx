@@ -70,7 +70,7 @@ const Section3 = () => {
     <section className="w-full pb-[35px] lg:pb-[70px] bg-[#FCFCFC]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <h2 className="font-optima text-center md:text-left md:text-[36px] text-[28px] font-[500] leading-[54px] capitalize text-[#000000]">
-          Essence of Excellence
+          Essence of Excellenc
         </h2>
 
         <div className="mt-6 hidden grid-cols-1 gap-4 xl:grid xl:grid-cols-[3fr_1fr]">
