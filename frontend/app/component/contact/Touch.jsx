@@ -31,7 +31,7 @@ const Touch = () => {
           </h2>
           <div className="md:mt-4 mt-2 h-px w-full bg-[#E5E5E5] max-w-[1030px]" aria-hidden />
           <p className="mt-5 max-w-[1080px] font-montserrat text-[14px] font-normal capitalize leading-[24px] tracking-normal text-[#515151] text-center md:text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex..
+          Reach out to our team for expert advice, quick responses, and seamless support for your needs.
           </p>
         </div>
 

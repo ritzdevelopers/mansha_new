@@ -96,9 +96,9 @@
 import Image from "next/image";
 import React from "react";
 
-/** Same embed as https://manshagroup.in/vega-street/ (Divi Google Map module) */
+/** Sector 83 & 84, Kumashpur, Sonipat — https://www.google.com/maps */
 const VEGA_STREET_MAP_EMBED =
-  "https://maps.google.com/maps?q=Mansha%20Vega%20Street%2C%20Sector%2082%2C%20Faridabad%2C%20Haryana%20121004&t=m&z=10&output=embed&iwloc=near&hl=en_US";
+  "https://www.google.com/maps?q=Sector%2083%20%26%2084%2C%20Kumashpur%2C%20Sonipat%2C%20Haryana%20131021&t=m&z=14&output=embed&iwloc=near&hl=en_IN";
 
 /** 8 rows: same 5 icons cycled (metro → side-metro → School → Hospital → Hospital2 → …) */
 const amenityItems = [
@@ -128,7 +128,7 @@ const Section4 = () => {
           <div className="flex flex-col md:items-center lg:flex-row lg:items-stretch">
             <div className="relative min-h-[280px] w-full flex-1 overflow-hidden border border-[#E6E6E6] bg-[#F5F5F5] sm:min-h-[320px] md:w-full lg:h-[540px] lg:min-h-[540px] xl:max-w-[calc(100%-450px)]">
               <iframe
-                title="Mansha Vega Street, Sector 82, Faridabad, Haryana 121004"
+                title="Sector 83 & 84, Kumashpur, Sonipat, Haryana 131021"
                 src={VEGA_STREET_MAP_EMBED}
                 className="absolute inset-0 h-full w-full border-0"
                 loading="lazy"

@@ -63,7 +63,7 @@ const Section2 = () => {
             Career Application Form
           </h3>
           <p className="mx-auto mt-3 max-w-[640px] font-montserrat text-[14px] font-normal leading-[1.65] text-[#64748b] md:mt-4 md:text-[16px] md:leading-[26px]">
-            Join Mansha Group and build your career in real estate. Fill in your details, select your preferred role, and upload your resume — our HR team will review your application and get in touch with you.
+          Take the next step in your career with a team that values growth, passion, and performance.
           </p>
           {/* <div className="mx-auto mt-4 h-px w-full max-w-[1030px] bg-[#E5E5E5]" aria-hidden /> */}
 

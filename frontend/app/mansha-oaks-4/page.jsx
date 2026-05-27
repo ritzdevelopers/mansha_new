@@ -6,6 +6,7 @@ import Section3 from '../component/mansha-oaks-4/Section3'
 import Section4 from '../component/mansha-oaks-4/Section4'
 import InvertmentCommmon from '../component/common/InvertmentCommmon'
 import MapCommon from '../component/common/Map-Common'
+import OaksMap from '../component/mansha-oaks-4/oaks-map'
 
 
 const ManshaOaks4 = () => {
@@ -18,7 +19,7 @@ const ManshaOaks4 = () => {
      <div className="pt-[35px] lg:pt-[70px]">
      <InvertmentCommmon />
      </div>
-     <MapCommon />
+     <OaksMap />
      <Footer /> 
     </>
   )

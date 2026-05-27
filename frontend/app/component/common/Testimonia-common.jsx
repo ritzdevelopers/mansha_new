@@ -41,8 +41,7 @@ export default function TestimoniaCommon() {
             Trusted By Many 
             </h3>
             <p className="lg:mt-3 mt-0 w-full max-lg:max-w-none font-montserrat text-[16px] font-normal xl:leading-[28px] leading-[25px] tracking-normal text-[#000000] lg:mx-0 lg:max-w-[281px]">
-            Hear from our valued clients who have experienced trust, quality, and excellence firsthand.Their words reflect confidence in our vision and delivery.
- Every testimonial stands as a mark of satisfaction and lasting relationships.
+            Client experiences that highlight trust, reliability, and quality, building partnerships that stand strong over time.
 
             </p>
           </div>

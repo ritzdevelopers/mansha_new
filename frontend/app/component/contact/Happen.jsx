@@ -1,7 +1,8 @@
 import React from "react";
 
+/** P 23, Sector 75, Faridabad — https://www.google.com/maps */
 const MAP_EMBED_SRC =
-  "https://www.google.com/maps?q=P-2%2F3%2C+Sector+75%2C+Faridabad%2C+Haryana+121006&output=embed";
+  "https://www.google.com/maps?q=P%2023%2C%20Sector%2075%2C%20Faridabad%2C%20Haryana%20121002&t=m&z=14&output=embed&iwloc=near&hl=en_IN";
 
 const OFFICE_ADDRESSES = [
   {
@@ -87,7 +88,7 @@ const Happen = () => {
 
             <div className="relative xl:h-[400px] lg:h-[450px] h-[450px] w-full min-w-0 shrink-0 overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)] ring-1 ring-black/[0.06] lg:flex-[1.12]">
               <iframe
-                title="Mansha office location map"
+                title="P 23, Sector 75, Faridabad, Haryana 121002"
                 src={MAP_EMBED_SRC}
                 width="100%"
                 height="100%"
