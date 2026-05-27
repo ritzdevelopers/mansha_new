@@ -3,16 +3,43 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-const RESIDENTIAL_SLIDES = [
-  "/mansha-image/residential-sldier-1.jpg",
-  "/mansha-image/residential-slider-2.jpg",
-  "/mansha-image/residentail-slider-3.jpg",
+const HIGHLIGHT_SLIDES = [
+  {
+    image: "/oaks/slider1.png",
+    title: "24/7 SECURITY",
+    description:
+      "Stay worry-free with 24/7 security, safeguarding your home and loved ones at all times.",
+    imageAlt: "24/7 security at Mansha Oaks",
+  },
+  {
+    image: "/oaks/slider2.png",
+    title: "SEWER TREATMENT PLANT",
+    description:
+      "Benefit from eco-friendly waste management with our state-of-the-art sewer treatment plant, designed for a healthier community.",
+    imageAlt: "Sewer treatment plant at Mansha Oaks",
+  },
+  {
+    image: "/oaks/slider3.png",
+    title: "RAIN WATER HARVESTING",
+    description:
+      "Conserve water with our efficient rainwater harvesting system, designed to support sustainability and eco-friendly living. Benefit from reduced water usage while helping the environment.",
+    imageAlt: "Rainwater harvesting at Mansha Oaks",
+  },
+  {
+    image: "/oaks/slider4.jpg",
+    title: "KIDS PLAY AREA",
+    description:
+      "Let your children explore and grow in our safe and vibrant kids' play area, designed for endless fun.",
+    imageAlt: "Kids play area at Mansha Oaks",
+  },
 ];
 
 const Section2 = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
-  const sliderSlides = [...RESIDENTIAL_SLIDES, RESIDENTIAL_SLIDES[0]];
+  const sliderSlides = [...HIGHLIGHT_SLIDES, HIGHLIGHT_SLIDES[0]];
+  const displayIndex = activeSlide % HIGHLIGHT_SLIDES.length;
+  const activeContent = HIGHLIGHT_SLIDES[displayIndex];
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -23,7 +50,7 @@ const Section2 = () => {
   }, []);
 
   const handleSliderTransitionEnd = () => {
-    if (activeSlide === RESIDENTIAL_SLIDES.length) {
+    if (activeSlide === HIGHLIGHT_SLIDES.length) {
       setIsTransitioning(false);
       setActiveSlide(0);
       requestAnimationFrame(() => requestAnimationFrame(() => setIsTransitioning(true)));
@@ -36,21 +63,20 @@ const Section2 = () => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.05fr_0.95fr] xl:gap-15 lg:gap-0">
           <div>
             <p className="font-montserrat text-[16px] font-normal leading-[100%] capitalize text-[#333333]">
-              Home | Residential | <span className="text-[#652A27]">mansha-oaks-4</span>
+              Home | Residential | <span className="text-[#652A27] font-semibold">mansha-oaks-4</span>
             </p>
 
             <h2 className="xl:mt-15 mt-5 font-optima xl:text-[36px] text-[28px] font-[550] xl:leading-[54px] md:leading-[40px] leading-[30px] capitalize text-[#000000]">
-            An initiative by Mansha Group
+            KEY HIGHLIGHTS
             </h2>
 
-            <p className="xl:mt-7 mt-2 font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px] xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-            Mansha Oasis is crafted to offer a modern lifestyle surrounded by comfort, greenery, and connectivity. Designed with thoughtful planning and contemporary infrastructure, the project blends urban convenience with peaceful living. Wide roads, landscaped surroundings, and premium amenities create a vibrant residential environment. The project focuses on quality construction, sustainable development, and community living. Strategically located, Mansha Oasis ensures seamless access to schools, healthcare, shopping, and major city hubs. Every space is designed to maximize openness, natural light, and everyday comfort. 
-
+            <p className="xl:mt-7 mt-2 font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px] xl:w-full lg:w-[400px] capitalize text-[#333333] transition-opacity duration-500">
+              {activeContent.title}
             </p>
 
             <div className="xl:mt-5 mt-2">
-              <p className="font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px]  xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-              With a vision to redefine modern living, Mansha Oasis offers an ideal destination for families and future investments. Experience a lifestyle where luxury, convenience, and serenity come together seamlessly.
+              <p className="font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px] xl:w-full lg:w-[400px] capitalize text-[#333333] transition-opacity duration-500">
+                {activeContent.description}
               </p>
             </div>
 
@@ -113,9 +139,9 @@ const Section2 = () => {
           </div>
 
           <div className="relative xl:mt-22 lg:mt-10 md:mt-3 mt-0">
-            <div className="relative h-[350px] w-full overflow-hidden md:h-[570px]">
+            <div className="relative w-full overflow-hidden">
               <div
-                className="flex h-full duration-700 ease-out"
+                className="flex duration-700 ease-out"
                 style={{
                   transform: `translateX(-${activeSlide * 100}%)`,
                   transitionProperty: "transform",
@@ -123,13 +149,14 @@ const Section2 = () => {
                 }}
                 onTransitionEnd={handleSliderTransitionEnd}
               >
-                {sliderSlides.map((src, idx) => (
-                  <div key={`${src}-${idx}`} className="relative h-full w-full shrink-0">
+                {sliderSlides.map((slide, idx) => (
+                  <div key={`${slide.image}-${idx}`} className="w-full shrink-0">
                     <Image
-                      src={src}
-                      alt={`Residential project visual ${idx + 1}`}
-                      fill
-                      className="object-cover"
+                      src={slide.image}
+                      alt={slide.imageAlt}
+                      width={1600}
+                      height={1200}
+                      className="h-auto w-full"
                       sizes="(max-width: 1024px) 100vw, 45vw"
                     />
                   </div>
@@ -137,7 +164,7 @@ const Section2 = () => {
               </div>
             </div>
             <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-1.5">
-              {RESIDENTIAL_SLIDES.map((_, idx) => (
+              {HIGHLIGHT_SLIDES.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
@@ -147,7 +174,7 @@ const Section2 = () => {
                     setActiveSlide(idx);
                   }}
                   className={`cursor-pointer rounded-full transition-all ${
-                    activeSlide % RESIDENTIAL_SLIDES.length === idx ? "h-2 w-7 bg-white" : "h-2 w-2 bg-white/85"
+                    activeSlide % HIGHLIGHT_SLIDES.length === idx ? "h-2 w-7 bg-white" : "h-2 w-2 bg-white/85"
                   }`}
                 />
               ))}
