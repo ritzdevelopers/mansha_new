@@ -31,7 +31,7 @@ const AboutNav = () => {
     <>
       <section className="about-hero relative min-h-screen overflow-hidden">
         <Image
-          src="/mansha-image/about-hero-section.png"
+          src="/about/about-banner.jpg"
           alt="About Hero"
           fill
           priority

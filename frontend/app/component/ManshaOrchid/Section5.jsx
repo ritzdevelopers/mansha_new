@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import { useEffect, useState } from "react";
 
 const luxuryItems = [
   { icon: "/mansha-svg/clubhouse.svg", label: "24/7 Security " },
@@ -9,7 +11,49 @@ const luxuryItems = [
   { icon: "/mansha-svg/facility.svg", label: "Gated community" },
 ];
 
+const AMENITY_REVEAL_MS = 200;
+
 const Section5 = () => {
+  const [isAmenitiesOpen, setIsAmenitiesOpen] = useState(false);
+  const [visibleAmenityCount, setVisibleAmenityCount] = useState(0);
+
+  useEffect(() => {
+    if (!isAmenitiesOpen) return;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setIsAmenitiesOpen(false);
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isAmenitiesOpen]);
+
+  useEffect(() => {
+    if (!isAmenitiesOpen) {
+      setVisibleAmenityCount(0);
+      return;
+    }
+
+    setVisibleAmenityCount(0);
+
+    const intervalId = window.setInterval(() => {
+      setVisibleAmenityCount((prev) => {
+        const next = prev + 1;
+        if (next >= luxuryItems.length) {
+          window.clearInterval(intervalId);
+        }
+        return Math.min(next, luxuryItems.length);
+      });
+    }, AMENITY_REVEAL_MS);
+
+    return () => window.clearInterval(intervalId);
+  }, [isAmenitiesOpen]);
+
   return (
     <section className="w-full pb-[35px] lg:pb-[70px]">
       <div className="mx-auto max-w-[1525px] ">
@@ -22,14 +66,14 @@ const Section5 = () => {
             sizes="100vw"
           />
           <div className=" xl:mt-10 md:mt-0 mt-0 relative z-10 mx-auto max-w-[1100px]">
-            <h2 className="mx-auto max-w-[540px] text-center font-optima xl:text-[36px] md:text-[25px] text-[16px] font-[500] leading-[43px] capitalize text-[#000000]">
-            Comfort that brings ease to your day
+            <h2 className="mt-2 md:mt-0 mx-auto max-w-[540px] text-center font-optima xl:text-[36px] md:text-[25px] text-[16px] font-[500] xl:leading-[43px] lg:leading-[30px] md:leading-[30px] leading-[20px] capitalize text-[#000000]">
+              Comfort that brings ease to your day
             </h2>
 
             <div className="xl:mt-16 lg:mt-5 mt-3 grid grid-cols-2 gap-0 text-center sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 lg:gap-0 xl:gap-6">
               {luxuryItems.map((item, idx) => (
                 <div
-                  key={item.label}
+                  key={`${item.label}-${idx}`}
                   className={`flex flex-col items-center justify-start ${
                     idx === 4 ? "col-span-2 justify-self-center sm:col-span-1" : ""
                   }`}
@@ -58,14 +102,75 @@ const Section5 = () => {
                   className="mx-auto block h-auto w-[300px] md:w-[40%] lg:w-full"
                   sizes="(max-width: 1024px) 100vw, 760px"
                 />
-                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-5 py-2 text-center font-montserrat lg:text-[16px] text-[8px] md:text-[9px] font-medium leading-[100%] text-[#333333]">
+                <button
+                  type="button"
+                  onClick={() => setIsAmenitiesOpen(true)}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-white px-5 md:py-4 py-2 text-center font-montserrat text-[8px] font-medium leading-[100%] text-[#333333] transition-colors hover:bg-[#fafafa] md:text-[14px] lg:text-[16px]"
+                  aria-haspopup="dialog"
+                  aria-expanded={isAmenitiesOpen}
+                >
                   Experience all lifestyle amenities
-                </span>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {isAmenitiesOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4"
+          onClick={() => setIsAmenitiesOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="amenities-modal-title"
+        >
+          <div
+            className="relative z-10 max-h-[90vh] w-full max-w-[920px] overflow-y-auto rounded-lg bg-white p-5 shadow-[0_8px_30px_rgba(0,0,0,0.2)] sm:p-8"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsAmenitiesOpen(false)}
+              className="absolute right-4 top-4 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-[#7B1E1E] text-[18px] leading-none text-white"
+              aria-label="Close amenities popup"
+            >
+              <i className="ri-close-line" />
+            </button>
+
+            <h3
+              id="amenities-modal-title"
+              className="pr-12 font-optima text-[22px] font-[500] capitalize leading-[120%] text-[#000000] md:text-[28px]"
+            >
+              Lifestyle Amenities
+            </h3>
+
+            <div className="mt-6 grid min-h-[220px] grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+              {luxuryItems.map((item, idx) => (
+                <div
+                  key={`modal-${item.label}-${idx}`}
+                  className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${
+                    idx < visibleAmenityCount
+                      ? "translate-y-0 opacity-100"
+                      : "pointer-events-none translate-y-4 opacity-0"
+                  }`}
+                >
+                  <Image
+                    src={item.icon}
+                    alt={item.label}
+                    width={52}
+                    height={52}
+                    className="h-[44px] w-[44px] object-contain md:h-[52px] md:w-[52px]"
+                  />
+                  <p className="mt-2 font-optima text-[13px] font-[500] leading-[120%] capitalize text-[#000000] md:text-[14px]">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
