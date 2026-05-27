@@ -29,7 +29,7 @@ const Mansha = () => {
         <div className="hidden w-full items-start justify-between gap-[20px] md:flex lg:hidden">
           <div className="w-full flex-1 overflow-hidden md:h-[280px]">
             <Image
-              src="/mansha-image/building-about.jpg"
+              src="/about/about-section2.jpg"
               alt="Building about"
               width={280}
               height={170}
@@ -38,7 +38,7 @@ const Mansha = () => {
           </div>
           <div className="w-full flex-1 overflow-hidden md:h-[280px]">
             <Image
-              src="/mansha-image/villa-about.jpg"
+              src="/about/about-section3.jpg"
               alt="Villa about"
               width={280}
               height={170}
@@ -50,7 +50,7 @@ const Mansha = () => {
         <div className="flex flex-col items-start gap-[10px] md:gap-[20px] lg:gap-[20px] xl:gap-[120px] lg:flex-row lg:items-start">
           <div className="order-1 mx-auto w-full max-w-[330] overflow-hidden md:hidden lg:order-none lg:mx-0 lg:mt-[60px] lg:block lg:self-end">
             <Image
-              src="/mansha-image/building-about.jpg"
+              src="/about/about-section2.jpg"
               alt="Building about"
               width={280}
               height={170}
@@ -85,7 +85,7 @@ const Mansha = () => {
 
           <div className="order-2 mx-auto w-full max-w-[320px] overflow-hidden md:hidden lg:order-none lg:mx-0 lg:-mt-[60px] lg:block lg:self-start">
             <Image
-              src="/mansha-image/villa-about.jpg"
+              src="/about/about-section3.jpg"
               alt="Villa about"
               width={280}
               height={170}

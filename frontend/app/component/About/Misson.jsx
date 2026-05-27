@@ -17,7 +17,7 @@ const Misson = () => {
 
           <div className="w-full overflow-hidden md:w-[398px]">
             <Image
-              src="/mansha-image/ourmisson.jpg"
+              src="/about/our-mission.jpg"
               alt="Our mission visual"
               width={398}
               height={265}
@@ -38,7 +38,7 @@ const Misson = () => {
 
           <div className="order-2 w-full overflow-hidden md:w-[398px] lg:order-2">
             <Image
-              src="/mansha-image/ourvission.jpg"
+              src="/about/our-vision.jpg"
               alt="Our vision visual"
               width={398}
               height={265}

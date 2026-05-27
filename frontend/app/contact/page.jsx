@@ -7,6 +7,7 @@ import ContactFAQ from '../component/contact/Contact-FAQ'
 import TestimoniaCommon from '../component/common/Testimonia-common'
 import Consultation from '../component/Home/Consultation'
 import FAQCommon from '../component/common/FAQCommon'
+import ConsultationCommon from '../component/common/Consultation-common'
 const page = () => {
   return (
     <div>
@@ -17,7 +18,7 @@ const page = () => {
           <FAQCommon />
       </div>  
       <TestimoniaCommon/>
-      <Consultation/>
+     <ConsultationCommon/> 
       <Footer/>
       </div>
   

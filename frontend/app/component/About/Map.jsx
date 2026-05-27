@@ -7,7 +7,7 @@ const Map = () => {
         <div className="overflow-hidden border border-[#DDDDDD]">
           <iframe
             title="Mansha Group Corporate Office Map"
-            src="https://www.google.com/maps?q=P-23,+Sector+75,+Faridabad&output=embed"
+            src="https://maps.google.com/maps?q=Mansha%20Group%20-%20Real%20Estate%20Developers%20in%20Faridabad%2C%20P%2C%2023%2C%20Sector%2075%2C%20Faridabad%2C%20Haryana%20121002&t=m&z=10&output=embed&iwloc=near&hl=en_US"
             width="100%"
             height="450"
             loading="lazy"

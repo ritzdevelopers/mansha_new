@@ -24,18 +24,18 @@ const Journey = () => {
   const steps = useMemo(
     () => [
       {
-        image: "/mansha-image/Journey-1.jpg",
+        image: "/about/slider1image.jpg",
         alt: "Journey visual one",
         year: "2006-2011",
         text: "Mansha Greens, Mansha Residency, Mansha Estate, and Mansha Royal Farms reflect a legacy of thoughtful development, modern infrastructure, and quality living.",
       },
       { 
-        image: "/mansha-image/Journey-2.jpg",
+        image: "/about/slider2image.jpg",
         year: "2011-2015",
         text: "Mansha Model Town, Mansha City, Mansha Floors, Mansha Luxury Floors.",
       },
       {
-        image: "/mansha-image/Journey-1.jpg",
+        image: "/about/slider3image.jpg",
         alt: "Journey visual three",
         year: "2015-2020",
         text: "Dummy content for journey stage three. This section can be replaced with actual milestones, project highlights, and key growth achievements of the brand.",
