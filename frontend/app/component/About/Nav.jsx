@@ -29,7 +29,7 @@ const AboutNav = () => {
 
   return (
     <>
-      <section className="about-hero relative min-h-screen overflow-hidden md:h-[388px] md:min-h-[388px] md:max-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:max-h-[518px] xl:min-h-screen xl:h-screen xl:max-h-none">
+      <section className="about-hero relative min-h-[calc(100vh-50px)] overflow-hidden md:h-[388px] md:min-h-[388px] md:max-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:max-h-[518px] xl:min-h-screen xl:h-screen xl:max-h-none">
         <Image
           src="/about/about-mobile-banner.jpg"
           alt="About Hero"
@@ -110,7 +110,7 @@ const AboutNav = () => {
           </div>
         </header>
 
-        <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-8xl items-end px-5 pb-8 sm:px-8 md:h-[388px] md:min-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:px-[75px] xl:min-h-screen xl:h-screen">
+        <div className="relative z-20 mx-auto flex min-h-[calc(100vh-50px)] w-full max-w-8xl items-end px-5 pb-8 sm:px-8 md:h-[388px] md:min-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:px-[75px] xl:min-h-screen xl:h-screen">
           <div className="text-white">
             <h1 className="font-[Optima] text-[36px] font-[500] leading-[48px] tracking-[0] text-center capitalize text-white">
               About

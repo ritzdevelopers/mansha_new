@@ -1,8 +1,47 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+
+const STATS = [
+  { target: 100, suffix: "+", label: "Verified Properties Sold" },
+  { target: 200, suffix: "+", label: "Professional Trusted Agents" },
+  { target: 98, suffix: "%", label: "Client Satisfaction Rate" },
+];
+
+const COUNT_DURATION_MS = 2000;
 
 const Mansha = () => {
+  const statsRef = useRef(null);
+  const hasCountedRef = useRef(false);
+  const [counts, setCounts] = useState(() => STATS.map(() => 0));
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || hasCountedRef.current) return;
+        hasCountedRef.current = true;
+
+        const start = performance.now();
+
+        const tick = (now) => {
+          const progress = Math.min((now - start) / COUNT_DURATION_MS, 1);
+          const eased = 1 - (1 - progress) ** 3;
+          setCounts(STATS.map((stat) => Math.round(stat.target * eased)));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="w-full bg-white mx-auto max-w-[1500px]">
       <div className="mx-auto flex max-w-8xl flex-col gap-6 px-5 py-[35px] sm:px-8 lg:flex-row lg:items-start lg:gap-[130px] lg:px-[75px] lg:py-[75px]">
@@ -83,7 +122,7 @@ const Mansha = () => {
 </button>
           </div>
 
-          <div className="order-2 mx-auto w-full max-w-[320px] overflow-hidden md:hidden lg:order-none lg:mx-0 lg:-mt-[60px] lg:block lg:self-start">
+          <div className="order-2 mx-auto w-full max-w-[330px] overflow-hidden md:hidden lg:order-none lg:mx-0 lg:max-w-[320px] lg:-mt-[60px] lg:block lg:self-start">
             <Image
               src="/about/about-section3.jpg"
               alt="Villa about"
@@ -94,33 +133,24 @@ const Mansha = () => {
           </div>
         </div>
 
-        <div className="mt-5  md:mt-8 lg:mt-19 grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div className="border border-[#0000001A] bg-white px-6 py-6 text-center">
-            <h3 className="number-shine font-optima text-[48px] font-bold leading-[100%] tracking-[0%] text-transparent">
-              100+
-            </h3>
-            <p className="mt-3 font-optima text-[20px] font-[550] leading-[33px] tracking-[0%] capitalize text-[#00000099]">
-              Verified Properties Sold
-            </p>
-          </div>
-
-          <div className="border border-[#0000001A] bg-white px-6 py-6 text-center">
-            <h3 className="number-shine font-optima text-[48px] font-bold leading-[100%] tracking-[0%] text-transparent">
-              200+
-            </h3>
-            <p className="mt-3 font-optima text-[20px] font-[550] leading-[33px] tracking-[0%] capitalize text-[#00000099]">
-              Professional Trusted Agents
-            </p>
-          </div>
-
-          <div className="border border-[#0000001A] bg-white px-6 py-6 text-center">
-            <h3 className="number-shine font-optima text-[48px] font-bold leading-[100%] tracking-[0%] text-transparent">
-              98%
-            </h3>
-            <p className="mt-3 font-optima text-[20px] font-[550] leading-[33px] tracking-[0%] capitalize text-[#00000099]">
-              Client Satisfaction Rate
-            </p>
-          </div>
+        <div
+          ref={statsRef}
+          className="mt-5  md:mt-8 lg:mt-19 grid grid-cols-1 gap-4 md:grid-cols-3"
+        >
+          {STATS.map((stat, index) => (
+            <div
+              key={stat.label}
+              className="border border-[#0000001A] bg-white px-6 py-6 text-center"
+            >
+              <h3 className="number-shine font-optima text-[48px] font-bold leading-[100%] tracking-[0%] text-transparent">
+                {counts[index]}
+                {stat.suffix}
+              </h3>
+              <p className="mt-3 font-optima text-[20px] font-[550] leading-[33px] tracking-[0%] capitalize text-[#00000099]">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 

@@ -70,7 +70,7 @@ const Section2 = () => {
             KEY HIGHLIGHTS
             </h2>
 
-            <p className="xl:mt-7 mt-2 font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px] xl:w-full lg:w-[400px] capitalize text-[#333333] transition-opacity duration-500">
+            <p className="xl:mt-7 mt-2 font-montserrat xl:text-[20px] font-semibold text-[14px] font-normal xl:leading-[28px] leading-[25px] xl:w-full lg:w-[400px] capitalize transition-opacity duration-500 text-[#652A27]">
               {activeContent.title}
             </p>
 
