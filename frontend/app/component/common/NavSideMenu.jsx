@@ -134,7 +134,7 @@ const NavSideMenu = ({ open, onClose }) => {
     const key = `${sectionId}-${categoryId}`;
     setOpenSubDropdown((prev) => (prev === key ? null : key));
   };
-  const sidebarLinkClass = `optima-menu-link mobile-nav-item-link block cursor-pointer text-[30px] text-black ${
+  const sidebarLinkClass = `optima-menu-link mobile-nav-item-link block cursor-pointer text-[18px] leading-tight text-black md:text-[30px] ${
     open ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
   }`;
   const sidebarLabelClass =
@@ -160,7 +160,7 @@ const NavSideMenu = ({ open, onClose }) => {
 
         <div className="nav-menu-scroll mt-8 min-h-0 flex-1 overflow-y-auto overscroll-y-contain [-webkit-overflow-scrolling:touch]">
         <nav aria-label="Sidebar menu">
-          <ul className="space-y-5 pl-2 md:space-y-2 ">
+          <ul className="space-y-1.5 pl-2 md:space-y-1.5">
             {NAV_ITEMS.slice(0, 2).map((item) => (
               <li key={item.label}>
                 <Link
@@ -183,7 +183,7 @@ const NavSideMenu = ({ open, onClose }) => {
                   <button
                     type="button"
                     onClick={() => toggleDropdown(section.id)}
-                    className={`${sidebarLinkClass} flex w-full items-center justify-between gap-3 text-left`}
+                    className={`${sidebarLinkClass} flex w-full items-center justify-between gap-2 text-left`}
                     style={{
                       transitionDelay: open ? section.delay : "0ms",
                     }}
@@ -200,10 +200,10 @@ const NavSideMenu = ({ open, onClose }) => {
 
                   <div
                     className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
-                      isOpen ? "max-h-[2000px] py-3 opacity-100" : "max-h-0 pt-0 opacity-0"
+                      isOpen ? "max-h-[2000px] py-2 opacity-100 md:py-3" : "max-h-0 pt-0 opacity-0"
                     }`}
                   >
-                    <ul className="space-y-1 border-l border-[#E0E0E0] pl-4">
+                    <ul className="space-y-0.5 border-l border-[#E0E0E0] pl-3 md:space-y-1 md:pl-4">
                       {section.categories.map((category) => {
                         const subKey = `${section.id}-${category.id}`;
                         const isSubOpen = openSubDropdown === subKey;
@@ -236,7 +236,7 @@ const NavSideMenu = ({ open, onClose }) => {
                             <button
                               type="button"
                               onClick={() => toggleSubDropdown(section.id, category.id)}
-                              className={`${sidebarLinkClass} flex w-full items-center justify-between gap-3 text-left !translate-x-0 !opacity-100`}
+                              className={`${sidebarLinkClass} flex w-full items-center justify-between gap-2 text-left !translate-x-0 !opacity-100`}
                               aria-expanded={isSubOpen}
                             >
                               <span
@@ -263,7 +263,7 @@ const NavSideMenu = ({ open, onClose }) => {
                                   : "max-h-0 overflow-hidden py-0 opacity-0"
                               }`}
                             >
-                              <ul className="space-y-1 border-l border-[#E0E0E0] pl-4">
+                              <ul className="space-y-0.5 border-l border-[#E0E0E0] pl-3 md:space-y-1 md:pl-4">
                                 {category.items?.map((sub, index) => (
                                   <li key={sub.label}>
                                     <Link

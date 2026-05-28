@@ -105,7 +105,7 @@ const Section5 = () => {
                 <button
                   type="button"
                   onClick={() => setIsAmenitiesOpen(true)}
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-white px-5 md:py-4 py-2 text-center font-montserrat text-[8px] font-medium leading-[100%] text-[#333333] transition-colors hover:bg-[#fafafa] md:text-[14px] lg:text-[16px]"
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer bg-white px-5 lg:py-4 py-2 md:py-2 text-center font-montserrat text-[8px] font-medium leading-[100%] text-[#333333] transition-colors hover:bg-[#fafafa] md:text-[10px] lg:text-[16px]"
                   aria-haspopup="dialog"
                   aria-expanded={isAmenitiesOpen}
                 >
