@@ -6,7 +6,8 @@ const Footer = () => {
     <footer className="relative w-full overflow-hidden bg-[#652A27] px-0 text-white">
       <div className="mx-auto max-w-8xl px-5 py-[35px] sm:px-8 md:px-6 lg:px-[75px] lg:pt-[70px] lg:pb-[40px]  ">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.6fr_0.6fr_0.8fr]">
-          <div className="col-span-2 lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1 cursor-pointer">
+            <Link href="/">
             <Image
               src="/mansha-image/footer-logo.png"
               alt="Mansha footer logo"
@@ -14,9 +15,11 @@ const Footer = () => {
               height={94}
               className="h-auto w-[80px]"
             />
+             </Link>
             <p className="mt-4 max-w-[380px] font-montserrat text-[15px] font-normal leading-[22px] tracking-normal text-[#FFFFFF]">
-            Refined living blends elegant design, curated spaces, and seamless comfort, creating a sophisticated lifestyle where every detail enhances daily experience with effortless ease.
+              Refined living blends elegant design, curated spaces, and seamless comfort, creating a sophisticated lifestyle where every detail enhances daily experience with effortless ease.
             </p>
+           
           </div>
 
           {/* <div>

@@ -31,7 +31,7 @@ const Happen = () => {
       <div className=" mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[75px] 2xl:px-[70px]">
         <div className="min-w-0">
           <div>
-            <h2 className="font-optima text-[28px] md:text-[36px] font-[500] capitalize leading-[30px] tracking-normal text-[#111111] text-center md:text-left">
+            <h2 className="font-optima text-[28px] md:text-[36px] font-[500] capitalize leading-[35px] tracking-normal text-[#111111] text-center md:text-left">
             Want to Work with a Trusted Real Estate Developer?
             </h2>
             <div className="lg:mt-4 mt-2 h-px w-full bg-[#E5E5E5] xl:w-[650px]" aria-hidden />

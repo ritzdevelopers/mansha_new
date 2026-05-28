@@ -85,7 +85,7 @@ const Invest = () => {
             <p className="mx-auto max-w-[328px] px-4 pb-2 pt-4 text-center font-montserrat text-[16px] font-medium leading-[23px] tracking-[0px] capitalize text-black lg:pt-3">
               Just 2 Minutes Drive to Delhi-Mumbai Expressway
             </p>
-            <div className="mt-3 flex justify-center gap-1.5 pb-3 lg:absolute lg:bottom-3 lg:left-1/2 lg:z-10 lg:mt-0 lg:-translate-x-1/2 lg:pb-0">
+            <div className="mt-3 flex justify-center gap-1.5 pb-3">
               {INVEST_SLIDES.map((_, idx) => (
                 <button
                   key={idx}

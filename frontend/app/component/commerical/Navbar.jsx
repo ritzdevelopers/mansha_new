@@ -136,7 +136,7 @@ const Navbar = () => {
             <span className="text-[#666666]">|</span>
             <span className="text-[#666666]">Residential</span>
             <span className="text-[#666666]">|</span>
-            <span className="text-[#652A27]">Vega Street</span>
+            <span className="text-[#652A27] font-semibold">Vega Street</span>
           </div>
 
           <div className="grid grid-cols-1 items-end gap-6 lg:grid-cols-[260px_1fr] xl:gap-15">

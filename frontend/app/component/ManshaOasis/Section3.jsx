@@ -186,7 +186,7 @@ const Section3 = () => {
             <h3 className="font-montserrat md:text-[20px] text-[10px] font-bold md:leading-[100%] leading-[12px] capitalize text-white">
               {activeMobileSlide.title}
             </h3>
-            <p className="mt-1 font-montserrat md:text-[16px] text-[8px] font-medium md:leading-[25px] leading-[12px] capitalize text-white">
+            <p className="mt-1 font-montserrat md:text-[16px] text-[10px] font-medium md:leading-[25px] leading-[15px] capitalize text-white">
               {activeMobileSlide.text}
             </p>
           </div>

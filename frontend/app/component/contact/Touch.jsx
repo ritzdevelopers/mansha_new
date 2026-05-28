@@ -23,7 +23,7 @@ const CONTACT_LABELS = new Set(["Call:", "email:", "mail:"]);
 
 const Touch = () => {
   return (
-    <section className="w-full bg-white pb-[35px] lg:pb-[70px]">
+    <section className="w-full bg-white pb-[0px] lg:pb-[0px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[75px]">
         <div>
           <h2 className="font-optima text-[28px] md:text-[36px] font-[500] leading-[100%] tracking-normal text-[#111111] text-center md:text-left">
