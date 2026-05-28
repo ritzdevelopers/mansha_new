@@ -24,7 +24,7 @@ const Headline = () => {
             </p>
             {/* hover:translate-x-0 */}
             <Link
-  href="/contact"
+  href="/contact-us"
   className="group relative inline-flex w-fit items-center gap-4 overflow-hidden px-5 py-[10px] text-[#652A27] transition-colors duration-300 rounded-full border border-[#652A27] "
 >
   {/* Background Animation */}

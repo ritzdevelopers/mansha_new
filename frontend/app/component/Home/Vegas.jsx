@@ -104,7 +104,7 @@ const Vegas = () => {
                 key={`${item.src}-${index}`}
                 href={item.href}
                 onMouseEnter={() => setActiveImage(index)}
-                className={`relative min-h-[220px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] lg:min-h-[420px] ${
+                className={`relative min-h-[370px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] lg:min-h-[420px] ${
                   activeImage === index ? "flex-1 lg:flex-[2.2]" : "flex-1"
                 }`}
               >
