@@ -81,7 +81,7 @@ const Section2 = () => {
         <div className=" mt-6 delivered-cards-grid grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
           {DELIVERED_PROJECTS.map((project) => {
             const cardClassName =
-              "delivered-project-card flex flex-col items-start gap-4 rounded-lg border-2 border-[#E0E0E0] bg-white p-5 sm:flex-row sm:items-center sm:gap-6 sm:p-6";
+              "delivered-project-card flex flex-col items-center gap-4 rounded-lg border-2 border-[#E0E0E0] bg-white p-5 sm:p-6 xl:flex-row xl:items-center xl:gap-6";
 
             const cardContent = (
               <>
@@ -95,7 +95,7 @@ const Section2 = () => {
                   />
                 ) : null}
 
-                <p className="flex items-start gap-2 font-['Open_Sans','Open Sans',sans-serif] text-[14px] font-normal leading-[22px] tracking-normal text-[#000000] sm:text-[15px] sm:leading-[24px] md:text-[22px]">
+                <p className="w-full text-center font-['Open_Sans','Open Sans',sans-serif] text-[18px] font-normal leading-[22px] tracking-normal text-[#000000] sm:text-center sm:text-[15px] sm:leading-[24px] md:text-[22px] xl:text-left">
                   {project.location}
                 </p>
               </>

@@ -5,7 +5,7 @@ const ConsultationCommon = () => {
   return (
     <section className="w-full max-w-[1500px] bg-white px-0 mx-auto">
       <div className="mx-auto max-w-8xl px-5 pb-[35px] sm:px-8 lg:px-[75px] lg:py-[70px]">
-        <div className="consultation-banner relative w-full overflow-hidden md:rounded-[24px] rounded-[20px]">
+        <div className="consultation-banner relative w-full overflow-hidden md:rounded-[24px] rounded-[10px]">
           <Image
             src="/mansha-image/consultation-image-new.jpg"
             alt="Consultation banner"

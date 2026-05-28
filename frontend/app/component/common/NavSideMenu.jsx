@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 
 const PHONE = "tel:+91-8010003838";
 const PHONE_TEXT = "+91-8010003838";
@@ -26,17 +29,10 @@ const ONGOING_RESIDENTIAL = [
 ];
 
 const DELIVERED_NAV_PROJECTS = [
-  { name: "Mansha Oaks", image: "/delieverd/mansha.png", href: "/mansha-oaks-4" },
-  { name: "Mansha City Palwal", image: "/delieverd/mansha-city-palwal.png", href: "/mansha-city-palwal-2" },
-  { name: "Mansha Royal City", image: "/delieverd/mansha-royal-city.png", href: "/mansha-royal-city" },
-  { name: "Mansha Luxury Floors", image: "/delieverd/mansha-luxury-floor.png", href: "/mansha-luxury-floors" },
-  { name: "Eden SLF City", image: "/delieverd/eden-city.png", href: "/eden-slf-city" },
-  { name: "Mansha Indraprastha Greens", image: "/delieverd/mansha-indr-green.png", href: "/indraprastha-greens" },
-  { name: "Mansha Estate", image: "/delieverd/mansha-estate.png", href: "/mansha-estate" },
-  { name: "Mansha Floors", image: "/delieverd/mansha-floor.png", href: "/mansha-floors-2" },
-  { name: "Mansha Model Town", image: "/delieverd/mansha-model-town.png", href: "/mansha-model-town" },
-  { name: "Mansha Residency", image: "/delieverd/mansha-residence.png", href: "/mansha-residency" },
-  { name: "Mansha Greens", image: "/delieverd/Logos-For-Website-11.png", href: "/mansha-greens-2" },
+  { name: "Aagman by Mansha ", image: "/navslider/aagman.jpg", href: "/aagman-by-mansha" },
+  { name: "Mansha Orchid", image: "/navslider/orchid.jpg", href: "/mansha-orchid" },
+  { name: "Mansha Vega Street", image: "/navslider/vega-street.jpg", href: "/vega-street" },
+  { name: "Mansha Heritage ", image: "/navslider/heritage.jpg", href: "/mansha-heritage" },
 ];
 
 const DROPDOWN_NAV = [
@@ -64,53 +60,42 @@ const DROPDOWN_NAV = [
 ];
 
 const NavProjectSlider = ({ open, onClose }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (!open) {
-      setActiveIndex(0);
-      return undefined;
-    }
-
-    const id = window.setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % DELIVERED_NAV_PROJECTS.length);
-    }, 2800);
-
-    return () => window.clearInterval(id);
-  }, [open]);
-
   return (
     <div className="relative mt-8 w-full overflow-hidden">
       <p className="optima-menu-link mb-2 text-center font-montserrat text-[25px] font-medium text-black">
         Projects
       </p>
-      <div
-        className="flex transition-transform duration-700 ease-out"
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      <Swiper
+        key={open ? "open" : "closed"}
+        modules={[Autoplay]}
+        loop
+        slidesPerView={1}
+        speed={700}
+        autoplay={{ delay: 2800, disableOnInteraction: false, pauseOnMouseEnter: false }}
+        observer
+        observeParents
+        className="w-full"
       >
         {DELIVERED_NAV_PROJECTS.map((project) => (
-          <Link
-            key={project.href}
-            href={project.href}
-            onClick={onClose}
-            className="w-full shrink-0 cursor-pointer"
-          >
-            <div className="mx-auto w-full max-w-[280px] overflow-hidden rounded-md border border-[#E0E0E0] bg-[#FAFAFA]">
-              <Image
-                src={project.image}
-                alt={project.name}
-                width={280}
-                height={120}
-                className="h-auto w-full object-contain"
-                sizes="280px"
-              />
-            </div>
-            <p className="optima-menu-link mt-2 text-center font-montserrat text-[18px] font-normal leading-snug text-black transition-colors hover:text-[#652A27]">
-              {project.name}
-            </p>
-          </Link>
+          <SwiperSlide key={project.href}>
+            <Link href={project.href} onClick={onClose} className="block w-full cursor-pointer">
+              <div className="mx-auto w-full max-w-[280px] overflow-hidden rounded-sm border border-[#E0E0E0] bg-[#FAFAFA]">
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  width={280}
+                  height={120}
+                  className="h-auto w-full object-contain"
+                  sizes="280px"
+                />
+              </div>
+              <p className="optima-menu-link mt-2 text-center font-montserrat text-[18px] font-normal leading-snug text-black transition-colors hover:text-[#652A27]">
+                {project.name}
+              </p>
+            </Link>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
@@ -158,9 +143,9 @@ const NavSideMenu = ({ open, onClose }) => {
           <i className="ri-close-large-line text-[20px]" aria-hidden />
         </button>
 
-        <div className="nav-menu-scroll mt-8 min-h-0 flex-1 overflow-y-auto overscroll-y-contain [-webkit-overflow-scrolling:touch]">
+        <div className="nav-menu-scroll mt-2 min-h-0 flex-1 overflow-y-auto overscroll-y-contain [-webkit-overflow-scrolling:touch] md:mt-8">
         <nav aria-label="Sidebar menu">
-          <ul className="space-y-1.5 pl-2 md:space-y-1.5">
+          <ul className="space-y-3 pl-2 md:space-y-1.5">
             {NAV_ITEMS.slice(0, 2).map((item) => (
               <li key={item.label}>
                 <Link

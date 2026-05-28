@@ -19,7 +19,7 @@ const Section2 = () => {
 
   return (
     <section className="bg-[#f8fafc] mx-auto w-full max-w-[1500px] ">
-      <div className="mx-auto max-w-8xl px-5 py-[35px] lg:px-[75px] lg:pt-[70px]">
+      <div className="mx-auto max-w-8xl px-5 py-[35px] lg:px-[75px] lg:py-[70px]">
         <h2 className="mb-8 font-optima text-[28px] font-medium capitalize leading-[1.2] text-[#111111] md:mb-10 md:text-[36px]">
           Careers
         </h2>
