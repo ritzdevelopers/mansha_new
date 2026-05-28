@@ -1,16 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import React, { useState } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const Section7 = () => {
-  const gridRef = useRef(null);
+const Section4 = () => {
   const images = [
     { src: "/mansha-image/galleryimage-1.jpg", alt: "Gallery image one" },
     { src: "/mansha-image/gallery-image-2.jpg", alt: "Gallery image two" },
@@ -20,38 +13,13 @@ const Section7 = () => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);
-  const [modalSwiper, setModalSwiper] = useState(null);
 
   const openModal = (index) => setActiveIndex(index);
   const closeModal = () => setActiveIndex(null);
-  const showNext = () => modalSwiper?.slideNext();
-  const showPrev = () => modalSwiper?.slidePrev();
-
-  useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".gallery-card",
-        { autoAlpha: 0, y: 45 },
-        {
-          autoAlpha: 1,
-          x: 0,
-          duration: 0.75,
-          ease: "power3.out",
-          stagger: 0.16,
-          scrollTrigger: {
-            trigger: grid,
-            start: "top 80%",
-            once: true,
-          },
-        }
-      );
-    }, grid);
-
-    return () => ctx.revert();
-  }, []);
+  const showNext = () =>
+    setActiveIndex((prev) => (prev + 1) % images.length);
+  const showPrev = () =>
+    setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
 
   return (
     <section className="w-full  pb-[35px] lg:pb-[70px]">
@@ -60,16 +28,13 @@ const Section7 = () => {
           Gallery
         </h2>
 
-        <div ref={gridRef} className="md:mt-4 mt-0 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 lg:gap-7">
-          <article className="gallery-card border border-[#E6E6E6] bg-white p-4">
+        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 lg:gap-5">
+          <article className="border border-[#E6E6E6] bg-white p-4">
             <h3 className="font-optima text-[24px] font-medium leading-[25px] lg:leading-[100%] tracking-[0] capitalize text-black lg:text-[28px] ">
-            A Glimpse of Elegance
+            A touch of class
             </h3>
-            <p className="mt-4 font-montserrat text-[16px] font-normal md:leading-[25px] lg:leading-[28px] tracking-[0] text-[#00000099]">
-            A visual journey through elevated lifestyles, where every frame reflects thoughtful design.
-Designed with detail, defined by sophistication and a refined sense of style.
-Where every space reflects timeless elegance, comfort, and effortless living.
-
+            <p className="mt-4 lg:mt-4 font-montserrat text-[16px] font-normal md:leading-[25px] lg:leading-[28px] tracking-[0] text-[#00000099]">
+            See how elegance is woven into these luxurious residences through their design and detailed finishes, creating an atmosphere of balance and comfort with lasting appeal.
             </p>
           </article>
 
@@ -78,7 +43,7 @@ Where every space reflects timeless elegance, comfort, and effortless living.
               key={image.src}
               type="button"
               onClick={() => openModal(index)}
-              className="gallery-card relative h-[200px] cursor-pointer overflow-hidden text-left sm:h-[230px] lg:h-[250px]"
+              className="relative h-[200px] cursor-pointer overflow-hidden text-left sm:h-[230px] lg:h-[250px]"
             >
               <Image
                 src={image.src}
@@ -113,28 +78,13 @@ Where every space reflects timeless elegance, comfort, and effortless living.
           </button>
 
           <div className="relative z-10 h-[70vh] w-full max-w-5xl">
-            <Swiper
-              loop
-              speed={500}
-              slidesPerView={1}
-              initialSlide={activeIndex}
-              onSwiper={setModalSwiper}
-              className="h-full w-full"
-            >
-              {images.map((image) => (
-                <SwiperSlide key={image.src}>
-                  <div className="relative h-full w-full">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      fill
-                      className="object-contain"
-                      sizes="100vw"
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            <Image
+              src={images[activeIndex].src}
+              alt={images[activeIndex].alt}
+              fill
+              className="object-contain"
+              sizes="100vw"
+            />
           </div>
 
           <button
@@ -151,4 +101,4 @@ Where every space reflects timeless elegance, comfort, and effortless living.
   );
 };
 
-export default Section7;
+export default Section4;

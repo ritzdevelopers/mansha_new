@@ -426,13 +426,10 @@ const Section2 = () => {
           >
             <article className="gallery-card border border-[#E6E6E6] bg-white p-4">
               <h3 className="font-optima text-[24px] font-medium capitalize leading-[25px] tracking-[0] text-black lg:text-[28px] lg:leading-[100%]">
-                A Glimpse of Elegance
+              Life's Above and Beyond
               </h3>
               <p className="mt-4 font-montserrat text-[16px] font-normal tracking-[0] text-[#00000099] md:leading-[25px] lg:leading-[28px]">
-                A visual journey through elevated lifestyles, where every frame
-                reflects thoughtful design. Designed with detail, defined by
-                sophistication and a refined sense of style. Where every space
-                reflects timeless elegance, comfort, and effortless living.
+              This exclusive journey introduces residences that surpass expectation; built with attention and a focus on the discerning modern resident.
               </p>
             </article>
 
