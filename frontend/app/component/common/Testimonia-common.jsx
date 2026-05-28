@@ -37,10 +37,10 @@ export default function TestimoniaCommon() {
             <h2 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#652A27]">
               Clients Testimonials
             </h2>
-            <h3 className="lg:mt-3 mt-0 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] md:text-[34px] font-bold xl:leading-[50px] leading-[35px] tracking-normal text-[#000000]">
+            <h3 className="lg:mt-3 md:mt-2 mt-0 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] md:text-[34px] font-bold xl:leading-[50px] leading-[35px] tracking-normal text-[#000000]">
             Trusted By Many 
             </h3>
-            <p className="lg:mt-3 mt-0 w-full max-lg:max-w-none font-montserrat text-[16px] font-normal xl:leading-[28px] leading-[25px] tracking-normal text-[#000000] lg:mx-0 lg:max-w-[281px]">
+            <p className="lg:mt-3 md:mt-2 mt-0 w-full max-lg:max-w-none font-montserrat text-[16px] font-normal xl:leading-[28px] leading-[25px] tracking-normal text-[#000000] lg:mx-0 lg:max-w-[281px]">
             Client experiences that highlight trust, reliability, and quality, building partnerships that stand strong over time.
 
             </p>

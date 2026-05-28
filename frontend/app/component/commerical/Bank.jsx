@@ -3,7 +3,7 @@ import React from "react";
 
 const Bank = () => {
   return (
-    <section className="w-full pb-[35px] lg:pb-[70px]">
+    <section className="w-full pb-[0px] lg:pb-[0px]">
       <div className="mx-auto max-w-[1525px] ">
         <div
           className="w-full  bg-repeat py-8 sm:py-10 lg:py-12"
