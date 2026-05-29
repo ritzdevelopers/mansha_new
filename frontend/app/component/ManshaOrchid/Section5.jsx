@@ -11,6 +11,25 @@ const luxuryItems = [
   { icon: "/mansha-svg/facility.svg", label: "Gated community" },
 ];
 
+const popupAmenities = [
+  { icon: "/mansha-svg/facility.svg", label: "Secure Gated Community with 24x7 Security" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "Attractive Plot Sizes ranging from 100–180 sq. yds." },
+  { icon: "/mansha-svg/clubhouse.svg", label: "Option to build S+4 Independent Floors" },
+  { icon: "/mansha-svg/facility.svg", label: "30 Ft. Wide Internal Roads" },
+  { icon: "/mansha-svg/facility.svg", label: "Decorative Concrete / Paver Road" },
+  { icon: "/mansha-svg/playarea.svg", label: "Kids Play Area" },
+  { icon: "/mansha-svg/facility.svg", label: "Lush Green Society with Lined Fruit Trees" },
+  { icon: "/mansha-svg/facility.svg", label: "Elegant Street Light Poles with LED Lamps" },
+  { icon: "/mansha-svg/facility.svg", label: "Under Ground Electricity Cable for Common Areas" },
+  { icon: "/mansha-svg/facility.svg", label: "Sewage Treatment Plant (STP)" },
+  { icon: "/mansha-svg/facility.svg", label: "Rain Water Harvesting System" },
+  { icon: "/mansha-svg/jogging.svg", label: "Jogging Track in Beautiful Parks" },
+  { icon: "/mansha-svg/playarea.svg", label: "Badminton Court & Cricket Practice Net" },
+  { icon: "/mansha-svg/facility.svg", label: "Open Air Gym in Park" },
+  { icon: "/mansha-svg/facility.svg", label: "Beautifully managed Landscaped Parks" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "Provision for Commercial Spaces within Society" },
+];
+
 const AMENITY_REVEAL_MS = 200;
 
 const Section5 = () => {
@@ -44,10 +63,10 @@ const Section5 = () => {
     const intervalId = window.setInterval(() => {
       setVisibleAmenityCount((prev) => {
         const next = prev + 1;
-        if (next >= luxuryItems.length) {
+        if (next >= popupAmenities.length) {
           window.clearInterval(intervalId);
         }
-        return Math.min(next, luxuryItems.length);
+        return Math.min(next, popupAmenities.length);
       });
     }, AMENITY_REVEAL_MS);
 
@@ -146,7 +165,7 @@ const Section5 = () => {
             </h3>
 
             <div className="mt-6 grid min-h-[220px] grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              {luxuryItems.map((item, idx) => (
+              {popupAmenities.map((item, idx) => (
                 <div
                   key={`modal-${item.label}-${idx}`}
                   className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${

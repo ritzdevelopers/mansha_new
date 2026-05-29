@@ -1,7 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const FAQ_IMAGE = {
+  src: "/mansha-image/homepage-faq.jpg",
+  alt: "Commercial workspace",
+};
 
 const faqs = [
   {
@@ -31,15 +36,30 @@ const faqs = [
   },
 ];
 
-const  Section8 = () => {
+const Section8 = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [playReveal, setPlayReveal] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setPlayReveal(entry.isIntersecting),
+      { threshold: 0.2 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const toggleItem = (index) => {
     setActiveIndex((prev) => (prev === index ? -1 : index));
   };
 
   return (
-    <section className="mx-auto w-full max-w-[1500px] bg-white px-0">
+    <section ref={sectionRef} className="mx-auto w-full max-w-[1500px] bg-white px-0">
       <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-5 pb-[35px] sm:px-8 lg:grid-cols-[420px_1fr] lg:gap-0 lg:px-[75px] lg:pb-[70px] xl:grid-cols-[500px_1fr]">
         <div>
           <h2 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[30px] tracking-normal capitalize text-[#111111] md:text-[36px] md:leading-[42px] md:text-left lg:whitespace-nowrap">
@@ -51,13 +71,21 @@ const  Section8 = () => {
 
           <div className="relative mt-5 lg:mt-12 xl:mt-[85px] w-full overflow-hidden">
             <div className="relative mx-auto aspect-[3/4] w-full max-w-[331px] sm:w-[331px] lg:mx-0">
-              <Image
-                src="/mansha-image/homepage-faq.jpg"
-                alt="Commercial workspace"
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 331px"
-              />
+              <div className="relative isolate h-full w-full overflow-hidden [transform:translateZ(0)]">
+                <div
+                  className={`absolute inset-0 overflow-hidden ${
+                    playReveal ? "faq-common-slide-reveal" : "faq-common-slide-hidden"
+                  }`}
+                >
+                  <Image
+                    src={FAQ_IMAGE.src}
+                    alt={FAQ_IMAGE.alt}
+                    fill
+                    className={`object-cover ${playReveal ? "faq-common-img-zoom" : ""}`}
+                    sizes="(max-width: 640px) 100vw, 331px"
+                  />
+                </div>
+              </div>
               <div
                 className="pointer-events-none absolute inset-[5%] z-[1] border-2 border-white"
                 aria-hidden
@@ -113,8 +141,44 @@ const  Section8 = () => {
           })}
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes faq-common-clip-reveal {
+          from {
+            clip-path: inset(0% 0% 0% 100%);
+          }
+          to {
+            clip-path: inset(0% 0% 0% 0%);
+          }
+        }
+        @keyframes faq-common-img-zoom {
+          from {
+            transform: scale(1.2);
+          }
+          to {
+            transform: scale(1);
+          }
+        }
+        .faq-common-slide-hidden {
+          clip-path: inset(0% 0% 0% 100%);
+        }
+        .faq-common-slide-reveal {
+          animation: faq-common-clip-reveal 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+        }
+        .faq-common-img-zoom {
+          transform-origin: center center;
+          animation: faq-common-img-zoom 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .faq-common-slide-reveal,
+          .faq-common-img-zoom {
+            animation-duration: 0.35s;
+            animation-timing-function: ease-out;
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
-export default Section8;       
+export default Section8;

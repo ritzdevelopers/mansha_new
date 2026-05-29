@@ -11,6 +11,30 @@ const luxuryItems = [
   { icon: "/mansha-svg/facility.svg", label: "24 × 7 power back-up for common areas" },
 ];
 
+const popupAmenities = [
+  { icon: "/mansha-svg/facility.svg", label: "Gated community" },
+  { icon: "/mansha-svg/facility.svg", label: "Well connecting" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "Smart Design" },
+  { icon: "/mansha-svg/facility.svg", label: "Manicured greens" },
+  { icon: "/mansha-svg/facility.svg", label: "Light poles electricity" },
+  { icon: "/mansha-svg/facility.svg", label: "24/7 security" },
+  { icon: "/mansha-svg/playarea.svg", label: "Play area" },
+  { icon: "/mansha-svg/jogging.svg", label: "Holistic Wellness Voyage" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "Eco-Friendly Design" },
+  { icon: "/mansha-svg/facility.svg", label: "All Underground Cabling" },
+  { icon: "/mansha-svg/playarea.svg", label: "Wide Open Roads" },
+  { icon: "/mansha-svg/facility.svg", label: "Advanced Security Systems" },
+  { icon: "/mansha-svg/facility.svg", label: "Provision of Underground Water Tank" },
+  { icon: "/mansha-svg/facility.svg", label: "24 x 7 Power Back-up for Common Areas" },
+  { icon: "/mansha-svg/facility.svg", label: "Rain Water Harvesting" },
+  { icon: "/mansha-svg/facility.svg", label: "Round-the-Clock Facilities Management" },
+  { icon: "/mansha-svg/facility.svg", label: "Sewage Treatment Plant" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "Designed for a Complete Living Experience" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "State-of-the-art Workspaces" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "High Street Shopping Model" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "Amphitheatre" },
+];
+
 const AMENITY_REVEAL_MS = 200;
 
 const Section5 = () => {
@@ -44,10 +68,10 @@ const Section5 = () => {
     const intervalId = window.setInterval(() => {
       setVisibleAmenityCount((prev) => {
         const next = prev + 1;
-        if (next >= luxuryItems.length) {
+        if (next >= popupAmenities.length) {
           window.clearInterval(intervalId);
         }
-        return Math.min(next, luxuryItems.length);
+        return Math.min(next, popupAmenities.length);
       });
     }, AMENITY_REVEAL_MS);
 
@@ -146,7 +170,7 @@ const Section5 = () => {
             </h3>
 
             <div className="mt-6 grid min-h-[220px] grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              {luxuryItems.map((item, idx) => (
+              {popupAmenities.map((item, idx) => (
                 <div
                   key={`modal-${item.label}-${idx}`}
                   className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${

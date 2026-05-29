@@ -11,6 +11,20 @@ const luxuryItems = [
   { icon: "/mansha-svg/facility.svg", label: "24 × 7 power back-up for common areas" },
 ];
 
+const popupAmenities = [
+  { icon: "/mansha-svg/playarea.svg", label: "12mtr wide road" },
+  { icon: "/mansha-svg/clubhouse.svg", label: "Independent floors" },
+  { icon: "/mansha-svg/playarea.svg", label: "Kids play area" },
+  { icon: "/mansha-svg/facility.svg", label: "Well connected" },
+  { icon: "/mansha-svg/facility.svg", label: "Gated community" },
+  { icon: "/mansha-svg/facility.svg", label: "10 min drive from UER-II" },
+  { icon: "/mansha-svg/swimming.svg", label: "Open gym area" },
+  { icon: "/mansha-svg/playarea.svg", label: "Decorative concrete roads" },
+  { icon: "/mansha-svg/facility.svg", label: "Manicured landscapes" },
+  { icon: "/mansha-svg/facility.svg", label: "Sewage Treatment Plants" },
+  { icon: "/mansha-svg/facility.svg", label: "Dual piping water supply system" },
+];
+
 const AMENITY_REVEAL_MS = 200;
 
 const Section5 = () => {
@@ -44,10 +58,10 @@ const Section5 = () => {
     const intervalId = window.setInterval(() => {
       setVisibleAmenityCount((prev) => {
         const next = prev + 1;
-        if (next >= luxuryItems.length) {
+        if (next >= popupAmenities.length) {
           window.clearInterval(intervalId);
         }
-        return Math.min(next, luxuryItems.length);
+        return Math.min(next, popupAmenities.length);
       });
     }, AMENITY_REVEAL_MS);
 
@@ -146,7 +160,7 @@ const Section5 = () => {
             </h3>
 
             <div className="mt-6 grid min-h-[220px] grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              {luxuryItems.map((item, idx) => (
+              {popupAmenities.map((item, idx) => (
                 <div
                   key={`modal-${item.label}-${idx}`}
                   className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${
