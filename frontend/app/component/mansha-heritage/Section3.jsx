@@ -8,19 +8,19 @@ import "swiper/css";
 
 const LEFT_SLIDES = [
   {
-    src: "/mansha-image/outdoor-cafe-big.jpg",
+    src: "/heritage/heritage-slider-1.jpg",
     alt: "A terrace for every home",
     title: "Spaces That Inspire",
     text: "Courtyards, open gym areas, kids’ play zones, and round-the-clock security—designed for effortless everyday living.",
   },
   {
-    src: "/mansha-image/club-with-lawn-big.jpg",
+    src: "/heritage/heritage-slider-2.jpg",
     alt: "Club with lawn",
     title: "Balanced By Design",
     text: " From landscaped courtyards to fitness spaces and safe play areas—every amenity adds comfort to life.",
   },
   {
-    src: "/mansha-image/club-pool-big.jpg",
+    src: "/heritage/heritage-slider-3.jpg",
     alt: "Club pool",
     title: "Life Within Reach",
     text: "  Open gyms, vibrant courtyards, kids’ play areas, and 24/7 CCTV—crafted for modern community living.",
@@ -29,19 +29,19 @@ const LEFT_SLIDES = [
 
 const RIGHT_SLIDES = [
   {
-    src: "/mansha-image/central-landscape-bog.jpg",
+    src: "/heritage/heritage-slider-4.jpg",
     alt: "Linear greens and themed landscapes",
     title: "Everyday Comes Alive",
     text: " Green courtyards, active fitness zones, secure surroundings, and joyful play spaces—made for all generations.",
   },
   {
-    src: "/mansha-image/outdoor-cafe-big.jpg",
+    src: "/heritage/heritage-slider-5.jpg",
     alt: "Gym",
     title: "Thoughtfully Elevated",
     text: " A lifestyle enriched with open spaces, wellness zones, children’s play areas, and seamless security.",
   },
   {
-    src: "/mansha-image/central-landscape-bog.jpg",
+    src: "/heritage/heritage-slider-6.jpg",
     alt: "Gym",
     title:"Designed Around You",
     text: " Courtyard living, outdoor fitness, playful spaces for kids, and complete security—everything thoughtfully connected.",

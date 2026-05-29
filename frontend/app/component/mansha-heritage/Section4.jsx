@@ -104,9 +104,9 @@ const VEGA_STREET_MAP_EMBED =
 const amenityItems = [
   { image: "/mansha-osis/mansha-osis-plan.png", time: "10 mins*", title: "Kundli" },
   { image: "/mansha-osis/mansha-osis-expressway.png", time: "15 Min*", title: "Delhi Border" },
-  { image: "/mansha-svg/School.svg", time: "25 Mins*", title: "Rohini " },
+  { image: "/mansha-svg/road.png", time: "25 Mins*", title: "Rohini " },
   { image: "/mansha-svg/Hospital.svg", time: "30 Mins*", title: "Pitampura " },
-  { image: "/mansha-svg/Hospital2.svg", time: "40 Mins*", title: "IGI Airport" },
+  { image: "/mansha-svg/heritage-airport.png", time: "40 Mins*", title: "IGI Airport" },
   { image: "/mansha-svg/metro.svg", time: "45 Mins*", title: " Gurugram  " },
   // { image: "/mansha-svg/side-metro.svg", time: "4 Min*", title: "Transit Hub" },
   // { image: "/mansha-svg/School.svg", time: "3 Min*", title: "Education Centre" },
@@ -126,7 +126,7 @@ const Section4 = () => {
 
         <div className="relative mt-8 lg:mt-14">
           <div className="flex flex-col md:items-center lg:flex-row lg:items-stretch">
-            <div className="relative min-h-[280px] w-full flex-1 overflow-hidden border border-[#E6E6E6] bg-[#F5F5F5] sm:min-h-[320px] md:w-full lg:h-[540px] lg:min-h-[540px] xl:max-w-[calc(100%-450px)]">
+            <div className="relative min-h-[200px] w-full flex-1 overflow-hidden border border-[#E6E6E6] bg-[#F5F5F5] md:w-full lg:h-[540px] lg:min-h-[540px] xl:max-w-[calc(100%-450px)]">
               <iframe
                 title="Sector 83 & 84, Kumashpur, Sonipat, Haryana 131021"
                 src={VEGA_STREET_MAP_EMBED}

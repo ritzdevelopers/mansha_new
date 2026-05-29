@@ -4,9 +4,9 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const RESIDENTIAL_SLIDES = [
-  "/mansha-image/residential-sldier-1.jpg",
-  "/mansha-image/residential-slider-2.jpg",
-  "/mansha-image/residentail-slider-3.jpg",
+  "/heritage/heritage-1.jpg",
+  "/heritage/heritage-2.jpg",
+  "/heritage/heritage-3.jpg",
 ];
 
 const Section2 = () => {
@@ -113,7 +113,7 @@ const Section2 = () => {
           </div>
 
           <div className="relative xl:mt-22 lg:mt-10 md:mt-3 mt-0">
-            <div className="relative h-[350px] w-full overflow-hidden md:h-[570px]">
+            <div className="relative h-[300px] w-full overflow-hidden md:h-[570px] lg:h-[420px] xl:h-[570px]">
               <div
                 className="flex h-full duration-700 ease-out"
                 style={{
