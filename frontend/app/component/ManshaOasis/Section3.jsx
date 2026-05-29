@@ -7,19 +7,19 @@ const AUTOPLAY_MS = 3200;
 
 const LEFT_SLIDES = [
   {
-    src: "/mansha-image/outdoor-cafe-big.jpg",
+    src: "/oasis/oasisslider1.jpg",
     alt: "A terrace for every home",
     title: "Elevated Living",
     text: " Terraces, skyline views, clubhouse, fitness, and lush greenery—crafted for a refined lifestyle.",
   },
   {
-    src: "/mansha-image/club-with-lawn-big.jpg",
+    src: "/oasis/oasisslider2.jpg",
     alt: "Club with lawn",
     title: "Life Above It All",
     text: " Where terraces, skyline, clubhouse, fitness, and greenery come together seamlessly.",
   },
   {
-    src: "/mansha-image/club-pool-big.jpg",
+    src: "/oasis/oasisslider3.jpg",
     alt: "Club pool",
     title: "The Art of Living Well",
     text: " A perfect blend of terraces, skyline, clubhouse, fitness, and green open spaces.",
@@ -28,17 +28,18 @@ const LEFT_SLIDES = [
 
 const RIGHT_SLIDES = [
   {
-    src: "/mansha-image/central-landscape-bog.jpg",
+    src: "/oasis/oasisslider-4.jpg",
     alt: "Linear greens and themed landscapes",
     title: "Designed for Balance",
     text: " From terraces to skyline views, clubhouse to fitness and greenery—every detail matters.",
   },
   {
-    src: "/mansha-image/outdoor-cafe-big.jpg",
+    src: "/oasis/oasisslider-5.jpg",
     alt: "Gym",
     title: "Everyday Luxury",
     text: "A lifestyle that defines excellence, shaped by thoughtful design and refined living.",
   },
+  
 ];
 
 const ALL_SLIDES = [...LEFT_SLIDES, ...RIGHT_SLIDES];
@@ -212,7 +213,7 @@ const Section3 = () => {
     <section ref={sectionRef} className="w-full bg-[#FCFCFC] py-[35px] lg:py-[70px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <h2 className="text-center font-optima text-[28px] font-[500] capitalize leading-[54px] text-[#000000] md:text-left md:text-[36px]">
-          Essence of Excellenc
+          Essence of Excellence
         </h2>
 
         <div className="mt-6 hidden grid-cols-1 gap-4 xl:grid xl:grid-cols-[3fr_1fr]">
