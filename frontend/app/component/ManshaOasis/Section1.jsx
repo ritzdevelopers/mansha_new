@@ -41,7 +41,7 @@ const Section1 = () => {
     <>
       <section className="about-hero relative min-h-[calc(100vh-50px)] overflow-hidden md:h-[388px] md:min-h-[388px] md:max-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:max-h-[518px] xl:min-h-screen xl:h-screen xl:max-h-none">
         <Image
-          src="/oasis/oasis-mobile-banner.jpg"
+          src="/oasis/oasis-mobile-banner-new.png"
           alt="Mansha Oasis"
           fill
           priority
