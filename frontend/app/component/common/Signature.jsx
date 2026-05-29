@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const AUTOPLAY_MS = 8000;
+const AUTOPLAY_MS_DESKTOP = 8000;
+const AUTOPLAY_MS_MOBILE = 2000;
 
 const Signature = () => {
   const signatureSlides = [
@@ -18,9 +19,20 @@ const Signature = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState("next");
   const [isSectionInView, setIsSectionInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
   const timerRef = useRef(null);
   const promoteIndexRef = useRef(null);
+
+  const autoplayMs = isMobile ? AUTOPLAY_MS_MOBILE : AUTOPLAY_MS_DESKTOP;
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -42,13 +54,16 @@ const Signature = () => {
     setIsAnimating(false);
   }, []);
 
-  const goTo = useCallback((nextIndex, dir) => {
-    if (isAnimating || nextIndex === currentSlide) return;
-    setDirection(dir);
-    promoteIndexRef.current = nextIndex;
-    setIncomingSlide(nextIndex);
-    setIsAnimating(true);
-  }, [isAnimating, currentSlide]);
+  const goTo = useCallback(
+    (nextIndex, dir) => {
+      if (isAnimating || nextIndex === currentSlide) return;
+      setDirection(dir);
+      promoteIndexRef.current = nextIndex;
+      setIncomingSlide(nextIndex);
+      setIsAnimating(true);
+    },
+    [isAnimating, currentSlide],
+  );
 
   const goNext = useCallback(() => {
     const next = (currentSlide + 1) % signatureSlides.length;
@@ -62,8 +77,8 @@ const Signature = () => {
 
   const resetTimer = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(goNext, AUTOPLAY_MS);
-  }, [goNext]);
+    timerRef.current = setInterval(goNext, autoplayMs);
+  }, [goNext, autoplayMs]);
 
   useEffect(() => {
     if (!isSectionInView) {
@@ -73,11 +88,11 @@ const Signature = () => {
       }
       return;
     }
-    timerRef.current = setInterval(goNext, AUTOPLAY_MS);
+    timerRef.current = setInterval(goNext, autoplayMs);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isSectionInView, goNext]);
+  }, [isSectionInView, goNext, autoplayMs]);
 
   const handlePrev = () => {
     goPrev();
@@ -101,88 +116,63 @@ const Signature = () => {
   return (
     <section ref={sectionRef} className="w-full bg-white px-0 ">
       <div className="mx-auto max-w-8xl px-5 pb-[0px] sm:px-8 lg:px-[75px] lg:pb-[40px] md:mb-[0px]">
-      <div className="max-w-[1350px] mx-auto flex items-center justify-center md:justify-between py-5 px-0 lg:px-0 relative">
-  
-  <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] sm:text-[36px] font-[500] leading-[100%] tracking-normal capitalize text-[#111111] text-center md:text-left">
-    Signature Masterpieces
-  </h2>
+        <div className="max-w-[1350px] mx-auto flex items-center justify-center md:justify-between py-5 px-0 lg:px-0 relative">
+          <h2 className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] sm:text-[36px] font-[500] leading-[100%] tracking-normal capitalize text-[#111111] text-center md:text-left">
+            Signature Masterpieces
+          </h2>
 
-  <div className="hidden items-center gap-2 sm:flex md:flex">
-    <button
-      type="button"
-      aria-label="Previous"
-      className="flex h-10 cursor-pointer w-10 items-center justify-center rounded-full border border-[#000000] text-[#111111]"
-      onClick={handlePrev}
-    >
-      <i className="ri-arrow-left-line"></i>
-    </button>
+          <div className="hidden items-center gap-2 md:flex">
+            <button
+              type="button"
+              aria-label="Previous"
+              className="flex h-10 cursor-pointer w-10 items-center justify-center rounded-full border border-[#000000] text-[#111111]"
+              onClick={handlePrev}
+            >
+              <i className="ri-arrow-left-line"></i>
+            </button>
 
-    <button
-      type="button"
-      aria-label="Next"
-      className="flex h-10 cursor-pointer w-10 items-center justify-center rounded-full border border-[#000000] text-[#111111]"
-      onClick={handleNext}
-    >
-      <i className="ri-arrow-right-line"></i>
-    </button>
-  </div>
-
-</div>
+            <button
+              type="button"
+              aria-label="Next"
+              className="flex h-10 cursor-pointer w-10 items-center justify-center rounded-full border border-[#000000] text-[#111111]"
+              onClick={handleNext}
+            >
+              <i className="ri-arrow-right-line"></i>
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="relative isolate w-full overflow-hidden bg-[#EAEAEA] [transform:translateZ(0)]">
-        {incomingSlide === null && (
-          <SlideLayer
-            slide={signatureSlides[currentSlide]}
-            imagePriority={currentSlide === 0}
-          />
-        )}
+        <SlideLayer
+          slide={signatureSlides[currentSlide]}
+          imagePriority={currentSlide === 0}
+        />
 
         {incomingSlide !== null && (
           <SlideLayer
             slide={signatureSlides[incomingSlide]}
             entering
+            overlay
             direction={direction}
             onEnterAnimationEnd={finishSlideTransition}
           />
         )}
 
-        {/* <button
-          type="button"
-          aria-label="Previous slide"
-          onClick={handlePrev}
-          className="absolute left-4 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 ease-out hover:scale-105 hover:bg-white/20 active:scale-95 sm:left-6 sm:flex sm:h-11 sm:w-11 md:h-12 md:w-12"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-
-        <button
-          type="button"
-          aria-label="Next slide"
-          onClick={handleNext}
-          className="absolute right-4 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur-sm transition-[transform,background-color,border-color] duration-300 ease-out hover:scale-105 hover:bg-white/20 active:scale-95 sm:right-6 sm:flex sm:h-11 sm:w-11 md:h-12 md:w-12"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button> */}
+        <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 md:hidden">
+          {signatureSlides.map((slide, index) => (
+            <button
+              key={slide.id}
+              type="button"
+              aria-label={`Go to slide ${index + 1}`}
+              onClick={() => handleDotClick(index)}
+              className={`h-2 w-2 cursor-pointer rounded-full transition-[background-color,transform] duration-500 ease-out ${
+                activeDot === index ? "bg-white" : "bg-white/50"
+              }`}
+            />
+          ))}
+        </div>
       </div>
-
-      {/* <div className="mt-5 flex items-center justify-center gap-2.5 cursor-pointer">
-        {signatureSlides.map((slide, index) => (
-          <button
-            key={slide.id}
-            type="button"
-            aria-label={`Go to project ${index + 1}`}
-            onClick={() => handleDotClick(index)}
-            className={`h-4 w-4 rounded-full transition-[background-color,transform] duration-500 ease-out hover:scale-110 ${
-              activeDot === index ? "bg-[#666666]" : "bg-[#E2E2E2]"
-            }`}
-          />
-        ))}
-      </div> */}
 
       <style jsx global>{`
         @keyframes signature-story-clip-next {
@@ -233,32 +223,20 @@ const Signature = () => {
           }
         }
       `}</style>
-
-      <div className="flex items-center justify-center gap-2 py-4 sm:hidden">
-        <button
-          type="button"
-          aria-label="Previous"
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[#000000] text-[#111111]"
-          onClick={handlePrev}
-        >
-          <i className="ri-arrow-left-line"></i>
-        </button>
-        <button
-          type="button"
-          aria-label="Next"
-          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[#000000] text-[#111111]"
-          onClick={handleNext}
-        >
-          <i className="ri-arrow-right-line"></i>
-        </button>
-      </div>
     </section>
   );
 };
 
 export default Signature;
 
-function SlideLayer({ slide, entering = false, direction = "next", onEnterAnimationEnd, imagePriority = false }) {
+function SlideLayer({
+  slide,
+  entering = false,
+  overlay = false,
+  direction = "next",
+  onEnterAnimationEnd,
+  imagePriority = false,
+}) {
   const handleEnterAnimationEnd = (e) => {
     if (!entering || !onEnterAnimationEnd) return;
     if (e.target !== e.currentTarget) return;
@@ -273,20 +251,33 @@ function SlideLayer({ slide, entering = false, direction = "next", onEnterAnimat
 
   return (
     <div
-      className={`relative w-full bg-[#EAEAEA] ${storyAnimClass}`}
-      style={{ zIndex: entering ? 10 : 0 }}
+      className={`w-full overflow-hidden bg-[#EAEAEA] ${
+        overlay ? "absolute inset-0 z-10" : "relative z-0"
+      } ${storyAnimClass}`}
       onAnimationEnd={handleEnterAnimationEnd}
     >
-      <Image
-        src={slide.src}
-        alt={slide.title}
-        width={1920}
-        height={1280}
-        className="block h-auto w-full max-w-full object-cover"
-        priority={imagePriority}
-        quality={100}
-        sizes="(max-width: 1284px) 100vw, 1284px"
-      />
+      {overlay ? (
+        <Image
+          src={slide.src}
+          alt={slide.title}
+          fill
+          className="object-cover"
+          priority={imagePriority}
+          quality={100}
+          sizes="(max-width: 1284px) 100vw, 1284px"
+        />
+      ) : (
+        <Image
+          src={slide.src}
+          alt={slide.title}
+          width={1920}
+          height={1280}
+          className="block h-auto w-full max-w-full object-cover"
+          priority={imagePriority}
+          quality={100}
+          sizes="(max-width: 1284px) 100vw, 1284px"
+        />
+      )}
     </div>
   );
 }

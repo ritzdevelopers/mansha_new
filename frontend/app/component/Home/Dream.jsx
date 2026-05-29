@@ -9,6 +9,7 @@ const DREAM_PROJECTS = [
     src: "/mansha-image/Mansha-Heritage.jpg",
     alt: "Mansha Heritage",
     title: "Mansha Heritage",
+    href: "/mansha-heritage",
     description:
       "Refined living that blends comfort greenery connectivity and timeless elegance.",
     overlayClass: "bg-black/35",
@@ -18,6 +19,7 @@ const DREAM_PROJECTS = [
     src: "/mansha-image/mansha-vega-street.jpg",
     alt: "Mansha Vega Street",
     title: "Mansha Vega Street",
+    href: "/vega-street",
     description:
       "A dynamic commercial space designed for modern business success",
     overlayClass: "bg-black/20",
@@ -27,6 +29,7 @@ const DREAM_PROJECTS = [
     src: "/mansha-image/orchid.jpg",
     alt: "Mansha Orchid",
     title: "Mansha Orchid",
+    href: "/mansha-orchid",
     description:
       "A promising location designed for secure and future ready living",
     overlayClass: "bg-black/35",
@@ -36,6 +39,7 @@ const DREAM_PROJECTS = [
     src: "/mansha-image/mansha-agman.jpg",
     alt: "Aagman by Mansha",
     title: "Aagman by Mansha",
+    href: "/aagman-by-mansha",
     description:
       "Where everyday comfort meets seamless connectivity and calm living",
     overlayClass: "bg-black/35",
@@ -123,94 +127,34 @@ const Dream = () => {
             transform: `translateX(-${activeSlide * (isMdScreen ? 50 : 100)}%)`,
           }}
         >
-          <article className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
-            <Image
-              src="/mansha-image/Mansha-Heritage.jpg"
-              alt="Mansha Heritage"
-              fill
-              className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-            <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-              Mansha Heritage
-            </p>
-            <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
-              <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
-              Refined living that blends comfort greenery connectivity and timeless elegance.
+          {DREAM_PROJECTS.map((project) => (
+            <article
+              key={project.title}
+              className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2"
+            >
+              <Image
+                src={project.src}
+                alt={project.alt}
+                fill
+                className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                sizes="100vw"
+              />
+              <div
+                className={`absolute inset-0 transition-colors duration-300 group-hover:bg-transparent ${project.overlayClass}`}
+              />
+              <p
+                className={`absolute left-4 top-4 font-optima text-[24px] ${project.titleClass} leading-none capitalize text-white`}
+              >
+                {project.title}
               </p>
-              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
-                Read More
-              </button>
-            </div>
-          </article>
-
-          <article className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
-            <Image
-              src="/mansha-image/mansha-vega-street.jpg"
-              alt="Mansha Vega Street"
-              fill
-              className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-transparent" />
-            <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-              Mansha Vega Street
-            </p>
-            <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
-              <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
-              A dynamic commercial space designed for modern business success
-              </p>
-              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
-                Read More
-              </button>
-            </div>
-          </article>
-
-          <article className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
-            <Image
-              src="/mansha-image/orchid.jpg"
-              alt="Mansha Orchid"
-              fill
-              className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-            <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-              Mansha Orchid
-            </p>
-            <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
-              <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
-                A promising location designed for secure and future ready living
-              </p>
-              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
-                Read More
-              </button>
-            </div>
-          </article>
-
-          <article className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2">
-            <Image
-              src="/mansha-image/mansha-agman.jpg"
-              alt="Aagman by Mansha"
-              fill
-              className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-            <p className="absolute left-4 top-4 font-optima text-[24px] font-[550] leading-none capitalize text-white">
-              Aagman by Mansha
-            </p>
-            <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
-              <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
-                Where everyday comfort meets seamless connectivity and calm
-                living
-              </p>
-              <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
-                Read More
-              </button>
-            </div>
-          </article>
+              <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
+                <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
+                  {project.description}
+                </p>
+                <ReadMoreLink href={project.href} />
+              </div>
+            </article>
+          ))}
         </div>
       </div>
 
@@ -250,15 +194,10 @@ const Dream = () => {
                     : "translate-y-3 opacity-0"
                 }`}
               >
-                <p className="max-w-[390px] font-montserrat text-[16px] xl:text-[22px] font-[500] leading-[20px] xl:leading-[25px] capitalize text-white">
+                <p className="max-w-[390px] font-montserrat text-[16px] xl:text-[18px] font-[500] leading-[20px] xl:leading-[25px] capitalize text-white">
                   {project.description}
                 </p>
-                <button
-                  type="button"
-                  className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white"
-                >
-                  Read More
-                </button>
+                <ReadMoreLink href={project.href} stopPropagation />
               </div>
             </article>
           );
@@ -291,13 +230,11 @@ const Dream = () => {
                 : "translate-y-3 opacity-0"
             }`}
           >
-            <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
               Refined living that blends comfort greenery connectivity and
               timeless elegance.
             </p>
-            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
-              Read More
-            </button>
+            <ReadMoreLink href={DREAM_PROJECTS[0].href} />
           </div>
         </article>
 
@@ -323,12 +260,10 @@ const Dream = () => {
                 : "translate-y-3 opacity-0"
             }`}
           >
-            <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
               A dynamic commercial space designed for modern business success
             </p>
-            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
-              Read More
-            </button>
+            <ReadMoreLink href={DREAM_PROJECTS[1].href} />
           </div>
         </article>
 
@@ -354,12 +289,10 @@ const Dream = () => {
                 : "translate-y-3 opacity-0"
             }`}
           >
-            <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
               A promising location designed for secure and future ready living
             </p>
-            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
-              Read More
-            </button>
+            <ReadMoreLink href={DREAM_PROJECTS[2].href} />
           </div>
         </article>
 
@@ -385,16 +318,27 @@ const Dream = () => {
                 : "translate-y-3 opacity-0"
             }`}
           >
-            <p className="max-w-[390px] font-montserrat text-[22px] font-[500] leading-[25px] capitalize text-white">
+            <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
               Where everyday comfort meets seamless connectivity and calm living
             </p>
-            <button className="mt-4 rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white">
-              Read More
-            </button>
+            <ReadMoreLink href={DREAM_PROJECTS[3].href} />
           </div>
         </article>
       </div>
     </>
   );
 };
+
+function ReadMoreLink({ href, stopPropagation = false }) {
+  return (
+    <Link
+      href={href}
+      onClick={stopPropagation ? (e) => e.stopPropagation() : undefined}
+      className="mt-4 inline-block rounded-full cursor-pointer bg-[#7B1E1E] px-4 py-2 font-montserrat text-[14px] font-semibold leading-none capitalize text-white"
+    >
+      Read More
+    </Link>
+  );
+}
+
 export default Dream;

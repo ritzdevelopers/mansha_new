@@ -12,7 +12,7 @@ const Map = () => {
             height="450"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            className="block h-[300px] w-full md:h-[380px] lg:h-[500px]"
+            className="block h-[200px] w-full md:h-[380px] lg:h-[500px]"
           />
         </div>
       </div>
