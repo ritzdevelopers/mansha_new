@@ -3,13 +3,19 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const luxuryItems = [
-  { icon: "/mansha-svg/clubhouse.svg", label: "24/7 Security " },
-  { icon: "/mansha-svg/playarea.svg", label: "Community Gathering Spaces" },
-  { icon: "/mansha-svg/swimming.svg", label: "Three- Tier Security" },
-  { icon: "/mansha-svg/jogging.svg", label: "Jogging Pathways" },
-  { icon: "/mansha-svg/facility.svg", label: "Meditation Zones" },
+const popupAmenities = [
+  { icon: "/mansha-svg/facility.svg", label: "Gated Community with Restricted Access" },
+  { icon: "/mansha-svg/facility.svg", label: "Controlled Entry/Exit Systems" },
+  { icon: "/mansha-svg/playarea.svg", label: "Efficient Traffic Management" },
+  { icon: "/mansha-svg/playarea.svg", label: "Wide Internal Roads Designed for Ease and Flow" },
+  { icon: "/mansha-svg/facility.svg", label: "Direction Signages Throughout the Development" },
+  { icon: "/mansha-svg/facility.svg", label: "Three-Tier Security Infrastructure" },
+  { icon: "/mansha-svg/jogging.svg", label: "Pedestrian Pathways All Through the Community" },
+  { icon: "/mansha-svg/facility.svg", label: "Comprehensive CCTV Surveillance for 24/7 Safety" },
+  { icon: "/mansha-svg/facility.svg", label: "Underground Electricity Lines for Aesthetic Appeal" },
 ];
+
+const luxuryItems = popupAmenities.slice(0, 5);
 
 const AMENITY_REVEAL_MS = 200;
 
@@ -44,10 +50,10 @@ const Section5 = () => {
     const intervalId = window.setInterval(() => {
       setVisibleAmenityCount((prev) => {
         const next = prev + 1;
-        if (next >= luxuryItems.length) {
+        if (next >= popupAmenities.length) {
           window.clearInterval(intervalId);
         }
-        return Math.min(next, luxuryItems.length);
+        return Math.min(next, popupAmenities.length);
       });
     }, AMENITY_REVEAL_MS);
 
@@ -146,7 +152,7 @@ const Section5 = () => {
             </h3>
 
             <div className="mt-6 grid min-h-[220px] grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-              {luxuryItems.map((item, idx) => (
+              {popupAmenities.map((item, idx) => (
                 <div
                   key={`modal-${item.label}-${idx}`}
                   className={`flex flex-col items-center text-center transition-all duration-500 ease-out ${

@@ -40,20 +40,30 @@ const Section2 = () => {
             </p>
 
             <h2 className="xl:mt-15 mt-5 font-optima xl:text-[36px] text-[28px] font-[550] xl:leading-[54px] md:leading-[40px] leading-[30px] capitalize text-[#000000]">
-            Crafted by Mansha Group
+            An Initiative by Mansha Group
             </h2>
 
             <p className="xl:mt-7 mt-2 font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px] xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-            Mansha Heritage is thoughtfully envisioned to offer a refined lifestyle enriched with comfort, greenery, and seamless connectivity. Designed with modern planning and elegant infrastructure, the project creates a perfect balance between contemporary convenience and peaceful surroundings. Spacious roads, landscaped greens, and premium amenities together shape a vibrant residential experience. Focused on quality development, sustainable living, and community values, Mansha Heritage reflects excellence in every detail. Strategically positioned, the project provides effortless access to educational institutions, healthcare facilities, shopping destinations, and key city landmarks. Every space is planned to enhance openness, natural light, and everyday ease.
+            Mansha Aagram is crafted to offer a modern lifestyle defined by space, comfort, and connectivity. Located in Sector 83–84, Sonipat, the project brings thoughtfully designed 3 BHK luxury floors within a calm residential setting. With well-planned layouts and contemporary infrastructure, it blends everyday convenience with peaceful living. Wide roads, landscaped surroundings, and curated amenities create a balanced and vibrant environment. The project emphasizes quality construction, efficient design, and a sense of community living. Every home is planned to maximize openness, natural light, and everyday comfort.
+
 
 
             </p>
 
             <div className="xl:mt-5 mt-2">
               <p className="font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px]  xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-              With a vision to elevate modern living, Mansha Heritage presents an ideal destination for families and future investments. Experience a lifestyle where elegance, comfort, and tranquility exist in perfect harmony.
+              Strategically located, Mansha Aagram ensures seamless access to schools, healthcare, shopping hubs, and key city routes. The location enhances daily convenience while keeping you well-connected to emerging growth corridors.
               </p>
             </div>
+
+            <div className="xl:mt-5 mt-2">
+              <p className="font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px]  xl:w-full lg:w-[400px]  capitalize text-[#333333]">
+              With a vision to redefine modern low-rise living, Mansha Aagram offers an ideal destination for families and future investments. Experience a lifestyle where space, comfort, and connectivity come together effortlessly.
+
+              </p>
+            </div>
+
+            
 
             <div className="xl:mt-12 mt-7 grid grid-cols-1 xl:gap-5 lg:gap-0 gap-3 sm:grid-cols-2">
               <div className="flex items-center xl:gap-5 lg:gap-2 gap-3">
@@ -65,7 +75,7 @@ const Section2 = () => {
                   className="h-[50px] w-[50px] object-contain xl:h-15 xl:w-15"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
-                2400+ happy customers
+                Kids play area 
                 </p>
               </div>
 
@@ -78,7 +88,7 @@ const Section2 = () => {
                   className="h-[50px] w-[50px] object-contain xl:h-15 xl:w-15"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
-                Well connected
+                Open gym area 
                 </p>
               </div>
             </div>

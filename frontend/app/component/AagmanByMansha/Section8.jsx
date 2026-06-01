@@ -10,29 +10,29 @@ const FAQ_IMAGE = {
 
 const faqs = [
   {
-    question: "What makes the location in Sonipat advantageous for businesses?",
+    question: "What makes this project in Sector 83–84, Sonipat a strong investment?",
     answer:
-      " The project is strategically located in Sonipat, offering strong connectivity to Delhi NCR and rapidly developing urban infrastructure."
+      " Its strategic location, improving connectivity, and planned infrastructure growth make it a promising choice for long-term value."
   },
   {
-    question: "What type of businesses can operate in this commercial workspace?",
+    question: "What type of residences are offered here?",
     answer:
-      " It is suitable for offices, retail outlets, startups, and service-based businesses, offering flexible usage options.",
+      " The project features thoughtfully designed independent floors, offering privacy, space, and modern living.",
   },
   {
-    question: "Are there provisions for parking within the commercial complex?",
+    question: "Is this a gated community?",
     answer:
-      " Yes, the project includes planned parking spaces for visitors and occupants to ensure smooth accessibility.",
+      " Yes, it is a secure gated development with controlled access for enhanced safety and peace of mind.",
   },
   {
-    question: "What kind of infrastructure is provided for daily operations?",
+    question: "What kind of surroundings can residents expect?",
     answer:
-      " The project offers modern infrastructure with reliable utilities, power backup, and well-planned workspace design."
+      " A well-planned neighbourhood with green surroundings, open spaces, and a calm residential environment."
   },
   {
-    question: "Is the project suitable for investment purposes?",
+    question: "Are there lifestyle or recreational amenities within the project?",
     answer:
-      "Yes, its location in a growing Sonipat corridor makes it a promising option for long-term commercial investment.",
+      "Yes, the project includes kids’ play areas, open spaces, and outdoor zones designed for everyday leisure and community living.",
   },
 ];
 
@@ -69,7 +69,7 @@ const Section8 = () => {
             If you have any other questions, please email us.
           </p>
 
-          <div className="relative mt-5 lg:mt-12 xl:mt-[85px] w-full overflow-hidden">
+          <div className="relative mt-5 lg:mt-10 xl:mt-[85px] w-full overflow-hidden">
             <div className="relative mx-auto aspect-[3/4] w-full max-w-[331px] sm:w-[331px] lg:mx-0">
               <div className="relative isolate h-full w-full overflow-hidden [transform:translateZ(0)]">
                 <div
@@ -103,7 +103,7 @@ const Section8 = () => {
           </div>
         </div>
 
-        <div className="w-full space-y-0 text-left lg:justify-self-start lg:pt-20 xl:pt-35 lg:-translate-x-16 xl:-translate-x-10">
+        <div className="w-full space-y-0 text-left lg:justify-self-stretch lg:pt-20 xl:pt-35">
           {faqs.map((item, index) => {
             const isOpen = activeIndex === index;
             return (
@@ -111,13 +111,13 @@ const Section8 = () => {
                 <button
                   type="button"
                   onClick={() => toggleItem(index)}
-                  className="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
+                  className="relative w-full cursor-pointer pr-14 text-left"
                 >
-                  <span className="min-w-0 flex-1 truncate pr-2 font-montserrat text-[16px] font-medium capitalize tracking-normal text-[#333333] leading-[20px] md:text-[20px] md:leading-[20px] lg:text-[15px] lg:font-normal lg:leading-[22px] xl:text-[24px] xl:font-medium xl:leading-[100%]">
+                  <span className="block max-w-[850px] font-montserrat text-[16px] font-medium capitalize tracking-normal text-[#333333] leading-[20px] md:text-[20px] md:leading-[25px] lg:text-[15px] lg:font-normal lg:leading-[22px] xl:text-[24px] xl:font-medium xl:leading-[30px]">
                     {item.question}
                   </span>
                   <span
-                    className={`flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border text-[20px] ${
+                    className={`absolute right-0 top-0 flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border text-[20px] ${
                       isOpen
                         ? "border-[#333333] bg-[#333333] text-white"
                         : "border-[#A9A9A9] bg-white text-[#333333]"
@@ -128,7 +128,7 @@ const Section8 = () => {
                 </button>
 
                 <div
-                  className={`w-full overflow-hidden text-left transition-all duration-500 ease-in-out ${
+                  className={`max-w-[850px] overflow-hidden pr-14 text-left transition-all duration-500 ease-in-out ${
                     isOpen ? "max-h-60 lg:pt-4 pt-0 opacity-100" : "max-h-0 pt-0 opacity-0"
                   }`}
                 >

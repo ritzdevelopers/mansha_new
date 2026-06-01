@@ -3,14 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const luxuryItems = [
-  { icon: "/mansha-svg/clubhouse.svg", label: "24/7 Security " },
-  { icon: "/mansha-svg/playarea.svg", label: "Kids play area " },
-  { icon: "/mansha-svg/swimming.svg", label: "Open gym" },
-  { icon: "/mansha-svg/jogging.svg", label: "Mediation zone" },
-  { icon: "/mansha-svg/facility.svg", label: "Gated community" },
-];
-
 const popupAmenities = [
   { icon: "/mansha-svg/facility.svg", label: "Secure Gated Community with 24x7 Security" },
   { icon: "/mansha-svg/clubhouse.svg", label: "Attractive Plot Sizes ranging from 100–180 sq. yds." },
@@ -29,6 +21,8 @@ const popupAmenities = [
   { icon: "/mansha-svg/facility.svg", label: "Beautifully managed Landscaped Parks" },
   { icon: "/mansha-svg/clubhouse.svg", label: "Provision for Commercial Spaces within Society" },
 ];
+
+const luxuryItems = popupAmenities.slice(0, 5);
 
 const AMENITY_REVEAL_MS = 200;
 

@@ -9,20 +9,20 @@ const LEFT_SLIDES = [
   {
     src: "/mansha-image/outdoor-cafe-big.jpg",
     alt: "A terrace for every home",
-    title: "Spaces That Inspire",
-    text: " Courtyards, open gym areas, kids' play zones, and round-the-clock security—designed for effortless everyday living.",
+    title: "Engineered For Everyday Living",
+    text: " Concrete roads, independent floors, gated security, open gyms, and kids’ play areas built for seamless living.",
   },
   {
     src: "/mansha-image/club-with-lawn-big.jpg",
     alt: "Club with lawn",
-    title: "Balanced By Design",
-    text: " From landscaped courtyards to fitness spaces and safe play areas—every amenity adds comfort to life.",
+    title: "Foundations of Better Living",
+    text: "  Independent floors, concrete roads, secure gates, open gyms, and play areas shaping a well-planned community.",
   },
   {
     src: "/mansha-image/club-pool-big.jpg",
     alt: "Club pool",
-    title: "Life Within Reach",
-    text: "Open gyms, vibrant courtyards, kids' play areas, and 24/7 CCTV—crafted for modern community living.",
+    title: "Built Around Real Living",
+    text: " Concrete roads, independent floors, open gyms, kids’ play zones, and gated surroundings designed for daily ease.",
   },
 ];
 
@@ -30,20 +30,20 @@ const RIGHT_SLIDES = [
   {
     src: "/mansha-image/central-landscape-bog.jpg",
     alt: "Linear greens and themed landscapes",
-    title: "Everyday Comes Alive",
-    text: "Green courtyards, active fitness zones, secure surroundings, and joyful play spaces—made for all generations.",
+    title: "Where Living Stands Strong",
+    text: " Concrete roads, gated community, independent floors, open gyms, and play areas creating dependable living.",
   },
   {
     src: "/mansha-image/outdoor-cafe-big.jpg",
     alt: "Gym",
-    title: "Thoughtfully Elevated",
-    text: " A lifestyle enriched with open spaces, wellness zones, children's play areas, and seamless security.",
+    title: "Planned for the Way You Live",
+    text: " Independent floors, concrete roads, kids’ play areas, open gyms, and gated security built for comfort.",
   },
   {
     src: "/mansha-image/central-landscape-bog.jpg",
     alt: "Linear greens and themed landscapes",
-    title: "Designed Around You",
-    text: "  Courtyard living, outdoor fitness, playful spaces for kids, and complete security—everything thoughtfully connected.",
+    title: "Designed for Daily Ease",
+    text: " Concrete roads, independent floors, secure surroundings, open gyms, and play zones for effortless living.",
   },
 ];
 

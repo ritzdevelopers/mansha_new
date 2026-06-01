@@ -7,12 +7,12 @@ const VEGA_STREET_MAP_EMBED =
 
 /** 8 rows: same 5 icons cycled (metro → side-metro → School → Hospital → Hospital2 → …) */
 const amenityItems = [
-  { image: "/mansha-osis/mansha-osis-plan.png", time: "24 mtr*", title: "wide main sector road " },
-  { image: "/mansha-osis/mansha-osis-expressway.png", time: "2 Min*", title: "IMT Faridabad" },
-  { image: "/mansha-svg/School.svg", time: "15 Mins*", title: "KGP Expressway" },
-  { image: "/mansha-svg/Hospital.svg", time: "5 Mins*", title: "Delhi–Mumbai Expressway" },
-  { image: "/mansha-svg/Hospital2.svg", time: "25 Mins*", title: "Jewar Airport Road" },
-  { image: "/mansha-svg/metro.svg", time: "20 Mins*", title: " Amrita Hospital" },
+  { image: "/mansha-osis/road-wide.png", time: "24 mtr*", title: "wide main sector road " },
+  { image: "/mansha-osis/school.png", time: "2 Min*", title: "IMT Faridabad" },
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "15 Mins*", title: "KGP Expressway" },
+  { image: "/mansha-svg/heritage-airport.png", time: "25 Mins*", title: "Jewar Airport Road" },
+  { image: "/mansha-svg/Hospital.svg", time: "20 Mins*", title: " Amrita Hospital" },
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "5 Mins*", title: "Delhi–Mumbai Expressway" },
   // { image: "/mansha-svg/side-metro.svg", time: "4 Min*", title: "Transit Hub" },
   // { image: "/mansha-svg/School.svg", time: "3 Min*", title: "Education Centre" },
 ];

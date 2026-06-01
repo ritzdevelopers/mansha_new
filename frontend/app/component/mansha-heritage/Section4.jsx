@@ -102,12 +102,12 @@ const VEGA_STREET_MAP_EMBED =
 
 /** 8 rows: same 5 icons cycled (metro → side-metro → School → Hospital → Hospital2 → …) */
 const amenityItems = [
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "15 Min*", title: "Delhi Border" },   
   { image: "/mansha-osis/mansha-osis-plan.png", time: "10 mins*", title: "Kundli" },
-  { image: "/mansha-osis/mansha-osis-expressway.png", time: "15 Min*", title: "Delhi Border" },
-  { image: "/mansha-svg/road.png", time: "25 Mins*", title: "Rohini " },
-  { image: "/mansha-svg/Hospital.svg", time: "30 Mins*", title: "Pitampura " },
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "25 Mins*", title: "Rohini " },
   { image: "/mansha-svg/heritage-airport.png", time: "40 Mins*", title: "IGI Airport" },
   { image: "/mansha-svg/metro.svg", time: "45 Mins*", title: " Gurugram  " },
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "30 Mins*", title: "Pitampura " },
   // { image: "/mansha-svg/side-metro.svg", time: "4 Min*", title: "Transit Hub" },
   // { image: "/mansha-svg/School.svg", time: "3 Min*", title: "Education Centre" },
 ];
