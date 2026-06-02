@@ -77,7 +77,7 @@ const Section2 = () => {
         <h2 className="font-optima text-[28px] md:text-[36px] sm:text-[42px] lg:text-[40px] xl:text-[48px] font-[500] not-italic leading-none tracking-normal capitalize text-[#000000] text-center md:text-left [leading-trim:none] ">
           Delivered Projects
         </h2>
-        <div className="mt-6 text-center md:text-left  text-[16px] font-montserrat font-normal leading-[28px] tracking-normal capitalize text-[#6B6B6B]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aliquid tempore labore fuga, ex quo tenetur dolore temporibus inventore voluptate.</div>
+        {/* <div className="mt-6 text-center md:text-left  text-[16px] font-montserrat font-normal leading-[28px] tracking-normal capitalize text-[#6B6B6B]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aliquid tempore labore fuga, ex quo tenetur dolore temporibus inventore voluptate.</div> */}
         <div className=" mt-6 delivered-cards-grid grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
           {DELIVERED_PROJECTS.map((project) => {
             const cardClassName =

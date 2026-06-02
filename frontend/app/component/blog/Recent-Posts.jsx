@@ -31,25 +31,21 @@ const MAIN_CARDS = [
   {
     id: 1,
     date: "Jan 6, 2026",
-    title: "The Benefits of Owning a Commercial Property in Faridabad (2026 Investment Guide)",
-    points: [
-      "The real estate game has changed significantly.",
-      "And the smart investors are not interested in homes.",
-      "But interested in commercial property in Faridabad.",
-    ],
+    title: "Top 5 Locations to Buy Residential Plots in Faridabad – Mansha Group Perspective",
+    descriptionLead:
+      "As a result of its ever-developing infrastructure and easy accessibility through expressways and the ever-expanding metro, Faridabad is becoming a hotspot for real-estate investments  within the NCR region. It holds great potential for investments with a high return on investment. However, the location chosen for investing in a residential plot within Farida",
     image: "/aagman/aagman-slider2.jpg",
-    slug: "benefits-of-owning-commercial-property-faridabad",
+    slug: "top-5-locations-to-buy-residential-plots-in-faridabad",
   },
   {
     id: 2,
     date: "Jan 6, 2026",
-    title: "Everything You Need to Know About Mansha Heritage Sonipat",
+    title: "Mansha Vega Street: A Smart Commercial Investment Opportunity in Faridabad",
     descriptionLead:
-      "In today's market finding the best property in NCR means buying much more than just land; it is about securing a life ready for the future,",
-    descriptionBody:
-      "poised for growth and a location at the core of a rapidly developing future. This is precisely why projects in Sonipat are fast capturing the eye of many homebuyers and investors.",
+      "Faridabad Is Growing Fast &  The Smart Investors Already Know It A few years ago, most NCR investors looked only at Gurgaon or Noida for commercial real estate. But in 2026, the conversation is changing rapidly. Faridabad is emerging as one of the most promising real estate destinations in NCR  and investors are moving early.",
+
     image: "/aagman/aagman-slider2.jpg",
-    slug: "everything-you-need-to-know-mansha-heritage-sonipat",
+    slug: "mansha-vega-street-smart-commercial-investment-opportunity-faridabad",
   },
 ];
 
@@ -141,25 +137,26 @@ const RecentPosts = () => {
                   key={card.id}
                   className="grid gap-5 overflow-hidden rounded-xl border border-[#E6E6E6] bg-white p-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-6 md:p-3 lg:gap-8"
                 >
-                  <div className="relative aspect-[4/3]  w-full overflow-hidden rounded-lg bg-[#f0f0f0] md:aspect-auto ">
+                  <div className="w-full overflow-hidden rounded-lg bg-[#f0f0f0] md:relative md:h-full">
                     <Image
                       src={card.image}
                       alt={card.title}
-                      fill
-                      className="object-cover"
+                      width={700}
+                      height={525}
+                      className="h-auto w-full object-cover md:h-full"
                       sizes="(max-width: 768px) 100vw, 45vw"
                       priority={card.id === 1}
                     />
                   </div>
 
-                  <div className="flex h-full min-h-0 flex-col px-1 pb-2 pt-1 md:px-2 md:py-4 lg:pr-6">
+                  <div className="flex h-full min-h-0 flex-col px-1 pb-2 pt-1 xl:px-2 xl:py-4">
                     <time
                       dateTime="2026-01-06"
-                      className="font-montserrat text-[18px] font-semibold capitalize leading-[29px] tracking-[0] text-[#00000066]"
+                      className="font-montserrat xl:text-[18px] text-[15px] font-semibold capitalize leading-[29px] tracking-[0] text-[#00000066]"
                     >
                       {card.date}
                     </time>
-                    <h3 className="mt-3 line-clamp-2 min-w-0 font-montserrat text-[15px] xl:text-[20px] font-semibold capitalize leading-[20px] xl:leading-[29px] tracking-[0] text-[#111111] max-w-[350px]">
+                    <h3 className="xl:mt-3 mt-1 xl:line-clamp-2 lg:line-clamp-1 line-clamp-2 min-w-0 font-montserrat text-[15px] xl:text-[20px] font-semibold capitalize leading-[20px] xl:leading-[29px] tracking-[0] text-[#111111] max-w-[350px]">
                       {card.title}
                     </h3>
                     {Array.isArray(card.points) ? (
@@ -170,7 +167,7 @@ const RecentPosts = () => {
                       </ul>
                     ) : card.descriptionLead ? (
                       <div className="mt-3 min-w-0 max-w-[350px]">
-                        <p className="font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
+                        <p className="xl:line-clamp-3 lg:line-clamp-1 line-clamp-2 overflow-hidden font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
                           {card.descriptionLead}
                         </p>
                         {/* <p className="line-clamp-2 overflow-hidden font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
@@ -185,7 +182,7 @@ const RecentPosts = () => {
                     {card.slug ? (
                       <Link
                         href={`/blog/${card.slug}`}
-                        className="mt-5 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity md:mt-6"
+                        className="xl:mt-5 mt-2 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity "
                       >
                         Read More
                         <span aria-hidden className="text-[16px] leading-none">
@@ -195,7 +192,7 @@ const RecentPosts = () => {
                     ) : (
                       <a
                         href="#"
-                        className="mt-5 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity md:mt-6"
+                        className="xl:mt-5 mt-2 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity "
                       >
                         Read More
                         <span aria-hidden className="text-[16px] leading-none">
