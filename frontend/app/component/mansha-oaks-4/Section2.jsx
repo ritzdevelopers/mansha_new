@@ -161,7 +161,7 @@ const Section2 = () => {
             </p>
           </div>
 
-          <div className="mt-3 flex flex-wrap items-center gap-6 sm:gap-8 lg:col-start-1 lg:row-start-5">
+          {/* <div className="mt-3 flex flex-wrap items-center gap-6 sm:gap-8 lg:col-start-1 lg:row-start-5">
             {AMENITIES.map((item) => (
               <div key={item.label} className="flex items-center gap-3">
                 <Image
@@ -176,7 +176,7 @@ const Section2 = () => {
                 </p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
