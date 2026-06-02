@@ -8,9 +8,10 @@ import NavSideMenu from "../common/NavSideMenu";
 const PHONE = "tel:+919876543210";
 const WHATSAPP = "https://wa.me/919876543210";
 const VEGA_SLIDES = [
-  "/mansha-image/vegastreet-slider1.jpg",
-  "/mansha-image/vegastreet-slider3.jpg",
-  "/mansha-image/vegastreet-slider-3.jpg",
+  "/vega-street/vega-street1.jpg",
+  "/vega-street/vega-street2.jpg",
+  "/vega-street/vega-street3.jpg",
+
 ];
 
 const iconBtn =
@@ -42,15 +43,23 @@ const Navbar = () => {
 
   return (
     <>
-      <section className="about-hero relative min-h-screen overflow-hidden">
+      <section className="about-hero relative min-h-[calc(100vh-50px)] overflow-hidden md:h-[388px] md:min-h-[388px] md:max-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:max-h-[518px] xl:min-h-screen xl:h-screen xl:max-h-none">
         <Image
-          src="/mansha-image/commerical-hero.jpg"
-          alt="Commercial spaces hero"
+          src="/vega-street/vega-street-mobile-banner.jpg"
+          alt="Vega Street"
           fill
           priority
-          className="object-cover"
+          className="object-cover md:hidden"
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#10040445]" />
+        <Image
+          src="/vega-street/vega-street-banner.jpg"
+          alt="Vega Street"
+          fill
+          priority
+          className="hidden object-cover object-[center_30%] md:block lg:object-center"
+          sizes="100vw"
+        />
 
         <header className="absolute left-0 right-0 top-0 z-50 bg-[#FAFAFA2B] backdrop-blur-[1px] border-b border-white/10">
           {open && (
@@ -114,7 +123,7 @@ const Navbar = () => {
           </div>
         </header>
 
-        <div className="relative z-20 mx-auto flex min-h-screen w-full max-w-8xl items-start justify-center px-5 pt-28 sm:px-8 md:items-end md:justify-end md:pt-0 md:pb-10 lg:px-[75px] lg:pb-12">
+        <div className="relative z-20 mx-auto flex min-h-[calc(100vh-50px)] w-full max-w-8xl items-start justify-center px-5 pt-28 sm:px-8 md:h-[388px] md:min-h-[388px] md:items-end md:justify-end md:pt-0 md:pb-10 lg:h-[518px] lg:min-h-[518px] lg:px-[75px] lg:pb-12 xl:min-h-screen xl:h-screen">
           <div className="flex items-stretch gap-4 sm:gap-5">
             <span className="hidden w-px shrink-0 self-stretch bg-white md:block" aria-hidden />
             <div className="text-center text-white md:text-left">
@@ -139,15 +148,15 @@ const Navbar = () => {
             <span className="text-[#652A27] font-semibold">Vega Street</span>
           </div>
 
-          <div className="grid grid-cols-1 items-end gap-6 lg:grid-cols-[260px_1fr] xl:gap-15">
+          <div className="grid grid-cols-1 items-end gap-6 lg:grid-cols-[230px_1fr] xl:grid-cols-[260px_1fr] xl:gap-15">
             <div className="flex justify-center lg:justify-start">
-              <div className="relative h-[260px] w-[260px] overflow-hidden rounded-full">
+              <div className="relative h-[230px] w-[230px] overflow-hidden rounded-full xl:h-[260px] xl:w-[260px]">
                 <Image
-                  src="/mansha-image/vegastreet-circle.png"
+                  src="/vega-street/circle.jpg"
                   alt="Vega Street circular preview"
                   fill
                   className="object-cover"
-                  sizes="260px"
+                  sizes="(max-width: 1279px) 230px, 260px"
                 />
               </div>
             </div>
@@ -158,7 +167,7 @@ const Navbar = () => {
                 style={{ transform: `translateX(-${activeVegaSlide * 100}%)` }}
               >
                 {VEGA_SLIDES.map((src) => (
-                  <div key={src} className="relative h-[240px] w-full shrink-0 sm:h-[340px] xl:h-[470px]">
+                  <div key={src} className="relative h-[150px] w-full shrink-0 md:h-[280px] lg:h-[280px] xl:h-[470px]">
                     <Image
                       src={src}
                       alt="Vega Street slider visual"
@@ -192,7 +201,7 @@ const Navbar = () => {
         <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
           <div className="grid grid-cols-1 justify-items-center gap-4 lg:grid-cols-[1fr_1.7fr] md:justify-items-start xl:gap-0">
             <div className="flex flex-col items-center lg:items-start">
-              <h2 className="font-optima text-[24px] md:text-[36px] lg:text-[36px] font-medium leading-[100%] tracking-[0] text-black">
+              <h2 className="font-optima text-[24px] md:text-[36px] lg:text-[36px] font-medium leading-[100%] tracking-[0] text-black text-center md:text-left">
               The Future of High-Street Living
               </h2>
               <Link href="/contact">

@@ -9,11 +9,11 @@ const Brandsection = () => {
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <div className="relative -mx-5 overflow-hidden sm:-mx-8 lg:-mx-[70px]">
           <Image
-            src="/mansha-image/brandsection.jpg"
+            src="/vega-street/brand-bg.jpg"
             alt="Brand section background"
             width={1400}
             height={380}
-            className="h-[300px] w-full object-cover sm:h-[250px] xl:h-[480px]"
+            className="h-[300px] w-full object-cover sm:h-[250px] lg:h-auto xl:h-[480px]"
             sizes="100vw"
           />
           {/* <div className="absolute inset-0 bg-[#00000066]" /> */}

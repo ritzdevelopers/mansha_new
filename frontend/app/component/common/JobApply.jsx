@@ -204,7 +204,7 @@ const JobApply = ({ job, onApplyForm }) => {
 
               <div className="relative hidden min-h-[420px] w-[350px] shrink-0 overflow-hidden rounded-l-[15px] sm:block md:hidden lg:block">
                 <Image
-                  src="/carrer/career-banner.png"
+                  src="/carrer/career-popup.jpg"
                   alt="Careers at Mansha"
                   fill
                   className="object-cover"

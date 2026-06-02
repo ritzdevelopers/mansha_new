@@ -1,14 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { BLOG_POSTS } from "./blogPosts";
 
-const SLIDER_CARDS = Array.from({ length: 4 }, (_, index) => ({
-  id: index + 1,
-  date: "Jan 6, 2026",
-  title: "How Will 2026 Homes Be Different From Today's Living Spaces?",
-  image: "/blog/slider-1.jpg",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-}));
+const SLIDER_CARDS = BLOG_POSTS;
 
 const Smart = () => {
   return (
@@ -30,14 +25,14 @@ const Smart = () => {
           </p>
         </div>
       </div>
-      <div className="cards-sldier mt-8 overflow-hidden border-y border-[#3C3C3C] bg-white py-8">
+      <div className="cards-sldier mt-8 overflow-hidden border-y border-[#3C3C3C] bg-white py-5">
         <div className="media-slider-track flex w-max gap-5">
           {[...SLIDER_CARDS, ...SLIDER_CARDS].map((card, index) => (
             <article
               key={`${card.id}-${index}`}
-              className="grid w-[940px] shrink-0 grid-cols-[1fr_0.9fr] gap-[30px] overflow-hidden rounded-xl border border-[#E6E6E6] bg-white p-3 max-lg:w-[740px] max-md:w-[85vw] max-md:grid-cols-1"
+              className="grid w-[940px] shrink-0 grid-cols-[1fr_0.9fr] items-center gap-5 overflow-hidden rounded-xl border border-[#E6E6E6] bg-white p-2.5 max-lg:w-[740px] max-md:w-[85vw] max-md:items-stretch max-md:grid-cols-1"
             >
-              <div className="relative min-h-[230px] overflow-hidden rounded-lg md:min-h-[220px] lg:min-h-[330px]">
+              <div className="relative min-h-[160px] overflow-hidden rounded-lg sm:min-h-[180px] md:min-h-[190px] lg:min-h-[250px]">
                 <Image
                   src={card.image}
                   alt="Property event"
@@ -47,23 +42,50 @@ const Smart = () => {
                 />
               </div>
 
-              <div className="flex flex-col py-2 md:py-0 max-md:px-3 md:pl-0 md:pr-8">
-                <p className="font-montserrat text-[15px] font-semibold capitalize leading-[29px] tracking-normal text-[#00000066]">
+              <div className="flex h-full min-w-0 flex-col justify-center py-1 max-md:px-2 md:py-0 md:pl-0 md:pr-6">
+                <p className="font-montserrat text-[15px] font-semibold capitalize leading-[24px] tracking-normal text-[#00000066]">
                   {card.date}
                 </p>
-                <h3 className="mt-2 md:mt-4  font-montserrat text-[16px] md:text-[16px] lg:text-[20px] font-semibold capitalize leading-[23px] md:leading-[24px] lg:leading-[29px] tracking-normal text-[#111111] max-w-[350px]">
-  {card.title}
-</h3>
-                <p className="mt-2 md:mt-4 font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-normal text-[#151515]">
-                  {card.description}
-                </p>
-                <a
-                  href="#"
-                  className="mt-5 md:mt-15            inline-flex w-fit items-center gap-1 font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-normal text-[#652A27]"
+                <h3 className="mt-1.5 md:mt-2 line-clamp-2 overflow-hidden min-w-0 font-montserrat text-[16px] md:text-[16px] lg:text-[20px] font-semibold capitalize leading-[23px] md:leading-[24px] lg:leading-[26px] tracking-normal text-[#111111] max-w-[350px]">
+                  {card.title}
+                </h3>
+                {Array.isArray(card.description) ? (
+                  <ul className="mt-1.5 md:mt-2 list-disc space-y-0.5 pl-5 font-montserrat text-[14px] font-normal capitalize leading-[20px] tracking-normal text-[#151515]">
+                    {card.description.map((point, pointIndex) =>
+                      typeof point === "object" && point?.lead ? (
+                        <li
+                          key={pointIndex}
+                          className="line-clamp-1 min-w-0 max-w-[350px] overflow-hidden"
+                        >
+                          {point.lead}
+                          <span aria-hidden="true">...</span>
+                          <span className="sr-only"> {point.body}</span>
+                        </li>
+                      ) : (
+                        <li
+                          key={pointIndex}
+                          className="line-clamp-1 min-w-0 max-w-[350px] overflow-hidden"
+                        >
+                          {point}
+                        </li>
+                      )
+                    )}
+                  </ul>
+                ) : null}
+                {card.descriptionLead ? (
+                  <p className="mt-1.5 md:mt-2 min-w-0 max-w-[350px] font-montserrat text-[14px] font-normal leading-[20px] tracking-normal text-[#151515]">
+                    {card.descriptionLead}
+                    <span aria-hidden="true">...</span>
+                    <span className="sr-only">{card.descriptionBody}</span>
+                  </p>
+                ) : null}
+                <Link
+                  href={`/blog/${card.slug}`}
+                  className="mt-3 md:mt-4 inline-flex w-fit items-center gap-1 font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-normal text-[#652A27]"
                 >
                   Read More
                   <i className="ri-arrow-right-line text-[22px]" aria-hidden />
-                </a>
+                </Link>
               </div>
             </article>
           ))}

@@ -36,7 +36,9 @@ export default function Home() {
           <FAQCommon />
       </div>
       {/* <Testiimonial /> */}
+      <div className="py-[35px] lg:py-[70px]"> 
       <TestimoniaCommon/>
+      </div>
       {/* <Consultation /> */}
       <ConsultationCommon />
       <Footer />

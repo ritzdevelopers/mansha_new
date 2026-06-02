@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import React, { useMemo, useState } from "react";
 
 const SIDEBAR_POSTS = [
   {
@@ -28,22 +31,43 @@ const MAIN_CARDS = [
   {
     id: 1,
     date: "Jan 6, 2026",
-    title: "How Will 2026 Homes Be Different from Today's Living Spaces?",
-    excerpt:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    image: "/blog/main-blog.jpg",
+    title: "The Benefits of Owning a Commercial Property in Faridabad (2026 Investment Guide)",
+    points: [
+      "The real estate game has changed significantly.",
+      "And the smart investors are not interested in homes.",
+      "But interested in commercial property in Faridabad.",
+    ],
+    image: "/aagman/aagman-slider2.jpg",
+    slug: "benefits-of-owning-commercial-property-faridabad",
   },
   {
     id: 2,
     date: "Jan 6, 2026",
-    title: "How Will 2026 Homes Be Different from Today's Living Spaces?",
-    excerpt:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    image: "/blog/main-blog.jpg",
+    title: "Everything You Need to Know About Mansha Heritage Sonipat",
+    descriptionLead:
+      "In today's market finding the best property in NCR means buying much more than just land; it is about securing a life ready for the future,",
+    descriptionBody:
+      "poised for growth and a location at the core of a rapidly developing future. This is precisely why projects in Sonipat are fast capturing the eye of many homebuyers and investors.",
+    image: "/aagman/aagman-slider2.jpg",
+    slug: "everything-you-need-to-know-mansha-heritage-sonipat",
   },
 ];
 
 const RecentPosts = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredMainCards = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return MAIN_CARDS;
+    return MAIN_CARDS.filter((card) => card.title.toLowerCase().includes(query));
+  }, [searchQuery]);
+
+  const filteredSidebarPosts = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return SIDEBAR_POSTS;
+    return SIDEBAR_POSTS.filter((post) => post.title.toLowerCase().includes(query));
+  }, [searchQuery]);
+
   return (
     <section className="w-full bg-white pb-[35px] lg:pb-[70px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
@@ -53,6 +77,8 @@ const RecentPosts = () => {
               <span className="sr-only">Search blog</span>
               <input
                 type="search"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
                 placeholder="Search..."
                 className="w-full rounded-full border border-[#E0E0E0] bg-[#FAFAFA] py-3 pl-5 pr-12 font-montserrat text-[14px] font-normal text-[#333333] outline-none transition-[border-color,box-shadow] placeholder:text-[#999999] focus:border-[#652A27]/30 focus:ring-2 focus:ring-[#652A27]/15"
               />
@@ -77,7 +103,7 @@ const RecentPosts = () => {
             />
 
             <ul className="mt-8 flex flex-col gap-6">
-              {SIDEBAR_POSTS.map((post) => (
+              {filteredSidebarPosts.map((post) => (
                 <li key={post.id}>
                   <a
                     href="#"
@@ -110,12 +136,12 @@ const RecentPosts = () => {
           {/* Right — blog cards */}
           <div className="min-w-0 flex-1">
             <div className="flex flex-col gap-8 lg:gap-10">
-              {MAIN_CARDS.map((card) => (
+              {filteredMainCards.map((card) => (
                 <article
                   key={card.id}
                   className="grid gap-5 overflow-hidden rounded-xl border border-[#E6E6E6] bg-white p-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-6 md:p-3 lg:gap-8"
                 >
-                  <div className="relative aspect-[4/3] min-h-[200px] w-full overflow-hidden rounded-lg bg-[#f0f0f0] md:aspect-auto md:min-h-[280px] lg:min-h-[200px] xl:min-h-[380px]">
+                  <div className="relative aspect-[4/3]  w-full overflow-hidden rounded-lg bg-[#f0f0f0] md:aspect-auto ">
                     <Image
                       src={card.image}
                       alt={card.title}
@@ -133,21 +159,50 @@ const RecentPosts = () => {
                     >
                       {card.date}
                     </time>
-                    <h3 className="mt-3 font-montserrat text-[15px] xl:text-[20px] font-semibold capitalize leading-[20px] xl:leading-[29px] tracking-[0] text-[#111111] max-w-[350px]">
+                    <h3 className="mt-3 line-clamp-2 min-w-0 font-montserrat text-[15px] xl:text-[20px] font-semibold capitalize leading-[20px] xl:leading-[29px] tracking-[0] text-[#111111] max-w-[350px]">
                       {card.title}
                     </h3>
-                    <p className="mt-3 min-h-0 flex-1 font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151] line-clamp-4">
-                      {card.excerpt}
-                    </p>
-                    <a
-                      href="#"
-                      className="mt-5 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity md:mt-6"
-                    >
-                      Read More
-                      <span aria-hidden className="text-[16px] leading-none">
-                        <i className="ri-arrow-right-line" aria-hidden />
-                      </span>
-                    </a>
+                    {Array.isArray(card.points) ? (
+                      <ul className="mt-3 list-disc space-y-1 pl-5 font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
+                        {card.points.map((point, pointIndex) => (
+                          <li key={pointIndex}>{point}</li>
+                        ))}
+                      </ul>
+                    ) : card.descriptionLead ? (
+                      <div className="mt-3 min-w-0 max-w-[350px]">
+                        <p className="font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
+                          {card.descriptionLead}
+                        </p>
+                        {/* <p className="line-clamp-2 overflow-hidden font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
+                          {card.descriptionBody}
+                        </p> */}
+                      </div>
+                    ) : (
+                      <p className="mt-3 font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151] line-clamp-4">
+                        {card.excerpt}
+                      </p>
+                    )}
+                    {card.slug ? (
+                      <Link
+                        href={`/blog/${card.slug}`}
+                        className="mt-5 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity md:mt-6"
+                      >
+                        Read More
+                        <span aria-hidden className="text-[16px] leading-none">
+                          <i className="ri-arrow-right-line" aria-hidden />
+                        </span>
+                      </Link>
+                    ) : (
+                      <a
+                        href="#"
+                        className="mt-5 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity md:mt-6"
+                      >
+                        Read More
+                        <span aria-hidden className="text-[16px] leading-none">
+                          <i className="ri-arrow-right-line" aria-hidden />
+                        </span>
+                      </a>
+                    )}
                   </div>
                 </article>
               ))}

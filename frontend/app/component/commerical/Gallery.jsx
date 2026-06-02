@@ -5,11 +5,11 @@ import React, { useState } from "react";
 
 const Gallery = () => {
   const images = [
-    { src: "/mansha-image/galleryimage-1.jpg", alt: "Gallery image one" },
-    { src: "/mansha-image/gallery-image-2.jpg", alt: "Gallery image two" },
-    { src: "/mansha-image/gallery-image-3.jpg", alt: "Gallery image three" },
-    { src: "/mansha-image/gallery-image-4.jpg", alt: "Gallery image four" },
-    { src: "/mansha-image/gallery-image-5.jpg", alt: "Gallery image five" },
+    { src: "/vega-street/vegagallery1.jpg", alt: "Gallery image one" },
+    { src: "/vega-street/vegagallery2.jpg", alt: "Gallery image two" },
+    { src: "/vega-street/vegagallery3.jpg", alt: "Gallery image three" },
+    { src: "/vega-street/vegagallery4.jpg", alt: "Gallery image four" },
+    { src: "/vega-street/vegagallery5.jpg", alt: "Gallery image five" },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);

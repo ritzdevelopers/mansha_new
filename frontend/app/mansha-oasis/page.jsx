@@ -10,6 +10,7 @@ import Section7 from '../component/ManshaOasis/Section7'
 import Section8 from '../component/ManshaOasis/Section8'
 import Section9 from '../component/ManshaOasis/Section9'
 import ConsultationCommon from '../component/common/Consultation-common'
+import TestimoniaCommon from '../component/common/Testimonia-common'
 const ManshaOasis = () => {
   return (
     <>
@@ -24,7 +25,8 @@ const ManshaOasis = () => {
       <Section7 />
       </div>
       <Section8 />
-      <Section9 />
+      {/* <Section9 /> */}
+      <TestimoniaCommon/>
       <ConsultationCommon />
       <Footer />
     </>

@@ -13,7 +13,7 @@ const page = () => {
       <RecentPosts />
 
       <ContactFAQ />
-      <div className="pb-[35px] lg:pb-[70px]">
+      <div className="py-[35px] lg:py-[70px]">
         <TestimoniaCommon />
       </div>
       <Footer />

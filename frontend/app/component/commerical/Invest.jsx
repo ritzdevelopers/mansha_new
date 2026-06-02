@@ -7,10 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const INVEST_SLIDES = [
-  "/mansha-image/invest-slider-1.png",
-  "/mansha-image/invest-slider-1.png",
-  "/mansha-image/invest-slider-1.png",
-  "/mansha-image/invest-slider-1.png",
+  "/vega-street/location1.jpg",
+  "/vega-street/location2.jpg",
+  "/vega-street/location3.jpg",
+  "/vega-street/location4.jpg",
 ];
 
 const Invest = () => {
@@ -53,11 +53,11 @@ const Invest = () => {
     <section className="w-full pb-[35px] lg:pb-[70px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-8 xl:grid-cols-[1.15fr_0.85fr] xl:gap-10">
-          <div ref={leftSectionRef} className="-ml-5 bg-[#F7F7F7] px-4 py-7 pl-5 sm:-ml-8 sm:px-6  sm:pl-8 lg:-ml-[70px] lg:px-8 xl:py-[100px] lg:py-[50px] lg:pl-[70px]">
+          <div ref={leftSectionRef} className="-ml-5 bg-none lg:bg-[#F7F7F7] px-4 py-7 pl-5 sm:-ml-8 sm:px-6  sm:pl-8 lg:-ml-[70px] lg:px-8 xl:py-[100px] lg:py-[50px] lg:pl-[70px]">
             <h2 className="font-optima text-[28px] font-medium leading-[100%] tracking-[0] capitalize text-[#111111] md:text-[32px] lg:text-[28px] xl:text-[36px] text-center md:text-left">
             Why invest in Vega Street 
             </h2>
-            <p className="mt-2 md:mt-6 font-montserrat text-[16px] font-normal xl:max-w-[700px] lg:max-w-[500px] leading-[28px] tracking-[0px] capitalize text-[#333333] text-center md:text-left">
+            <p className="mt-2 md:mt-6 font-montserrat text-[16px] font-normal xl:max-w-[700px] lg:max-w-[500px] leading-[25px] tracking-[0px] capitalize text-[#333333] text-center md:text-left">
             Vega Street offers a compelling investment opportunity with its strategic location on a prime 60 mtr. master road in the heart of Faridabad’s commercial hub, ensuring excellent visibility and accessibility. Designed with world-class architecture and modern infrastructure, it is built to attract high footfall and premium brands. Surrounded by well-established residential societies, it benefits from consistent demand and a ready customer base. Wide internal roads, seamless connectivity, and thoughtfully planned amenities further enhance the overall experience. As a future-ready high-street destination, Vega Street is positioned to deliver strong returns and long-term value. 
             </p>
           </div>

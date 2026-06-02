@@ -9,7 +9,9 @@ const page = () => {
     <div>
       <Section1/>
       <Section2/>
-      <TestimoniaCommon/>
+      <div className="py-[35px] lg:py-[70px]">
+        <TestimoniaCommon/>
+      </div>
       <ConsultationCommon/>
       <Footer/>
     </div>
