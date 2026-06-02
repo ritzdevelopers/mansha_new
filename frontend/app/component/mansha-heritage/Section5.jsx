@@ -4,27 +4,27 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const popupAmenities = [
-  { icon: "/mansha-svg/facility.svg", label: "Gated community" },
-  { icon: "/mansha-svg/facility.svg", label: "Well connecting" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "Smart Design" },
-  { icon: "/mansha-svg/facility.svg", label: "Manicured greens" },
-  { icon: "/mansha-svg/facility.svg", label: "Light poles electricity" },
-  { icon: "/mansha-svg/facility.svg", label: "24/7 security" },
-  { icon: "/mansha-svg/playarea.svg", label: "Play area" },
-  { icon: "/mansha-svg/jogging.svg", label: "Holistic Wellness Voyage" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "Eco-Friendly Design" },
-  { icon: "/mansha-svg/facility.svg", label: "All Underground Cabling" },
-  { icon: "/mansha-svg/playarea.svg", label: "Wide Open Roads" },
-  { icon: "/mansha-svg/facility.svg", label: "Advanced Security Systems" },
-  { icon: "/mansha-svg/facility.svg", label: "Provision of Underground Water Tank" },
-  { icon: "/mansha-svg/facility.svg", label: "24 x 7 Power Back-up for Common Areas" },
-  { icon: "/mansha-svg/facility.svg", label: "Rain Water Harvesting" },
-  { icon: "/mansha-svg/facility.svg", label: "Round-the-Clock Facilities Management" },
-  { icon: "/mansha-svg/facility.svg", label: "Sewage Treatment Plant" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "Designed for a Complete Living Experience" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "State-of-the-art Workspaces" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "High Street Shopping Model" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "Amphitheatre" },
+  { icon: "/heritage-amenities/h-1.png", label: "Gated community" },
+  { icon: "/heritage-amenities/h-2.png", label: "Well connecting" },
+  { icon: "/heritage-amenities/h-3.png", label: "Smart Design" },
+  { icon: "/heritage-amenities/h-4.png", label: "Manicured greens" },
+  { icon: "/heritage-amenities/h-5.png", label: "Light poles electricity" },
+  { icon: "/heritage-amenities/h-6.png", label: "24/7 security" },
+  { icon: "/heritage-amenities/h-7.png", label: "Play area" },
+  { icon: "/heritage-amenities/h-8.png", label: "Holistic Wellness Voyage" },
+  { icon: "/heritage-amenities/h-9.png", label: "Eco-Friendly Design" },
+  { icon: "/heritage-amenities/h-10.png", label: "All Underground Cabling" },
+  { icon: "/heritage-amenities/h-11.png", label: "Wide Open Roads" },
+  { icon: "/heritage-amenities/h-12.png", label: "Advanced Security Systems" },
+  { icon: "/heritage-amenities/h-13.png", label: "Provision of Underground Water Tank" },
+  { icon: "/heritage-amenities/h-14.png", label: "24 x 7 Power Back-up for Common Areas" },
+  { icon: "/heritage-amenities/h-15.png", label: "Rain Water Harvesting" },
+  { icon: "/heritage-amenities/h-16.png", label: "Round-the-Clock Facilities Management" },
+  { icon: "/heritage-amenities/h-17.png", label: "Sewage Treatment Plant" },
+  { icon: "/heritage-amenities/h-18.png", label: "Designed for a Complete Living Experience" },
+  { icon: "/heritage-amenities/h-19.png", label: "State-of-the-art Workspaces" },
+  { icon: "/heritage-amenities/h-20.png", label: "High Street Shopping Model" },
+  { icon: "/heritage-amenities/h-21.png", label: "Amphitheatre" },
 ];
 
 const luxuryItems = popupAmenities.slice(0, 5);
@@ -99,9 +99,9 @@ const Section5 = () => {
                   <Image
                     src={item.icon}
                     alt={item.label}
-                    width={52}
-                    height={52}
-                    className="h-[38px] w-[38px] object-contain md:h-[42px] md:w-[42px] lg:h-[52px] lg:w-[52px] xl:h-[80px] xl:w-[80px]"
+                    width={62}
+                    height={62}
+                    className="h-[48px] w-[48px] object-contain md:h-[52px] md:w-[52px] lg:h-[62px] lg:w-[62px] xl:h-[90px] xl:w-[90px]"
                   />
                   <p className="mt-2 text-center font-optima text-[13px] font-[500] leading-[100%] capitalize text-[#000000] md:mt-3 md:text-[14px] lg:text-[16px]">
                     {item.label}
@@ -113,7 +113,7 @@ const Section5 = () => {
             <div className="md:mt-8 mt-3 flex justify-center">
               <div className="relative w-full max-w-[760px] overflow-hidden">
                 <Image
-                  src="/mansha-image/Experience.jpg"
+                  src="/aagman/amenties-bg.jpg"
                   alt="Experience all lifestyle amenities"
                   width={760}
                   height={360}

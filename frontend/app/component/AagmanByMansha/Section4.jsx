@@ -7,12 +7,12 @@ const VEGA_STREET_MAP_EMBED =
 
 /** 8 rows: same 5 icons cycled (metro → side-metro → School → Hospital → Hospital2 → …) */
 const amenityItems = [
-  { image: "/mansha-osis/mansha-osis-plan.png", time: "10 Mins*", title: "Kundli " },
-  { image: "/mansha-osis/mansha-osis-expressway.png", time: "15 mins*", title: "Delhi Border" },
-  { image: "/mansha-svg/School.svg", time: "25 Mins*", title: "Rohini  " },
-  { image: "/mansha-svg/Hospital.svg", time: "30 Min*", title: "Pitampura " },
-  { image: "/mansha-svg/Hospital2.svg", time: "40 Min*", title: "IGI Airport" },
-  { image: "/mansha-svg/metro.svg", time: "45 Min*", title: "Gurugram " },
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "15 mins*", title: "National Highway-44" },
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "10 Min*", title: "UER-ll " },
+  { image: "/mansha-svg/heritage-airport.png", time: "40 Min*", title: "Next to Omaxe city " },
+  { image: "/mansha-osis/mansha-osis-expressway.png", time: "25 Mins*", title: "Rai Sports Complex  " },
+  // { image: "/mansha-svg/metro.svg", time: "45 Min*", title: "Gurugram " },
+  // { image: "/mansha-osis/mansha-osis-expressway.png", time: "10 Mins*", title: "Kundli " },
   // { image: "/mansha-svg/side-metro.svg", time: "4 Min*", title: "Transit Hub" },
   // { image: "/mansha-svg/School.svg", time: "3 Min*", title: "Education Centre" },
 ];

@@ -2,16 +2,18 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import BookASite from "../common/Book-a-site";
 
 const RESIDENTIAL_SLIDES = [
-  "/mansha-image/residential-sldier-1.jpg",
-  "/mansha-image/residential-slider-2.jpg",
-  "/mansha-image/residentail-slider-3.jpg",
+  "/aagman/girl.jpg",
+  "/aagman/gym-girl.jpg",
+  "/aagman/road.jpg",
 ];
 
 const Section2 = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
+  const [bookSiteOpen, setBookSiteOpen] = useState(false);
   const sliderSlides = [...RESIDENTIAL_SLIDES, RESIDENTIAL_SLIDES[0]];
 
   useEffect(() => {
@@ -68,11 +70,11 @@ const Section2 = () => {
             <div className="xl:mt-12 mt-7 grid grid-cols-1 xl:gap-5 lg:gap-0 gap-3 sm:grid-cols-2">
               <div className="flex items-center xl:gap-5 lg:gap-2 gap-3">
                 <Image
-                  src="/mansha-svg/Forest-Themed-1.svg"
+                  src="/aagman/kids-play-area.png"
                   alt="Forest themed icon"
                   width={60}
                   height={60}
-                  className="h-[50px] w-[50px] object-contain xl:h-15 xl:w-15"
+                  className="h-[50px] w-[50px] object-contain xl:h-20 xl:w-20"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
                 Kids play area 
@@ -81,11 +83,11 @@ const Section2 = () => {
 
               <div className="flex items-center xl:gap-5 lg:gap-2 gap-3">
                 <Image
-                  src="/mansha-svg/Forest-Themed-1.svg"
+                  src="/aagman/open-gym-area.png"
                   alt="Forest themed icon"
                   width={60 }
                   height={60}
-                  className="h-[50px] w-[50px] object-contain xl:h-15 xl:w-15"
+                  className="h-[50px] w-[50px] object-contain xl:h-20 xl:w-20"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
                 Open gym area 
@@ -93,9 +95,10 @@ const Section2 = () => {
               </div>
             </div>
 
-            <div className="xl:mt-12 md:mt-7 mt-4 flex flex-wrap items-center gap-3">
+            <div className="xl:mt-8 md:mt-7 mt-4 flex flex-wrap items-center gap-3">
               <button
                 type="button"
+                onClick={() => setBookSiteOpen(true)}
                 className="group relative isolate inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-transparent bg-[#652A27] px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] text-white transition-colors duration-300 hover:border-[#652A27]"
               >
                 <span
@@ -124,7 +127,7 @@ const Section2 = () => {
           </div>
 
           <div className="relative xl:mt-22 lg:mt-10 md:mt-3 mt-0">
-            <div className="relative h-[350px] w-full overflow-hidden md:h-[570px]">
+            <div className="relative h-[300px] w-full overflow-hidden md:h-[570px] lg:h-[420px] xl:h-[570px]">
               <div
                 className="flex h-full duration-700 ease-out"
                 style={{
@@ -146,26 +149,28 @@ const Section2 = () => {
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-1.5">
-              {RESIDENTIAL_SLIDES.map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  aria-label={`Go to slide ${idx + 1}`}
-                  onClick={() => {
-                    setIsTransitioning(true);
-                    setActiveSlide(idx);
-                  }}
-                  className={`cursor-pointer rounded-full transition-all ${
-                    activeSlide % RESIDENTIAL_SLIDES.length === idx ? "h-2 w-7 bg-white" : "h-2 w-2 bg-white/85"
-                  }`}
-                />
-              ))}
+              <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1.5">
+                {RESIDENTIAL_SLIDES.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    aria-label={`Go to slide ${idx + 1}`}
+                    onClick={() => {
+                      setIsTransitioning(true);
+                      setActiveSlide(idx);
+                    }}
+                    className={`cursor-pointer rounded-full transition-all ${
+                      activeSlide % RESIDENTIAL_SLIDES.length === idx ? "h-2 w-7 bg-white" : "h-2 w-2 bg-white/85"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <BookASite open={bookSiteOpen} onClose={() => setBookSiteOpen(false)} />
     </section>
   );
 };

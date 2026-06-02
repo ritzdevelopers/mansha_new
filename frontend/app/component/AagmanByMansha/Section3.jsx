@@ -7,20 +7,22 @@ const AUTOPLAY_MS = 3200;
 
 const LEFT_SLIDES = [
   {
-    src: "/mansha-image/outdoor-cafe-big.jpg",
-    alt: "A terrace for every home",
-    title: "Engineered For Everyday Living",
-    text: " Concrete roads, independent floors, gated security, open gyms, and kids’ play areas built for seamless living.",
+    src: "/aagman/gym.jpg",
+    alt: "Gym",
+    title: "Planned for the Way You Live",
+    text: " Independent floors, concrete roads, kids’ play areas, open gyms, and gated security built for comfort.",
   },
+  
   {
-    src: "/mansha-image/club-with-lawn-big.jpg",
-    alt: "Club with lawn",
+    src: "/aagman/children.jpg",
+    alt: "Children",
     title: "Foundations of Better Living",
     text: "  Independent floors, concrete roads, secure gates, open gyms, and play areas shaping a well-planned community.",
   },
+
   {
-    src: "/mansha-image/club-pool-big.jpg",
-    alt: "Club pool",
+    src: "/aagman/badmintan.jpg",
+    alt: "Bedminton",
     title: "Built Around Real Living",
     text: " Concrete roads, independent floors, open gyms, kids’ play zones, and gated surroundings designed for daily ease.",
   },
@@ -28,20 +30,20 @@ const LEFT_SLIDES = [
 
 const RIGHT_SLIDES = [
   {
-    src: "/mansha-image/central-landscape-bog.jpg",
-    alt: "Linear greens and themed landscapes",
+    src: "/aagman/metro.jpg",
+    alt: "Metro",
     title: "Where Living Stands Strong",
     text: " Concrete roads, gated community, independent floors, open gyms, and play areas creating dependable living.",
   },
   {
-    src: "/mansha-image/outdoor-cafe-big.jpg",
-    alt: "Gym",
-    title: "Planned for the Way You Live",
-    text: " Independent floors, concrete roads, kids’ play areas, open gyms, and gated security built for comfort.",
+    src: "/aagman/place.jpg",
+    alt: "Place",
+    title: "Engineered For Everyday Living",
+    text: " Concrete roads, independent floors, gated security, open gyms, and kids’ play areas built for seamless living.",
   },
   {
-    src: "/mansha-image/central-landscape-bog.jpg",
-    alt: "Linear greens and themed landscapes",
+    src: "/aagman/water.jpg",
+    alt: "Water",
     title: "Designed for Daily Ease",
     text: " Concrete roads, independent floors, secure surroundings, open gyms, and play zones for effortless living.",
   },

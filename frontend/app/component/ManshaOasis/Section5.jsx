@@ -4,15 +4,15 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const popupAmenities = [
-  { icon: "/mansha-svg/facility.svg", label: "Gated Community with Restricted Access" },
-  { icon: "/mansha-svg/facility.svg", label: "Controlled Entry/Exit Systems" },
-  { icon: "/mansha-svg/playarea.svg", label: "Efficient Traffic Management" },
-  { icon: "/mansha-svg/playarea.svg", label: "Wide Internal Roads Designed for Ease and Flow" },
-  { icon: "/mansha-svg/facility.svg", label: "Direction Signages Throughout the Development" },
-  { icon: "/mansha-svg/facility.svg", label: "Three-Tier Security Infrastructure" },
-  { icon: "/mansha-svg/jogging.svg", label: "Pedestrian Pathways All Through the Community" },
-  { icon: "/mansha-svg/facility.svg", label: "Comprehensive CCTV Surveillance for 24/7 Safety" },
-  { icon: "/mansha-svg/facility.svg", label: "Underground Electricity Lines for Aesthetic Appeal" },
+  { icon: "/oasis-amenites/oasis-01.png", label: "Gated Community with Restricted Access" },
+  { icon: "/oasis-amenites/oasis-02.png", label: "Controlled Entry/Exit Systems" },
+  { icon: "/oasis-amenites/oasis-03.png", label: "Efficient Traffic Management" },
+  { icon: "/oasis-amenites/oasis-04.png", label: "Wide Internal Roads Designed for Ease and Flow" },
+  { icon: "/oasis-amenites/oasis-05.png", label: "Direction Signages Throughout the Development" },
+  { icon: "/oasis-amenites/oasis-06.png", label: "Three-Tier Security Infrastructure" },
+  { icon: "/oasis-amenites/oasis-07.png", label: "Pedestrian Pathways All Through the Community" },
+  { icon: "/oasis-amenites/oasis-08.png", label: "Comprehensive CCTV Surveillance for 24/7 Safety" },
+  { icon: "/oasis-amenites/oasis-09.png", label: "Underground Electricity Lines for Aesthetic Appeal" },
 ];
 
 const luxuryItems = popupAmenities.slice(0, 5);
@@ -87,9 +87,9 @@ const Section5 = () => {
                   <Image
                     src={item.icon}
                     alt={item.label}
-                    width={52}
-                    height={52}
-                    className="h-[38px] w-[38px] object-contain md:h-[42px] md:w-[42px] lg:h-[52px] lg:w-[52px] xl:h-[80px] xl:w-[80px]"
+                    width={62}
+                    height={62}
+                    className="h-[48px] w-[48px] object-contain md:h-[52px] md:w-[52px] lg:h-[62px] lg:w-[62px] xl:h-[90px] xl:w-[90px]"
                   />
                   <p className="mt-2 text-center font-optima text-[13px] font-[500] leading-[100%] capitalize text-[#000000] md:mt-3 md:text-[14px] lg:text-[16px]">
                     {item.label}
@@ -101,7 +101,7 @@ const Section5 = () => {
             <div className="md:mt-8 mt-3 flex justify-center">
               <div className="relative w-full max-w-[760px] overflow-hidden">
                 <Image
-                  src="/mansha-image/Experience.jpg"
+                  src="/aagman/amenties-bg.jpg"
                   alt="Experience all lifestyle amenities"
                   width={760}
                   height={360}

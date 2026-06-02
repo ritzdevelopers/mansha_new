@@ -51,7 +51,7 @@ const Luxuries = () => {
             <div className="md:mt-8 mt-3 flex justify-center">
               <div className="relative w-full max-w-[760px] overflow-hidden">
                 <Image
-                  src="/mansha-image/Experience.jpg"
+                  src="/aagman/amenties-bg.jpg"
                   alt="Experience all lifestyle amenities"
                   width={760}
                   height={360}

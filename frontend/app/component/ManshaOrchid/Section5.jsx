@@ -4,22 +4,22 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const popupAmenities = [
-  { icon: "/mansha-svg/facility.svg", label: "Secure Gated Community with 24x7 Security" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "Attractive Plot Sizes ranging from 100–180 sq. yds." },
-  { icon: "/mansha-svg/clubhouse.svg", label: "Option to build S+4 Independent Floors" },
-  { icon: "/mansha-svg/facility.svg", label: "30 Ft. Wide Internal Roads" },
-  { icon: "/mansha-svg/facility.svg", label: "Decorative Concrete / Paver Road" },
-  { icon: "/mansha-svg/playarea.svg", label: "Kids Play Area" },
-  { icon: "/mansha-svg/facility.svg", label: "Lush Green Society with Lined Fruit Trees" },
-  { icon: "/mansha-svg/facility.svg", label: "Elegant Street Light Poles with LED Lamps" },
-  { icon: "/mansha-svg/facility.svg", label: "Under Ground Electricity Cable for Common Areas" },
-  { icon: "/mansha-svg/facility.svg", label: "Sewage Treatment Plant (STP)" },
-  { icon: "/mansha-svg/facility.svg", label: "Rain Water Harvesting System" },
-  { icon: "/mansha-svg/jogging.svg", label: "Jogging Track in Beautiful Parks" },
-  { icon: "/mansha-svg/playarea.svg", label: "Badminton Court & Cricket Practice Net" },
-  { icon: "/mansha-svg/facility.svg", label: "Open Air Gym in Park" },
-  { icon: "/mansha-svg/facility.svg", label: "Beautifully managed Landscaped Parks" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "Provision for Commercial Spaces within Society" },
+  { icon: "/orchid-amenities/o1.png", label: "Secure Gated Community with 24x7 Security" },
+  { icon: "/orchid-amenities/o2.png", label: "Attractive Plot Sizes ranging from 100–180 sq. yds." },
+  { icon: "/orchid-amenities/o3.png", label: "Option to build S+4 Independent Floors" },
+  { icon: "/orchid-amenities/o4.png", label: "30 Ft. Wide Internal Roads" },
+  { icon: "/orchid-amenities/o5.png", label: "Decorative Concrete / Paver Road" },
+  { icon: "/orchid-amenities/o6.png", label: "Kids Play Area" },
+  { icon: "/orchid-amenities/o7.png", label: "Lush Green Society with Lined Fruit Trees" },
+  { icon: "/orchid-amenities/o8.png", label: "Elegant Street Light Poles with LED Lamps" },
+  { icon: "/orchid-amenities/o9.png", label: "Under Ground Electricity Cable for Common Areas" },
+  { icon: "/orchid-amenities/o10.png", label: "Sewage Treatment Plant (STP)" },
+  { icon: "/orchid-amenities/o11.png", label: "Rain Water Harvesting System" },
+  { icon: "/orchid-amenities/o12.png", label: "Jogging Track in Beautiful Parks" },
+  { icon: "/orchid-amenities/o13.png", label: "Badminton Court & Cricket Practice Net" },
+  { icon: "/orchid-amenities/o14.png", label: "Open Air Gym in Park" },
+  { icon: "/orchid-amenities/o15.png", label: "Beautifully managed Landscaped Parks" },
+  { icon: "/orchid-amenities/o16.png", label: "Provision for Commercial Spaces within Society" },
 ];
 
 const luxuryItems = popupAmenities.slice(0, 5);
@@ -94,9 +94,9 @@ const Section5 = () => {
                   <Image
                     src={item.icon}
                     alt={item.label}
-                    width={52}
-                    height={52}
-                    className="h-[38px] w-[38px] object-contain md:h-[42px] md:w-[42px] lg:h-[52px] lg:w-[52px] xl:h-[80px] xl:w-[80px]"
+                    width={62}
+                    height={62}
+                    className="h-[48px] w-[48px] object-contain md:h-[52px] md:w-[52px] lg:h-[62px] lg:w-[62px] xl:h-[90px] xl:w-[90px]"
                   />
                   <p className="mt-2 text-center font-optima text-[13px] font-[500] leading-[100%] capitalize text-[#000000] md:mt-3 md:text-[14px] lg:text-[16px]">
                     {item.label}
@@ -108,7 +108,7 @@ const Section5 = () => {
             <div className="md:mt-8 mt-3 flex justify-center">
               <div className="relative w-full max-w-[760px] overflow-hidden">
                 <Image
-                  src="/mansha-image/Experience.jpg"
+                  src="/aagman/amenties-bg.jpg"
                   alt="Experience all lifestyle amenities"
                   width={760}
                   height={360}

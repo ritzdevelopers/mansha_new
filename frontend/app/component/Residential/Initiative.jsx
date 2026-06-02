@@ -90,7 +90,7 @@ const Initiative = () => {
               </div>
             </div>
 
-            <div className="xl:mt-12 md:mt-7 mt-4 flex flex-wrap items-center gap-3">
+            <div className="xl:mt-8 md:mt-7 mt-4 flex flex-wrap items-center gap-3">
               <button
                 type="button"
                 className="group relative isolate inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-transparent bg-[#652A27] px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] text-white transition-colors duration-300 hover:border-[#652A27]"

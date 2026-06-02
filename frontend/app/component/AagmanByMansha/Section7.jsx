@@ -12,11 +12,11 @@ gsap.registerPlugin(ScrollTrigger);
 const Section7 = () => {
   const gridRef = useRef(null);
   const images = [
-    { src: "/mansha-image/galleryimage-1.jpg", alt: "Gallery image one" },
-    { src: "/mansha-image/gallery-image-2.jpg", alt: "Gallery image two" },
-    { src: "/mansha-image/gallery-image-3.jpg", alt: "Gallery image three" },
-    { src: "/mansha-image/gallery-image-4.jpg", alt: "Gallery image four" },
-    { src: "/mansha-image/gallery-image-5.jpg", alt: "Gallery image five" },
+    { src: "/aagman/family.jpg", alt: "Gallery image one" },
+    { src: "/aagman/tenis.jpg", alt: "Gallery image two" },
+    { src: "/aagman/hand.jpg", alt: "Gallery image three" },
+    { src: "/aagman/house.jpg", alt: "Gallery image four" },
+    { src: "/aagman/shopping.jpg", alt: "Gallery image five" },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);

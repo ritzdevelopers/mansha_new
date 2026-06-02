@@ -4,17 +4,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const popupAmenities = [
-  { icon: "/mansha-svg/playarea.svg", label: "12mtr wide road" },
-  { icon: "/mansha-svg/clubhouse.svg", label: "Independent floors" },
-  { icon: "/mansha-svg/playarea.svg", label: "Kids play area" },
-  { icon: "/mansha-svg/facility.svg", label: "Well connected" },
-  { icon: "/mansha-svg/facility.svg", label: "Gated community" },
-  { icon: "/mansha-svg/facility.svg", label: "10 min drive from UER-II" },
-  { icon: "/mansha-svg/swimming.svg", label: "Open gym area" },
-  { icon: "/mansha-svg/playarea.svg", label: "Decorative concrete roads" },
-  { icon: "/mansha-svg/facility.svg", label: "Manicured landscapes" },
-  { icon: "/mansha-svg/facility.svg", label: "Sewage Treatment Plants" },
-  { icon: "/mansha-svg/facility.svg", label: "Dual piping water supply system" },
+  { icon: "/aagman-amenities/a1.png", label: "12mtr wide road" },
+  { icon: "/aagman-amenities/a2.png", label: "Independent floors" },
+  { icon: "/aagman-amenities/a3.png", label: "Kids play area" },
+  { icon: "/aagman-amenities/a4.png", label: "Well connected" },
+  { icon: "/aagman-amenities/a5.png", label: "Gated community" },
+  { icon: "/aagman-amenities/a6.png", label: "10 min drive from UER-II" },
+  { icon: "/aagman-amenities/a7.png", label: "Open gym area" },
+  { icon: "/aagman-amenities/a8.png", label: "Decorative concrete roads" },
+  { icon: "/aagman-amenities/a9.png", label: "Manicured landscapes" },
+  { icon: "/aagman-amenities/a10.png", label: "Sewage Treatment Plants" },
+  { icon: "/aagman-amenities/a11.png", label: "Dual piping water supply system" },
 ];
 
 const luxuryItems = popupAmenities.slice(0, 5);
@@ -89,9 +89,9 @@ const Section5 = () => {
                   <Image
                     src={item.icon}
                     alt={item.label}
-                    width={52}
-                    height={52}
-                    className="h-[38px] w-[38px] object-contain md:h-[42px] md:w-[42px] lg:h-[52px] lg:w-[52px] xl:h-[80px] xl:w-[80px]"
+                    width={62}
+                    height={62}
+                    className="h-[48px] w-[48px] object-contain md:h-[52px] md:w-[52px] lg:h-[62px] lg:w-[62px] xl:h-[90px] xl:w-[90px]"
                   />
                   <p className="mt-2 text-center font-optima text-[13px] font-[500] leading-[100%] capitalize text-[#000000] md:mt-3 md:text-[14px] lg:text-[16px]">
                     {item.label}
@@ -103,7 +103,7 @@ const Section5 = () => {
             <div className="md:mt-8 mt-3 flex justify-center">
               <div className="relative w-full max-w-[760px] overflow-hidden">
                 <Image
-                  src="/mansha-image/Experience.jpg"
+                  src="/aagman/amenties-bg.jpg"
                   alt="Experience all lifestyle amenities"
                   width={760}
                   height={360}
