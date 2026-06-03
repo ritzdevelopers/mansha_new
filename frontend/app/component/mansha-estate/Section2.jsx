@@ -74,11 +74,11 @@ const TAB_CONTENT = {
 };
 
 const GALLERY_IMAGES = [
-  { src: "/mansha-image/galleryimage-1.jpg", alt: "Gallery image one" },
-  { src: "/mansha-image/gallery-image-2.jpg", alt: "Gallery image two" },
-  { src: "/mansha-image/gallery-image-3.jpg", alt: "Gallery image three" },
-  { src: "/mansha-image/gallery-image-4.jpg", alt: "Gallery image four" },
-  { src: "/mansha-image/gallery-image-5.jpg", alt: "Gallery image five" },
+  { src: "/delieved-gallery/estate1.jpg", alt: "Mansha Estate gallery image one" },
+  { src: "/delieved-gallery/estate2.jpg", alt: "Mansha Estate gallery image two" },
+  { src: "/delieved-gallery/estate3.jpg", alt: "Mansha Estate gallery image three" },
+  { src: "/delieved-gallery/estate4.jpg", alt: "Mansha Estate gallery image four" },
+  { src: "/delieved-gallery/estate5.jpg", alt: "Mansha Estate gallery image five" },
 ];
 
 const PAST_PROJECTS = [

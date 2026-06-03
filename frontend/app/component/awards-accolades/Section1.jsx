@@ -240,7 +240,7 @@ const Section1 = () => {
         </div>
       </section>
 
-      {/* <NavSideMenu open={open} onClose={() => setOpen(false)} /> */}
+      <NavSideMenu open={open} onClose={() => setOpen(false)} />
     </>
   );
 };
