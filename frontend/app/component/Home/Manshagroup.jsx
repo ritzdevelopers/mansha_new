@@ -75,7 +75,7 @@ const Manshagroup = () => {
                     {card.title}
                   </h3>
                   <Link
-                    href="#"
+                    href="/awards-accolades"
                     aria-label={`Read more about ${card.title}`}
                     className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#515151] text-[#144168] transition-colors hover:border-[#144168] hover:bg-[#f8f8f8]"
                   >
