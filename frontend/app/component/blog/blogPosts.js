@@ -31,12 +31,12 @@ export const BLOG_POSTS = [
   },
   {
     id: 4,
-    slug: "everything-you-need-to-know-mansha-heritage-sonipat",
-    date: "Jan 6, 2026",
-    title: "Everything You Need to Know About Mansha Heritage Sonipat",
-    image: "/blog/blog-image.png",
+    slug: "real-estate-developer-in-ncr",
+    date: "Jan 28, 2026",
+    title: "Real Estate Developer in NCR",
+    image: "/blog/testblog.jpg",
     descriptionLead:
-      "Among the new residential projects in Sonipat, Mansha Heritage Sonipat has gained attention among buyers and investors looking for high value near Delhi NCR.",
+      "Real Estate Developer in NCR - Mansha Group We at Mansha Group view Real Estate Development as much more than just the construction of an empty project; we consider the development process to encapsulate the totality of building a safe, well-planned, and designed.",
   },
 ];
 

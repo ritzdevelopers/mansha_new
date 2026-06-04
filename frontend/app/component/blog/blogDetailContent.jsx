@@ -807,7 +807,7 @@ export const BLOG_DETAIL_CONTENT_BY_SLUG = {
   "affordable-residential-plots-in-sonipat-near-delhi": CommercialPropertyContent,
   "buy-residential-plots-for-sale-in-sonipat": VegaStreetContent,
   "m3m-sky-city-in-gurgaon": DeveloperContent,
-  "everything-you-need-to-know-mansha-heritage-sonipat": ManshaHeritageContent,
+  "real-estate-developer-in-ncr": ManshaHeritageContent,
 };
 
 export const getBlogDetailContent = (slug) => BLOG_DETAIL_CONTENT_BY_SLUG[slug] ?? null;

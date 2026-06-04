@@ -69,20 +69,22 @@ const RecentPosts = () => {
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <div className="mb-8 flex w-full justify-center lg:mb-10">
           <div className="w-[700px] max-w-full">
-            <label className="relative block w-full">
-              <span className="sr-only">Search blog</span>
-              <input
-                type="search"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search..."
-                className="w-full rounded-full border border-[#E0E0E0] bg-[#FAFAFA] py-3 pl-5 pr-12 font-montserrat text-[14px] font-normal text-[#333333] outline-none transition-[border-color,box-shadow] placeholder:text-[#999999] focus:border-[#652A27]/30 focus:ring-2 focus:ring-[#652A27]/15"
-              />
-              <i
-                className="ri-search-line pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[20px] text-[#515151]"
-                aria-hidden
-              />
-            </label>
+            <div className="rounded-[6px]  p-3 shadow-[0px_4px_10px_0px_#C4C4C429]">
+              <label className="relative block w-full">
+                <span className="sr-only">Search blog</span>
+                <input
+                  type="search"
+                  value={searchQuery}
+                  onChange={(event) => setSearchQuery(event.target.value)}
+                  placeholder="Search..."
+                  className="w-full rounded-full  bg-[#FAFAFA] py-3 pl-5 pr-12 font-montserrat text-[14px] font-normal text-[#333333] outline-none transition-[border-color,box-shadow] placeholder:text-[#999999] focus:border-[#652A27]/30 focus:ring-2 focus:ring-[#652A27]/15"
+                />
+                <i
+                  className="ri-search-line pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[20px] text-[#515151]"
+                  aria-hidden
+                />
+              </label>
+            </div>
           </div>
         </div>
 
