@@ -10,7 +10,7 @@ export const BLOG_POSTS = [
   },
   {
     id: 2,
-    slug: "mansha-vega-street-smart-commercial-investment-opportunity-faridabad",
+    slug: "buy-residential-plots-for-sale-in-sonipat",
     date: "Mar 24, 2026 ",
     title: "Buy Residential Plots for Sale in Sonipat",
     image: "/blog/testblog.jpg",
@@ -20,12 +20,13 @@ export const BLOG_POSTS = [
   },
   {
     id: 3,
-    slug: "how-to-choose-right-real-estate-developer",
-    date: "Jan 6, 2026",
-    title: "How to Choose the Right Real Estate Developer? (2026 Investment Guide)",
-    image: "/blog/blog-image.png",
+    slug: "m3m-sky-city-in-gurgaon",
+    date: "Jan 28, 2026",
+    title: "m3m-sky-city-in-gurgaon",
+    image: "/blog/testblog.jpg",
+    
     descriptionLead:
-      "Buying a home or investing in a plot is one of the most important financial decisions of your life. You work hard, save diligently and when the moment finally comes to put your money into real estate the single biggest factor standing between a great investment and a regrettable one is the developer you choose.",
+      "M3M Sky City in Gurgaon: The Ultimate Mixed-Use Hub for Luxury Living and Business Growth! M3M Sky City in Gurgaon stands as a landmark mixed-use destination that perfectly blends luxury living, thriving retail, and modern workspaces—offering residents and investors a.",
    
   },
   {
