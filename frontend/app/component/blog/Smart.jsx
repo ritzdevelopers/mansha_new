@@ -57,6 +57,7 @@ const Smart = () => {
       mq.removeEventListener("change", start);
     };
   }, []);
+  
 
   return (
     <section
