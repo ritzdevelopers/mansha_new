@@ -16,13 +16,12 @@ const NAV_ITEMS = [
   { label: "Home", href: "/", delay: "200ms" },
   { label: "About", href: "/about-us", delay: "320ms" },
   { label: "Contact", href: "/contact-us", delay: "560ms" },
-  { label: "Careers", href: "careers", delay: "680ms" },
+  { label: "Careers", href: "/careers", delay: "680ms" },
   { label: "Blogs", href: "/blog", delay: "800ms" },
 ];
 
 const ONGOING_RESIDENTIAL = [
   { label: "Mansha Heritage", href: "/mansha-heritage" },
-  
   { label: "Mansha Orchid", href: "/mansha-orchid" },
   { label: "Aagman by mansha", href: "/aagman-by-mansha" },
   { label: "Mansha Oasis", href: "/mansha-oasis" },
@@ -119,6 +118,7 @@ const NavSideMenu = ({ open, onClose }) => {
     const key = `${sectionId}-${categoryId}`;
     setOpenSubDropdown((prev) => (prev === key ? null : key));
   };
+
   const sidebarLinkClass = `optima-menu-link mobile-nav-item-link block cursor-pointer text-[18px] leading-tight text-black md:text-[30px] ${
     open ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
   }`;
@@ -144,197 +144,183 @@ const NavSideMenu = ({ open, onClose }) => {
         </button>
 
         <div className="nav-menu-scroll mt-2 min-h-0 flex-1 overflow-y-auto overscroll-y-contain [-webkit-overflow-scrolling:touch] md:mt-8">
-        <nav aria-label="Sidebar menu">
-          <ul className="space-y-3 pl-2 md:space-y-1.5">
-            {NAV_ITEMS.slice(0, 2).map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  onClick={onClose}
-                  className={sidebarLinkClass}
-                  style={{
-                    transitionDelay: open ? item.delay : "0ms",
-                  }}
-                >
-                  <span className={sidebarLabelClass}>{item.label}</span>
-                </Link>
-              </li>
-            ))}
-
-            {DROPDOWN_NAV.map((section) => {
-              const isOpen = openDropdown === section.id;
-              return (
-                <li key={section.id}>
-                  <button
-                    type="button"
-                    onClick={() => toggleDropdown(section.id)}
-                    className={`${sidebarLinkClass} flex w-full items-center justify-between gap-2 text-left`}
-                    style={{
-                      transitionDelay: open ? section.delay : "0ms",
-                    }}
-                    aria-expanded={isOpen}
+          <nav aria-label="Sidebar menu">
+            <ul className="space-y-3 pl-2 md:space-y-1.5">
+              {NAV_ITEMS.slice(0, 2).map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={onClose}
+                    className={sidebarLinkClass}
+                    style={{ transitionDelay: open ? item.delay : "0ms" }}
                   >
-                    <span className={sidebarLabelClass}>{section.label}</span>
-                    <i
-                      className={`${
-                        isOpen ? "ri-subtract-line" : "ri-add-line"
-                      } shrink-0 text-[22px] text-black transition-all duration-500 ease-in-out`}
-                      aria-hidden
-                    />
-                  </button>
+                    <span className={sidebarLabelClass}>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
 
-                  <div
-                    className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
-                      isOpen ? "max-h-[2000px] py-2 opacity-100 md:py-3" : "max-h-0 pt-0 opacity-0"
-                    }`}
-                  >
-                    <ul className="space-y-0.5 border-l border-[#E0E0E0] pl-3 md:space-y-1 md:pl-4">
-                      {section.categories.map((category) => {
-                        const subKey = `${section.id}-${category.id}`;
-                        const isSubOpen = openSubDropdown === subKey;
-                        const isDelivered = category.label === "Delivered";
+              {DROPDOWN_NAV.map((section) => {
+                const isOpen = openDropdown === section.id;
+                return (
+                  <li key={section.id}>
+                    <button
+                      type="button"
+                      onClick={() => toggleDropdown(section.id)}
+                      className={`${sidebarLinkClass} flex w-full items-center justify-between gap-2 text-left`}
+                      style={{ transitionDelay: open ? section.delay : "0ms" }}
+                      aria-expanded={isOpen}
+                    >
+                      <span className={sidebarLabelClass}>{section.label}</span>
+                      <i
+                        className={`${
+                          isOpen ? "ri-subtract-line" : "ri-add-line"
+                        } shrink-0 text-[22px] text-black transition-all duration-500 ease-in-out`}
+                        aria-hidden
+                      />
+                    </button>
 
-                        if (category.href) {
+                    <div
+                      className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
+                        isOpen ? "max-h-[2000px] py-2 opacity-100 md:py-3" : "max-h-0 pt-0 opacity-0"
+                      }`}
+                    >
+                      <ul className="space-y-0.5 border-l border-[#E0E0E0] pl-3 md:space-y-1 md:pl-4">
+                        {section.categories.map((category) => {
+                          const subKey = `${section.id}-${category.id}`;
+                          const isSubOpen = openSubDropdown === subKey;
+                          const isDelivered = category.label === "Delivered";
+
+                          if (category.href) {
+                            return (
+                              <li key={subKey}>
+                                <Link
+                                  href={category.href}
+                                  onClick={onClose}
+                                  className={`${sidebarLinkClass} !translate-x-0 !opacity-100`}
+                                >
+                                  <span
+                                    className={`${sidebarLabelClass} text-[16px] ${
+                                      isDelivered ? "font-semibold text-[#652A27]" : "font-normal"
+                                    }`}
+                                  >
+                                    {category.label}
+                                  </span>
+                                </Link>
+                              </li>
+                            );
+                          }
+
                           return (
                             <li key={subKey}>
-                              <Link
-                                href={category.href}
-                                onClick={onClose}
-                                className={`${sidebarLinkClass} !translate-x-0 !opacity-100`}
+                              <button
+                                type="button"
+                                onClick={() => toggleSubDropdown(section.id, category.id)}
+                                className={`${sidebarLinkClass} flex w-full items-center justify-between gap-2 text-left !translate-x-0 !opacity-100`}
+                                aria-expanded={isSubOpen}
                               >
                                 <span
                                   className={`${sidebarLabelClass} text-[16px] ${
-                                    isDelivered
-                                      ? "font-semibold text-[#652A27]"
-                                      : "font-normal"
+                                    isDelivered ? "font-semibold text-[#652A27]" : "font-normal"
                                   }`}
                                 >
                                   {category.label}
                                 </span>
-                              </Link>
-                            </li>
-                          );
-                        }
+                                <i
+                                  className={`${
+                                    isSubOpen ? "ri-subtract-line" : "ri-add-line"
+                                  } shrink-0 text-[18px] text-black transition-all duration-500 ease-in-out`}
+                                  aria-hidden
+                                />
+                              </button>
 
-                        return (
-                          <li key={subKey}>
-                            <button
-                              type="button"
-                              onClick={() => toggleSubDropdown(section.id, category.id)}
-                              className={`${sidebarLinkClass} flex w-full items-center justify-between gap-2 text-left !translate-x-0 !opacity-100`}
-                              aria-expanded={isSubOpen}
-                            >
-                              <span
-                                className={`${sidebarLabelClass} text-[16px] ${
-                                  isDelivered
-                                    ? "font-semibold text-[#652A27]"
-                                    : "font-normal"
+                              <div
+                                className={`transition-[max-height,opacity,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                                  isSubOpen && category.items?.length > 0
+                                    ? "max-h-[500px] overflow-visible py-2 opacity-100"
+                                    : "max-h-0 overflow-hidden py-0 opacity-0"
                                 }`}
                               >
-                                {category.label}
-                              </span>
-                              <i
-                                className={`${
-                                  isSubOpen ? "ri-subtract-line" : "ri-add-line"
-                                } shrink-0 text-[18px] text-black transition-all duration-500 ease-in-out`}
-                                aria-hidden
-                              />
-                            </button>
-
-                            <div
-                              className={`transition-[max-height,opacity,padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                                isSubOpen && category.items?.length > 0
-                                  ? "max-h-[500px] overflow-visible py-2 opacity-100"
-                                  : "max-h-0 overflow-hidden py-0 opacity-0"
-                              }`}
-                            >
-                              <ul className="space-y-0.5 border-l border-[#E0E0E0] pl-3 md:space-y-1 md:pl-4">
-                                {category.items?.map((sub, index) => (
-                                  <li key={sub.label}>
-                                    <Link
-                                      href={sub.href}
-                                      onClick={onClose}
-                                      className={`optima-menu-link mobile-nav-sub-item-link block cursor-pointer text-black ${
-                                        isSubOpen ? "mobile-nav-sub-item-visible" : "mobile-nav-sub-item-hidden"
-                                      }`}
-                                      style={{
-                                        transitionDelay: isSubOpen
-                                          ? `${80 + index * 100}ms`
-                                          : "0ms",
-                                      }}
-                                    >
-                                      <span
-                                        className={`${sidebarLabelClass} text-[15px] font-normal`}
+                                <ul className="space-y-0.5 border-l border-[#E0E0E0] pl-3 md:space-y-1 md:pl-4">
+                                  {category.items?.map((sub, index) => (
+                                    <li key={sub.label}>
+                                      <Link
+                                        href={sub.href}
+                                        onClick={onClose}
+                                        className={`optima-menu-link mobile-nav-sub-item-link block cursor-pointer text-black ${
+                                          isSubOpen
+                                            ? "mobile-nav-sub-item-visible"
+                                            : "mobile-nav-sub-item-hidden"
+                                        }`}
+                                        style={{
+                                          transitionDelay: isSubOpen ? `${80 + index * 100}ms` : "0ms",
+                                        }}
                                       >
-                                        {sub.label}
-                                      </span>
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                </li>
-              );
-            })}
+                                        <span className={`${sidebarLabelClass} text-[15px] font-normal`}>
+                                          {sub.label}
+                                        </span>
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </li>
+                );
+              })}
 
-            {NAV_ITEMS.slice(2, 4).map((item) => (
-              <li key={item.label}>
+              {NAV_ITEMS.slice(2, 4).map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={onClose}
+                    className={sidebarLinkClass}
+                    style={{ transitionDelay: open ? item.delay : "0ms" }}
+                  >
+                    <span className={sidebarLabelClass}>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+
+              <li>
                 <Link
-                  href={item.href}
+                  href={NAV_ITEMS[4].href}
                   onClick={onClose}
                   className={sidebarLinkClass}
-                  style={{
-                    transitionDelay: open ? item.delay : "0ms",
-                  }}
+                  style={{ transitionDelay: open ? NAV_ITEMS[4].delay : "0ms" }}
                 >
-                  <span className={sidebarLabelClass}>{item.label}</span>
+                  <span className={sidebarLabelClass}>{NAV_ITEMS[4].label}</span>
                 </Link>
               </li>
-            ))}
 
-            <li>
-              <Link
-                href={NAV_ITEMS[4].href}
-                onClick={onClose}
-                className={sidebarLinkClass}
-                style={{
-                  transitionDelay: open ? NAV_ITEMS[4].delay : "0ms",
-                }}
+              <li
+                className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  open ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+                }`}
+                style={{ transitionDelay: open ? "920ms" : "0ms" }}
               >
-                <span className={sidebarLabelClass}>{NAV_ITEMS[4].label}</span>
-              </Link>
-            </li>
+                <NavProjectSlider open={open} onClose={onClose} />
+              </li>
+            </ul>
+          </nav>
 
-            <li
-              className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                open ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
-              }`}
-              style={{ transitionDelay: open ? "920ms" : "0ms" }}
+          <div className="pb-4 pl-2 pt-8">
+            <a
+              href={PHONE}
+              className="optima-menu-link block cursor-pointer text-[18px] font-medium text-black transition-colors hover:text-[#652A27]"
             >
-              <NavProjectSlider open={open} onClose={onClose} />
-            </li>
-          </ul>
-        </nav>
-
-        <div className="pl-2 pb-4 pt-8">
-          <a
-            href={PHONE}
-            className="optima-menu-link block cursor-pointer text-[18px] font-medium text-black transition-colors hover:text-[#652A27]"
-          >
-            {PHONE_TEXT}
-          </a>
-          <a
-            href={EMAIL}
-            className="optima-menu-link mt-3 block cursor-pointer text-[18px] font-medium text-black transition-colors hover:text-[#652A27]"
-          >
-            {EMAIL_TEXT}
-          </a>
-        </div>
+              {PHONE_TEXT}
+            </a>
+            <a
+              href={EMAIL}
+              className="optima-menu-link mt-3 block cursor-pointer text-[18px] font-medium text-black transition-colors hover:text-[#652A27]"
+            >
+              {EMAIL_TEXT}
+            </a>
+          </div>
         </div>
       </aside>
 
@@ -343,35 +329,29 @@ const NavSideMenu = ({ open, onClose }) => {
           scrollbar-width: none;
           -ms-overflow-style: none;
         }
-
         .nav-menu-scroll::-webkit-scrollbar {
           display: none;
         }
-
         .optima-menu-link {
           font-family: Optima, "Segoe UI", Candara, "Noto Sans", sans-serif;
           line-height: 1.2;
         }
-
         .mobile-nav-item-link {
           transition-property: transform, opacity;
           transition-duration: 700ms;
           transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
         }
-
         .mobile-nav-sub-item-link {
           transition:
             transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
             opacity 900ms cubic-bezier(0.22, 1, 0.36, 1);
           will-change: transform, opacity;
         }
-
         .mobile-nav-sub-item-hidden {
           opacity: 0;
           transform: translateX(2.5rem);
           pointer-events: none;
         }
-
         .mobile-nav-sub-item-visible {
           opacity: 1;
           transform: translateX(0);

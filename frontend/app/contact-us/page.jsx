@@ -14,10 +14,12 @@ const page = () => {
       <ContactNav/>
       <Happen/>
       <Touch/>
-      <div className="pt-[35px] lg:pt-[70px]">
+      <div className="py-[35px] lg:pt-[70px] lg:pb-[0px]">
           <FAQCommon />
       </div>  
+      <div className="pt-[35px] lg:pt-[70px]">
       <TestimoniaCommon/>
+      </div>
       <ConsultationCommon/>
       <Footer/>
       </div>

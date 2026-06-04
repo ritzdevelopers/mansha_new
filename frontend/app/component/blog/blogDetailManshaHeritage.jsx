@@ -1,4 +1,6 @@
 import React from "react";
+import BlogDetailFeaturedImage from "./blogDetailFeaturedImage";
+import BlogDetailDate from "./blogDetailDate";
 
 const sectionTitle =
   "font-optima text-[22px] font-bold capitalize leading-[30px] text-[#111111] md:text-[26px] md:leading-[34px]";
@@ -14,8 +16,11 @@ const HERITAGE_TITLE = "Everything You Need to Know About Mansha Heritage Sonipa
 const ManshaHeritageContent = () => {
   return (
     <article className="bg-white py-10 md:py-14 lg:py-16">
-      <div className="mx-auto max-w-[900px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[70px]">
+        <div className="max-w-[1050px] text-left">
+        <BlogDetailFeaturedImage slug="everything-you-need-to-know-mansha-heritage-sonipat" />
         <h1 className={`${sectionTitle} text-[24px] md:text-[28px]`}>{HERITAGE_TITLE}</h1>
+        <BlogDetailDate slug="everything-you-need-to-know-mansha-heritage-sonipat" />
 
         <p className={`${body} mt-6`}>
           In today&apos;s market finding the best property in NCR means buying much more than just
@@ -297,6 +302,7 @@ const ManshaHeritageContent = () => {
               <p className={`${body} mt-2`}>A: {faq.a}</p>
             </div>
           ))}
+        </div>
         </div>
       </div>
     </article>

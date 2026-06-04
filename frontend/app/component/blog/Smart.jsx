@@ -64,7 +64,7 @@ const Smart = () => {
       style={{ backgroundImage: "url('/media/Opportunities.png')" }}
     >
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
-        <h2 className="font-optima text-[28px] max-w-[900px] font-semibold text-center md:text-left capitalize leading-[35px] tracking-normal text-[#111111] md:text-[22px] md:leading-[46px] lg:text-[30px] xl:text-[36px] lg:leading-[52px] md:mx-30 ">
+        <h2 className="font-optima text-[22px] max-w-[900px] font-semibold text-center md:text-left capitalize leading-[25px] tracking-normal text-[#111111] md:text-[22px] md:leading-[30px] lg:text-[30px] xl:text-[36px] lg:leading-[35px] md:mx-30 ">
         The Beginning Of Smarter Moves In Property And Better Living.
         </h2>
 

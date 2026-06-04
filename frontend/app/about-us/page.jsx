@@ -20,7 +20,7 @@ const AboutUs = () => {
     {/* <OurJourney /> */}
     <Misson/>
     <Map/>
-    <div className="pt-[35px] lg:pt-[0px]">
+    <div className="pt-[35px] lg:pt-[70px]">
     <TestimoniaCommon/>
     </div>
     <ConsultationCommon/>

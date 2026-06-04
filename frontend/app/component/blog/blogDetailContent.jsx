@@ -1,8 +1,15 @@
 import React from "react";
+import BlogDetailFeaturedImage from "./blogDetailFeaturedImage";
+import BlogDetailDate from "./blogDetailDate";
+import BlogDetailFaq from "./blogDetailFaq";
 import ManshaHeritageContent from "./blogDetailManshaHeritage";
 
 const sectionTitle =
+  "font-optima text-[22px] font-bold capitalize leading-[30px] text-[#4A1F1F] md:text-[26px] md:leading-[34px]";
+
+  const keySelectionTitle =
   "font-optima text-[22px] font-bold capitalize leading-[30px] text-[#111111] md:text-[26px] md:leading-[34px]";
+
 const subTitle =
   "font-montserrat text-[18px] font-semibold capitalize leading-[26px] text-[#111111] md:text-[20px]";
 const body =
@@ -20,8 +27,11 @@ const DEVELOPER_TITLE =
 const DeveloperContent = () => {
   return (
     <article className="bg-white py-10 md:py-14 lg:py-16">
-      <div className="mx-auto max-w-[900px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[70px]">
+        <div className="max-w-[1050px] text-left">
+        <BlogDetailFeaturedImage slug="how-to-choose-right-real-estate-developer" />
         <h1 className={`${sectionTitle} text-[24px] md:text-[28px]`}>{DEVELOPER_TITLE}</h1>
+        <BlogDetailDate slug="how-to-choose-right-real-estate-developer" />
 
         <p className={`${body} mt-6`}>
           Buying a home or investing in a plot is one of the most important financial decisions of
@@ -378,46 +388,111 @@ const DeveloperContent = () => {
             </div>
           ))}
         </div>
+        </div>
       </div>
     </article>
   );
 };
 
 const COMMERCIAL_TITLE =
-  "Top 5 Locations to Buy Residential Plots in Faridabad – Mansha Group Perspective";
+  "Affordable Residential Plots in Sonipat Near Delhi";
 
 const CommercialPropertyContent = () => {
   return (
     <article className="bg-white py-10 md:py-14 lg:py-16">
-      <div className="mx-auto max-w-[900px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[70px]">
+        <div className="max-w-[1050px] text-left">
+        <BlogDetailFeaturedImage slug="affordable-residential-plots-in-sonipat-near-delhi" />
         <h1 className={`${sectionTitle} text-[24px] md:text-[28px]`}>{COMMERCIAL_TITLE}</h1>
+        <BlogDetailDate slug="affordable-residential-plots-in-sonipat-near-delhi" />
 
         <p className={`${body} mt-6`}>
-          As a result of ever-developing infrastructure and easy accessibility through expressways
-          and the expanding metro, Faridabad is becoming a hotspot for real-estate investments
-          within NCR. It holds strong potential for long-term appreciation and return on
-          investment.
+        Investing in Residential Land in Sonipat – A Good Decision | Mansha Group Sonipat is repeatedly gaining popularity as a destination for investment in land near Delhi NCR, mainly due to the speed of development in infrastructure, increasing level of connectivity, and demand for living independently. Therefore, for those looking for a residential plot for sale in Sonipat, it is not only a good investment today but also a great investment for the future.
         </p>
         <p className={`${body} mt-4`}>
-          This blog looks at the top 5 locations to buy residential plots in Faridabad. It covers
-          important investment factors like infrastructure, connectivity, and growth potential, and
-          highlights Mansha Group&apos;s perspective for buyers looking for strong land opportunities.
+        Developers like Mansha Group are recognized as a trustworthy source of quality development for potential buyers who value trust, transparency, and smart development.
         </p>
 
-        <h2 className={`${sectionTitle} mt-10`}>Why Buy Residential Plots in Faridabad?</h2>
+        <h2 className={`${sectionTitle} mt-10`}>Reasons Why Buyers Are Choosing Sonipat to Buy Plots</h2>
         <p className={`${body} mt-4`}>
-          Investing in plots in Faridabad is timely because the city&apos;s real estate market is
-          growing fast. Demand for residential plots is increasing due to location advantage,
-          affordability, and upcoming infrastructure.
+        Sonipat is not just a neighbouring city; it has become a popular real estate location for both home buyers and investors alike.
+        </p>
+        
+
+        <h2 className={`${keySelectionTitle} mt-5 italic`}>Key Growth Drivers</h2>
+        <p className={`${body} mt-4`}>
+        Sonipat is not just a neighbouring city; it has become a popular real estate location for both home buyers and investors alike.
         </p>
         <ul className={list}>
-          <li>Convenient access to Delhi, Noida, and Gurugram.</li>
-          <li>Strong infrastructure pipeline with metro, highway, and commercial growth.</li>
-          <li>More affordable pricing versus many NCR micro-markets.</li>
-          <li>Future development plans indicate solid long-term value growth.</li>
+        <li>Strategic location to Delhi; close proximity.</li>
+<li>Easy access via main highway NH-44 & KMP (Karnal-Manesar-Phalodi Expressway).</li>
+<li>Fast development of infrastructure.</li>
+<li>Future RRTS (Rapid Rail Transport System) and industrial corridors will create huge demand for property.</li>
+<li>More affordable than Gurgaon, Noida, and Delhi.</li>
+<li>High demand for individual home ownership.</li>
+<li>Post COVID-19 pandemic shift from high-density living to larger living spaces and customization.</li>
+<li>Future development plans indicate solid long-term value growth.</li>
         </ul>
 
-        <h2 className={`${sectionTitle} mt-10`}>Top 5 Locations in Faridabad</h2>
+        <h2 className={`${sectionTitle} mt-10`}>Plots in Sonipat – A Lifestyle & Future Investment</h2>
+        <p className={`${body} mt-4`}>
+        When you decide to invest in buying a property, you aren't only investing in land but also in a lifestyle and future opportunities. At Mansha Group, we know that, so we create developments that are built with long-term value being your top priority.
+        </p>
+
+        <h2 className={`${sectionTitle} mt-10`}>Why Should You Consider Mansha Group?</h2>
+        <ul className={list}>
+        <li>Legal Titles and Transparency – Your investment is backed by proper legal documents that provide peace of mind.</li>
+<li>Locations in Prime Areas of Sonipat – Projects are located on major highways or within growth corridors.</li>
+<li>Designed for Future Use and Planned Layouts – Wide roads, well-marked boundaries, and future infrastructure planning.</li>
+<li>Customer-Centric Approach – Commitment to trust, service, and long-term relationships.</li>
+
+        </ul>
+
+        <h2 className={`${sectionTitle} mt-10`}>Top Areas to Buy Land in Sonipat</h2>
+        <ul className={list}>
+        <li>Kundli – Near the Delhi border, perfect for daily commuters</li>
+<li>Murthal Road – A fast-growing area with high appreciation potential</li>
+<li>Sector Developments – Planned for future infrastructure and expansion</li>
+<li>Rai Industrial Belt – Increasing employment driving housing demand</li>
+
+        </ul>
+
+        <h2 className={`${sectionTitle} mt-10`}>The Advantages of Purchasing a Residential Plot in Sonipat</h2>
+        <ul className={list}>
+        <li>Great Return on Investment – With growing infrastructure, the price of residential plots in Sonipat is increasing rapidly.</li>
+<li>Freedom to Create Your Ideal Home – Plot owners have the freedom to design their homes, unlike apartment living.</li>
+<li>More Affordable Price – Plot prices in Sonipat are more reasonable compared to other NCR cities.</li>
+<li>Long-Term Asset – Land is a solid physical asset that maintains its value over time.</li>
+
+        </ul>
+
+        <h2 className={`${sectionTitle} mt-10`}>Benefits of Choosing Mansha Group for Your Plot</h2>
+        <p className={`${body} mt-4`}>
+        Mansha Group has experience in developing plotted developments, follows a transparent transaction process, focuses on high-growth areas, and is committed to providing value to clients.
+        </p>
+
+  <h2 className={`${sectionTitle} mt-10`}>Important Steps to Take Before Buying a Plott</h2>
+        <ul className={list}>
+        <li>Check land ownership and local authority approvals</li>
+<li>Review infrastructure and physical development</li>
+<li> Understand future development plans</li>
+<li> Evaluate resale or rental potential</li>
+<li>Confirm availability of water, electricity, and gas services</li>
+
+        </ul>
+
+        <h2 className={`${sectionTitle} mt-10`}>Investment in Plots – The Future of Real Estate</h2>
+        <ul className={list}>
+            <li>Low-density living is preferred by buyers</li>
+            <li>Land value increases faster in developing areas</li>
+<li> Flexibility in construction enhances long-term value</li>
+
+
+        </ul>
+
+
+
+        {/* <h2 className={`${sectionTitle} mt-10`}>Top 5 Locations in Faridabad</h2>
         <div className="mt-6 overflow-x-auto">
           <table className="w-full min-w-[860px] border-collapse border border-[#E6E6E6] text-left font-montserrat text-[13px] md:text-[14px]">
             <thead>
@@ -523,8 +598,8 @@ const CommercialPropertyContent = () => {
               </tr>
             </tbody>
           </table>
-        </div>
-
+        </div> */}
+{/* 
         <h2 className={`${sectionTitle} mt-10`}>Conclusion</h2>
         <p className={`${body} mt-4`}>
         Faridabad has successfully created a reputation as a booming market for buyers of plots for 
@@ -539,11 +614,13 @@ of Sector 88 and Sector 89.
         <p className={`${body} mt-4 italic`}>
         Ready to invest? Do not wait and invest in Mansha Group plots to safeguard your future in a 
         sound investment.
-        </p>
+        </p> */}
 
         <h2 className={`${sectionTitle} mt-10`}>FAQs</h2>
-        <div className="mt-6 space-y-6">
-          {[
+        <BlogDetailFaq
+          bodyClass={body}
+          subTitleClass={subTitle}
+          items={[
             {
               q: " Which sector would be best to buy plots in Faridabad?  ",
               a: "Sector 81 is an excellent location if you are looking at buying land in Faridabad. ",
@@ -556,13 +633,8 @@ of Sector 88 and Sector 89.
               q: "Why would Sector 84 be a great choice if you are considering buying land in Faridabad? ",
               a: "Sector 84 is going to be a wonderful location if you choose to buy property in Faridabad because of the substantial amount of activity that will occur in regards to future planned infrastructure in that area. You are also going to be very close to the BPTP Parklands area of Faridabad.",
             },
-           
-          ].map((faq) => (
-            <div key={faq.q}>
-              <p className={`${subTitle} text-[16px]`}>Q: {faq.q}</p>
-              <p className={`${body} mt-2`}>A: {faq.a}</p>
-            </div>
-          ))}
+          ]}
+        />
         </div>
       </div>
     </article>
@@ -575,8 +647,11 @@ const VEGA_STREET_TITLE =
 const VegaStreetContent = () => {
   return (
     <article className="bg-white py-10 md:py-14 lg:py-16">
-      <div className="mx-auto max-w-[900px] px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[70px]">
+        <div className="max-w-[1050px] text-left">
+        <BlogDetailFeaturedImage slug="mansha-vega-street-smart-commercial-investment-opportunity-faridabad" />
         <h1 className={`${sectionTitle} text-[24px] md:text-[28px]`}>{VEGA_STREET_TITLE}</h1>
+        <BlogDetailDate slug="mansha-vega-street-smart-commercial-investment-opportunity-faridabad" />
 
         <h2 className={`${subTitle} mt-8`}>
           Faridabad Is Growing Fast &amp; The Smart Investors Already Know It
@@ -773,6 +848,7 @@ const VegaStreetContent = () => {
             </div>
           ))}
         </div>
+        </div>
       </div>
     </article>
   );
@@ -780,7 +856,7 @@ const VegaStreetContent = () => {
 
 export const BLOG_DETAIL_CONTENT_BY_SLUG = {
   "how-to-choose-right-real-estate-developer": DeveloperContent,
-  "top-5-locations-to-buy-residential-plots-in-faridabad": CommercialPropertyContent,
+  "affordable-residential-plots-in-sonipat-near-delhi": CommercialPropertyContent,
   "mansha-vega-street-smart-commercial-investment-opportunity-faridabad": VegaStreetContent,
   "everything-you-need-to-know-mansha-heritage-sonipat": ManshaHeritageContent,
 };

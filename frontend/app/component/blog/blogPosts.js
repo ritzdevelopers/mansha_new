@@ -1,25 +1,25 @@
 export const BLOG_POSTS = [
   {
-    id: 3,
-    slug: "top-5-locations-to-buy-residential-plots-in-faridabad",
-    date: "Jan 6, 2026",
-    title: "Top 5 Locations to Buy Residential Plots in Faridabad – Mansha Group Perspective",
-    image: "/blog/blog-image.png",
+    id: 2,
+    slug: "affordable-residential-plots-in-sonipat-near-delhi",
+    date: "Mar 24, 2026 ",
+    title: "Affordable Residential Plots in Sonipat Near Delhi",
+    image: "/blog/testblog.jpg",
     descriptionLead:
-      "As a result of its ever-developing infrastructure and easy accessibility through expressways and the ever-expanding metro, Faridabad is becoming a hotspot for real-estate investments within the NCR region. It holds great potential for investments with a high return on investment. However, the location chosen for investing in a residential plot within Faridabad is an essential factor in determining the appreciation and return on investment.",
-  },
-  {
-    id: 4,
-    slug: "mansha-vega-street-smart-commercial-investment-opportunity-faridabad",
-    date: "Jan 6, 2026",
-    title: "Mansha Vega Street: A Smart Commercial Investment Opportunity in Faridabad",
-    image: "/blog/blog-image.png",
-    descriptionLead:
-      "Faridabad is emerging as one of the most promising real estate destinations in NCR, and smart investors are entering before the next growth wave. Mansha Vega Street offers a future-ready commercial opportunity with strong footfall potential, infrastructure support, and long-term appreciation.",
-   
+      "Investing in Residential Land in Sonipat – A Good Decision | Mansha Group Sonipat is repeatedly gaining popularity as a destination for investment in land near Delhi NCR, mainly due to the speed of development in infrastructure, increasing level of connectivity, and",
   },
   {
     id: 2,
+    slug: "mansha-vega-street-smart-commercial-investment-opportunity-faridabad",
+    date: "Mar 24, 2026 ",
+    title: "Buy Residential Plots for Sale in Sonipat",
+    image: "/blog/testblog.jpg",
+    descriptionLead:
+      "Formerly a small satellite city close to Delhi, Sonipat has now become among the most coveted NCR real estate locations. The city presents great chances for anyone wanting to purchase residential plots for sale in Sonipat given better infrastructure, industrial expansion, and increasing housing demand. Sonipat offers the ideal mix of affordability,",
+   
+  },
+  {
+    id: 3,
     slug: "how-to-choose-right-real-estate-developer",
     date: "Jan 6, 2026",
     title: "How to Choose the Right Real Estate Developer? (2026 Investment Guide)",
@@ -27,6 +27,15 @@ export const BLOG_POSTS = [
     descriptionLead:
       "Buying a home or investing in a plot is one of the most important financial decisions of your life. You work hard, save diligently and when the moment finally comes to put your money into real estate the single biggest factor standing between a great investment and a regrettable one is the developer you choose.",
    
+  },
+  {
+    id: 4,
+    slug: "everything-you-need-to-know-mansha-heritage-sonipat",
+    date: "Jan 6, 2026",
+    title: "Everything You Need to Know About Mansha Heritage Sonipat",
+    image: "/blog/blog-image.png",
+    descriptionLead:
+      "Among the new residential projects in Sonipat, Mansha Heritage Sonipat has gained attention among buyers and investors looking for high value near Delhi NCR.",
   },
 ];
 

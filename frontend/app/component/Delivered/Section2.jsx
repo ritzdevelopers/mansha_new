@@ -4,7 +4,7 @@ import Link from "next/link";
 const DELIVERED_PROJECTS = [
   {
     location: "Sector-98, Faridabad, Haryana",
-    image: "/delieverd/mansha.png",
+    image: "/delieverd/mansha-oaks.png",
     alt: "",
     href: "/mansha-oaks-4",
   },
@@ -16,7 +16,7 @@ const DELIVERED_PROJECTS = [
   },
   {
     location: "Aligarh Road, Palwal",
-    image: "/delieverd/mansha-royal-city.png",
+    image: "/delieverd/mansha-royal.png",
     alt: "Mansha Royal City",
     href: "/mansha-royal-city",
   },
@@ -78,10 +78,10 @@ const Section2 = () => {
           Delivered Projects
         </h2>
         {/* <div className="mt-6 text-center md:text-left  text-[16px] font-montserrat font-normal leading-[28px] tracking-normal capitalize text-[#6B6B6B]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aliquid tempore labore fuga, ex quo tenetur dolore temporibus inventore voluptate.</div> */}
-        <div className=" mt-6 delivered-cards-grid grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+        <div className=" mt-6 delivered-cards-grid grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
           {DELIVERED_PROJECTS.map((project) => {
             const cardClassName =
-              "delivered-project-card flex flex-col items-center gap-4 rounded-lg border-2 border-[#E0E0E0] bg-white p-5 sm:p-6 xl:flex-row xl:items-center xl:gap-6";
+              "delivered-project-card flex flex-col items-center gap-4 rounded-lg border-2 border-[#E0E0E0] bg-white p-5 sm:p-6";
 
             const cardContent = (
               <>
@@ -95,7 +95,7 @@ const Section2 = () => {
                   />
                 ) : null}
 
-                <p className="w-full text-center font-['Open_Sans','Open Sans',sans-serif] text-[18px] font-normal leading-[22px] tracking-normal text-[#000000] sm:text-center sm:text-[15px] sm:leading-[24px] md:text-[22px] xl:text-left">
+                <p className="w-full text-center font-['Open_Sans','Open Sans',sans-serif] text-[18px] font-normal leading-[22px] tracking-normal text-[#000000] sm:text-center sm:text-[15px] sm:leading-[24px] md:text-[22px]">
                   {project.location}
                 </p>
               </>

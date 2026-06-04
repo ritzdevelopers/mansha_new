@@ -45,7 +45,7 @@ const MAIN_CARDS = [
       "Faridabad Is Growing Fast &  The Smart Investors Already Know It A few years ago, most NCR investors looked only at Gurgaon or Noida for commercial real estate. But in 2026, the conversation is changing rapidly. Faridabad is emerging as one of the most promising real estate destinations in NCR  and investors are moving early.",
 
     image: "/aagman/aagman-slider2.jpg",
-    slug: "mansha-vega-street-smart-commercial-investment-opportunity-faridabad",
+    slug: "Buy Residential Plots for Sale in Sonipat",
   },
 ];
 
@@ -105,13 +105,13 @@ const RecentPosts = () => {
                     href="#"
                     className="group flex gap-3 outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-[#652A27]/40 focus-visible:ring-offset-2"
                   >
-                    <div className="relative h-[72px] w-[88px] shrink-0 overflow-hidden rounded-lg bg-[#f5f5f5]">
+                    <div className="relative h-[88px] w-[108px] shrink-0 overflow-hidden rounded-lg bg-[#f5f5f5]">
                       <Image
                         src="/blog/recent-blog.png"
                         alt=""
                         fill
                         className="object-cover"
-                        sizes="88px"
+                        sizes="108px"
                       />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -131,73 +131,67 @@ const RecentPosts = () => {
 
           {/* Right — blog cards */}
           <div className="min-w-0 flex-1">
-            <div className="flex flex-col gap-8 lg:gap-10">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6 lg:grid-cols-1 lg:gap-10">
               {filteredMainCards.map((card) => (
                 <article
                   key={card.id}
-                  className="grid gap-5 overflow-hidden rounded-xl border border-[#E6E6E6] bg-white p-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] md:gap-6 md:p-3 lg:gap-8"
+                  className="grid w-full grid-cols-1 items-stretch gap-4 overflow-hidden rounded-xl border border-[#E6E6E6] bg-white p-2.5 md:gap-4 lg:gap-[30px] xl:grid-cols-[390px_1fr] xl:items-center xl:gap-[30px]"
                 >
-                  <div className="w-full overflow-hidden rounded-lg bg-[#f0f0f0] md:relative md:h-full">
+                  <div className="relative h-auto w-full overflow-hidden rounded-lg md:h-[200px] lg:h-[337px] lg:w-full xl:h-[337px] xl:w-[390px]">
                     <Image
                       src={card.image}
                       alt={card.title}
-                      width={700}
-                      height={525}
-                      className="h-auto w-full object-cover md:h-full"
-                      sizes="(max-width: 768px) 100vw, 45vw"
+                      width={580}
+                      height={300}
+                      className="h-auto w-full object-cover md:h-[200px] lg:h-[337px] lg:w-full lg:object-cover xl:h-[337px] xl:w-[390px] xl:object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1279px) 50vw, 390px"
                       priority={card.id === 1}
                     />
                   </div>
 
-                  <div className="flex h-full min-h-0 flex-col px-1 pb-2 pt-1 xl:px-2 xl:py-4">
-                    <time
-                      dateTime="2026-01-06"
-                      className="font-montserrat xl:text-[18px] text-[15px] font-semibold capitalize leading-[29px] tracking-[0] text-[#00000066]"
-                    >
+                  <div className="flex h-auto min-w-0 flex-col justify-start py-1 max-md:px-2 md:px-2 md:pb-2 lg:px-2 lg:pb-2 xl:h-[337px] xl:px-0 xl:pb-0 xl:pr-6">
+                    <p className="font-montserrat text-[15px] font-semibold capitalize leading-[24px] tracking-normal text-[#00000066]">
                       {card.date}
-                    </time>
-                    <h3 className="xl:mt-3 mt-1 xl:line-clamp-2 lg:line-clamp-1 line-clamp-2 min-w-0 font-montserrat text-[15px] xl:text-[20px] font-semibold capitalize leading-[20px] xl:leading-[29px] tracking-[0] text-[#111111] max-w-[350px]">
+                    </p>
+                    <h3 className="mt-1.5 line-clamp-2 overflow-hidden min-w-0 font-montserrat text-[16px] font-semibold capitalize leading-[23px] tracking-normal text-[#111111] md:text-[15px] md:leading-[22px] lg:mt-5 lg:line-clamp-3 lg:text-[20px] lg:leading-[26px]">
                       {card.title}
                     </h3>
                     {Array.isArray(card.points) ? (
-                      <ul className="mt-3 list-disc space-y-1 pl-5 font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
+                      <ul className="mt-1.5 list-disc space-y-0.5 pl-5 font-montserrat text-[14px] font-normal capitalize leading-[20px] tracking-normal text-[#151515] md:mt-5">
                         {card.points.map((point, pointIndex) => (
-                          <li key={pointIndex}>{point}</li>
+                          <li
+                            key={pointIndex}
+                            className="line-clamp-1 min-w-0 max-w-[350px] overflow-hidden"
+                          >
+                            {point}
+                          </li>
                         ))}
                       </ul>
                     ) : card.descriptionLead ? (
-                      <div className="mt-3 min-w-0 max-w-[350px]">
-                        <p className="xl:line-clamp-3 lg:line-clamp-1 line-clamp-2 overflow-hidden font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
-                          {card.descriptionLead}
-                        </p>
-                        {/* <p className="line-clamp-2 overflow-hidden font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151]">
-                          {card.descriptionBody}
-                        </p> */}
-                      </div>
-                    ) : (
-                      <p className="mt-3 font-montserrat text-[14px] font-normal capitalize leading-[22px] tracking-[0] text-[#515151] line-clamp-4">
+                      <p className="mt-1.5 line-clamp-2 min-w-0 font-montserrat text-[14px] font-normal leading-[20px] tracking-normal text-[#151515] md:line-clamp-3 lg:mt-2 xl:mt-5 lg:line-clamp-4 xl:line-clamp-4">
+                        {card.descriptionLead}
+                        <span aria-hidden="true">...</span>
+                      </p>
+                    ) : card.excerpt ? (
+                      <p className="mt-1.5 line-clamp-4 min-w-0 font-montserrat text-[14px] font-normal leading-[20px] tracking-normal text-[#151515] md:mt-5">
                         {card.excerpt}
                       </p>
-                    )}
+                    ) : null}
                     {card.slug ? (
                       <Link
                         href={`/blog/${card.slug}`}
-                        className="xl:mt-5 mt-2 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity "
+                        className="mt-2 inline-flex w-fit items-center gap-1 pt-3 font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-normal text-[#652A27] md:mt-3 lg:mt-4 xl:mt-auto"
                       >
                         Read More
-                        <span aria-hidden className="text-[16px] leading-none">
-                          <i className="ri-arrow-right-line" aria-hidden />
-                        </span>
+                        <i className="ri-arrow-right-line text-[22px]" aria-hidden />
                       </Link>
                     ) : (
                       <a
                         href="#"
-                        className="xl:mt-5 mt-2 inline-flex w-fit shrink-0 items-center gap-1 self-start font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-[0] text-[#652A27] transition-opacity "
+                        className="mt-2 inline-flex w-fit items-center gap-1 pt-3 font-montserrat text-[14px] font-medium capitalize leading-[100%] tracking-normal text-[#652A27] md:mt-3 lg:mt-4 xl:mt-auto"
                       >
                         Read More
-                        <span aria-hidden className="text-[16px] leading-none">
-                          <i className="ri-arrow-right-line" aria-hidden />
-                        </span>
+                        <i className="ri-arrow-right-line text-[22px]" aria-hidden />
                       </a>
                     )}
                   </div>
