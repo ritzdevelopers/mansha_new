@@ -38,6 +38,8 @@ export const BLOG_POSTS = [
     descriptionLead:
       "Real Estate Developer in NCR - Mansha Group We at Mansha Group view Real Estate Development as much more than just the construction of an empty project; we consider the development process to encapsulate the totality of building a safe, well-planned, and designed.",
   },
+
+
   {
     id: 5,
     slug: "builder-floors-in-sonipat",
@@ -46,6 +48,16 @@ export const BLOG_POSTS = [
     image: "/blog/sonipat.jpg",
     descriptionLead:
       "Builder Floors in Sonipat: Independent Living, Modern Comfort, Strong Value What Are Builder Floors?Rather than high-rise towers, builder floors are individual housing apartments—usually whole floors within a multi-story residential structure. Often in smaller",
+  },
+
+  {
+    id: 6,
+    slug: "eldeco-mystic-greens",
+    date: "Oct 6, 2025 ",
+    title: "eldeco mystic greens",
+    image: "/blog/eldeco.jpg",
+    descriptionLead:
+      "Eldeco Mystic Greens – A Lifestyle of Serenity and Comfort in Greater Noida Eldeco Mystic Greens is a premium residential project developed by the Eldeco Group, one of India’s most trusted names in real estate. Located in the heart of Greater Noida, this development...",
   },
 ];
 

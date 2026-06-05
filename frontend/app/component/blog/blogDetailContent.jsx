@@ -1002,6 +1002,260 @@ Evaluate approvals, location advantages, and builder credibility to make a secur
 };
 
 
+const GreenMysticGreensHeading =
+  "Eldeco Mystic Greens – A Lifestyle of Serenity and Comfort in Greater Noida";
+
+const EldecoMysticGreensContent = () => {
+  return (
+    <article className="bg-white py-10 md:py-14 lg:py-16">
+      <div className="mx-auto max-w-8xl px-5 sm:px-8 lg:px-[70px]">
+        <div className="max-w-[1050px] text-left">
+        <BlogDetailFeaturedImage slug="eldeco-mystic-greens" />
+        <h1 className={`${sectionTitle} text-[24px] md:text-[28px]`}>{GreenMysticGreensHeading}</h1>
+        <BlogDetailDate slug="eldeco-mystic-greens" />
+
+        {/* <h2 className={`${sectionTitle} mt-10`}>
+        What Are Builder Floors?
+        </h2> */}
+        <p className={`${body} mt-6`}>
+        Eldeco Mystic Greens is a premium residential project developed by the Eldeco Group, one of India’s most trusted names in real estate. Located in the heart of Greater Noida, this development perfectly blends comfort, convenience, and natural beauty to create a tranquil living environment for modern families.
+        </p>
+        <p className={`${body} mt-4`}>
+        Designed for those who value spacious living, lush green surroundings, and world-class amenities, Eldeco Mystic Greens represents the epitome of luxurious yet affordable housing.
+        </p>
+          <h2 className={`${sectionTitle} mt-10`}>
+          Project Overview
+        </h2>
+        <p className={`${body} mt-6`}>
+        Key Details:
+        </p>
+        <ul className={list}>
+          <li>Developer: Eldeco Group</li>
+          <li>Location: Omega II, Greater Noida</li>
+          <li>Total Area: Approx. 9 acres</li>
+          <li>Project Type: Residential Apartments</li>
+          <li>Configuration: 2BHK & 3BHK</li>
+          <li>Status: Ready to Move</li>
+          <li>RERA Registered: Yes</li>
+        </ul>
+        <p className={`${body} mt-4`}>
+        The project’s design reflects a blend of urban sophistication and serene living, providing an environment that encourages relaxation and healthy lifestyles.
+        </p>
+
+        <h2 className={`${sectionTitle} mt-10`}>
+        Design and Architecture
+        </h2>
+        <p className={`${body} mt-4`}>
+        Eldeco Mystic Greens has been thoughtfully designed with a focus on space utilization, natural light, and cross ventilation. The elegant architecture, combined with lush green surroundings, creates a resort-like living experience.
+        </p>
+        <p className={`${body} mt-4`}>
+        Design Highlights:
+        </p>
+        <ul className={list}>
+          <li>Contemporary architectural style with clean lines</li>
+          <li>Earthquake-resistant RCC structure</li>
+          <li>Wide balconies and large windows for ample sunlight and fresh air</li>
+          <li>Vastu-compliant design for positive energy</li>
+          <li>Aesthetic landscaping and open courtyards enhancing the beauty of the complex</li>
+      
+        </ul>
+        <p className={`${body} mt-4`}>
+        Each apartment enjoys privacy while still being part of a close-knit community.
+        </p>
+
+        <h2 className={`${sectionTitle} mt-10`}>Apartment Features</h2>
+        <p className={`${body} mt-4`}>
+        The apartments at Eldeco Mystic Greens are designed to suit the modern urban family’s lifestyle. Each home combines elegance and practicality.
+        </p>
+        <p className={`${body} mt-4`}>
+        Apartment Specifications:
+        </p>
+        <ul className={list}>
+          <li>Spacious living and dining areas with vitrified tile flooring</li>
+          <li>Modular kitchens with granite countertops and stainless-steel sinks</li>
+          <li>Designer bathrooms fitted with branded sanitaryware.</li>
+          <li>Private balconies overlooking scenic green views.</li>
+          <li>24-hour water supply and power backup</li>
+          <li>Dedicated parking for residents and visitors</li>
+        
+        </ul>
+
+        <p className={`${body} mt-4`}>
+        Every detail, from finishes to fittings, reflects Eldeco’s commitment to quality craftsmanship.
+        </p>
+
+
+        <h2 className={`${sectionTitle} mt-10`}>Amenities and Facilities</h2>
+        <p className={`${body} mt-4`}>
+        Eldeco Mystic Greens offers a wide range of premium amenities that enhance the quality of life for residents — focusing on recreation, wellness, and community living.
+        </p>
+
+        <p className={`${body} mt-4`}>
+        Recreational Amenities:
+        </p>
+
+        <ul className={list}>
+          <li>Fully equipped clubhouse with indoor games</li>
+          <li>Swimming pool with separate kids’ pool</li>
+          <li>Gymnasium with modern equipment</li>
+          <li>Community hall for celebrations and events</li>
+        </ul>
+          <p className={`${body} mt-4`}>
+          Outdoor and Sports Facilities:
+        </p>
+        <ul className={list}>
+          <li>Landscaped gardens and walking trails</li>
+          <li>Badminton and basketball courts</li>
+          <li>Jogging and cycling tracks</li>
+          <li>Dedicated kids’ play areas</li>
+        </ul>
+
+
+        <p className={`${body} mt-4`}>
+        Green and Eco-Friendly Features:
+        </p>
+        <ul className={list}>
+          <li>Over 70% open area with landscaped greenery</li>
+          <li>Rainwater harvesting systems</li>
+          <li>Energy-efficient lighting in common areas</li>
+          <li>Waste management and composting</li>
+        </ul>
+
+
+
+        <p className={`${body} mt-4`}>
+        Safety and Convenience:
+        </p>
+        <ul className={list}>
+          <li>Safety and Convenience</li>
+          <li>Intercom and gated entry system</li>
+          <li>Power backup for common areas and elevators</li>
+          <li>Ample parking and fire-fighting systems</li>
+        </ul>
+
+        <p className={`${body} mt-4`}>
+        Eldeco Mystic Greens ensures that residents enjoy a balanced lifestyle surrounded by comfort, security, and natural beauty.
+        </p>
+
+
+        <h2 className={`${sectionTitle} mt-10`}>Location Advantages</h2>
+        <p className={`${body} mt-4`}>
+        Located in Omega II, Greater Noida, Eldeco Mystic Greens enjoys excellent connectivity and accessibility. The project is close to major educational, commercial, and healthcare hubs, making it ideal for families and working professionals.
+        </p>
+
+        <p className={`${body} mt-4`}>
+        Connectivity Highlights:
+        </p>
+        <ul className={list}>
+          <li>Pari Chowk – 5 minutes</li>
+          <li>Noida Expressway – 10 minutes</li>
+          <li>Yamuna Expressway – 15 minutes</li>
+          <li>Proposed Metro Station – 5 minutes</li>
+          <li>Jewar International Airport – 35 minutes</li>
+         
+        </ul>
+
+        <p className={`${body} mt-4`}>
+        Nearby Landmarks:
+        </p>
+        <ul className={list}>
+          <li>Shopping Hubs: Ansal Plaza, The Grand Venice Mall, Omaxe Connaught Place</li>
+          <li>Educational Institutions: Delhi Public School, Galgotias University, Amity University</li>
+          <li>Hospitals: Kailash Hospital, Jaypee Hospital, Yatharth Hospital</li>
+          
+         
+        </ul>
+        <p className={`${body} mt-4`}>
+        The strategic location makes it easy to commute across Noida, Delhi, and NCR, while enjoying a peaceful suburban lifestyle.
+        </p>
+        <h2 className={`${sectionTitle} mt-10`}>Lifestyle and Community</h2>
+        <p className={`${body} mt-4`}>
+        Life at Eldeco Mystic Greens is all about community, comfort, and connection. Residents enjoy the best of both worlds — modern urban living and the tranquility of nature.
+        </p>
+      
+        <p className={`${body} mt-4`}>
+        From morning walks through green pathways to evening gatherings at the clubhouse, every moment here feels enriching. It’s a neighborhood where families bond, celebrate, and grow together in a safe and joyful environment.
+        </p>
+
+        <h2 className={`${sectionTitle} mt-10`}>Investment Potential</h2>
+        <p className={`${body} mt-4`}>
+        Eldeco Mystic Greens stands out not only as a beautiful place to live but also as a smart investment in the growing Greater Noida market.
+        </p>
+        <ul className={list}>
+          <li>Growing Real Estate Value:
+          Continuous infrastructure development ensures rising property values and good long-term returns.</li>
+          <li>Rental Potential:
+          Proximity to educational hubs and corporate parks ensures high rental demand among professionals and students.</li>
+          <li>Trusted Developer:
+          Eldeco’s reputation for timely delivery and construction quality ensures peace of mind.</li>
+          <li>Future Growth:
+          The upcoming Jewar Airport and enhanced expressway connectivity will significantly boost regional property prices.</li>
+
+        </ul>
+
+        <p className={`${body} mt-4`}>
+        Even established real estate names like Mansha Group recognize the value of projects like Eldeco Mystic Greens — where design innovation meets solid infrastructure.
+        </p>  
+        <h2 className={`${sectionTitle} mt-10`}>Why Choose Eldeco Mystic Greens?</h2>
+        <ul className={list}>
+          <li>Prime Location: Located in Omega II, Greater Noida, with superb connectivity.</li>
+          <li>Spacious Homes: Well-designed apartments with ample light and ventilation.</li>
+          <li>Lifestyle Amenities: Clubhouse, pool, gym, and recreation zones.</li>
+          <li>Trusted Developer: Eldeco’s legacy ensures confidence and satisfaction.</li>
+          <li>Eco-Friendly Design: Sustainable infrastructure with vast green spaces.</li>
+          <li>High Investment Value: Excellent appreciation potential in NCR.</li>
+          {/* <li>Neighbourhood Growth: Assess nearby development and connectivity.</li> */}
+        </ul>
+
+        <h2 className={`${sectionTitle} mt-10`}>Conclusion</h2>
+        <p className={`${body} mt-4`}>
+        Eldeco Mystic Greens, Greater Noida, is a perfect example of modern living blended with serenity. With its spacious homes, lush landscapes, world-class amenities, and superior connectivity, it offers a lifestyle that caters to every family member.
+        </p>
+        <p className={`${body} mt-4`}>
+        Backed by the trusted Eldeco Group, Mystic Greens isn’t just a home—it’s a long-term investment in happiness, comfort, and growth. Whether you’re looking for your dream home or a smart investment, Eldeco Mystic Greens promises a rewarding living experience — a mystical blend of peace and modernity.
+        </p>
+
+       
+       
+
+      
+
+        <h2 className={`${sectionTitle} mt-10`}>Frequently Asked Questions (FAQs)</h2>
+        <BlogDetailFaq
+          bodyClass={body}
+          subTitleClass={subTitle}
+          items={[
+            {
+              q: "1 Where is Eldeco Mystic Greens located?",
+              a: " It is located in Omega II, Greater Noida, offering excellent connectivity to Noida, Delhi, and the Yamuna Expressway.",
+            },
+            {
+              q: "2  What are the configurations available?",
+              a: " The project offers 2BHK and 3BHK spacious apartments equipped with premium features and modern amenities.",
+            },
+            {
+              q: "3Is Eldeco Mystic Greens ready to move in?",
+              a: "Yes, Eldeco Mystic Greens is ready to move, and many residents are already enjoying life within the township.",
+            },
+            {
+              q: "4  What are the key amenities offered?",
+              a: "The project offers a clubhouse, swimming pool, gymnasium, landscaped gardens, sports courts, and 24×7 security for residents.",
+            },
+            {
+              q: "5 Is Eldeco Mystic Greens a good investment option?",
+              a: "Absolutely. With Eldeco’s strong reputation and Greater Noida’s rapidly growing real estate market, it’s an excellent choice for both homeowners and investors.",
+            },
+            
+          ]}
+        />
+        </div>
+      </div>
+    </article>
+  );
+};
+
+
+
 
 
 export const BLOG_DETAIL_CONTENT_BY_SLUG = {
@@ -1010,6 +1264,7 @@ export const BLOG_DETAIL_CONTENT_BY_SLUG = {
   "m3m-sky-city-in-gurgaon": DeveloperContent,
   "real-estate-developer-in-ncr": ManshaHeritageContent,
   "builder-floors-in-sonipat": SonipatPlotsContent,
+  "eldeco-mystic-greens": EldecoMysticGreensContent,
 };
 
 export const getBlogDetailContent = (slug) => BLOG_DETAIL_CONTENT_BY_SLUG[slug] ?? null;
