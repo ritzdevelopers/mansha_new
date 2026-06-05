@@ -38,6 +38,15 @@ export const BLOG_POSTS = [
     descriptionLead:
       "Real Estate Developer in NCR - Mansha Group We at Mansha Group view Real Estate Development as much more than just the construction of an empty project; we consider the development process to encapsulate the totality of building a safe, well-planned, and designed.",
   },
+  {
+    id: 5,
+    slug: "builder-floors-in-sonipat",
+    date: "Oct 6, 2025",
+    title: "Builder Floors in Sonipat",
+    image: "/blog/testblog.jpg",
+    descriptionLead:
+      "Builder Floors in Sonipat: Independent Living, Modern Comfort, Strong Value What Are Builder Floors?Rather than high-rise towers, builder floors are individual housing apartments—usually whole floors within a multi-story residential structure. Often in smaller",
+  },
 ];
 
 export const getBlogPostBySlug = (slug) =>
