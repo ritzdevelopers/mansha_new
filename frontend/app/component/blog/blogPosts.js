@@ -43,7 +43,7 @@ export const BLOG_POSTS = [
     slug: "builder-floors-in-sonipat",
     date: "Oct 6, 2025",
     title: "Builder Floors in Sonipat",
-    image: "/blog/testblog.jpg",
+    image: "/blog/sonipat.jpg",
     descriptionLead:
       "Builder Floors in Sonipat: Independent Living, Modern Comfort, Strong Value What Are Builder Floors?Rather than high-rise towers, builder floors are individual housing apartments—usually whole floors within a multi-story residential structure. Often in smaller",
   },
