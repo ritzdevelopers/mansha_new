@@ -16,7 +16,7 @@ const BuildTrust = () => {
               <div className="2xl:translate-y-[200px] 2xl:-translate-x-[150px] min-[1650px]:!translate-x-0 min-[1650px]:!translate-y-[5px] min-[1650px]:!z-10 min-[1650px]:!relative">
                 <div className="mt-0 mb-1 sm:mt-[150px] md:mt-0 lg:mt-0 xl:mt-[115px] 2xl:mt-0 min-[1650px]:mt-0">
                   <p className="font-montserrat text-[38px] font-medium not-italic leading-none tracking-normal text-center capitalize text-[#333333] [leading-trim:both] [text-edge:cap_alphabetic] sm:text-[42px] sm:font-semibold md:text-[48px] md:font-semibold lg:text-[54px] lg:font-bold xl:text-[65px]">
-                    15+
+                    14+
                   </p>
                 </div>
                 <p className="mt-1 font-montserrat text-[13px] font-normal not-italic leading-snug tracking-normal text-center capitalize text-[#333333] [leading-trim:both] [text-edge:cap_alphabetic] md:text-[16px] md:font-[500] md:leading-6 lg:text-[14px] xl:text-[16px]">

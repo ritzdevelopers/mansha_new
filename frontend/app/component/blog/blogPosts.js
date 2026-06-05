@@ -13,7 +13,7 @@ export const BLOG_POSTS = [
     slug: "buy-residential-plots-for-sale-in-sonipat",
     date: "Mar 24, 2026 ",
     title: "Buy Residential Plots for Sale in Sonipat",
-    image: "/blog/testblog.jpg",
+    image: "/blog/Buy-Residential.jpg",
     descriptionLead:
       "Formerly a small satellite city close to Delhi, Sonipat has now become among the most coveted NCR real estate locations. The city presents great chances for anyone wanting to purchase residential plots for sale in Sonipat given better infrastructure, industrial expansion, and increasing housing demand. Sonipat offers the ideal mix of affordability,",
    
@@ -23,7 +23,7 @@ export const BLOG_POSTS = [
     slug: "m3m-sky-city-in-gurgaon",
     date: "Jan 28, 2026",
     title: "m3m-sky-city-in-gurgaon",
-    image: "/blog/testblog.jpg",
+    image: "/blog/m3m-sky-city.png",
     
     descriptionLead:
       "M3M Sky City in Gurgaon: The Ultimate Mixed-Use Hub for Luxury Living and Business Growth! M3M Sky City in Gurgaon stands as a landmark mixed-use destination that perfectly blends luxury living, thriving retail, and modern workspaces—offering residents and investors a.",
@@ -34,7 +34,7 @@ export const BLOG_POSTS = [
     slug: "real-estate-developer-in-ncr",
     date: "Jan 28, 2026",
     title: "Real Estate Developer in NCR",
-    image: "/blog/testblog.jpg",
+    image: "/blog/real-estate.png",
     descriptionLead:
       "Real Estate Developer in NCR - Mansha Group We at Mansha Group view Real Estate Development as much more than just the construction of an empty project; we consider the development process to encapsulate the totality of building a safe, well-planned, and designed.",
   },

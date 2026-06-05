@@ -12,8 +12,23 @@ const COUNT_DURATION_MS = 2000;
 
 const Mansha = () => {
   const statsRef = useRef(null);
+  const imageSectionRef = useRef(null);
   const hasCountedRef = useRef(false);
   const [counts, setCounts] = useState(() => STATS.map(() => 0));
+  const [playReveal, setPlayReveal] = useState(false);
+
+  useEffect(() => {
+    const el = imageSectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setPlayReveal(entry.isIntersecting),
+      { threshold: 0.2 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = statsRef.current;
@@ -65,36 +80,55 @@ const Mansha = () => {
       </div>
 
       <div className="mx-auto max-w-8xl px-5 pb-[35px] sm:px-8 lg:px-[75px] lg:pb-[75px] mt-0 lg:mt-12">
+        <div ref={imageSectionRef}>
         <div className="hidden w-full items-start justify-between gap-[20px] md:flex lg:hidden">
           <div className="w-full flex-1 overflow-hidden md:h-[280px]">
-            <Image
-              src="/about/about-section2.jpg"
-              alt="Building about"
-              width={280}
-              height={170}
-              className="h-auto w-full object-cover md:h-full"
-            />
+            <div
+              className={`h-full w-full overflow-hidden ${
+                playReveal ? "mansha-slide-left-reveal" : "mansha-slide-left-hidden"
+              }`}
+            >
+              <Image
+                src="/about/about-section2.jpg"
+                alt="Building about"
+                width={280}
+                height={170}
+                className={`h-auto w-full object-cover md:h-full ${playReveal ? "faq-common-img-zoom" : ""}`}
+              />
+            </div>
           </div>
           <div className="w-full flex-1 overflow-hidden md:h-[280px]">
-            <Image
-              src="/about/about-section3.jpg"
-              alt="Villa about"
-              width={280}
-              height={170}
-              className="h-auto w-full object-cover md:h-full"
-            />
+            <div
+              className={`h-full w-full overflow-hidden ${
+                playReveal ? "faq-common-slide-reveal" : "faq-common-slide-hidden"
+              }`}
+            >
+              <Image
+                src="/about/about-section3.jpg"
+                alt="Villa about"
+                width={280}
+                height={170}
+                className={`h-auto w-full object-cover md:h-full ${playReveal ? "faq-common-img-zoom" : ""}`}
+              />
+            </div>
           </div>
         </div>
 
         <div className="flex flex-col items-start gap-[10px] md:gap-[20px] lg:gap-[20px] xl:gap-[120px] lg:flex-row lg:items-start">
           <div className="order-1 mx-auto w-full max-w-[330] overflow-hidden md:hidden lg:order-none lg:mx-0 lg:mt-[60px] lg:block lg:self-end">
-            <Image
-              src="/about/about-section2.jpg"
-              alt="Building about"
-              width={280}
-              height={170}
-              className="h-auto w-full object-cover"
-            />
+            <div
+              className={`overflow-hidden ${
+                playReveal ? "mansha-slide-left-reveal" : "mansha-slide-left-hidden"
+              }`}
+            >
+              <Image
+                src="/about/about-section2.jpg"
+                alt="Building about"
+                width={280}
+                height={170}
+                className={`h-auto w-full object-cover ${playReveal ? "faq-common-img-zoom" : ""}`}
+              />
+            </div>
           </div>
 
           <div className="order-3 mt-2 md:mt-5 w-full max-w-[450px] text-center md:max-w-full md:text-left lg:order-none lg:mt-0 lg:max-w-[450px]">
@@ -123,14 +157,21 @@ const Mansha = () => {
           </div>
 
           <div className="order-2 mx-auto w-full max-w-[330px] overflow-hidden md:hidden lg:order-none lg:mx-0 lg:max-w-[320px] lg:-mt-[60px] lg:block lg:self-start">
-            <Image
-              src="/about/about-section3.jpg"
-              alt="Villa about"
-              width={280}
-              height={170}
-              className="h-auto w-full object-cover"
-            />
+            <div
+              className={`overflow-hidden ${
+                playReveal ? "faq-common-slide-reveal" : "faq-common-slide-hidden"
+              }`}
+            >
+              <Image
+                src="/about/about-section3.jpg"
+                alt="Villa about"
+                width={280}
+                height={170}
+                className={`h-auto w-full object-cover ${playReveal ? "faq-common-img-zoom" : ""}`}
+              />
+            </div>
           </div>
+        </div>
         </div>
 
         <div
@@ -153,6 +194,57 @@ const Mansha = () => {
           ))}
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes mansha-clip-left-reveal {
+          from {
+            clip-path: inset(0% 100% 0% 0%);
+          }
+          to {
+            clip-path: inset(0% 0% 0% 0%);
+          }
+        }
+        .mansha-slide-left-hidden {
+          clip-path: inset(0% 100% 0% 0%);
+        }
+        .mansha-slide-left-reveal {
+          animation: mansha-clip-left-reveal 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+        }
+        @keyframes faq-common-clip-reveal {
+          from {
+            clip-path: inset(0% 0% 0% 100%);
+          }
+          to {
+            clip-path: inset(0% 0% 0% 0%);
+          }
+        }
+        @keyframes faq-common-img-zoom {
+          from {
+            transform: scale(1.2);
+          }
+          to {
+            transform: scale(1);
+          }
+        }
+        .faq-common-slide-hidden {
+          clip-path: inset(0% 0% 0% 100%);
+        }
+        .faq-common-slide-reveal {
+          animation: faq-common-clip-reveal 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+        }
+        .faq-common-img-zoom {
+          transform-origin: center center;
+          animation: faq-common-img-zoom 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .mansha-slide-left-reveal,
+          .faq-common-slide-reveal,
+          .faq-common-img-zoom {
+            animation-duration: 0.35s;
+            animation-timing-function: ease-out;
+          }
+        }
+      `}</style>
 
       <style jsx>{`
         .number-shine {

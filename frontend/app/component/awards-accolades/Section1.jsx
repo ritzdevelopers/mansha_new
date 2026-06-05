@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavSideMenu from "../common/NavSideMenu";
 
 const PHONE = "tel:+919876543210";
@@ -19,15 +19,20 @@ const AWARD_SLIDES = [
 ];
 
 const STATS = [
-  { value: "18+", label: "Years of trust" },
-  { value: "6", label: "Major recognitions" },
-  { value: "3", label: "Countries" },
+  { target: 14, suffix: "+", label: "Delivered Projects " },
+  { target: 65, suffix: "+", label: "Lac sq. ft. delivered" },
+  { target: 2500, suffix: "+", label: "Happy Customers" },
 ];
+
+const COUNT_DURATION_MS = 2000;
 
 const iconBtn =
   "inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-md text-black transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/40 active:opacity-60";
 
 const Section1 = () => {
+  const statsRef = useRef(null);
+  const hasCountedRef = useRef(false);
+  const [counts, setCounts] = useState(() => STATS.map(() => 0));
   const [open, setOpen] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [slidesVisible, setSlidesVisible] = useState(3);
@@ -39,6 +44,33 @@ const Section1 = () => {
     ...AWARD_SLIDES.slice(0, slidesVisible),
   ];
   const dotIndex = activeSlide > maxSlide ? 0 : activeSlide;
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || hasCountedRef.current) return;
+        hasCountedRef.current = true;
+
+        const start = performance.now();
+
+        const tick = (now) => {
+          const progress = Math.min((now - start) / COUNT_DURATION_MS, 1);
+          const eased = 1 - (1 - progress) ** 3;
+          setCounts(STATS.map((stat) => Math.round(stat.target * eased)));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.25 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", open);
@@ -163,14 +195,16 @@ const Section1 = () => {
               Mansha Group
             </p>
             <h1 className="mt-4 font-optima text-[32px] font-medium capitalize leading-[110%] tracking-[0] text-[#111111] sm:text-[40px] lg:text-[48px]">
-              Awards &amp; Accolades
+            Awards & Recognition
             </h1>
             <p className="mx-auto mt-5 max-w-2xl font-montserrat text-[14px] font-normal leading-[160%] text-[#555555] sm:text-[15px] lg:text-[16px]">
-              Excellence recognised. Trust earned. From Delhi NCR to global stages — our work
-              speaks for itself.
+            Recognised for excellence. Trusted over time. From Delhi NCR to wider horizons — our work continues to reflect credibility, consistency, and a commitment to delivering spaces that truly stand apart
             </p>
 
-            <div className="mx-auto mt-10 flex max-w-3xl flex-col items-stretch justify-center gap-8 sm:flex-row sm:items-center sm:gap-0">
+            <div
+              ref={statsRef}
+              className="mx-auto mt-10 flex max-w-3xl flex-col items-stretch justify-center gap-8 sm:flex-row sm:items-center sm:gap-0"
+            >
               {STATS.map((stat, index) => (
                 <div
                   key={stat.label}
@@ -179,7 +213,8 @@ const Section1 = () => {
                   }`}
                 >
                   <p className="font-optima text-[36px] font-medium leading-none text-[#111111] sm:text-[40px]">
-                    {stat.value}
+                    {counts[index]}
+                    {stat.suffix}
                   </p>
                   <p className="mt-2 font-montserrat text-[13px] font-normal text-[#666666] sm:text-[14px]">
                     {stat.label}
