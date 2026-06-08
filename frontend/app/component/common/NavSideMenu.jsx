@@ -82,6 +82,7 @@ const NavProjectSlider = ({ open, onClose }) => {
                 <Image
                   src={project.image}
                   alt={project.name}
+                  title={project.name}
                   width={280}
                   height={120}
                   className="h-auto w-full object-contain"
@@ -294,6 +295,7 @@ const NavSideMenu = ({ open, onClose }) => {
                 >
                   <span className={sidebarLabelClass}>{NAV_ITEMS[4].label}</span>
                 </Link>
+                <div className="mt-3 h-px w-full bg-black/10" aria-hidden />
               </li>
 
               <li

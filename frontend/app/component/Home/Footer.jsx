@@ -11,6 +11,7 @@ const Footer = () => {
             <Image
               src="/mansha-image/footer-logo.png"
               alt="Mansha footer logo"
+              title="Mansha footer logo"
               width={94}
               height={94}
               className="h-auto w-[80px]"
@@ -51,6 +52,7 @@ const Footer = () => {
               <Image
                 src="/mansha-image/google-review-footer.png"
                 alt="Google review icon"
+                title="Google review icon"
                 width={26}
                 height={40}
                 className="h-[40px] w-[30px]"
@@ -143,6 +145,7 @@ Project Address (Sonipat): Sector 83 & 84, Sonipat, Bang on Main GT Karnal Road
         <Image
           src="/mansha-image/mansha-footer.png"
           alt="Footer background"
+          title="Footer background"
           fill
           className="object-contain object-right-bottom"
         />

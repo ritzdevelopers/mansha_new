@@ -63,6 +63,7 @@ const Manshagroup = () => {
                 <img
                   src={card.image}
                   alt={card.title}
+                  title={card.title}
                   width={1200}
                   height={800}
                   className="h-auto w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"

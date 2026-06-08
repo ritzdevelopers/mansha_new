@@ -16,7 +16,7 @@ const DELIVERED_PROJECTS = [
   },
   {
     location: "Aligarh Road, Palwal",
-    image: "/delieverd/mansha-royal.png",
+    image: "/delieverd/mansha-royal-city.png",
     alt: "Mansha Royal City",
     href: "/mansha-royal-city",
   },

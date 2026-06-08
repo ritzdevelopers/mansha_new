@@ -80,6 +80,7 @@ const FAQCommon = () => {
                   <Image
                     src={FAQ_IMAGE.src}
                     alt={FAQ_IMAGE.alt}
+                    title={FAQ_IMAGE.alt}
                     fill
                     className={`object-cover ${playReveal ? "faq-common-img-zoom" : ""}`}
                     priority
@@ -96,6 +97,7 @@ const FAQCommon = () => {
                 <Image
                   src="/mansha-svg/commerical-logo.svg"
                   alt="Mansha"
+                  title="Mansha"
                   width={60}
                   height={60}
                   className="h-9 w-auto object-contain sm:h-10 md:h-11"

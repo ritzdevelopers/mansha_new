@@ -21,6 +21,7 @@ const Leadership = () => {
               <Image
                 src="/mansha-image/leader-1.jpg"
                 alt="Mr Naresh Malik"
+                title="Mr Naresh Malik"
                 width={400}
                 height={400}
                 className="h-auto w-full cursor-pointer object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
@@ -48,6 +49,7 @@ const Leadership = () => {
               <Image
                 src="/mansha-image/leader-2.jpg"
                 alt="Mr Himanshu Malik"
+                title="Mr Himanshu Malik"
                 width={400}
                 height={400}
                 className="h-auto w-full cursor-pointer object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"

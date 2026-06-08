@@ -107,13 +107,13 @@ const btnStyle = {
 };
 
 const ApplyButton = ({ onClick, className = "" }) => {
-  const btnClass = `career-apply-btn group relative isolate inline-flex flex-1 cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-md px-4 py-3 font-montserrat text-[13px] font-semibold uppercase tracking-[0.08em] ${className}`;
+  const btnClass = `career-apply-btn group relative isolate inline-flex flex-1 cursor-pointer items-center justify-center gap-1.5 overflow-hidden rounded-full px-4 py-3 font-montserrat text-[13px] font-semibold uppercase tracking-[0.08em] ${className}`;
 
   const content = (
     <>
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 z-0 h-full w-full origin-left -translate-x-full rounded-md bg-white transition-transform duration-300 ease-out group-hover:translate-x-0"
+        className="pointer-events-none absolute inset-y-0 left-0 z-0 h-full w-full origin-left -translate-x-full rounded-full bg-white transition-transform duration-300 ease-out group-hover:translate-x-0"
       />
       <span className="career-apply-btn-text relative z-10 flex items-center gap-1.5">
         Apply Now

@@ -273,7 +273,7 @@ const Section2 = () => {
                 <h2 className="text-center font-montserrat text-[15px] font-bold uppercase tracking-wide text-[#652A27] sm:text-[16px]">
                   Project Address
                 </h2>
-                <div className="mx-auto mt-5 w-full max-w-[340px] rounded-lg border border-[#652A27] bg-white p-5 sm:p-6">
+                <div className="mx-auto mt-5 w-full max-w-[340px] rounded-lg bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
                   <ul className="flex flex-col gap-4">
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
                       <i

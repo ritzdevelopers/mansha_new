@@ -38,6 +38,7 @@ const Vegas = () => {
             <Image
               src="/mansha-image/aagman-logo.png"
               alt="Aagman by Mansha logo"
+              title="Aagman by Mansha logo"
               width={76}
               height={76}
               className="h-auto w-[76px]"
@@ -55,6 +56,7 @@ const Vegas = () => {
                 <Image
                   src="/mansha-svg/location-icon.svg"
                   alt="Location icon"
+                  title="Location icon"
                   width={16}
                   height={16}
                   className="h-4 w-4"
@@ -108,7 +110,7 @@ const Vegas = () => {
                   activeImage === index ? "flex-1 lg:flex-[2.2]" : "flex-1"
                 }`}
               >
-                <Image src={item.src} alt={item.alt} fill className="object-cover" />
+                <Image src={item.src} alt={item.alt} title={item.alt} fill className="object-cover" />
                 <div
                   className={`absolute inset-0 transition-colors duration-500 ${
                     activeImage === index ? "bg-black/20" : "bg-black/45"
@@ -120,6 +122,7 @@ const Vegas = () => {
                     <Image
                       src="/mansha-svg/rotate-arrow.svg"
                       alt="Open"
+                      title="Open"
                       width={16}
                       height={16}
                       className="h-4 w-4"

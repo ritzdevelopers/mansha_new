@@ -275,6 +275,7 @@ const BookASite = ({ open, onClose }) => {
           <Image
             src="/mansha-image/residentail.jpg"
             alt="Mansha property"
+            title="Mansha property"
             fill
             className="object-cover"
             sizes="480px"
@@ -335,6 +336,7 @@ const BookASite = ({ open, onClose }) => {
               width={72}
               height={32}
               alt="Mansha"
+              title="Mansha"
               className="h-6 w-auto brightness-0 invert"
             />
           </div>

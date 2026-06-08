@@ -91,6 +91,7 @@ const Mansha = () => {
               <Image
                 src="/about/about-section2.jpg"
                 alt="Building about"
+                title="Building about"
                 width={280}
                 height={170}
                 className={`h-auto w-full object-cover md:h-full ${playReveal ? "faq-common-img-zoom" : ""}`}
@@ -106,6 +107,7 @@ const Mansha = () => {
               <Image
                 src="/about/about-section3.jpg"
                 alt="Villa about"
+                title="Villa about"
                 width={280}
                 height={170}
                 className={`h-auto w-full object-cover md:h-full ${playReveal ? "faq-common-img-zoom" : ""}`}
@@ -124,6 +126,7 @@ const Mansha = () => {
               <Image
                 src="/about/about-section2.jpg"
                 alt="Building about"
+                title="Building about"
                 width={280}
                 height={170}
                 className={`h-auto w-full object-cover ${playReveal ? "faq-common-img-zoom" : ""}`}
@@ -165,6 +168,7 @@ const Mansha = () => {
               <Image
                 src="/about/about-section3.jpg"
                 alt="Villa about"
+                title="Villa about"
                 width={280}
                 height={170}
                 className={`h-auto w-full object-cover ${playReveal ? "faq-common-img-zoom" : ""}`}

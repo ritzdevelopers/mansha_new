@@ -260,6 +260,7 @@ function SlideLayer({
         <Image
           src={slide.src}
           alt={slide.title}
+          title={slide.title}
           fill
           className="object-cover"
           priority={imagePriority}
@@ -270,6 +271,7 @@ function SlideLayer({
         <Image
           src={slide.src}
           alt={slide.title}
+          title={slide.title}
           width={1920}
           height={1280}
           className="block h-auto w-full max-w-full object-cover"

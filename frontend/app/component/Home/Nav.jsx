@@ -74,6 +74,7 @@ const Navbar = () => {
               width={100}
               height={70}
               alt="Mansha"
+              title="Mansha"
               className="h-12 w-auto sm:h-15"
               priority
             />
@@ -101,7 +102,7 @@ const Navbar = () => {
               aria-expanded={open}
              onClick={()=>setOpen((prev)=>!prev)}
             >
-              <Image src="/mansha-svg/humburger-sanskar.svg" width={22} height={22} alt="menu" className="brightness-0" />
+              <Image src="/mansha-svg/humburger-sanskar.svg" alt="humburger-sanskar" width={22} height={22}  className="brightness-0" title="humburger-sanskar" />
             </button>
           </div>
         </div>

@@ -31,7 +31,8 @@ const BuildTrust = () => {
             >
               <Image
                 src="/mansha-image/burst-line.png"
-                alt=""
+                alt="Decorative burst line"
+                title="Decorative burst line"
                 width={300}
                 height={150}
                 className="h-auto w-[min(200px,18vw)] max-w-[240px] translate-y-[15px] rotate-[-5deg]  object-contain object-center min-[1650px]:hidden "
@@ -96,6 +97,7 @@ const BuildTrust = () => {
             width={1600}
             height={900}
             alt="Build trust"
+            title="Build trust"
             className="relative z-10 h-auto w-full object-cover min-[1650px]:translate-x-[100px]"
             priority={false}
           />

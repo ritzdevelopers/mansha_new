@@ -63,6 +63,7 @@ const Misson = () => {
               <Image
                 src="/about/our-mission.jpg"
                 alt="Our mission visual"
+                title="Our mission visual"
                 width={398}
                 height={265}
                 className={`h-auto w-full object-cover md:h-[265px] md:w-[398px] ${
@@ -97,6 +98,7 @@ const Misson = () => {
               <Image
                 src="/about/our-vision.jpg"
                 alt="Our vision visual"
+                title="Our vision visual"
                 width={398}
                 height={265}
                 className={`h-auto w-full object-cover md:h-[265px] md:w-[398px] ${

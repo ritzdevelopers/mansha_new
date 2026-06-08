@@ -95,6 +95,7 @@ export default function TestimoniaCommon() {
                       <Image
                         src={item.image}
                         alt={item.name}
+                        title={item.name}
                         fill
                         className="object-cover"
                       />

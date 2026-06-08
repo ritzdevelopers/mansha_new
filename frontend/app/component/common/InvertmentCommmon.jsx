@@ -32,7 +32,7 @@ const Investment = () => {
             >
               <div className="shrink-0 p-2 border border-[#E7E7E7] md:shrink-0">
                 <div className="relative mx-auto h-[120px] w-[120px]">
-                  <Image src={item.image} alt={item.alt} fill className="object-contain" />
+                  <Image src={item.image} alt={item.alt} title={item.alt} fill className="object-contain" />
                 </div>
               </div>
 

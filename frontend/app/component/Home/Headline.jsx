@@ -39,6 +39,7 @@ const Headline = () => {
       width={15}
       height={15}
       alt="arrow-right"
+      title="arrow-right"
       className="transition duration-300 group-hover:brightness-0 group-hover:invert group-active:brightness-0 group-active:invert"
     />
   </span>

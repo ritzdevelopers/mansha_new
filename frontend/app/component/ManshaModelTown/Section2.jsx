@@ -291,7 +291,7 @@ const Section2 = () => {
                 <h2 className="text-center font-montserrat text-[15px] font-bold uppercase tracking-wide text-[#652A27] sm:text-[16px]">
                   Project Address
                 </h2>
-                <div className="mx-auto mt-5 w-full max-w-[340px] rounded-lg border border-[#652A27] bg-white p-5 sm:p-6">
+                <div className="mx-auto mt-5 w-full max-w-[340px] rounded-lg bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.12)]">
                   <ul className="flex flex-col gap-4">
                     <li className="grid grid-cols-[24px_1fr] items-center gap-x-3 gap-y-0">
                       <i
@@ -457,7 +457,7 @@ const Section2 = () => {
                 {CORPORATE_CONTACTS.map((item) => (
                   <div
                     key={item.label}
-                    className="flex items-center gap-3 rounded-lg border border-[#E8ECF0] bg-[#FAFBFC] px-4 py-3"
+                    className="flex items-center gap-3 rounded-lg border border-[#F8F8F8] bg-[#FAFBFC] px-4 py-3"
                   >
                     <i
                       className={`${item.icon} flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#652A27]/10 text-[18px] text-[#652A27]`}

@@ -9,6 +9,7 @@ const OurJourney = () => {
           <Image
             src="/mansha-image/Journey.jpg"
             alt="Journey background"
+            title="Journey background"
             fill
             className="object-cover"
             sizes="100vw"
@@ -39,6 +40,7 @@ const OurJourney = () => {
                   <Image
                     src="/mansha-image/Journey-1.jpg"
                     alt="Journey phase one"
+                    title="Journey phase one"
                     width={860}
                     height={470}
                     className="h-auto w-full object-cover"
@@ -68,6 +70,7 @@ const OurJourney = () => {
                   <Image
                     src="/mansha-image/Journey-2.jpg"
                     alt="Journey phase two"
+                    title="Journey phase two"
                     width={860}
                     height={470}
                     className="h-auto w-full object-cover"

@@ -9,6 +9,7 @@ const ConsultationCommon = () => {
           <Image
             src="/mansha-image/consultation-image-new.jpg"
             alt="Consultation banner"
+            title="Consultation banner"
             fill
             className="object-cover"
             sizes="100vw"

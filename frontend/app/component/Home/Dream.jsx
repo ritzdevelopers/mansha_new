@@ -135,6 +135,7 @@ const Dream = () => {
               <Image
                 src={project.src}
                 alt={project.alt}
+                title={project.alt}
                 fill
                 className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 sizes="100vw"
@@ -173,6 +174,7 @@ const Dream = () => {
               <Image
                 src={project.src}
                 alt={project.alt}
+                title={project.alt}
                 fill
                 className="object-cover object-center transition-all duration-500"
                 sizes="(min-width: 1024px) and (max-width: 1279px) 50vw, 25vw"
@@ -215,6 +217,7 @@ const Dream = () => {
           <Image
             src="/mansha-image/Mansha-Heritage.jpg"
             alt="Mansha Heritage"
+            title="Mansha Heritage"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             sizes="33vw"
@@ -245,6 +248,7 @@ const Dream = () => {
           <Image
             src="/mansha-image/mansha-vega-street.jpg"
             alt="Mansha vega street"
+            title="Mansha vega street"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             sizes="(max-width: 1024px) 100vw, 40vw"
@@ -274,6 +278,7 @@ const Dream = () => {
           <Image
             src="/mansha-image/orchid.jpg"
             alt="Mansha Orchid"
+            title="Mansha Orchid"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             sizes="33vw"
@@ -303,6 +308,7 @@ const Dream = () => {
           <Image
             src="/mansha-image/mansha-agman.jpg"
             alt="Aagman by Mansha"
+            title="Aagman by Mansha"
             fill
             className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
             sizes="33vw"

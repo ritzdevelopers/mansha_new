@@ -114,6 +114,7 @@ const Journey = () => {
               <Image
                 src="/mansha-image/Journey.jpg"
                 alt="Journey background"
+                title="Journey background"
                 fill
                 className="object-cover"
                 sizes="100vw"
@@ -141,6 +142,7 @@ const Journey = () => {
                   <Image
                     src={baseStepData.image}
                     alt={baseStepData.alt}
+                    title={baseStepData.alt}
                     width={600}
                     height={300}
                     className="relative z-0 h-auto w-full object-cover"
@@ -154,6 +156,7 @@ const Journey = () => {
                         key={activeStep}
                         src={steps[activeStep].image}
                         alt={steps[activeStep].alt}
+                        title={steps[activeStep].alt}
                         fill
                         className="object-cover"
                         sizes="(max-width: 1024px) 100vw, 50vw"

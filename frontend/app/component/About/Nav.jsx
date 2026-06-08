@@ -33,6 +33,7 @@ const AboutNav = () => {
         <Image
           src="/about/about-mobile-banner.jpg"
           alt="About Hero"
+          title="About Hero"
           fill
           priority
           className="object-cover md:hidden"
@@ -41,6 +42,7 @@ const AboutNav = () => {
         <Image
           src="/about/about-banner.jpg"
           alt="About Hero"
+          title="About Hero"
           fill
           priority
           className="hidden object-cover md:block"
@@ -69,6 +71,7 @@ const AboutNav = () => {
                 width={100}
                 height={50}
                 alt="Mansha"
+                title="Mansha"
                 className="h-12 w-auto sm:h-15"
                 priority
               />
@@ -103,6 +106,7 @@ const AboutNav = () => {
                   width={22}
                   height={22}
                   alt="menu"
+                  title="menu"
                   className="brightness-0 invert"
                 />
               </button>

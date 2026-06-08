@@ -124,6 +124,7 @@ const Facility = () => {
             <Image
               src={FACILITY_IMAGES[baseImageIndex]}
               alt="Facility"
+              title="Facility"
               fill
               sizes="(max-width: 1024px) 100vw, 620px"
               className="object-cover"
@@ -136,7 +137,8 @@ const Facility = () => {
               >
                 <Image
                   src={FACILITY_IMAGES[displayFacilityIndex]}
-                  alt=""
+                  alt="Facility"
+                  title="Facility"
                   fill
                   sizes="(max-width: 1024px) 100vw, 620px"
                   className="object-cover"
