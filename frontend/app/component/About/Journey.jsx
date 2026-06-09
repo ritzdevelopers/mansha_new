@@ -131,9 +131,9 @@ const Journey = () => {
                 </h2>
                 <p className="max-w-[1100px] w-full md:max-w-full lg:max-w-[1100px] font-montserrat text-[16px] font-semibold leading-[24px] md:text-[17px] md:leading-[26px] lg:text-[20px] lg:leading-[35px] tracking-[0px] capitalize text-white lg:col-start-2">
                 Over the years, our path has been shaped by-{" "}
-                  <span className="text-[#FFFFFF99]">
+                 
                   innovation, resilience, and the drive to exceed expectations at every stage. By turning challenges into opportunities, we continue creating a legacy of progress and achievement.
-                  </span>
+                
                 </p>
               </div>
 

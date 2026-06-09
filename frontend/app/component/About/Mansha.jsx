@@ -72,9 +72,9 @@ const Mansha = () => {
         <div className="max-w-[1100px]">
           <h2 className="font-montserrat text-[17px] font-[400] md:font-[600] lg:leading-[38px] md:leading-[30px] tracking-normal text-black lg:text-[24px] md:text-[20px] leading-[25px]">
           At Mansha Group, we are proud to be one of the fastest-growing{" "}
-            <span className="text-black/40">
+            
             real estate developers in Faridabad, driven by a strong commitment to quality, innovation, and customer satisfaction.
-            </span>
+            
           </h2>
         </div>
       </div>

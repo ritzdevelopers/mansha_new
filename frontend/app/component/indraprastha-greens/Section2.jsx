@@ -375,7 +375,7 @@ SECTOR-1 , KARNAL , HARYANA
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/mansha-indr-green.png"
+                    src="/logo/inderprashta.png"
                     alt="Mansha Indraprastha Greens"
                     width={160}
                     height={70}

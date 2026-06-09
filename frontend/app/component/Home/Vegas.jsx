@@ -2,27 +2,86 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import BookASite from "../common/Book-a-site";
 
 const Vegas = () => {
   const [activeImage, setActiveImage] = useState(0);
   const [bookSiteOpen, setBookSiteOpen] = useState(false);
+  const detailCardRef = useRef(null);
 
-  const rightImages = [
+  const handleProjectSelect = (index) => {
+    setActiveImage(index);
+
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      window.setTimeout(() => {
+        const element = detailCardRef.current;
+        if (!element) return;
+
+        const header = document.querySelector("header");
+        const headerOffset = header
+          ? header.getBoundingClientRect().height + 8
+          : 8;
+        const top =
+          element.getBoundingClientRect().top +
+          window.scrollY -
+          headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: "smooth",
+        });
+      }, 100);
+    }
+  };
+
+  const projects = [
     {
+      logo: "/logo/vega-street-logo.png",
+      logoAlt: "Vega Street logo",
+      title: "Vegas Street",
+      details: [
+        {
+          type: "location",
+          text: "Sector 82, Faridabad Situated in the commercial hub of Greater Faridabad",
+        },
+        { type: "check", text: "RERA NUMBER: 275/2021" },
+        { type: "check", text: "Status: Now Fully Operational" },
+      ],
       src: "/mansha-image/mansha-vega-streetsection.jpg",
       alt: "Residential property",
       label: "Mansha Vega Street",
       href: "/vega-street",
     },
     {
+      logo: "/logo/aagmanbymansha.png",
+      logoAlt: "Aagman By Mansha logo",
+      title: "Aagman By Mansha",
+      details: [
+        {
+          type: "location",
+          text: "Sector 83 – 84, Sonipat Strategically Located right On NH44, 10-minute drive UER-II (Urban Extension Road-II)",
+        },
+        { type: "check", text: "3/4bhk Independent floors" },
+        { type: "check", text: "HRERA-PKL-SNP-775-2025" },
+      ],
       src: "/mansha-image/mansha-aagman.jpg",
       alt: "Facility area",
       label: "Aagman By Mansha",
       href: "/aagman-by-mansha",
     },
     {
+      logo: "/logo/oasis-logo.png",
+      logoAlt: "Mansha Oasis logo",
+      title: "Mansha Oasis",
+      details: [
+        {
+          type: "location",
+          text: "Located in Sector 123-124, Faridabad, Mansha Oasis sits at a prime junction of connectivity and growth.",
+        },
+        { type: "check", text: "HRERA-PKL-FBD-843-2026" },
+        { type: "check", text: "Residential Plots" },
+      ],
       src: "/mansha-image/mansha-oasis.jpg",
       alt: "Mansha project exterior",
       label: "Mansha Oasis",
@@ -30,50 +89,70 @@ const Vegas = () => {
     },
   ];
 
+  const activeProject = projects[activeImage];
+
   return (
     <section className="w-full bg-white px-0 max-w-[1500px] mx-auto">
       <div className="mx-auto max-w-8xl px-5 py-[35px] lg:py-[70px] sm:px-8 lg:px-[75px]">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.1fr_1.9fr]">
-          <div className="bg-[#f7f7f7] md:p-5 lg:p-5 p-3 border border-[#E0E0E0]">
-            <Image
-              src="/mansha-image/aagman-logo.png"
-              alt="Aagman by Mansha logo"
-              title="Aagman by Mansha logo"
-              width={76}
-              height={76}
-              className="h-auto w-[76px]"
-            />
+          <div ref={detailCardRef} className="scroll-mt-20 lg:scroll-mt-0">
+          <div
+            className="relative bg-[#f7f7f7] md:p-5 lg:p-5 p-3 border border-[#E0E0E0]"
+          >
+            <Link
+              href={activeProject.href}
+              aria-label={`Open ${activeProject.title}`}
+              className="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm transition-transform duration-300 active:scale-95 lg:hidden"
+            >
+              <Image
+                src="/mansha-svg/rotate-arrow.svg"
+                alt="Open project"
+                title="Open project"
+                width={16}
+                height={16}
+                className="h-4 w-4"
+              />
+            </Link>
 
-            <h3 className="xl:mt-4 mt-2 text-left font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] md:text-[28px] text-[24px] font-normal leading-[100%] tracking-normal text-[#000000]">
-              Vegas Street
+            {activeProject.logo ? (
+              <Image
+                src={activeProject.logo}
+                alt={activeProject.logoAlt}
+                title={activeProject.logoAlt}
+                width={76}
+                height={76}
+                className="h-auto w-[150px] lg:h-[35px] lg:w-auto xl:h-[76px] xl:w-[150px]"
+              />
+            ) : null}
+
+            <h3 className="xl:mt-4 lg:mt-2 mt-2 text-left font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] md:text-[28px] lg:text-[20px] xl:text-[28px] text-[24px] font-normal leading-[100%] tracking-normal text-[#000000]">
+              {activeProject.title}
             </h3>
-            <p className="md:mt-5 xl:mt-5 lg:mt-3 mt-4 inline-block bg-white  font-['Open_Sans','Open Sans',sans-serif] md:text-[18px] text-[16px] font-normal leading-[26px] tracking-normal text-[#000000] rounded-full md:px-4 md:py-2 px-3 py-1">
+            <p className="md:mt-5 xl:mt-5 lg:mt-3 mt-4 inline-block bg-white  font-['Open_Sans','Open Sans',sans-serif] md:text-[18px] text-[16px] font-normal leading-[26px] tracking-normal text-[#000000] rounded-full md:px-4 md:py-2 px-3 py-1 lg:py-1">
             Project Overview
             </p>
 
             <div className="md:mt-6 xl:mt-5 lg:mt-3 mt-4 xl:space-y-2 lg:space-y-2 md:space-y-4 space-y-2 font-['Open_Sans','Open Sans',sans-serif] xl:text-[16px] lg:text-[14px] md:text-[18px] text-[14px] font-normal xl:leading-[24px] leading-[18px] tracking-normal text-[#000000]">
-              <p className="flex items-center gap-2">
-                <Image
-                  src="/mansha-svg/location-icon.svg"
-                  alt="Location icon"
-                  title="Location icon"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4"
-                />
-                 Sector 82, Faridabad
-                 Situated in the commercial hub of Greater Faridabad
-              </p>
-              <p className="flex items-center gap-2">
-                <i className="ri-checkbox-circle-fill text-black"></i>
-                RERA NUMBER: 275/2021
-              </p>
-              <p className="flex items-center gap-2">
-                <i className="ri-checkbox-circle-fill text-black"></i>Status: Now Fully Operational              </p>
-              
+              {activeProject.details.map((detail) => (
+                <p key={detail.text} className="flex items-center gap-2">
+                  {detail.type === "location" ? (
+                    <Image
+                      src="/mansha-svg/location-icon.svg"
+                      alt="Location icon"
+                      title="Location icon"
+                      width={16}
+                      height={16}
+                      className="h-4 w-4 shrink-0"
+                    />
+                  ) : (
+                    <i className="ri-checkbox-circle-fill shrink-0 text-black"></i>
+                  )}
+                  {detail.text}
+                </p>
+              ))}
             </div>
 
-            <div className="xl:mt-8 mt-4 md:mt-6 flex flex-wrap items-end justify-between xl:gap-4 gap-2 border-l-2 border-[#d0d0d0] xl:pl-4 pl-2">
+            <div className="xl:mt-8 lg:mt-2 mt-4 md:mt-6 flex flex-wrap items-end justify-between xl:gap-4 gap-2 border-l-2 border-[#d0d0d0] xl:pl-4 pl-2">
               <div>
                 <p className="font-montserrat text-[16px] font-normal leading-[29px] tracking-normal text-[#000000]">
                 Price starting from- 
@@ -99,14 +178,15 @@ const Vegas = () => {
 </button>
             </div>
           </div>
+          </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row lg:min-h-[420px]">
-            {rightImages.map((item, index) => (
-              <Link
+          <div className="flex flex-col gap-4 sm:flex-row lg:min-h-[365px]">
+            {projects.map((item, index) => (
+              <div
                 key={`${item.src}-${index}`}
-                href={item.href}
                 onMouseEnter={() => setActiveImage(index)}
-                className={`relative min-h-[370px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] lg:min-h-[420px] ${
+                onClick={() => handleProjectSelect(index)}
+                className={`relative min-h-[370px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] lg:min-h-[365px] ${
                   activeImage === index ? "flex-1 lg:flex-[2.2]" : "flex-1"
                 }`}
               >
@@ -118,7 +198,11 @@ const Vegas = () => {
                 />
 
                 {activeImage === index && (
-                  <div className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/95">
+                  <Link
+                    href={item.href}
+                    aria-label={`Open ${item.label}`}
+                    className="absolute right-4 top-4 hidden h-12 w-12 items-center justify-center rounded-full bg-white/95 transition-transform duration-300 hover:scale-105 lg:flex"
+                  >
                     <Image
                       src="/mansha-svg/rotate-arrow.svg"
                       alt="Open"
@@ -127,7 +211,7 @@ const Vegas = () => {
                       height={16}
                       className="h-4 w-4"
                     />
-                  </div>
+                  </Link>
                 )}
 
                 {activeImage === index ? (
@@ -139,7 +223,7 @@ const Vegas = () => {
                     {item.label}
                   </p>
                 )}
-              </Link>
+              </div>
             ))}
           </div>
         </div>

@@ -16,7 +16,7 @@ const ManshaOaks4 = () => {
      <Section2 />
      <Section3 />
      <Section4 />
-     <div className="pt-[35px] lg:pt-[70px]">
+     <div className="">
      <InvertmentCommmon />
      </div>
      <OaksMap />

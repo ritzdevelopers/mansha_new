@@ -395,7 +395,7 @@ const Section2 = () => {
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/mansha-luxury-floor.png"
+                    src="/logo/luxuary.png"
                     alt="Mansha City Palwal"
                     width={160}
                     height={70}

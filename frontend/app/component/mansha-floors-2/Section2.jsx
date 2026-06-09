@@ -400,7 +400,7 @@ const Section2 = () => {
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/mansha-floor.png"
+                    src="/logo/floor-logo.png"
                     alt="Mansha Floors"
                     width={160}
                     height={70}

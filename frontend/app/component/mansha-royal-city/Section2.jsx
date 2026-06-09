@@ -334,7 +334,7 @@ Palwal - Palwal Aligarh
 
                 <div className="mt-6 flex justify-center">
                   <Image
-                    src="/delieverd/mansha-royal-city.png"
+                    src="/logo/royal-logo.png"
                     alt="Mansha City Palwal"
                     width={160}
                     height={70}

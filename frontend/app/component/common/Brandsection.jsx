@@ -1,9 +1,126 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef } from "react";
+
+const BRANDS = [
+  {
+    src: "/vega-street/reliance.png",
+    alt: "Reliance Smart",
+    width: 170,
+    height: 45,
+    className: "h-auto w-[140px] sm:w-[160px]",
+  },
+  {
+    src: "/vega-street/digital.png",
+    alt: "Reliance Digital",
+    width: 170,
+    height: 45,
+    className: "h-auto w-[140px] sm:w-[160px]",
+  },
+  {
+    src: "/vega-street/bikaner.png",
+    alt: "Bikanervala",
+    width: 150,
+    height: 45,
+    className: "h-auto w-[120px] sm:w-[135px]",
+  },
+  {
+    src: "/vega-street/lenskart.png",
+    alt: "Lenskart",
+    width: 170,
+    height: 45,
+    className: "h-auto w-[130px] sm:w-[150px]",
+  },
+  {
+    src: "/vega-street/max-vega-street.png",
+    alt: "Max Vega Street",
+    width: 170,
+    height: 45,
+    className: "h-auto w-[130px] sm:w-[150px]",
+  },
+  {
+    src: "/vega-street/barbeque.png",
+    alt: "Barbeque Nation",
+    width: 170,
+    height: 45,
+    className: "h-auto w-[130px] sm:w-[150px]",
+  },
+  {
+    src: "/vega-street/pet.png",
+    alt: "Pet Zone",
+    width: 170,
+    height: 45,
+    className: "h-auto w-[130px] sm:w-[150px]",
+  },
+  {
+    src: "/vega-street/bowling.png",
+    alt: "bowling",
+    width: 170,
+    height: 45,
+    className: "h-auto w-[130px] sm:w-[150px]",
+  },
+  {
+    src: "/vega-street/pyramid.png",
+    alt: "Nike",
+    width: 170,
+    height: 45,
+    className: "h-auto w-[130px] sm:w-[150px]",
+  },
+];
+
+const BrandGroup = React.forwardRef(({ ariaHidden = false }, ref) => (
+  <div
+    ref={ref}
+    className="brand-marquee-group flex shrink-0 items-center gap-8 px-3 lg:gap-10"
+    aria-hidden={ariaHidden || undefined}
+  >
+    {BRANDS.map((brand, index) => (
+      <Image
+        key={`${ariaHidden ? "clone" : "brand"}-${index}`}
+        src={brand.src}
+        alt={ariaHidden ? "" : brand.alt}
+        width={brand.width}
+        height={brand.height}
+        className={`${brand.className} shrink-0`}
+      />
+    ))}
+  </div>
+));
+
+BrandGroup.displayName = "BrandGroup";
 
 const Brandsection = () => {
+  const trackRef = useRef(null);
+  const groupRef = useRef(null);
+
+  useEffect(() => {
+    const updateMarquee = () => {
+      if (!trackRef.current || !groupRef.current) return;
+
+      const groupWidth = groupRef.current.getBoundingClientRect().width;
+      trackRef.current.style.setProperty(
+        "--marquee-distance",
+        `-${groupWidth}px`
+      );
+    };
+
+    updateMarquee();
+
+    const resizeObserver = new ResizeObserver(updateMarquee);
+    if (groupRef.current) resizeObserver.observe(groupRef.current);
+    if (trackRef.current?.parentElement) {
+      resizeObserver.observe(trackRef.current.parentElement);
+    }
+
+    window.addEventListener("resize", updateMarquee);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateMarquee);
+    };
+  }, []);
+
   return (
     <section className=" w-full pb-[35px] lg:pb-[70px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
@@ -31,80 +148,32 @@ const Brandsection = () => {
               </p>
 
               <div className="relative w-full overflow-hidden border-y-[1px] border-l-[1px] border-[#ffffff33] ">
-                <div className="brand-marquee-track flex w-max items-center gap-8 bg-black/25 py-0 lg:py-4 px-3 backdrop-blur-[2px] lg:gap-10">
-                  <Image
-                    src="/mansha-image/reliance.png"
-                    alt="Reliance Smart"
-                    width={170}
-                    height={45}
-                    className="h-auto w-[140px] sm:w-[160px]"
-                  />
-                  <Image
-                    src="/mansha-image/reliance-digital.png"
-                    alt="Reliance Digital"
-                    width={170}
-                    height={45}
-                    className="h-auto w-[140px] sm:w-[160px]"
-                  />
-                  <Image
-                    src="/mansha-image/bikaner.png"
-                    alt="Bikanervala"
-                    width={150}
-                    height={45}
-                    className="h-auto w-[120px] sm:w-[135px]"
-                  />
-                  <Image
-                    src="/mansha-image/lenskart.png"
-                    alt="Lenskart"
-                    width={170}
-                    height={45}
-                    className="h-auto w-[130px] sm:w-[150px]"
-                  />
-                  <Image
-                    src="/mansha-image/reliance.png"
-                    alt="Reliance Smart repeat"
-                    width={170}
-                    height={45}
-                    className="h-auto w-[140px] sm:w-[160px]"
-                  />
-                  <Image
-                    src="/mansha-image/reliance-digital.png"
-                    alt="Reliance Digital repeat"
-                    width={170}
-                    height={45}
-                    className="h-auto w-[140px] sm:w-[160px]"
-                  />
-                  <Image
-                    src="/mansha-image/bikaner.png"
-                    alt="Bikanervala repeat"
-                    width={150}
-                    height={45}
-                    className="h-auto w-[120px] sm:w-[135px]"
-                  />
-                  <Image
-                    src="/mansha-image/lenskart.png"
-                    alt="Lenskart repeat"
-                    width={170}
-                    height={45}
-                    className="h-auto w-[130px] sm:w-[150px]"
-                  />
+                <div
+                  ref={trackRef}
+                  className="brand-marquee-track flex w-max items-center bg-black/25 py-0 lg:py-4 backdrop-blur-[2px]"
+                >
+                  <BrandGroup ref={groupRef} />
+                  <BrandGroup ariaHidden />
+                  <BrandGroup ariaHidden />
+                  <BrandGroup ariaHidden />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <style jsx>{`
+      <style>{`
         .brand-marquee-track {
-          animation: brand-marquee 18s linear infinite;
+          animation: brand-marquee-scroll 24s linear infinite;
+          will-change: transform;
         }
 
-        @keyframes brand-marquee {
-          0% {
-            transform: translateX(0);
+        @keyframes brand-marquee-scroll {
+          from {
+            transform: translate3d(0, 0, 0);
           }
-          100% {
-            transform: translateX(-50%);
+          to {
+            transform: translate3d(var(--marquee-distance, -50%), 0, 0);
           }
         }
       `}</style>
