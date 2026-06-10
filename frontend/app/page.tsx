@@ -32,7 +32,7 @@ export default function Home() {
       <Manshagroup />
       <InvertmentCommmon />
       {/* <Investment /> */}
-      <div className="pt-[35px] lg:pt-[70px]">
+      <div className="">
           <FAQCommon />
       </div>
       {/* <Testiimonial /> */}

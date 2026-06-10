@@ -59,7 +59,7 @@ const FAQCommon = () => {
   };
 
   return (
-    <section ref={sectionRef} className="mx-auto w-full max-w-[1500px] bg-[#F9F9F9] px-0">
+    <section ref={sectionRef} className="mx-auto w-full max-w-[1500px] bg-[#ffffff] px-0">
       <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-5 py-[35px] sm:px-8 lg:grid-cols-[420px_1fr] lg:gap-0 lg:px-[75px] lg:py-[70px] xl:grid-cols-[500px_1fr]">
         <div>
           <h2 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[30px] tracking-normal capitalize text-[#111111] md:text-[36px] md:leading-[42px] md:text-left lg:whitespace-nowrap">
