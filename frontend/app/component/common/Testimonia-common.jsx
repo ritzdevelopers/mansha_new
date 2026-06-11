@@ -10,18 +10,26 @@ const testimonials = [
   {
     image: "/mansha-image/testimonial-image-1.jpg",
     name: "Ravi Gupta",
+    feedback:
+      "Mansha Group delivered exactly what was promised. The quality of construction and timely possession made our",
   },
   {
     image: "/mansha-image/testimonial-image-2.jpg",
     name: "Amit Kumar",
+    feedback:
+      "Investing with Mansha Group was one of our best decisions. Transparent processes, professional team, and excellent project execution gave us complete peace of mind.",
   },
   {
     image: "/mansha-image/testimonial-image-1.jpg",
     name: "Ravi Gupta",
+    feedback:
+      "Mansha Group delivered exactly what was promised. The quality of construction and timely possession made our home-buying experience truly smooth and trustworthy.",
   },
   {
     image: "/mansha-image/testimonial-image-2.jpg",
     name: "Amit Kumar",
+    feedback:
+      "Investing with Mansha Group was one of our best decisions. Transparent processes, professional team, and excellent project execution gave us complete peace of mind.",
   },
 ];
 
@@ -35,7 +43,7 @@ export default function TestimoniaCommon() {
         <div className="flex flex-col items-start lg:gap-8 gap-3 lg:flex-row lg:items-center xl:items-start">
           <div className="mt-0 flex w-full flex-col items-center pt-1 text-center lg:mt-0 lg:w-[30%] lg:items-start lg:text-left xl:mt-[100px] xl:w-[26%]">
             <h2 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#652A27]">
-              Clients Testimonials
+              Client Testimonials
             </h2>
             <h3 className="lg:mt-3 md:mt-2 mt-0 font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[22px] md:text-[34px] font-bold xl:leading-[50px] leading-[35px] tracking-normal text-[#000000]">
             Trusted By Many 
@@ -105,9 +113,14 @@ export default function TestimoniaCommon() {
                           <i className="ri-play-fill text-xl" />
                         </div>
                       )}
-                      <p className="absolute bottom-4 left-4 font-montserrat text-[16px] font-medium leading-[100%] tracking-normal text-[#FFFFFF66]">
-                        {item.name}
-                      </p>
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent px-4 pb-4 pt-10">
+                        <p className="font-montserrat text-[13px] font-normal leading-[22px] tracking-normal text-white sm:text-[14px]">
+                          {item.feedback}
+                        </p>
+                        <p className="mt-2 font-montserrat text-[16px] font-medium leading-[100%] tracking-normal text-[#FFFFFF66]">
+                          {item.name}
+                        </p>
+                      </div>
                     </div>
                   </SwiperSlide>
                 ))}

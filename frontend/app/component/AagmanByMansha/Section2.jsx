@@ -54,7 +54,7 @@ const Section2 = () => {
 
             <div className="xl:mt-5 mt-2">
               <p className="font-montserrat xl:text-[16px] text-[14px] font-normal xl:leading-[28px] leading-[25px]  xl:w-full lg:w-[400px]  capitalize text-[#333333]">
-              Strategically located, Mansha Aagram ensures seamless access to schools, healthcare, shopping hubs, and key city routes. The location enhances daily convenience while keeping you well-connected to emerging growth corridors.
+              Strategically located, Mansha Aagman ensures seamless access to schools, healthcare, shopping hubs, and key city routes. The location enhances daily convenience while keeping you well-connected to emerging growth corridors.
               </p>
             </div>
 

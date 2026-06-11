@@ -125,7 +125,7 @@ const Section1 = () => {
             <span className="hidden w-px shrink-0 self-stretch bg-white md:block border-2 border-white" aria-hidden />
             <div className="text-center text-white md:text-left">
               <h1 className="whitespace-nowrap font-optima text-[18px] md:text-[25px] lg:text-[36px] font-medium leading-[42px] tracking-[0] capitalize text-white">
-              Space That Holds Yo
+              Space That Holds You
               </h1>
               {/* <p className="mt-0 md:mt-2 font-optima text-[18px] md:text-[25px] lg:text-[36px] font-medium leading-[100%] tracking-[0] capitalize text-white">
               Mansha

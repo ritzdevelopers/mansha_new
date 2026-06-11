@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const popupAmenities = [
-  { icon: "/aagman-amenities/a1.png", label: "12mtr wide road" },
+  { icon: "/aagman-amenities/a1.png", label: "12mtr. wide road" },
   { icon: "/aagman-amenities/a2.png", label: "Independent floors" },
   { icon: "/aagman-amenities/a3.png", label: "Kids play area" },
   { icon: "/aagman-amenities/a4.png", label: "Well connected" },

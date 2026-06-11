@@ -234,7 +234,7 @@ const Dream = () => {
             }`}
           >
             <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
-              Refined living that blends comfort greenery connectivity and
+              Refined living that blends comfort, greenery, connectivity and
               timeless elegance.
             </p>
             <ReadMoreLink href={DREAM_PROJECTS[0].href} />
