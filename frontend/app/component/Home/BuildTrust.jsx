@@ -214,25 +214,16 @@ const BuildTrust = () => {
           {/* <div className="absolute inset-x-0 top-0 h-[35%] bg-transparent">
             <div className="ml-[28%] h-full rounded-tl-[120px] bg-[#5a67af] sm:rounded-tl-[150px]" />
           </div> */}
+ 
 
-          <Image
-            src="/mansha-image/trust-banner6.png"
+           <Image
+            src="/mansha-image/trust-banner7.png"
             width={1600}
             height={900}
             alt="Build trust"
-            title="Build trust"
             className="relative z-10 h-auto w-full object-cover min-[1650px]:translate-x-[100px]"
             priority={false}
           />
-
-           {/* <Image
-            src="/homepage/trust.jpg"
-            width={1600}
-            height={900}
-            alt="Build trust"
-            className="relative z-10 h-auto w-full object-cover min-[1650px]:translate-x-[100px]"
-            priority={false}
-          /> */}
         </div>
       </div>
     </section>
