@@ -17,6 +17,7 @@ const NAV_ITEMS = [
   { label: "About", href: "/about-us", delay: "320ms" },
   { label: "Contact", href: "/contact-us", delay: "560ms" },
   { label: "Careers", href: "/careers", delay: "680ms" },
+  { label: "Awards", href: "/awards-accolades", delay: "800ms" },
   { label: "Blogs", href: "/blog", delay: "800ms" },
 ];
 
@@ -60,7 +61,7 @@ const DROPDOWN_NAV = [
 
 const NavProjectSlider = ({ open, onClose }) => {
   return (
-    <div className="relative mt-8 w-full overflow-hidden">
+    <div className="relative mt-3 w-full overflow-hidden">
       <p className="optima-menu-link mb-2 text-center font-montserrat text-[25px] font-medium text-black">
         Projects
       </p>
@@ -286,17 +287,21 @@ const NavSideMenu = ({ open, onClose }) => {
                 </li>
               ))}
 
-              <li>
-                <Link
-                  href={NAV_ITEMS[4].href}
-                  onClick={onClose}
-                  className={sidebarLinkClass}
-                  style={{ transitionDelay: open ? NAV_ITEMS[4].delay : "0ms" }}
-                >
-                  <span className={sidebarLabelClass}>{NAV_ITEMS[4].label}</span>
-                </Link>
-                <div className="mt-3 h-px w-full bg-black/10" aria-hidden />
-              </li>
+              {NAV_ITEMS.slice(4).map((item, index, arr) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={onClose}
+                    className={sidebarLinkClass}
+                    style={{ transitionDelay: open ? item.delay : "0ms" }}
+                  >
+                    <span className={sidebarLabelClass}>{item.label}</span>
+                  </Link>
+                  {index === arr.length - 1 ? (
+                    <div className="mt-3 h-px w-full bg-black/10" aria-hidden />
+                  ) : null}
+                </li>
+              ))}
 
               <li
                 className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
