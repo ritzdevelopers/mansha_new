@@ -8,25 +8,25 @@ import "swiper/css";
 
 const testimonials = [
   {
-    image: "/mansha-image/testimonial-image-1.jpg",
+    image: "/mansha-image/testimonial-1.jpeg",
     // name: "Ravi Gupta",
     feedback:
       "Mansha Group delivered exactly what was promised. The quality of construction and timely possession made our",
   },
   {
-    image: "/mansha-image/testimonial-image-2.jpg",
+    image: "/mansha-image/testimonial-2.jpeg",
     // name: "Amit Kumar",
     feedback:
       "Investing with Mansha Group was one of our best decisions. Transparent processes, professional team, and excellent project execution gave us complete peace of mind.",
   },
   {
-    image: "/mansha-image/testimonial-image-1.jpg",
+    image: "/mansha-image/testimonial-3.jpeg",
     // name: "Ravi Gupta",
     feedback:
       "Mansha Group delivered exactly what was promised. The quality of construction and timely possession made our home-buying experience truly smooth and trustworthy.",
   },
   {
-    image: "/mansha-image/testimonial-image-2.jpg",
+    image: "/mansha-image/testimonial-4.jpeg",
     // name: "Amit Kumar",
     feedback:
       "Investing with Mansha Group was one of our best decisions. Transparent processes, professional team, and excellent project execution gave us complete peace of mind.",
