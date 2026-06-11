@@ -4,12 +4,14 @@ const awards = [
   {
     image: "/mansha-image/jagran.png",
     alt: "Jagran Achievers Award",
-    date: "November 10, 2025",
+    description:
+      "Jagran Achievers Award - Bali Indonesia, Prominent real estate developer in Delhi NCR 2024",
   },
   {
     image: "/mansha-image/crown.png",
     alt: "Crown of Delhi Award",
-    date: "November 10, 2025",
+    description:
+      "HT City Crowns of Delhi - Trusted and reliable name in real estate since 2006",
   },
 ];
 
@@ -30,20 +32,21 @@ const Investment = () => {
               key={item.alt}
               className="flex flex-col items-center gap-3 bg-white p-3 sm:gap-4 sm:p-4 md:flex-row md:items-center md:justify-center"
             >
-              <div className="shrink-0 p-2 border border-[#E7E7E7] md:shrink-0">
+              <div className="shrink-0 border border-[#E7E7E7] p-2 md:shrink-0">
                 <div className="relative mx-auto h-[120px] w-[120px]">
-                  <Image src={item.image} alt={item.alt} title={item.alt} fill className="object-contain" />
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    title={item.alt}
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </div>
 
-              <div className="flex w-full min-w-0 flex-1 flex-col items-center gap-2 text-center md:gap-0 md:text-center">
-                <p className="flex items-center justify-center gap-1 font-['Poppins',sans-serif] text-[13px] font-normal leading-[100%] tracking-normal capitalize text-[#666666] md:mt-0">
-                  <i className="ri-calendar-line shrink-0 text-[12px]" />
-                  <span>{item.date}</span>
-                </p>
-                <p className="mt-0 font-montserrat text-[14px] font-normal leading-[22px] tracking-normal capitalize text-[#333333] sm:text-[16px] md:mt-2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                  eiusmod tempor
+              <div className="flex w-full min-w-0 flex-1 flex-col items-center text-center md:text-center">
+                <p className="mt-0 font-montserrat text-[14px] font-normal leading-[22px] tracking-normal text-[#333333] sm:text-[16px]">
+                  {item.description}
                 </p>
               </div>
             </article>

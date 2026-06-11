@@ -1,66 +1,76 @@
-"use client";
+import React, { useState } from "react";
+import { authApi, registerUser } from "../../../lib/api";
 
-import { useState } from "react";
-import { authApi } from "@/lib/api";
-
-const inputClass =
-  "w-full rounded-lg border border-[#DDDDDD] bg-white px-4 py-3 font-montserrat text-[14px] text-[#333333] outline-none transition focus:border-[#652A27]";
-
-export default function DashboardAuth({ onSuccess }) {
+const DashboardAuth = ({ onSuccess }) => {
   const [mode, setMode] = useState("login");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState("");
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    setError("");
-    setMessage("");
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
     setMessage("");
 
     try {
-      if (mode === "login") {
-        const data = await authApi.login({
-          email: form.email,
-          password: form.password,
-        });
-        onSuccess(data.user);
-      } else {
-        const data = await authApi.register(form);
-        setMessage(data.message);
-        setMode("login");
-        setForm({ name: "", email: form.email, password: "" });
-      }
+      const data = await authApi.login({
+        email: formData.email,
+        password: formData.password,
+      });
+
+      onSuccess?.(data.user);
     } catch (err) {
-      setError(err.message);
+      setError(
+        err.response?.data?.message || err.message || "Login failed"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setMessage("");
+
+    try {
+      const data = await registerUser(formData);
+      setMessage(
+        data.message ||
+          "Registration successful. Please wait for super admin approval."
+      );
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+      });
+      setMode("login");
+    } catch (err) {
+      setError(
+        err.response?.data?.message || err.message || "Registration failed"
+      );
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="mx-auto w-full max-w-md rounded-2xl border border-[#DDDDDD] bg-white p-6 shadow-[0px_4px_20px_0px_#C4C4C429] md:p-8">
-      <h1 className="text-center font-optima text-[28px] font-medium capitalize text-[#111111] md:text-[32px]">
-        Dashboard
-      </h1>
-      <p className="mt-2 text-center font-montserrat text-[14px] text-[#666666]">
-        {mode === "login"
-          ? "Login to access your dashboard"
-          : "Register — Super Admin will assign your role"}
-      </p>
-
-      <div className="mt-6 flex rounded-full border border-[#DDDDDD] p-1">
+    <div className="max-w-md mx-auto mt-10 w-full p-6 border rounded-lg shadow">
+      <div className="mb-6 flex gap-2">
         <button
           type="button"
           onClick={() => {
@@ -68,14 +78,14 @@ export default function DashboardAuth({ onSuccess }) {
             setError("");
             setMessage("");
           }}
-          className={`flex-1 rounded-full py-2 font-montserrat text-[14px] transition ${
+          className={`flex-1 cursor-pointer rounded-md p-2 font-montserrat text-[14px] ${
             mode === "login"
-              ? "bg-[#652A27] text-white"
-              : "text-[#333333]"
+              ? "bg-black text-white"
+              : "border border-[#DDDDDD] text-[#333333]"
           }`}
         >
           Login
-        </button>   
+        </button>
         <button
           type="button"
           onClick={() => {
@@ -83,81 +93,69 @@ export default function DashboardAuth({ onSuccess }) {
             setError("");
             setMessage("");
           }}
-          className={`flex-1 rounded-full py-2 font-montserrat text-[14px] transition ${
+          className={`flex-1 cursor-pointer rounded-md p-2 font-montserrat text-[14px] ${
             mode === "register"
-              ? "bg-[#652A27] text-white"
-              : "text-[#333333]"
+              ? "bg-black text-white"
+              : "border border-[#DDDDDD] text-[#333333]"
           }`}
         >
           Register
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-        {mode === "register" && (
-          <div>
-            <label className="mb-1 block font-montserrat text-[13px] text-[#333333]">
-              Full Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className={inputClass}
-              placeholder="Enter your name"
-            />
-          </div>
-        )}
+      <h1 className="text-2xl font-bold mb-6">
+        {mode === "login" ? "Login" : "Register"}
+      </h1>
 
-        <div>
-          <label className="mb-1 block font-montserrat text-[13px] text-[#333333]">
-            Email
-          </label>
+      {error ? (
+        <p className="mb-4 rounded-md bg-red-50 px-3 py-2 text-[14px] text-red-600">
+          {error}
+        </p>
+      ) : null}
+
+      {message ? (
+        <p className="mb-4 rounded-md bg-green-50 px-3 py-2 text-[14px] text-green-700">
+          {message}
+        </p>
+      ) : null}
+
+      <form onSubmit={mode === "login" ? handleLogin : handleRegister}>
+        {mode === "register" ? (
           <input
-            type="email"
-            name="email"
-            value={form.email}
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={formData.name}
             onChange={handleChange}
+            className="w-full border p-2 mb-3"
             required
-            className={inputClass}
-            placeholder="Enter your email"
           />
-        </div>
+        ) : null}
 
-        <div>
-          <label className="mb-1 block font-montserrat text-[13px] text-[#333333]">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            required
-            minLength={6}
-            className={inputClass}
-            placeholder="Enter your password"
-          />
-        </div>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full border p-2 mb-3"
+          required
+        />
 
-        {error && (
-          <p className="rounded-lg bg-[#652A27]/10 px-3 py-2 font-montserrat text-[13px] text-[#652A27]">
-            {error}
-          </p>
-        )}
-
-        {message && (
-          <p className="rounded-lg bg-[#E8F5E9] px-3 py-2 font-montserrat text-[13px] text-[#2E7D32]">
-            {message}
-          </p>
-        )}
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+          className="w-full border p-2 mb-3"
+          required
+        />
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-full bg-[#652A27] py-3 font-montserrat text-[15px] font-medium text-white transition hover:bg-[#4A1F1F] disabled:opacity-60"
+          className="w-full cursor-pointer bg-black text-white p-2 disabled:opacity-60"
         >
           {loading
             ? "Please wait..."
@@ -166,6 +164,15 @@ export default function DashboardAuth({ onSuccess }) {
               : "Register"}
         </button>
       </form>
+
+      {mode === "login" ? (
+        <p className="mt-4 text-center font-montserrat text-[13px] text-[#666666]">
+          Super admin can login directly. New admin/editor users must register
+          first and wait for approval.
+        </p>
+      ) : null}
     </div>
   );
-}
+};
+
+export default DashboardAuth;

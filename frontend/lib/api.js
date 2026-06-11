@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+import axiosInstance from "./axiosInstance";
 
 let accessToken = null;
 
@@ -21,76 +21,106 @@ export const getAccessToken = () => {
   return accessToken;
 };
 
-async function apiRequest(path, options = {}) {
+axiosInstance.interceptors.request.use((config) => {
   const token = getAccessToken();
-
-  const headers = {
-    "Content-Type": "application/json",
-    ...(options.headers || {}),
-  };
-
   if (token) {
-    headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = `Bearer ${token}`;
   }
+  return config;
+});
 
-  const response = await fetch(`${API_URL}${path}`, {
-    ...options,
-    headers,
-    credentials: "include",
-  });
-
-  const data = await response.json().catch(() => ({}));
-
-  if (!response.ok) {
-    throw new Error(data.message || "Something went wrong");
-  }
-
+export const registerUser = async (body) => {
+  const { data } = await axiosInstance.post("/register", body);
   return data;
-}
+};
+
+export const submitEnquireData = async (body) => {
+  const { data } = await axiosInstance.post("/enquire-data", body);
+  return data;
+};
+
+export const submitContactData = async (body) => {
+  const { data } = await axiosInstance.post("/contact-data", body);
+  return data;
+};
+
+export const submitCareerApplication = async (formData) => {
+  const { data } = await axiosInstance.post("/career", formData, {
+    headers: {
+      "Content-Type": undefined,
+    },
+  });
+  return data;
+};
 
 export const authApi = {
-  register: (body) =>
-    apiRequest("/api/register", {
-      method: "POST",
-      body: JSON.stringify(body),
-    }),
+  register: registerUser,
 
   login: async (body) => {
-    const data = await apiRequest("/api/login", {
-      method: "POST",
-      body: JSON.stringify(body),
-    });
+    const { data } = await axiosInstance.post("/login", body);
     if (data.accessToken) setAccessToken(data.accessToken);
     return data;
   },
 
   logout: async () => {
-    await apiRequest("/api/logout", { method: "POST" });
+    await axiosInstance.post("/logout");
     setAccessToken(null);
   },
 
-  getMe: () => apiRequest("/api/auth/me"),
+  getMe: async () => {
+    const { data } = await axiosInstance.get("/auth/me");
+    return data;
+  },
 
   refreshToken: async () => {
-    const data = await apiRequest("/api/refresh-token", { method: "POST" });
+    const { data } = await axiosInstance.post("/refresh-token");
     if (data.accessToken) setAccessToken(data.accessToken);
     return data;
   },
 };
 
 export const adminApi = {
-  getPendingUsers: () => apiRequest("/api/admin/pending-users"),
-  getAllUsers: () => apiRequest("/api/admin/users"),
-  approveUser: (id, role) =>
-    apiRequest(`/api/admin/users/${id}/approve`, {
-      method: "PATCH",
-      body: JSON.stringify({ role }),
-    }),
-  rejectUser: (id) =>
-    apiRequest(`/api/admin/users/${id}/reject`, { method: "PATCH" }),
-  updateUserRole: (id, role) =>
-    apiRequest(`/api/admin/users/${id}/role`, {
-      method: "PATCH",
-      body: JSON.stringify({ role }),
-    }),
+  getPendingUsers: async () => {
+    const { data } = await axiosInstance.get("/admin/pending-users");
+    return data;
+  },
+
+  getAllUsers: async () => {
+    const { data } = await axiosInstance.get("/admin/users");
+    return data;
+  },
+
+  approveUser: async (id, role) => {
+    const { data } = await axiosInstance.patch(`/admin/users/${id}/approve`, {
+      role,
+    });
+    return data;
+  },
+
+  rejectUser: async (id) => {
+    const { data } = await axiosInstance.patch(`/admin/users/${id}/reject`);
+    return data;
+  },
+
+  updateUserRole: async (id, role) => {
+    const { data } = await axiosInstance.patch(`/admin/users/${id}/role`, {
+      role,
+    });
+    return data;
+  },
+
+  getEnquireData: async () => {
+    const { data } = await axiosInstance.get("/get-enquire-data");
+    return data;
+  },
+
+  getContactData: async () => {
+    const { data } = await axiosInstance.get("/get-contact-data");
+    return data;
+  },
+
+  getCareerData: async () => {
+    const { data } = await axiosInstance.get("/get-career-data");
+    return data;
+  },
 };

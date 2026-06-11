@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { authApi, getAccessToken } from "@/lib/api";
-import DashboardAuth from "@/app/component/dashboard/DashboardAuth";
 import SuperAdminPanel from "@/app/component/dashboard/SuperAdminPanel";
 
 export default function DashboardPage() {
+  const router = useRouter();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -36,9 +37,16 @@ export default function DashboardPage() {
     initAuth();
   }, []);
 
+  useEffect(() => {
+    if (!loading && !user) {
+      router.replace("/dashboard/login");
+    }
+  }, [loading, user, router]);
+
   const handleLogout = async () => {
     await authApi.logout();
     setUser(null);
+    router.replace("/dashboard/login");
   };
 
   if (loading) {
@@ -51,14 +59,14 @@ export default function DashboardPage() {
 
   if (!user) {
     return (
-      <div className="flex min-h-screen items-center justify-center px-5 py-10">
-        <DashboardAuth onSuccess={setUser} />
+      <div className="flex min-h-screen items-center justify-center">
+        <p className="font-montserrat text-[14px] text-[#666666]">Redirecting...</p>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto min-h-screen max-w-[1200px] px-5 py-8 md:px-8 md:py-12">
+    <div className="mx-auto min-h-screen max-w-8xl px-5 py-8 md:px-8 md:py-12">
       <div className="mb-8 flex flex-col gap-4 border-b border-[#DDDDDD] pb-6 md:flex-row md:items-center md:justify-between">
         <div>
           <h1 className="font-optima text-[28px] font-medium capitalize text-[#111111] md:text-[34px]">
@@ -76,15 +84,15 @@ export default function DashboardPage() {
           <button
             type="button"
             onClick={handleLogout}
-            className="rounded-full border border-[#DDDDDD] px-5 py-2 font-montserrat text-[13px] text-[#333333] transition hover:bg-white"
+            className="cursor-pointer rounded-full border border-[#DDDDDD] px-5 py-2 font-montserrat text-[13px] text-[#333333] transition hover:bg-white"
           >
             Logout
           </button>
         </div>
       </div>
 
-      {user.role === "superAdmin" ? (
-        <SuperAdminPanel />
+      {user.role === "superadmin" || user.role === "admin" ? (
+        <SuperAdminPanel role={user.role} />
       ) : (
         <div className="rounded-2xl border border-[#DDDDDD] bg-white p-8 text-center">
           <h2 className="font-optima text-[24px] font-medium text-[#111111]">

@@ -11,7 +11,7 @@ const DREAM_PROJECTS = [
     title: "Mansha Heritage",
     href: "/mansha-heritage",
     description:
-      "Refined living that blends comfort greenery connectivity and timeless elegance.",
+      "Refined living that blends comfort, greenery, connectivity and timeless elegance.",
     overlayClass: "bg-black/35",
     titleClass: "font-[500]",
   },

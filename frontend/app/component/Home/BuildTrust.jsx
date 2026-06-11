@@ -171,7 +171,7 @@ const BuildTrust = () => {
                     </p>
                   </div>
                   <p className="mt-1 font-montserrat text-[13px] font-normal not-italic leading-snug tracking-normal text-center capitalize text-[#333333] [leading-trim:both] [text-edge:cap_alphabetic] md:text-[16px] md:font-[500] md:leading-6 lg:text-[14px] xl:text-[16px]">
-                    Lac Sq. Ft Delivered
+                    Lac Sq. Ft. Delivered
                   </p>
                 </div>
               </div>

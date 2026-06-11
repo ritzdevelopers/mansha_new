@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { JOBS } from "../common/JobApply";
+import { submitCareerApplication } from "@/lib/api";
 
 let setCareerDesignation = null;
 
@@ -16,7 +17,10 @@ const Section3 = () => {
   const inputClass =
     "h-[56px] w-full bg-[#FAFAFA] px-5 font-montserrat text-[14px] font-normal leading-[24px] text-[#515151] outline-none placeholder:text-[#515151]";
   const [designation, setDesignation] = useState("");
+  const [resumeName, setResumeName] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setCareerDesignation = setDesignation;
@@ -25,18 +29,34 @@ const Section3 = () => {
     };
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    setError("");
+
+    const formData = new FormData(form);
     const resume = formData.get("resume");
 
     if (!(resume instanceof File) || !resume.size) {
+      setError("Please upload your resume (PDF, DOC, or DOCX).");
       return;
     }
 
-    setSubmitted(true);
-    event.currentTarget.reset();
-    setDesignation("");
+    setLoading(true);
+
+    try {
+      await submitCareerApplication(formData);
+      form.reset();
+      setDesignation("");
+      setResumeName("");
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err.response?.data?.message || err.message || "Failed to submit application"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -64,6 +84,7 @@ const Section3 = () => {
               placeholder="Name *"
               className={inputClass}
               required
+              disabled={loading}
             />
             <input
               type="email"
@@ -71,6 +92,7 @@ const Section3 = () => {
               placeholder="Email *"
               className={inputClass}
               required
+              disabled={loading}
             />
             <input
               type="tel"
@@ -78,6 +100,7 @@ const Section3 = () => {
               placeholder="Mobile *"
               className={inputClass}
               required
+              disabled={loading}
             />
             <select
               name="designation"
@@ -85,6 +108,7 @@ const Section3 = () => {
               onChange={(event) => setDesignation(event.target.value)}
               className={`${inputClass} cursor-pointer appearance-none text-[#515151]`}
               required
+              disabled={loading}
             >
               <option value="" disabled>
                 Designation *
@@ -97,20 +121,36 @@ const Section3 = () => {
             </select>
           </div>
 
-          <label className="mt-5 flex h-[56px] w-full cursor-pointer items-center gap-2 bg-[#FAFAFA] px-5 font-montserrat text-[14px] text-[#515151]">
+          <label className="mt-5 flex min-h-[56px] w-full cursor-pointer flex-wrap items-center gap-2 bg-[#FAFAFA] px-5 py-3 font-montserrat text-[14px] text-[#515151]">
             <i
               className="ri-upload-2-line text-[18px] text-[#94a3b8]"
               aria-hidden
             />
-            Upload Resume * (PDF, DOC, DOCX)
+            <span className="break-all">
+              {resumeName || "Upload Resume * (PDF, DOC, DOCX)"}
+            </span>
             <input
               type="file"
               name="resume"
               accept=".pdf,.doc,.docx"
               className="hidden"
               required
+              disabled={loading}
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                setResumeName(file?.name || "");
+              }}
             />
           </label>
+
+          {error ? (
+            <p
+              role="alert"
+              className="mt-5 text-center font-montserrat text-[14px] font-medium text-red-600 md:text-[16px]"
+            >
+              {error}
+            </p>
+          ) : null}
 
           {submitted ? (
             <p className="mt-5 text-center font-montserrat text-[14px] font-medium text-[#652A27] md:text-[16px]">
@@ -120,10 +160,11 @@ const Section3 = () => {
 
           <button
             type="submit"
-            className="mx-auto mt-5 block w-full cursor-pointer rounded-md py-4 font-montserrat text-[16px] font-semibold leading-[100%] text-white transition-opacity duration-300 hover:opacity-90 md:max-w-[280px]"
+            disabled={loading}
+            className="mx-auto mt-5 block w-full cursor-pointer rounded-md py-4 font-montserrat text-[16px] font-semibold leading-[100%] text-white transition-opacity duration-300 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 md:max-w-[280px]"
             style={{ backgroundColor: "#652A27" }}
           >
-            Submit Application
+            {loading ? "Submitting..." : "Submit Application"}
           </button>
         </form>
       </div>

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { submitEnquireData } from "@/lib/api";
 
 const PROJECT_OPTIONS = [
   "Mansha Vega Street",
@@ -45,6 +46,8 @@ const BookASite = ({ open, onClose }) => {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [slideIndex, setSlideIndex] = useState(0);
 
   const slideCount = PROJECT_SLIDES.length;
@@ -86,6 +89,8 @@ const BookASite = ({ open, onClose }) => {
   useEffect(() => {
     if (!open) {
       setSubmitted(false);
+      setLoading(false);
+      setError("");
       setSlideIndex(0);
       return undefined;
     }
@@ -113,9 +118,34 @@ const BookASite = ({ open, onClose }) => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
+    setError("");
+    setLoading(true);
+
+    try {
+      await submitEnquireData({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        project: form.project,
+        message: form.message.trim(),
+      });
+      setSubmitted(true);
+      setForm({
+        name: "",
+        phone: "",
+        email: "",
+        project: PROJECT_OPTIONS[0],
+        message: "",
+      });
+    } catch (err) {
+      setError(
+        err.response?.data?.message || err.message || "Failed to submit request"
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!open || !mounted) return null;
@@ -176,7 +206,16 @@ const BookASite = ({ open, onClose }) => {
                   Share your details and our team will confirm your visit shortly.
                 </p>
 
-                <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-4">
+                {error ? (
+                  <p
+                    role="alert"
+                    className="mt-6 rounded-lg bg-red-50 px-3 py-2 font-montserrat text-[13px] text-red-600"
+                  >
+                    {error}
+                  </p>
+                ) : null}
+
+                <form onSubmit={handleSubmit} className="mt-8 space-y-4">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
                       <label htmlFor="book-name" className={labelClass}>
@@ -190,6 +229,8 @@ const BookASite = ({ open, onClose }) => {
                         onChange={handleChange}
                         placeholder="Your name"
                         className={inputClass}
+                        required
+                        disabled={loading}
                       />
                     </div>
                     <div>
@@ -204,6 +245,8 @@ const BookASite = ({ open, onClose }) => {
                         onChange={handleChange}
                         placeholder="+91"
                         className={inputClass}
+                        required
+                        disabled={loading}
                       />
                     </div>
                   </div>
@@ -215,12 +258,14 @@ const BookASite = ({ open, onClose }) => {
                       </label>
                       <input
                         id="book-email"
-                        type="text"
+                        type="email"
                         name="email"
                         value={form.email}
                         onChange={handleChange}
                         placeholder="you@email.com"
                         className={inputClass}
+                        required
+                        disabled={loading}
                       />
                     </div>
                     <div>
@@ -233,6 +278,8 @@ const BookASite = ({ open, onClose }) => {
                         value={form.project}
                         onChange={handleChange}
                         className={`${inputClass} cursor-pointer appearance-none`}
+                        required
+                        disabled={loading}
                       >
                         {PROJECT_OPTIONS.map((option) => (
                           <option key={option} value={option}>
@@ -255,14 +302,17 @@ const BookASite = ({ open, onClose }) => {
                       onChange={handleChange}
                       placeholder="Any specific requirements..."
                       className="w-full resize-none rounded-lg border border-[#E5E5E5] bg-white px-3.5 py-3 font-montserrat text-[14px] font-normal text-[#111111] outline-none transition-colors placeholder:text-[#9CA3AF] focus:border-[#111111]/30"
+                      required
+                      disabled={loading}
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="mt-2 h-[48px] w-full cursor-pointer rounded-lg bg-[#111111] font-montserrat text-[15px] font-semibold text-white transition-colors hover:bg-[#333333]"
+                    disabled={loading}
+                    className="mt-2 h-[48px] w-full cursor-pointer rounded-lg bg-[#111111] font-montserrat text-[15px] font-semibold text-white transition-colors hover:bg-[#333333] disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    Submit Request
+                    {loading ? "Submitting..." : "Submit Request"}
                   </button>
                 </form>
               </>

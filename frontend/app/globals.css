@@ -35,6 +35,21 @@
   font-display: swap;
 }
 
+@keyframes register-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-register-fade-up {
+  animation: register-fade-up 0.55s ease-out both;
+}
+
 @theme {
   --font-sans: "Optima", "Optima LT Pro", Candara, "Segoe UI", sans-serif;
   --font-optima: "Optima", "Optima LT Pro", Candara, "Segoe UI", sans-serif;

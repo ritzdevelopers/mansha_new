@@ -19,7 +19,7 @@ const AWARD_SLIDES = [
 ];
 
 const STATS = [
-  { target: 14, suffix: "+", label: "Delivered Projects " },
+  { target: 15, suffix: "+", label: "Delivered Projects " },
   { target: 65, suffix: "+", label: "Lac sq. ft. delivered" },
   { target: 2500, suffix: "+", label: "Happy Customers" },
 ];
