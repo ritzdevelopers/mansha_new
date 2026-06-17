@@ -16,7 +16,7 @@ const DREAM_PROJECTS = [
     titleClass: "font-[500]",
   },
   {
-    src: "/mansha-image/mansha-vega-street.jpg",
+    src: "/mansha-image/vega-street.jpeg",
     alt: "Mansha Vega Street",
     title: "Mansha Vega Street",
     href: "/vega-street",
@@ -36,7 +36,7 @@ const DREAM_PROJECTS = [
     titleClass: "font-[500]",
   },
   {
-    src: "/mansha-image/mansha-agman.jpg",
+    src: "/mansha-image/aagman.jpeg",
     alt: "Aagman by Mansha",
     title: "Aagman by Mansha",
     href: "/aagman-by-mansha",
@@ -246,7 +246,7 @@ const Dream = () => {
           onMouseEnter={() => setHoveredXlCard(1)}
         >
           <Image
-            src="/mansha-image/mansha-vega-street.jpg"
+            src="/mansha-image/vega-street.jpeg"
             alt="Mansha vega street"
             title="Mansha vega street"
             fill
@@ -306,7 +306,7 @@ const Dream = () => {
           onMouseEnter={() => setHoveredXlCard(3)}
         >
           <Image
-            src="/mansha-image/mansha-agman.jpg"
+            src="/mansha-image/aagman.jpeg"
             alt="Aagman by Mansha"
             title="Aagman by Mansha"
             fill

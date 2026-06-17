@@ -100,45 +100,48 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-[40px] md:grid-cols-[max-content_1fr] md:items-start">
-          <div>
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.6fr_0.6fr_0.8fr] mt-10">
+        <div>
             <h4 className=" font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] text-left">Corporate Office</h4>
             <p className="mt-2 max-w-[400px] font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
            P-23, Sector 75, Faridabad
-Project Address (Sonipat): Sector 83 & 84, Sonipat, Bang on Main GT Karnal Road
             </p>
           </div>
 
-          <div className="space-y-4 lg:pt-1">
-            <div>
-              <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF]">Address</p>
-              <p className="mt-1 font-montserrat text-[13px] lg:text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]"> P-23, Sector 75, Faridabad</p>
-            </div>
+          {/* <div>
+            <h3 className="font-montserrat text-[16px] font-semibold uppercase leading-[28px] tracking-normal text-[#FFFFFF]">Projects</h3>
+            <ul className="lg:mt-4 mt-0 space-y-0 font-montserrat text-[15px] font-normal leading-[39px] tracking-normal text-[#FFFFFF]">
+              <li><Link href="/residential">Residential</Link></li>
+              <li><Link href="commerical">Commercial</Link></li>
+            </ul>
+          </div> */}
+
+          <div className="xl:-ml-[70px]">
+          
             <div className="space-y-2">
-  {/* Phone */}
-  <div className="flex items-center gap-3">
-    <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
-      Phone :
-    </p>
-
-    <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
-      +91-8010003838
-    </p>
-  </div>
-
-  {/* Email */}
-  <div className="flex items-center gap-3">
-    <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
-      Email :
-    </p>
-
-    <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
-      info@manshagroup.in
-    </p>
-  </div>
-</div>
+              <div className="flex items-center gap-3">
+                <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
+                  Phone :
+                </p>
+                <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
+                  +91-8010003838
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
+                  Email :
+                </p>
+                <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
+                  info@manshagroup.in
+                </p>
+              </div>
+            </div>
           </div>
+
+        
         </div>
+
+       
 
         <div className="mt-10 max-w-[800px]">
           <h4 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] lg:text-left">Disclaimer</h4>
@@ -152,6 +155,8 @@ Project Address (Sonipat): Sector 83 & 84, Sonipat, Bang on Main GT Karnal Road
           </p>
         </div>
       </div>
+
+      
 
       <div className="pointer-events-none absolute -bottom-[70px] -right-[20px] hidden h-[500px] w-[760px] overflow-hidden lg: hidden xl:block ">
         <Image

@@ -4,30 +4,32 @@ import Link from "next/link";
 const trendingCards = [
   {
     image: "/facility/evnet-party.jpg",
-    title: "Manshagroup Party 2025",
+    title: "Phygital Retail Convention 2025",
     date: "18 August, 2025",
   },
   {
     image: "/facility/august.jpg",
-    title: "Independence Day Celebration",
+    title: "Jagran's Achiever Awards – Singapore",
     date: "15 August, 2024",
   },
   {
       image: "/facility/events.jpg",
-      title: "Office Event 2025",
+      title: "HT City Crowns of Delhi – Delhi",
     date: "18 August, 2025",
   },
   {
     image: "/facility/Community-party.jpg",
-    title: "Community Gathering 2025",
+    title: "Jagran Achievers Award – Bali, Indonesia",
     date: "18 August, 2025",
   },
   {
     image: "/facility/yoga.jpg",
-    title: "Wellness & Lifestyle Session",
+    title: "Channel Partners Meet",
     date: "15 August, 2024",
   },
 ];
+
+
 
 const Manshagroup = () => {
   return (
