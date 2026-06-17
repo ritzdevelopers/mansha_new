@@ -8,10 +8,10 @@ const AUTOPLAY_MS_MOBILE = 2000;
 
 const Signature = () => {
   const signatureSlides = [
-    { id: 1, title: "Signature Masterpieces 1", src: "/mansha-image/Signature1.jpg" },
-    { id: 2, title: "Signature Masterpieces 2", src: "/mansha-image/Signature2.jpg" },
-    { id: 3, title: "Signature Masterpieces 3", src: "/mansha-image/Signature3.jpg" },
-    { id: 4, title: "Signature Masterpieces 3", src: "/mansha-image/Signature4.jpg" },
+    { id: 1, title: "Signature Masterpieces 1", src: "/mansha-image/Signature1.jpeg" },
+    { id: 2, title: "Signature Masterpieces 2", src: "/mansha-image/Signature2.jpeg" },
+    { id: 3, title: "Signature Masterpieces 3", src: "/mansha-image/Signature3.jpeg" },
+    { id: 4, title: "Signature Masterpieces 3", src: "/mansha-image/Signature4.jpe g" },
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);

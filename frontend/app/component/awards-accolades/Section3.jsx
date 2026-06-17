@@ -2,6 +2,10 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "./section4-swiper.css";
 
 const ACHIEVEMENTS = [
   {
@@ -97,30 +101,20 @@ const ACHIEVEMENTS = [
   },
 ];
 
-const DEFAULT_ACHIEVEMENT_ID = ACHIEVEMENTS[0].id;
-
 const Section3 = () => {
-  const [activeId, setActiveId] = useState(DEFAULT_ACHIEVEMENT_ID);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [activeId, setActiveId] = useState(ACHIEVEMENTS[0].id);
   const [galleryOpen, setGalleryOpen] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [slidesVisible, setSlidesVisible] = useState(1);
-  const [isTransitioning, setIsTransitioning] = useState(true);
-  const dropdownRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const popupSwiperRef = useRef(null);
 
   const activeAchievement =
     ACHIEVEMENTS.find((item) => item.id === activeId) ?? ACHIEVEMENTS[0];
   const images = activeAchievement.images;
-  const maxSlide = Math.max(0, images.length - slidesVisible);
-  const slideWidth = 100 / slidesVisible;
-  const sliderSlides = [...images, ...images.slice(0, slidesVisible)];
 
   const syncFromHash = useCallback(() => {
     const hash = window.location.hash.replace("#", "");
     if (ACHIEVEMENTS.some((item) => item.id === hash)) {
       setActiveId(hash);
-      setActiveSlide(0);
-      setDropdownOpen(false);
     }
   }, []);
 
@@ -139,69 +133,21 @@ const Section3 = () => {
     const onKeyUp = (event) => {
       if (event.key === "Escape") {
         setGalleryOpen(false);
-        setDropdownOpen(false);
       }
     };
     window.addEventListener("keyup", onKeyUp);
     return () => window.removeEventListener("keyup", onKeyUp);
   }, []);
 
-  useEffect(() => {
-    const mqXl = window.matchMedia("(min-width: 1280px)");
-    const mqLg = window.matchMedia("(min-width: 1024px)");
-    const update = () => {
-      if (mqXl.matches) setSlidesVisible(2);
-      else if (mqLg.matches) setSlidesVisible(1);
-      else setSlidesVisible(1);
-    };
-    update();
-    mqXl.addEventListener("change", update);
-    mqLg.addEventListener("change", update);
-    return () => {
-      mqXl.removeEventListener("change", update);
-      mqLg.removeEventListener("change", update);
-    };
-  }, []);
-
-  useEffect(() => {
-    setActiveSlide(0);
-    setIsTransitioning(true);
-  }, [activeId, slidesVisible]);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((prev) => prev + 1);
-      setIsTransitioning(true);
-    }, 3200);
-    return () => window.clearInterval(timer);
-  }, [activeId]);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const handleSliderTransitionEnd = () => {
-    if (activeSlide >= images.length) {
-      setIsTransitioning(false);
-      setActiveSlide(0);
-      requestAnimationFrame(() =>
-        requestAnimationFrame(() => setIsTransitioning(true)),
-      );
-    }
+  const openGallery = (achievementId, index = 0) => {
+    setActiveId(achievementId);
+    setActiveIndex(index);
+    setGalleryOpen(true);
   };
 
-  const selectAchievement = (id) => {
-    setActiveId(id);
-    setActiveSlide(0);
-    setDropdownOpen(false);
-    setGalleryOpen(false);
-    window.history.replaceState(null, "", `#${id}`);
+  const goToSlide = (idx) => {
+    popupSwiperRef.current?.slideToLoop(idx);
+    setActiveIndex(idx);
   };
 
   return (
@@ -210,95 +156,60 @@ const Section3 = () => {
       className="w-full bg-white pb-[35px] pt-6 lg:pb-[70px] lg:pt-10"
     >
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
-        <div className="relative flex justify-center" ref={dropdownRef}>
-          <button
-            type="button"
-            onClick={() => setDropdownOpen((prev) => !prev)}
-            className="inline-flex items-center gap-3 rounded-full border border-[#E0E0E0] bg-white px-6 py-3 font-montserrat text-[14px] font-normal text-[#AAAAAA] transition-colors hover:border-[#CCCCCC] sm:px-8 sm:text-[15px]"
-            aria-expanded={dropdownOpen}
-            aria-haspopup="listbox"
-          >
-            Achievement {activeAchievement.year}
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#333333] text-white">
-              <i
-                className={`ri-arrow-down-s-line text-[16px] transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
-                aria-hidden
-              />
-            </span>
-          </button>
+        {ACHIEVEMENTS.map((achievement, sectionIndex) => {
+          const previewImages = achievement.images.slice(0, 2);
 
-          {dropdownOpen && (
-            <ul
-              role="listbox"
-              className="absolute top-full z-20 mt-2 min-w-[280px] overflow-hidden rounded-[12px] border border-[#E8E4DC] bg-white py-1 shadow-[0_12px_40px_rgba(0,0,0,0.08)]"
-            >
-              {ACHIEVEMENTS.map((item) => (
-                <li key={item.id} role="option" aria-selected={activeId === item.id}>
-                  <button
-                    type="button"
-                    onClick={() => selectAchievement(item.id)}
-                    className={`w-full px-5 py-3 text-left font-montserrat text-[14px] transition-colors hover:bg-[#FAFAFA] ${
-                      activeId === item.id ? "bg-[#F9F8F3] font-medium text-[#111111]" : "text-[#666666]"
-                    }`}
-                  >
-                    {item.eyebrow}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-
-        <div className="mt-10 grid grid-cols-1 items-center gap-8 lg:mt-14 lg:grid-cols-2 lg:gap-14 xl:gap-20">
-          <div>
-            <p className="font-montserrat text-[13px] font-normal text-[#AAAAAA] sm:text-[14px]">
-              {activeAchievement.eyebrow}
-            </p>
-            <h2 className="mt-3 font-optima text-[22px] font-medium leading-[135%] text-[#333333] sm:text-[26px] lg:text-[28px]">
-              {activeAchievement.heading}
-            </h2>
-            <p className="mt-5 font-montserrat text-[14px] font-normal leading-[170%] text-[#888888] sm:text-[15px]">
-              {activeAchievement.description}
-            </p>
-            <button
-              type="button"
-              onClick={() => setGalleryOpen(true)}
-              className="mt-8 inline-flex rounded-full bg-[#652A27] px-8 py-2 font-montserrat text-[14px] cursor-pointer font-medium text-white  sm:text-[15px]"
-            >
-              View All
-            </button>
-          </div>
-
-          <div className="relative overflow-hidden">
+          return (
             <div
-              className="flex ease-out"
-              style={{
-                transform: `translateX(-${activeSlide * slideWidth}%)`,
-                transitionProperty: "transform",
-                transitionDuration: isTransitioning ? "700ms" : "0ms",
-              }}
-              onTransitionEnd={handleSliderTransitionEnd}
+              key={achievement.id}
+              id={achievement.id}
+              className={`${sectionIndex > 0 ? "mt-10 lg:mt-14" : ""} ${
+                sectionIndex < ACHIEVEMENTS.length - 1
+                  ? "border-b border-[#E8E4DC] pb-10 lg:pb-14"
+                  : ""
+              }`}
             >
-              {sliderSlides.map((image, idx) => (
-                  <div
-                    key={`${image.src}-${idx}`}
-                    className="relative shrink-0 px-2"
-                    style={{ width: `${slideWidth}%` }}
-                  >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] sm:aspect-[5/4] lg:h-[280px] lg:aspect-auto">
+              <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10 xl:gap-14">
+                <div>
+                  <p className="max-md:mt-[30px] font-montserrat text-[13px] font-normal text-[#AAAAAA] sm:text-[14px]">
+                    {achievement.eyebrow}
+                  </p>
+                  <h2 className="mt-3 max-w-[320px] font-optima text-[22px] font-medium leading-[135%] text-[#333333] sm:max-w-[380px] sm:text-[26px] lg:max-w-[420px] lg:text-[28px]">
+                    {achievement.heading}
+                  </h2>
+                  {/* <p className="mt-5 font-montserrat text-[14px] font-normal leading-[170%] text-[#888888] sm:text-[15px]">
+                    {achievement.description}
+                  </p> */}
+                </div>
+
+                <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3 lg:gap-4">
+                  {previewImages.map((image, index) => (
+                    <button
+                      key={image.src}
+                      type="button"
+                      onClick={() => openGallery(achievement.id, index)}
+                      className="group relative aspect-[4/3] w-full overflow-hidden rounded-[20px] cursor-pointer sm:aspect-[5/4] lg:h-[320px] lg:aspect-auto xl:h-[360px]"
+                      aria-label={`View ${image.alt}`}
+                    >
                       <Image
                         src={image.src}
                         alt={image.alt}
                         fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 45vw"
+                        className="object-cover rounded-[20px] transition-opacity duration-300 group-hover:opacity-70"
+                        sizes="(max-width: 1024px) 100vw, 22vw"
                       />
-                    </div>
-                  </div>
-              ))}
+                      <span className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white bg-white text-[#515151]">
+                          <i className="ri-arrow-right-up-line text-xl leading-none" aria-hidden />
+                        </span>
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
 
       {galleryOpen && (
@@ -310,43 +221,83 @@ const Section3 = () => {
           aria-label={`All images for ${activeAchievement.eyebrow}`}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-5xl overflow-y-auto rounded-[20px] border border-[#E8E4DC] bg-[#F9F8F3] p-5 sm:p-8"
+            className="relative flex h-[min(72vh,440px)] w-full max-w-5xl flex-col overflow-hidden rounded-[20px] border border-[#E8E4DC] bg-[#F9F8F3] p-5 sm:h-[min(85vh,580px)] sm:p-8"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-start justify-between gap-4 border-b border-[#E8E4DC] pb-4">
-              <div>
-                <p className="font-montserrat text-[12px] font-medium uppercase tracking-[0.12em] text-[#888888]">
-                  {activeAchievement.eyebrow}
-                </p>
-                <h3 className="mt-1 font-optima text-[20px] font-medium text-[#111111] sm:text-[22px]">
-                  All Gallery Images
-                </h3>
-              </div>
+            <div className="relative shrink-0 border-b border-[#E8E4DC] pb-4 max-md:pt-[30px]">
+              <p className="text-center font-montserrat text-[12px] font-medium uppercase tracking-[0.12em] text-[#888888]">
+                {activeAchievement.eyebrow}
+              </p>
               <button
                 type="button"
                 onClick={() => setGalleryOpen(false)}
-                className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-white transition-opacity hover:opacity-90"
+                className="absolute right-0 -top-[17px] flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-white transition-opacity hover:opacity-90"
                 aria-label="Close gallery"
               >
                 <i className="ri-close-line text-[20px]" aria-hidden />
               </button>
             </div>
 
-            <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-              {images.map((image) => (
-                <div
-                  key={image.src}
-                  className="relative aspect-[4/3] overflow-hidden rounded-[12px] border border-[#E8E4DC] bg-white"
+            <div className="relative mt-5 flex min-h-0 flex-1 flex-col">
+              <div className="relative flex min-h-0 flex-1 items-center">
+                <Swiper
+                  key={activeId}
+                  modules={[Autoplay]}
+                  loop
+                  centeredSlides
+                  slidesPerView="auto"
+                  spaceBetween={16}
+                  speed={800}
+                  watchOverflow
+                  dir="ltr"
+                  initialSlide={activeIndex}
+                  autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                    reverseDirection: false,
+                  }}
+                  breakpoints={{
+                    640: { spaceBetween: 22 },
+                    1024: { spaceBetween: 28 },
+                  }}
+                  onSwiper={(swiper) => {
+                    popupSwiperRef.current = swiper;
+                    swiper.slideToLoop(activeIndex, 0);
+                    swiper.autoplay.start();
+                  }}
+                  onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+                  className="awards-highlight-swiper awards-highlight-swiper--rtl awards-popup-swiper w-full"
                 >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 50vw, 33vw"
+                  {images.map((image, idx) => (
+                    <SwiperSlide key={`${image.src}-${idx}`} className="!w-auto">
+                      <div className="award-slide-frame relative overflow-hidden rounded-none sm:rounded-[20px]">
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 1024px) 70vw, 662px"
+                          priority={idx < 3}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+
+              <div className="mt-4 flex shrink-0 min-h-[8px] items-center justify-center gap-1.5">
+                {images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    aria-label={`Go to slide ${idx + 1}`}
+                    onClick={() => goToSlide(idx)}
+                    className={`cursor-pointer rounded-full transition-all ${
+                      activeIndex === idx ? "h-2 w-7 bg-[#652A27]" : "h-2 w-2 bg-[#652A27]/35"
+                    }`}
                   />
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
