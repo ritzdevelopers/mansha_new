@@ -160,7 +160,7 @@ const Footer = () => {
 
       <div className="pointer-events-none absolute -bottom-[70px] -right-[20px] hidden h-[500px] w-[760px] overflow-hidden lg: hidden xl:block ">
         <Image
-          src="/mansha-image/mansha-footer.png"
+          src="/mansha-image/footer-image.png"
           alt="Footer background"
           title="Footer background"
           fill
