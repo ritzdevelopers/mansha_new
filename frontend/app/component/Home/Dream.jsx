@@ -16,6 +16,16 @@ const DREAM_PROJECTS = [
     titleClass: "font-[500]",
   },
   {
+    src: "/mansha-image/aagman.jpeg",
+    alt: "Aagman by Mansha",
+    title: "Aagman by Mansha",
+    href: "/aagman-by-mansha",
+    description:
+      "Where everyday comfort meets seamless connectivity and calm living",
+    overlayClass: "bg-black/35",
+    titleClass: "font-[550]",
+  },
+  {
     src: "/mansha-image/vega-street.jpeg",
     alt: "Mansha Vega Street",
     title: "Mansha Vega Street",
@@ -34,16 +44,6 @@ const DREAM_PROJECTS = [
       "A promising location designed for secure and future ready living",
     overlayClass: "bg-black/35",
     titleClass: "font-[500]",
-  },
-  {
-    src: "/mansha-image/aagman.jpeg",
-    alt: "Aagman by Mansha",
-    title: "Aagman by Mansha",
-    href: "/aagman-by-mansha",
-    description:
-      "Where everyday comfort meets seamless connectivity and calm living",
-    overlayClass: "bg-black/35",
-    titleClass: "font-[550]",
   },
 ];
 
@@ -210,126 +210,53 @@ const Dream = () => {
         className="hidden w-full max-w-none gap-3 px-0 pb-[35px] xl:flex xl:pb-[0px]"
         onMouseLeave={() => setHoveredXlCard(null)}
       >
-        <article
-          className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 xl:block xl:hover:flex-[1.7] cursor-pointer"
-          onMouseEnter={() => setHoveredXlCard(0)}
-        >
-          <Image
-            src="/mansha-image/Mansha-Heritage.jpg"
-            alt="Mansha Heritage"
-            title="Mansha Heritage"
-            fill
-            className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-            sizes="33vw"
-          />
-          <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-          <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-            Mansha Heritage
-          </p>
-          <div
-            className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
-              hoveredXlCard === 0
-                ? "translate-y-0 opacity-100"
-                : "translate-y-3 opacity-0"
-            }`}
-          >
-            <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
-              Refined living that blends comfort, greenery, connectivity and
-              timeless elegance.
-            </p>
-            <ReadMoreLink href={DREAM_PROJECTS[0].href} />
-          </div>
-        </article>
+        {DREAM_PROJECTS.map((project, index) => {
+          const isFeatured = index === 1;
+          const showDetails = isFeatured
+            ? hoveredXlCard === null || hoveredXlCard === index
+            : hoveredXlCard === index;
 
-        <article
-          className="group relative min-h-[460px] w-full overflow-hidden transition-all duration-500 xl:min-h-[520px] xl:flex-[1.7] xl:hover:flex-[1.7] cursor-pointer"
-          onMouseEnter={() => setHoveredXlCard(1)}
-        >
-          <Image
-            src="/mansha-image/vega-street.jpeg"
-            alt="Mansha vega street"
-            title="Mansha vega street"
-            fill
-            className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-            sizes="(max-width: 1024px) 100vw, 40vw"
-          />
-          <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-transparent" />
-          <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-            Mansha Vega Street
-          </p>
-          <div
-            className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
-              hoveredXlCard === null || hoveredXlCard === 1
-                ? "translate-y-0 opacity-100"
-                : "translate-y-3 opacity-0"
-            }`}
-          >
-            <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
-              A dynamic commercial space designed for modern business success
-            </p>
-            <ReadMoreLink href={DREAM_PROJECTS[1].href} />
-          </div>
-        </article>
-
-        <article
-          className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 xl:block xl:hover:flex-[1.7] cursor-pointer"
-          onMouseEnter={() => setHoveredXlCard(2)}
-        >
-          <Image
-            src="/mansha-image/orchid.jpg"
-            alt="Mansha Orchid"
-            title="Mansha Orchid"
-            fill
-            className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-            sizes="33vw"
-          />
-          <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-          <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-            Mansha Orchid
-          </p>
-          <div
-            className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
-              hoveredXlCard === 2
-                ? "translate-y-0 opacity-100"
-                : "translate-y-3 opacity-0"
-            }`}
-          >
-            <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
-              A promising location designed for secure and future ready living
-            </p>
-            <ReadMoreLink href={DREAM_PROJECTS[2].href} />
-          </div>
-        </article>
-
-        <article
-          className="group relative hidden min-h-[420px] flex-1 overflow-hidden transition-all duration-500 xl:block xl:hover:flex-[1.7] cursor-pointer"
-          onMouseEnter={() => setHoveredXlCard(3)}
-        >
-          <Image
-            src="/mansha-image/aagman.jpeg"
-            alt="Aagman by Mansha"
-            title="Aagman by Mansha"
-            fill
-            className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-            sizes="33vw"
-          />
-          <div className="absolute inset-0 bg-black/35 transition-colors duration-300 group-hover:bg-transparent" />
-          <p className="absolute left-4 top-4 font-optima text-[24px] font-[500] leading-none capitalize text-white">
-            Aagman by Mansha
-          </p>
-          <div
-            className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
-              hoveredXlCard === 3
-                ? "translate-y-0 opacity-100"
-                : "translate-y-3 opacity-0"
-            }`}
-          >
-            <p className=" font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
-              Where everyday comfort meets seamless connectivity and calm living
-            </p>
-            <ReadMoreLink href={DREAM_PROJECTS[3].href} />
-          </div>
-        </article>
+          return (
+            <article
+              key={project.title}
+              className={`group relative overflow-hidden transition-all duration-500 cursor-pointer ${
+                isFeatured
+                  ? "min-h-[460px] w-full xl:min-h-[520px] xl:flex-[1.7] xl:hover:flex-[1.7]"
+                  : "hidden min-h-[420px] flex-1 xl:block xl:hover:flex-[1.7]"
+              }`}
+              onMouseEnter={() => setHoveredXlCard(index)}
+            >
+              <Image
+                src={project.src}
+                alt={project.alt}
+                title={project.alt}
+                fill
+                className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                sizes={isFeatured ? "(max-width: 1024px) 100vw, 40vw" : "33vw"}
+              />
+              <div
+                className={`absolute inset-0 transition-colors duration-300 ${project.overlayClass} group-hover:bg-transparent`}
+              />
+              <p
+                className={`absolute left-4 top-4 font-optima text-[24px] ${project.titleClass} leading-none capitalize text-white`}
+              >
+                {project.title}
+              </p>
+              <div
+                className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
+                  showDetails
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-3 opacity-0"
+                }`}
+              >
+                <p className="font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
+                  {project.description}
+                </p>
+                <ReadMoreLink href={project.href} />
+              </div>
+            </article>
+          );
+        })}
       </div>
     </>
   );

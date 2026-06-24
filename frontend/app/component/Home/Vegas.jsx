@@ -37,23 +37,6 @@ const Vegas = () => {
 
   const projects = [
     {
-      logo: "/logo/vega-street-logo.png",
-      logoAlt: "Vega Street logo",
-      title: "Vegas Street",
-      details: [
-        {
-          type: "location",
-          text: "Sector 82, Faridabad Situated in the commercial hub of Greater Faridabad",
-        },
-        { type: "check", text: "RERA NUMBER: 275/2021" },
-        { type: "check", text: "Status: Now Fully Operational" },
-      ],
-      src: "/mansha-image/vega-street-project.jpeg",
-      alt: "Residential property",
-      label: "Mansha Vega Street",
-      href: "/vega-street",
-    },
-    {
       logo: "/logo/aagmanbymansha.png",
       logoAlt: "Aagman By Mansha logo",
       title: "Aagman By Mansha",
@@ -70,6 +53,24 @@ const Vegas = () => {
       label: "Aagman By Mansha",
       href: "/aagman-by-mansha",
     },
+    {
+      logo: "/logo/vega-street-logo.png",
+      logoAlt: "Vega Street logo",
+      title: "Vegas Street",
+      details: [
+        {
+          type: "location",
+          text: "Sector 82, Faridabad Situated in the commercial hub of Greater Faridabad",
+        },
+        { type: "check", text: "RERA NUMBER: 275/2021" },
+        { type: "check", text: "Status: Now Fully Operational" },
+      ],
+      src: "/mansha-image/vega-street-project.jpeg",
+      alt: "Residential property",
+      label: "Mansha Vega Street",
+      href: "/vega-street",
+    },
+   
     {
       logo: "/logo/oasis-logo.png",
       logoAlt: "Mansha Oasis logo",
