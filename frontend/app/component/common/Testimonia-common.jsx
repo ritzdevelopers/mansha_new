@@ -8,28 +8,19 @@ import "swiper/css";
 
 const testimonials = [
   {
-    image: "/mansha-image/testimonial-1.jpeg",
-    // name: "Ravi Gupta",
+    video: "https://otherassets.blob.core.windows.net/rmw/Testimonial_1.mp4",
     feedback:
       "Mansha Group delivered exactly what was promised. The quality of construction and timely possession made our",
   },
   {
-    image: "/mansha-image/testimonial-2.jpeg",
-    // name: "Amit Kumar",
+    video: "https://otherassets.blob.core.windows.net/rmw/Testimonial_2.mp4",
     feedback:
       "Investing with Mansha Group was one of our best decisions. Transparent processes, professional team, and excellent project execution gave us complete peace of mind.",
   },
   {
-    image: "/mansha-image/testimonial-3.jpeg",
-    // name: "Ravi Gupta",
+    video: "https://otherassets.blob.core.windows.net/rmw/Testimonial_3.mp4",
     feedback:
       "Mansha Group delivered exactly what was promised. The quality of construction and timely possession made our home-buying experience truly smooth and trustworthy.",
-  },
-  {
-    image: "/mansha-image/testimonial-4.jpeg",
-    // name: "Amit Kumar",
-    feedback:
-      "Investing with Mansha Group was one of our best decisions. Transparent processes, professional team, and excellent project execution gave us complete peace of mind.",
   },
 ];
 
@@ -102,7 +93,7 @@ export default function TestimoniaCommon() {
                     className="!box-border p-2"
                   >
                     <div className="relative mx-auto h-[360px] w-full overflow-hidden border border-[#E7E7E7] shadow-[0px_2px_15px_0px_#D0D0D040] lg:mx-0 lg:w-[calc(100%-70px)] xl:w-full">
-                      <Image
+                      {/* <Image
                         src={item.image}
                         alt={item.name}
                         title={item.name}
@@ -114,7 +105,15 @@ export default function TestimoniaCommon() {
                         <div className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white text-white">
                           <i className="ri-play-fill text-xl" />
                         </div>
-                      )}
+                      )} */}
+                      <video
+  src={item.video}
+  className="h-full w-full object-cover"
+  autoPlay
+  muted
+  loop
+  playsInline
+/>
                       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent px-4 pb-4 pt-10">
                         <p className="font-montserrat text-[13px] font-normal leading-[22px] tracking-normal text-white sm:text-[14px]">
                           {item.feedback}

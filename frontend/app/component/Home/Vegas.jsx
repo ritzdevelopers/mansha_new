@@ -56,7 +56,7 @@ const Vegas = () => {
     {
       logo: "/logo/vega-street-logo.png",
       logoAlt: "Vega Street logo",
-      title: "Vegas Street",
+      title: "Vega Street",
       details: [
         {
           type: "location",
