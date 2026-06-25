@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -28,6 +28,20 @@ const testimonials = [
 
 export default function TestimoniaCommon() {
   const swiperRef = useRef(null);
+  const videoRefs = useRef([]);
+  const [mutedStates, setMutedStates] = useState(() =>
+    testimonials.map(() => true)
+  );
+
+  const toggleMute = (index) => {
+    setMutedStates((prev) => {
+      const next = prev.map((isMuted, i) => (i === index ? !isMuted : true));
+      videoRefs.current.forEach((video, i) => {
+        if (video) video.muted = next[i];
+      });
+      return next;
+    });
+  };
 
   return (
     <section className="relative w-full max-w-[1500px] bg-[#FFFFFF] px-0 mx-auto">
@@ -107,13 +121,30 @@ export default function TestimoniaCommon() {
                         </div>
                       )} */}
                       <video
-  src={item.video}
-  className="h-full w-full object-cover"
-  autoPlay
-  muted
-  loop
-  playsInline
-/>
+                        ref={(el) => {
+                          videoRefs.current[index] = el;
+                        }}
+                        src={item.video}
+                        className="h-full w-full object-cover"
+                        autoPlay
+                        muted={mutedStates[index]}
+                        loop
+                        playsInline
+                      />
+                      <button
+                        type="button"
+                        aria-label={mutedStates[index] ? "Unmute video" : "Mute video"}
+                        onClick={() => toggleMute(index)}
+                        className="absolute right-3 top-3 z-10 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-black/50 text-[18px] text-white"
+                      >
+                        <i
+                          className={
+                            mutedStates[index]
+                              ? "ri-volume-mute-line"
+                              : "ri-volume-up-line"
+                          }
+                        />
+                      </button>
                       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent px-4 pb-4 pt-10">
                         <p className="font-montserrat text-[13px] font-normal leading-[22px] tracking-normal text-white sm:text-[14px]">
                           {item.feedback}
@@ -126,27 +157,6 @@ export default function TestimoniaCommon() {
                   </SwiperSlide>
                 ))}
               </Swiper>
-            </div>
-
-            <div className="mt-2 flex justify-center lg:hidden">
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  aria-label="Previous testimonial"
-                  onClick={() => swiperRef.current?.slidePrev()}
-                  className="flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full border border-[#9f9f9f] text-[14px] text-[#333333]"
-                >
-                  <i className="ri-arrow-left-s-line" />
-                </button>
-                <button
-                  type="button"
-                  aria-label="Next testimonial"
-                  onClick={() => swiperRef.current?.slideNext()}
-                  className="flex h-[30px] w-[30px] cursor-pointer items-center justify-center rounded-full border border-[#9f9f9f] text-[14px] text-[#333333]"
-                >
-                  <i className="ri-arrow-right-s-line" />
-                </button>
-              </div>
             </div>
           </div>
         </div>
