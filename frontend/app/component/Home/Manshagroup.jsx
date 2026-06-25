@@ -3,30 +3,30 @@ import Link from "next/link";
 
 const trendingCards = [
   {
-    image: "/facility/evnet-party.jpg",
-    title: "Phygital Retail Convention 2025",
+    image: "/facility/Bhoomi-Pujan.jpg",
+    title: "Bhoomi Pujan",
     date: "18 August, 2025",
   },
   {
-    image: "/facility/august.jpg",
-    title: "Jagran's Achiever Awards – Singapore",
+    image: "/facility/Property-Carnival.jpg",
+    title: "Property Carnival",
     date: "15 August, 2024",
   },
   {
-      image: "/facility/events.jpg",
-      title: "HT City Crowns of Delhi – Delhi",
+      image: "/facility/tournament.jpg",
+      title: "Tournament",
     date: "18 August, 2025",
   },
-  {
-    image: "/facility/Community-party.jpg",
-    title: "Jagran Achievers Award – Bali, Indonesia",
-    date: "18 August, 2025",
-  },
-  {
-    image: "/facility/yoga.jpg",
-    title: "Channel Partners Meet",
-    date: "15 August, 2024",
-  },
+  // {
+  //   image: "/facility/Community-party.jpg",
+  //   title: "Jagran Achievers Award – Bali, Indonesia",
+  //   date: "18 August, 2025",
+  // },
+  // {
+  //   image: "/facility/yoga.jpg",
+  //   title: "Channel Partners Meet",
+  //   date: "15 August, 2024",
+  // },
 ];
 
 
@@ -85,9 +85,9 @@ const Manshagroup = () => {
                     <i className="ri-arrow-right-up-line text-xl leading-none text-[#515151] hover:border-[#144168] hover:text-[#144168]" />
                   </Link>
                 </div>
-                <p className="lg:mt-0 mt-0 font-montserrat text-[14px] font-medium leading-[100%] tracking-normal text-[#515151]">
+                {/* <p className="lg:mt-0 mt-0 font-montserrat text-[14px] font-medium leading-[100%] tracking-normal text-[#515151]">
                   {card.date}
-                </p>
+                </p> */}
               </div>
             </article>
           ))}

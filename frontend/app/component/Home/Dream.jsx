@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 
 const DREAM_PROJECTS = [
   {
-    src: "/mansha-image/Mansha-Heritage.jpg",
-    alt: "Mansha Heritage",
-    title: "Mansha Heritage",
-    href: "/mansha-heritage",
+    src: "/mansha-image/vega-street.jpeg",
+    alt: "Mansha Vega Street",
+    title: "Mansha Vega Street",
+    href: "/vega-street",
     description:
-      "Refined living that blends comfort, greenery, connectivity and timeless elegance.",
-    overlayClass: "bg-black/35",
+      "A dynamic commercial space designed for modern business success",
+    overlayClass: "bg-black/20",
     titleClass: "font-[500]",
   },
   {
@@ -26,13 +26,13 @@ const DREAM_PROJECTS = [
     titleClass: "font-[550]",
   },
   {
-    src: "/mansha-image/vega-street.jpeg",
-    alt: "Mansha Vega Street",
-    title: "Mansha Vega Street",
-    href: "/vega-street",
+    src: "/mansha-image/Mansha-Heritage.jpg",
+    alt: "Mansha Heritage",
+    title: "Mansha Heritage",
+    href: "/mansha-heritage",
     description:
-      "A dynamic commercial space designed for modern business success",
-    overlayClass: "bg-black/20",
+      "Refined living that blends comfort, greenery, connectivity and timeless elegance.",
+    overlayClass: "bg-black/35",
     titleClass: "font-[500]",
   },
   {
