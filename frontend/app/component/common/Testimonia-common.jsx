@@ -34,6 +34,8 @@ export default function TestimoniaCommon() {
   );
 
   const toggleMute = (index) => {
+    const willUnmute = mutedStates[index];
+
     setMutedStates((prev) => {
       const next = prev.map((isMuted, i) => (i === index ? !isMuted : true));
       videoRefs.current.forEach((video, i) => {
@@ -41,6 +43,12 @@ export default function TestimoniaCommon() {
       });
       return next;
     });
+
+    if (willUnmute) {
+      swiperRef.current?.autoplay?.stop();
+    } else {
+      swiperRef.current?.autoplay?.start();
+    }
   };
 
   return (
@@ -59,6 +67,24 @@ export default function TestimoniaCommon() {
             Client experiences that highlight trust, reliability, and quality, building partnerships that stand strong over time.
 
             </p>
+            <div className="mt-4 flex items-center gap-2">
+              <button
+                type="button"
+                aria-label="Previous testimonial"
+                onClick={() => swiperRef.current?.slidePrev()}
+                className="flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full border border-[#9f9f9f] text-[14px] text-[#333333]"
+              >
+                <i className="ri-arrow-left-line" />
+              </button>
+              <button
+                type="button"
+                aria-label="Next testimonial"
+                onClick={() => swiperRef.current?.slideNext()}
+                className="flex h-[40px] w-[40px] cursor-pointer items-center justify-center rounded-full border border-[#9f9f9f] text-[14px] text-[#333333]"
+              >
+                <i className="ri-arrow-right-line" />
+              </button>
+            </div>
           </div>
 
           <div className="relative w-full overflow-x-hidden lg:w-[78%]">
