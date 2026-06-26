@@ -20,8 +20,24 @@ const iconBtn =
 const EventImageSlider = ({ images, title }) => {
   const mainSwiperRef = useRef(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [modalSwiper, setModalSwiper] = useState(null);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    document.body.classList.add("overflow-hidden");
+    const onKeyUp = (e) => {
+      if (e.key === "Escape") setLightboxIndex(null);
+    };
+    window.addEventListener("keyup", onKeyUp);
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      window.removeEventListener("keyup", onKeyUp);
+    };
+  }, [lightboxIndex]);
 
   return (
+    <>
     <div className="overflow-hidden rounded-[24px] border border-[#E8E4DC] bg-gradient-to-br from-white via-[#F9F8F3] to-[#F0EBE3] p-4 shadow-[0_20px_60px_-24px_rgba(101,42,39,0.2)] sm:p-6 lg:p-8">
       <div className="mb-5 flex items-center justify-between gap-4">
         <p className="font-montserrat text-[12px] font-medium uppercase tracking-[0.18em] text-[#652A27]">
@@ -70,7 +86,12 @@ const EventImageSlider = ({ images, title }) => {
       >
         {images.map((src, idx) => (
           <SwiperSlide key={`${src}-${idx}`}>
-            <div className="group relative h-[300px] w-full overflow-hidden">
+            <button
+              type="button"
+              onClick={() => setLightboxIndex(idx)}
+              className="group relative block h-[300px] w-full cursor-pointer overflow-hidden"
+              aria-label={`View ${title} photo ${idx + 1} in full size`}
+            >
               <Image
                 src={src}
                 alt={`${title} — photo ${idx + 1}`}
@@ -82,7 +103,7 @@ const EventImageSlider = ({ images, title }) => {
               <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 font-montserrat text-[11px] font-medium uppercase tracking-wider text-[#652A27] backdrop-blur-sm">
                 {String(idx + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
               </span>
-            </div>
+            </button>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -111,6 +132,63 @@ const EventImageSlider = ({ images, title }) => {
         ))}
       </Swiper>
     </div>
+
+      {lightboxIndex !== null && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4">
+          <button
+            type="button"
+            onClick={() => setLightboxIndex(null)}
+            className="absolute right-4 top-4 z-[70] flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-white max-md:right-3 max-md:top-3 max-md:h-9 max-md:w-9"
+            aria-label="Close image popup"
+          >
+            <i className="ri-close-line text-[22px]" />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => modalSwiper?.slidePrev()}
+            className="absolute left-4 top-1/2 z-[70] flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-white max-md:left-3 max-md:h-9 max-md:w-9"
+            aria-label="Previous image"
+          >
+            <i className="ri-arrow-left-s-line text-[22px]" />
+          </button>
+
+          <div className="relative z-10 h-[80vh] w-full max-w-5xl">
+            <Swiper
+              loop
+              speed={500}
+              slidesPerView={1}
+              initialSlide={lightboxIndex}
+              onSwiper={setModalSwiper}
+              className="h-full w-full"
+            >
+              {images.map((src, idx) => (
+                <SwiperSlide key={`popup-${src}-${idx}`}>
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={src}
+                      alt={`${title} — photo ${idx + 1}`}
+                      fill
+                      className="object-contain"
+                      sizes="100vw"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => modalSwiper?.slideNext()}
+            className="absolute right-4 top-1/2 z-[70] flex h-12 w-12 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-white max-md:right-3 max-md:h-9 max-md:w-9"
+            aria-label="Next image"
+          >
+            <i className="ri-arrow-right-s-line text-[22px]" />
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 
