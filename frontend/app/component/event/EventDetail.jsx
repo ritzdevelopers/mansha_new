@@ -70,13 +70,13 @@ const EventImageSlider = ({ images, title }) => {
       >
         {images.map((src, idx) => (
           <SwiperSlide key={`${src}-${idx}`}>
-            <div className="group relative h-[400px] w-full overflow-hidden rounded-2xl border border-white/80 bg-white shadow-[0_12px_40px_-16px_rgba(0,0,0,0.3)]">
+            <div className="group relative h-[300px] w-full overflow-hidden">
               <Image
                 src={src}
                 alt={`${title} — photo ${idx + 1}`}
                 fill
                 priority={idx === 0}
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                className="object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                 sizes="(max-width: 1024px) 100vw, 80vw"
               />
               <span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 font-montserrat text-[11px] font-medium uppercase tracking-wider text-[#652A27] backdrop-blur-sm">
