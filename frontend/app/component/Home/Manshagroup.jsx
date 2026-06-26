@@ -1,35 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-const trendingCards = [
-  {
-    image: "/facility/Bhoomi-Pujan.jpg",
-    title: "Bhoomi Pujan",
-    date: "18 August, 2025",
-  },
-  {
-    image: "/facility/Property-Carnival.jpg",
-    title: "Property Carnival",
-    date: "15 August, 2024",
-  },
-  {
-      image: "/facility/tournament.jpg",
-      title: "Tournament",
-    date: "18 August, 2025",
-  },
-  // {
-  //   image: "/facility/Community-party.jpg",
-  //   title: "Jagran Achievers Award – Bali, Indonesia",
-  //   date: "18 August, 2025",
-  // },
-  // {
-  //   image: "/facility/yoga.jpg",
-  //   title: "Channel Partners Meet",
-  //   date: "15 August, 2024",
-  // },
-];
+import { trendingEvents } from "../event/eventData";
+
+const trendingCards = trendingEvents;
 
 
 
@@ -95,7 +70,7 @@ const Manshagroup = () => {
       key={`${card.title}-${card.date}-${index}`}
       className="group flex w-[calc((100%-10px)/2)] shrink-0 flex-col overflow-hidden border border-[#E0E0E0] bg-white"
     >
-      <Link href="#" className="block w-full overflow-hidden">
+      <Link href={`/event/${card.slug}`} className="block w-full overflow-hidden">
         <img
           src={card.image}
           alt={card.title}
@@ -112,7 +87,7 @@ const Manshagroup = () => {
             {card.title}
           </h3>
           <Link
-            href="/awards-accolades"
+            href={`/event/${card.slug}`}
             aria-label={`Read more about ${card.title}`}
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#515151] text-[#144168] transition-colors hover:border-[#144168] hover:bg-[#f8f8f8]"
           >
