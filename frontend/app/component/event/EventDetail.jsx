@@ -36,7 +36,7 @@ const EventImageGallery = ({ images, title }) => {
   return (
     <>
       <div className="overflow-hidden rounded-[24px]  bg-[#F8F8F8] p-4  sm:p-6 lg:p-13">
-        <p className="mb-5 font-optima text-[12px] font-medium uppercase tracking-[0.18em] text-[#652A27]">
+        <p className="mb-9 font-optima text-[20px] font-medium uppercase  text-[#652A27]">
           Event Gallery
         </p>
 
