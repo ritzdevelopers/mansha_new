@@ -7,8 +7,8 @@ export const trendingEvents = [
     // description:
     //   "A sacred beginning for our latest project — Bhoomi Pujan marked the foundation of Mansha Group's commitment to building spaces rooted in trust, tradition, and excellence.",
     images: [
-      "/event/Bhoomipujan1.jpg",
-      "/event/Bhoomipujan2.jpg",
+      "/event/Bhoomi1.jpg",
+      "/event/Bhoomi2.jpg",
       "/event/Bhoomi-Pujan3.jpg",
       "/event/Bhoomi-Pujan4.jpg",
       "/event/Bhoomi-Pujan5.jpg",
@@ -18,7 +18,7 @@ export const trendingEvents = [
     slug: "property-carnival",
     image: "/facility/Property-Carnival.jpg",
     title: "Property Carnival",
-    date: "15 August, 2024",
+    // date: "15 August, 2024",
     // description:
     //   "Property Carnival brought together homebuyers and partners for an engaging showcase of Mansha Group's finest residential offerings, exclusive deals, and on-ground celebrations.",
     images: [

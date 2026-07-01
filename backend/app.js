@@ -12,6 +12,23 @@ const app = express();
 
 const PORT = process.env.PORT || 5000;
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "https://mansha-new.vercel.app",
+  "https://www.manshagroup.in",
+  "https://manshagroup.in",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
+const isAllowedOrigin = (origin) => {
+  if (!origin) return true;
+  if (allowedOrigins.includes(origin)) return true;
+  return /^https:\/\/[\w-]+\.vercel\.app$/.test(origin);
+};
+
 // Database Connection
 connectDB();
 
@@ -21,7 +38,14 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000","https://mansha-backend-dxti.onrender.com"],
+    origin(origin, callback) {
+      if (isAllowedOrigin(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(null, false);
+    },
     credentials: true,
   })
 );
