@@ -7,8 +7,8 @@ export const trendingEvents = [
     // description:
     //   "A sacred beginning for our latest project — Bhoomi Pujan marked the foundation of Mansha Group's commitment to building spaces rooted in trust, tradition, and excellence.",
     images: [
-      "/event/Bhoomi-Pujan1.jpg",
-      "/event/Bhoomi-Pujan2.jpg",
+      "/event/Bhoomipujan1.jpg",
+      "/event/Bhoomipujan2.jpg",
       "/event/Bhoomi-Pujan3.jpg",
       "/event/Bhoomi-Pujan4.jpg",
       "/event/Bhoomi-Pujan5.jpg",
