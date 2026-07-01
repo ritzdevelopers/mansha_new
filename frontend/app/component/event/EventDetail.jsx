@@ -41,7 +41,7 @@ const EventImageGallery = ({ images, title }) => {
         </p>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {images.map((src, idx) => (
+          {images.slice(0, 3).map((src, idx) => (
             <button
               key={`${src}-${idx}`}
               type="button"
@@ -59,6 +59,31 @@ const EventImageGallery = ({ images, title }) => {
               />
             </button>
           ))}
+
+          {images.length > 3 && (
+            <div className="col-span-1 flex justify-center gap-4 sm:col-span-2 lg:col-span-3">
+              {images.slice(3).map((src, idx) => {
+                const imageIndex = idx + 3;
+                return (
+                  <button
+                    key={`${src}-${imageIndex}`}
+                    type="button"
+                    onClick={() => setLightboxIndex(imageIndex)}
+                    className="group relative aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-xl border border-[#E8E4DC] bg-white sm:max-w-[calc(50%-0.5rem)] lg:max-w-[calc(33.333%-0.67rem)] lg:flex-1"
+                    aria-label={`View ${title} photo ${imageIndex + 1} in full size`}
+                  >
+                    <Image
+                      src={src}
+                      alt={`${title} — photo ${imageIndex + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
 
