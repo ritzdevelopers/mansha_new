@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import DownloadBrochure from "../common/Download-brochure";
 
 const STATS = [
-  { target: 100, suffix: "+", label: "Verified Properties Sold" },
-  { target: 200, suffix: "+", label: "Professional Trusted Agents" },
-  { target: 98, suffix: "%", label: "Client Satisfaction Rate" },
+  { target: 400, suffix: "+", label: "Channel Partners" },
+  { target: 1400, suffix: "+", label: "Worth Projects in Pipeline" },
+  { target: 2500, suffix: "%", label: "Happy Customers" },
 ];
 
 const COUNT_DURATION_MS = 2000;
@@ -16,6 +17,7 @@ const Mansha = () => {
   const hasCountedRef = useRef(false);
   const [counts, setCounts] = useState(() => STATS.map(() => 0));
   const [playReveal, setPlayReveal] = useState(false);
+  const [brochureOpen, setBrochureOpen] = useState(false);
 
   useEffect(() => {
     const el = imageSectionRef.current;
@@ -142,6 +144,8 @@ const Mansha = () => {
             </p>
 
             <button
+              type="button"
+              onClick={() => setBrochureOpen(true)}
   className="group relative mx-auto mt-3 md:mt-6 inline-flex cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-[#652A27]/90 px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0%] text-[#652A27] transition-colors duration-300 md:mx-0"
 >
   {/* Background Animation */}
@@ -278,6 +282,14 @@ const Mansha = () => {
           }
         }
       `}</style>
+
+      <DownloadBrochure
+        open={brochureOpen}
+        onClose={() => setBrochureOpen(false)}
+        projectName="Mansha Group"
+        brochurePath="/vega-street.pdf"
+        brochureFileName="Vega-Street-Brochure.pdf"
+      />
     </section>
   );
 };

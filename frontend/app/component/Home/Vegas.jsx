@@ -37,23 +37,6 @@ const Vegas = () => {
 
   const projects = [
     {
-      logo: "/logo/aagmanbymansha.png",
-      logoAlt: "Aagman By Mansha logo",
-      title: "Aagman By Mansha",
-      details: [
-        {
-          type: "location",
-          text: "Sector 83 – 84, Sonipat Strategically Located right On NH44, 10-minute drive UER-II (Urban Extension Road-II)",
-        },
-        { type: "check", text: "3/4bhk Independent floors" },
-        { type: "check", text: "HRERA-PKL-SNP-775-2025" },
-      ],
-      src: "/mansha-image/aagman-project.jpeg",
-      alt: "Facility area",
-      label: "Aagman By Mansha",
-      href: "/aagman-by-mansha",
-    },
-    {
       logo: "/logo/vega-street-logo.png",
       logoAlt: "Vega Street logo",
       title: "Vega Street",
@@ -70,7 +53,23 @@ const Vegas = () => {
       label: "Mansha Vega Street",
       href: "/vega-street",
     },
-   
+    {
+      logo: "/logo/aagmanbymansha.png",
+      logoAlt: "Aagman By Mansha logo",
+      title: "Aagman By Mansha",
+      details: [
+        {
+          type: "location",
+          text: "Sector 83 – 84, Sonipat Strategically Located right On NH44, 10-minute drive UER-II (Urban Extension Road-II)",
+        },
+        { type: "check", text: "3/4bhk Independent floors" },
+        { type: "check", text: "HRERA-PKL-SNP-775-2025" },
+      ],
+      src: "/mansha-image/aagman-project.jpeg",
+      alt: "Facility area",
+      label: "Aagman By Mansha",
+      href: "/aagman-by-mansha",
+    },
     {
       logo: "/logo/oasis-logo.png",
       logoAlt: "Mansha Oasis logo",
@@ -154,14 +153,14 @@ const Vegas = () => {
             </div>
 
             <div className="xl:mt-8 lg:mt-2 mt-4 md:mt-6 flex flex-wrap items-end justify-between xl:gap-4 gap-2 border-l-2 border-[#d0d0d0] xl:pl-4 pl-2">
-              <div>
+              {/* <div>
                 <p className="font-montserrat text-[16px] font-normal leading-[29px] tracking-normal text-[#000000]">
                 Price starting from- 
                 </p>
                 <p className="font-montserrat text-[24px] font-bold leading-[29px] tracking-normal text-[#000000]">
                   01.52 CR*
                 </p>
-              </div>
+              </div> */}
               <button
   type="button"
   onClick={() => setBookSiteOpen(true)}

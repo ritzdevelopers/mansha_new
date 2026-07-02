@@ -16,16 +16,6 @@ const DREAM_PROJECTS = [
     titleClass: "font-[500]",
   },
   {
-    src: "/mansha-image/aagman.jpeg",
-    alt: "Aagman by Mansha",
-    title: "Aagman by Mansha",
-    href: "/aagman-by-mansha",
-    description:
-      "Where everyday comfort meets seamless connectivity and calm living",
-    overlayClass: "bg-black/35",
-    titleClass: "font-[550]",
-  },
-  {
     src: "/mansha-image/Mansha-Heritage.jpg",
     alt: "Mansha Heritage",
     title: "Mansha Heritage",
@@ -34,6 +24,16 @@ const DREAM_PROJECTS = [
       "Refined living that blends comfort, greenery, connectivity and timeless elegance.",
     overlayClass: "bg-black/35",
     titleClass: "font-[500]",
+  },
+  {
+    src: "/mansha-image/aagman.jpeg",
+    alt: "Aagman by Mansha",
+    title: "Aagman by Mansha",
+    href: "/aagman-by-mansha",
+    description:
+      "Where everyday comfort meets seamless connectivity and calm living",
+    overlayClass: "bg-black/35",
+    titleClass: "font-[550]",
   },
   {
     src: "/mansha-image/orchid.jpg",
