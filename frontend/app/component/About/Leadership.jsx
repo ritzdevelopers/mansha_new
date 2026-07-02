@@ -38,9 +38,9 @@ const Leadership = () => {
                 Mr. Naresh Malik, the visionary Founder & Chairman of Mansha
                 Group, brings decades...
               </p>
-              <button className="mt-4 cursor-pointer font-montserrat text-[14px] font-semibold leading-[100%] tracking-[0%] capitalize text-[#652A27]">
+              {/* <button className="mt-4 cursor-pointer font-montserrat text-[14px] font-semibold leading-[100%] tracking-[0%] capitalize text-[#652A27]">
                 Read More
-              </button>
+              </button> */}
             </div>
           </article>
 
@@ -66,9 +66,9 @@ const Leadership = () => {
                 Mr. Himanshu Malik, Director of Mansha Group, represents the
                 new generation of vis...
               </p>
-              <button className="mt-4 cursor-pointer font-montserrat text-[14px] font-semibold leading-[100%] tracking-[0%] capitalize text-[#652A27]">
+              {/* <button className="mt-4 cursor-pointer font-montserrat text-[14px] font-semibold leading-[100%] tracking-[0%] capitalize text-[#652A27]">
                 Read More
-              </button>
+              </button> */}
             </div>
           </article>
         </div>
