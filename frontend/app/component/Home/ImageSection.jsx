@@ -245,7 +245,7 @@ function SlideLayer({
   return (
     <div
       className={`w-full overflow-hidden ${
-        overlay ? "absolute inset-0 z-10" : "relative z-0"
+        overlay ? "absolute inset-0 z-10" : "relative z-0 xl:h-[675px]"
       } ${storyAnimClass}`}
       onAnimationEnd={handleEnterAnimationEnd}
     >
@@ -267,7 +267,7 @@ function SlideLayer({
           title={slide.alt}
           width={1600}
           height={900}
-          className="block h-auto w-full object-cover"
+          className="block h-auto w-full object-cover xl:h-full"
           priority={imagePriority}
           quality={100}
           sizes="100vw"
