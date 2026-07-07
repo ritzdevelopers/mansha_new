@@ -22,17 +22,21 @@ const NAV_ITEMS = [
 ];
 
 const ONGOING_RESIDENTIAL = [
+  // { label: "Mansha Vega Street", href: "/vega-street" },
   { label: "Mansha Heritage", href: "/mansha-heritage" },
-  { label: "Mansha Orchid", href: "/mansha-orchid" },
   { label: "Aagman by mansha", href: "/aagman-by-mansha" },
   { label: "Mansha Oasis", href: "/mansha-oasis" },
+  { label: "Mansha Orchid", href: "/mansha-orchid" },
+  // { label: "Mansha Oaks", href: "/mansha-oaks-4" },
 ];
 
 const DELIVERED_NAV_PROJECTS = [
-  { name: "Aagman by Mansha ", image: "/navslider/aagman.jpg", href: "/aagman-by-mansha" },
+  // { name: "Mansha Vega Street", image: "/navslider/vega-street.jpg", href: "/vega-street" },
+  { name: "Mansha Heritage", image: "/navslider/heritage.jpg", href: "/mansha-heritage" },
+  { name: "Aagman by Mansha", image: "/navslider/aagman.jpg", href: "/aagman-by-mansha" },
+  { name: "Mansha Oasis", image: "/mansha-image/mansha-oasis.jpg", href: "/mansha-oasis" },
   { name: "Mansha Orchid", image: "/navslider/orchid.jpg", href: "/mansha-orchid" },
-  { name: "Mansha Vega Street", image: "/navslider/vega-street.jpg", href: "/vega-street" },
-  { name: "Mansha Heritage ", image: "/navslider/heritage.jpg", href: "/mansha-heritage" },
+  // { name: "Mansha Oaks", image: "/mansha-image/mansha-oasis.jpg", href: "/mansha-oaks-4" },
 ];
 
 const DROPDOWN_NAV = [

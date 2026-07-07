@@ -26,7 +26,6 @@ const Vegas = () => {
           element.getBoundingClientRect().top +
           window.scrollY -
           headerOffset;
-
         window.scrollTo({
           top: Math.max(0, top),
           behavior: "smooth",
@@ -52,6 +51,23 @@ const Vegas = () => {
       alt: "Residential property",
       label: "Mansha Vega Street",
       href: "/vega-street",
+    },
+    {
+      logo: "/logo/heritage-logo.png",
+      logoAlt: "Mansha Heritage logo",
+      title: "Mansha Heritage",
+      details: [
+        {
+          type: "location",
+          text: "Sector 83 & 84, Kumashpur, Sonipat Strategically located with strong connectivity to Delhi NCR",
+        },
+        { type: "check", text: "2500+ happy customers" },
+        { type: "check", text: "Well connected" },
+      ],
+      src: "/mansha-image/vega-street-project.jpeg",
+      alt: "Mansha Heritage",
+      label: "Mansha Heritage",
+      href: "/mansha-heritage",
     },
     {
       logo: "/logo/aagmanbymansha.png",
@@ -86,6 +102,40 @@ const Vegas = () => {
       alt: "Mansha project exterior",
       label: "Mansha Oasis",
       href: "/mansha-oasis",
+    },
+    {
+      logo: "/logo/orchid-logo.png",
+      logoAlt: "Mansha Orchid logo",
+      title: "Mansha Orchid",
+      details: [
+        {
+          type: "location",
+          text: "Located in Faridabad, Mansha Orchid sits in one of Haryana's most promising and fast-developing regions",
+        },
+        { type: "check", text: "Gated community" },
+        { type: "check", text: "24/7 security" },
+      ],
+      src: "/mansha-image/aagman-project.jpeg",
+      alt: "Mansha Orchid",
+      label: "Mansha Orchid",
+      href: "/mansha-orchid",
+    },
+    {
+      logo: "/logo/oaks.png",
+      logoAlt: "Mansha Oaks logo",
+      title: "Mansha Oaks",
+      details: [
+        {
+          type: "location",
+          text: "Sector 98, Faridabad, Haryana Strategically located with seamless connectivity across the city",
+        },
+        { type: "check", text: "Gated community" },
+        { type: "check", text: "3-Tier security" },
+      ],
+      src: "/mansha-image/mansha-oasis.jpg",
+      alt: "Mansha Oaks",
+      label: "Mansha Oaks",
+      href: "/mansha-oaks-4",
     },
   ];
 
@@ -131,7 +181,6 @@ const Vegas = () => {
             <p className="md:mt-5 xl:mt-5 lg:mt-3 mt-4 inline-block bg-white  font-['Open_Sans','Open Sans',sans-serif] md:text-[18px] text-[16px] font-normal leading-[26px] tracking-normal text-[#000000] rounded-full md:px-4 md:py-2 px-3 py-1 lg:py-1">
             Project Overview
             </p>
-
             <div className="md:mt-6 xl:mt-5 lg:mt-3 mt-4 xl:space-y-2 lg:space-y-2 md:space-y-4 space-y-2 font-['Open_Sans','Open Sans',sans-serif] xl:text-[16px] lg:text-[14px] md:text-[18px] text-[14px] font-normal xl:leading-[24px] leading-[18px] tracking-normal text-[#000000]">
               {activeProject.details.map((detail) => (
                 <p key={detail.text} className="flex items-center gap-2">
@@ -180,14 +229,14 @@ const Vegas = () => {
           </div>
           </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row lg:min-h-[365px]">
+          <div className="flex flex-col gap-4 sm:flex-row md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4 lg:flex lg:flex-row lg:min-h-[365px]">
             {projects.map((item, index) => (
               <div
                 key={`${item.src}-${index}`}
                 onMouseEnter={() => setActiveImage(index)}
                 onClick={() => handleProjectSelect(index)}
-                className={`relative min-h-[370px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] lg:min-h-[365px] ${
-                  activeImage === index ? "flex-1 lg:flex-[2.2]" : "flex-1"
+                className={`relative min-h-[370px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] md:min-h-0 md:aspect-[4/3] md:flex-none lg:aspect-auto lg:min-h-[365px] ${
+                  activeImage === index ? "flex-1 lg:flex-[2.2]" : "flex-1 lg:flex-1"
                 }`}
               >
                 <Image src={item.src} alt={item.alt} title={item.alt} fill className="object-cover" />

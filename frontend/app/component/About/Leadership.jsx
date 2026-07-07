@@ -35,8 +35,7 @@ const Leadership = () => {
                 Founder, manshagroup
               </p>
               <p className="mt-3 font-montserrat text-[14px] font-medium leading-[22px] tracking-[0%] capitalize text-[#333333]">
-                Mr. Naresh Malik, the visionary Founder & Chairman of Mansha
-                Group, brings decades...
+              Naresh Kumar Malik, a visionary real estate veteran, has vast technical knowledge of the infrastructure industry. He founded Mansha Group, driving initiatives in education, empowerment, sustainability, and community development for holistic growth.
               </p>
               {/* <button className="mt-4 cursor-pointer font-montserrat text-[14px] font-semibold leading-[100%] tracking-[0%] capitalize text-[#652A27]">
                 Read More
@@ -63,8 +62,7 @@ const Leadership = () => {
                 Director, manshagroup
               </p>
               <p className="mt-3 font-montserrat text-[14px] font-medium leading-[22px] tracking-[0%] capitalize text-[#333333]">
-                Mr. Himanshu Malik, Director of Mansha Group, represents the
-                new generation of vis...
+              Himanshu Malik, Director of Mansha Group, drives innovation beyond construction, focusing on creating lasting communities. His leadership blends vision, strategy, and hands-on execution, delivering excellence, setting new benchmarks, and shaping inspiring spaces in real estate.
               </p>
               {/* <button className="mt-4 cursor-pointer font-montserrat text-[14px] font-semibold leading-[100%] tracking-[0%] capitalize text-[#652A27]">
                 Read More
