@@ -143,7 +143,7 @@ const Navbar = () => {
           <div className="mb-6 flex items-center justify-center gap-1 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0] capitalize text-white sm:mb-8 md:justify-start">
             <span className="text-[#666666]">Home</span>
             <span className="text-[#666666]">|</span>
-            <span className="text-[#666666]">Residential</span>
+            <span className="text-[#666666]">Commercial</span>
             <span className="text-[#666666]">|</span>
             <span className="text-[#652A27] font-semibold">Vega Street</span>
           </div>

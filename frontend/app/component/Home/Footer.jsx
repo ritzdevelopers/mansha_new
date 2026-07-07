@@ -75,7 +75,7 @@ const Footer = () => {
     // { icon: "ri-twitter-x-line" },
     { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/in/mansha-group-a80379212/" },
     { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/" },
-    // { icon: "ri-youtube-line" },
+    { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial" },
   ].map(({ icon, href }) => {
     const className =
       "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[16px]  transition-all duration-300 hover:bg-[#652A27] hover:text-white hover:shadow-white/40";
@@ -104,7 +104,7 @@ const Footer = () => {
         <div>
             <h4 className=" font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] text-left">Corporate Office</h4>
             <p className="mt-2 max-w-[400px] font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
-           P-23, Sector 75, Faridabad
+           P-23, Sector 75, Faridabad Haryana- 121002
             </p>
           </div>
 
