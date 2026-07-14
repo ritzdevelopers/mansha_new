@@ -47,7 +47,7 @@ const Vegas = () => {
         { type: "check", text: "RERA NUMBER: 275/2021" },
         { type: "check", text: "Status: Now Fully Operational" },
       ],
-      src: "/mansha-image/vega-street-project.jpeg",
+      src: "/mansha-image/vega-street-home.jpg",
       alt: "Residential property",
       label: "Mansha Vega Street",
       href: "/vega-street",
@@ -61,10 +61,10 @@ const Vegas = () => {
           type: "location",
           text: "Sector 83 & 84, Kumashpur, Sonipat Strategically located with strong connectivity to Delhi NCR",
         },
-        { type: "check", text: "2500+ happy customers" },
         { type: "check", text: "Well connected" },
+        { type: "check", text: "Smartly Designed" },
       ],
-      src: "/mansha-image/vega-street-project.jpeg",
+      src: "/mansha-image/heritage.jpg",
       alt: "Mansha Heritage",
       label: "Mansha Heritage",
       href: "/mansha-heritage",
@@ -81,7 +81,7 @@ const Vegas = () => {
         { type: "check", text: "3/4bhk Independent floors" },
         { type: "check", text: "HRERA-PKL-SNP-775-2025" },
       ],
-      src: "/mansha-image/aagman-project.jpeg",
+      src: "/mansha-image/aagman.jpg",
       alt: "Facility area",
       label: "Aagman By Mansha",
       href: "/aagman-by-mansha",
@@ -98,7 +98,7 @@ const Vegas = () => {
         { type: "check", text: "HRERA-PKL-FBD-843-2026" },
         { type: "check", text: "Residential Plots" },
       ],
-      src: "/mansha-image/mansha-oasis.jpg",
+      src: "/mansha-image/oasis.jpg",
       alt: "Mansha project exterior",
       label: "Mansha Oasis",
       href: "/mansha-oasis",
@@ -110,12 +110,12 @@ const Vegas = () => {
       details: [
         {
           type: "location",
-          text: "Located in Faridabad, Mansha Orchid sits in one of Haryana's most promising and fast-developing regions",
+          text: "Located in Sector 110, Faridabad, Near IMT 5 minutes from Delhi- Mumbai Expressway",
         },
-        { type: "check", text: "Gated community" },
-        { type: "check", text: "24/7 security" },
+        { type: "check", text: "Exclusive Plots " },
+        { type: "check", text: "Close to Nature" },
       ],
-      src: "/mansha-image/aagman-project.jpeg",
+      src: "/mansha-image/orchid-image.jpg",
       alt: "Mansha Orchid",
       label: "Mansha Orchid",
       href: "/mansha-orchid",
@@ -127,12 +127,12 @@ const Vegas = () => {
       details: [
         {
           type: "location",
-          text: "Sector 98, Faridabad, Haryana Strategically located with seamless connectivity across the city",
+          text: "Located in Sector 98- Faridabad Plotted community approved under Deen DayalJan Awas Yojna ",
         },
-        { type: "check", text: "Gated community" },
-        { type: "check", text: "3-Tier security" },
+        { type: "check", text: "30 ft. wide internal roads " },
+        { type: "check", text: "25 Minutes from South Delhi" },
       ],
-      src: "/mansha-image/mansha-oasis.jpg",
+      src: "/mansha-image/mansha-oaks.jpg",
       alt: "Mansha Oaks",
       label: "Mansha Oaks",
       href: "/mansha-oaks-4",
@@ -229,13 +229,13 @@ const Vegas = () => {
           </div>
           </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4 lg:flex lg:flex-row lg:min-h-[365px]">
+          <div className="flex flex-col gap-4 sm:flex-row md:grid md:grid-cols-3 md:grid-rows-2 md:gap-4 lg:flex lg:flex-row lg:min-h-[280px]">
             {projects.map((item, index) => (
               <div
                 key={`${item.src}-${index}`}
                 onMouseEnter={() => setActiveImage(index)}
                 onClick={() => handleProjectSelect(index)}
-                className={`relative min-h-[370px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] md:min-h-0 md:aspect-[4/3] md:flex-none lg:aspect-auto lg:min-h-[365px] ${
+                className={`relative min-h-[370px] cursor-pointer overflow-hidden transition-all duration-500 sm:min-h-[320px] md:h-auto md:flex-none lg:aspect-auto lg:min-h-[280px] ${
                   activeImage === index ? "flex-1 lg:flex-[2.2]" : "flex-1 lg:flex-1"
                 }`}
               >

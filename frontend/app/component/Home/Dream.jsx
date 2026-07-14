@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 
 const DREAM_PROJECTS = [
   {
-    src: "/mansha-image/vega-street.jpeg",
+    src: "/mansha-image/vega-street-marquee.jpg",
     alt: "Mansha Vega Street",
     title: "Mansha Vega Street",
     href: "/vega-street",
@@ -16,7 +16,7 @@ const DREAM_PROJECTS = [
     titleClass: "font-[500]",
   },
   {
-    src: "/mansha-image/Mansha-Heritage.jpg",
+    src: "/mansha-image/heritage-marquee.jpg",
     alt: "Mansha Heritage",
     title: "Mansha Heritage",
     href: "/mansha-heritage",
@@ -26,7 +26,7 @@ const DREAM_PROJECTS = [
     titleClass: "font-[500]",
   },
   {
-    src: "/mansha-image/aagman.jpeg",
+    src: "/mansha-image/aagman-marquee.jpg",
     alt: "Aagman by Mansha",
     title: "Aagman by Mansha",
     href: "/aagman-by-mansha",
@@ -36,7 +36,17 @@ const DREAM_PROJECTS = [
     titleClass: "font-[550]",
   },
   {
-    src: "/mansha-image/orchid.jpg",
+    src: "/mansha-image/oasis-marquee.jpg",
+    alt: "Mansha Oasis",
+    title: "Mansha Oasis",
+    href: "/mansha-oasis",
+    description:
+      "A prime junction of connectivity and growth designed for modern living",
+    overlayClass: "bg-black/35",
+    titleClass: "font-[500]",
+  },
+  {
+    src: "/mansha-image/orchid-marquee.jpg",
     alt: "Mansha Orchid",
     title: "Mansha Orchid",
     href: "/mansha-orchid",
@@ -45,38 +55,48 @@ const DREAM_PROJECTS = [
     overlayClass: "bg-black/35",
     titleClass: "font-[500]",
   },
+  {
+    src: "/mansha-image/oaks-marquee.jpg",
+    alt: "Mansha Oaks",
+    title: "Mansha Oaks",
+    href: "/mansha-oaks-4",
+    description:
+      "A well-planned community offering secure living with premium amenities",
+    overlayClass: "bg-black/35",
+    titleClass: "font-[500]",
+  },
 ];
 
 const Dream = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [activeLgCard, setActiveLgCard] = useState(1);
-  const [hoveredXlCard, setHoveredXlCard] = useState(null);
-  const [isMdScreen, setIsMdScreen] = useState(false);
+  const trackRef = useRef(null);
+  const groupRef = useRef(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMdScreen(window.innerWidth >= 768 && window.innerWidth < 1024);
+    const updateMarquee = () => {
+      if (!trackRef.current || !groupRef.current) return;
+
+      const groupWidth = groupRef.current.getBoundingClientRect().width;
+      trackRef.current.style.setProperty(
+        "--dream-marquee-distance",
+        `-${groupWidth}px`
+      );
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
+    updateMarquee();
 
-    return () => window.removeEventListener("resize", handleResize);
+    const resizeObserver = new ResizeObserver(updateMarquee);
+    if (groupRef.current) resizeObserver.observe(groupRef.current);
+    if (trackRef.current?.parentElement) {
+      resizeObserver.observe(trackRef.current.parentElement);
+    }
+
+    window.addEventListener("resize", updateMarquee);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateMarquee);
+    };
   }, []);
-
-  useEffect(() => {
-    // Mobile: 1 card per view → 4 slides. Md (768–1023): 2 cards per view → 2 slides.
-    const maxSteps = isMdScreen ? 2 : 4;
-    const id = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % maxSteps);
-    }, 2500);
-
-    return () => clearInterval(id);
-  }, [isMdScreen]);
-
-  useEffect(() => {
-    setActiveSlide(0);
-  }, [isMdScreen]);
 
   return (
     <>
@@ -120,147 +140,79 @@ const Dream = () => {
         </div>
       </div>
 
-      <div className="relative w-full overflow-hidden px-0 pt-[0px] pb-[0px] lg:hidden">
-        <div
-          className="flex transition-transform duration-700 ease-out md:gap-[10px]"
-          style={{
-            transform: `translateX(-${activeSlide * (isMdScreen ? 50 : 100)}%)`,
-          }}
-        >
-          {DREAM_PROJECTS.map((project) => (
-            <article
-              key={project.title}
-              className="group relative min-h-[380px] w-full shrink-0 overflow-hidden cursor-pointer md:w-1/2"
-            >
-              <Image
-                src={project.src}
-                alt={project.alt}
-                title={project.alt}
-                fill
-                className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                sizes="100vw"
-              />
-              <div
-                className={`absolute inset-0 transition-colors duration-300 group-hover:bg-transparent ${project.overlayClass}`}
-              />
-              <p
-                className={`absolute left-4 top-4 font-optima text-[24px] ${project.titleClass} leading-none capitalize text-white`}
-              >
-                {project.title}
-              </p>
-              <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
-                <p className="max-w-[390px] font-montserrat text-[16px] font-[500] leading-[20px] capitalize text-white">
-                  {project.description}
-                </p>
-                <ReadMoreLink href={project.href} />
-              </div>
-            </article>
-          ))}
+      <div className="relative w-full overflow-hidden px-0 pt-[0px] pb-[0px]">
+        <div ref={trackRef} className="dream-marquee-track flex w-max gap-3">
+          <MarqueeGroup ref={groupRef} />
+          <MarqueeGroup ariaHidden />
         </div>
       </div>
 
-      <div className="hidden w-full max-w-none items-stretch gap-3 px-0 pb-[35px] lg:flex lg:pb-[0px] xl:hidden">
-        {DREAM_PROJECTS.map((project, index) => {
-          const isActive = activeLgCard === index;
+      <style>{`
+        .dream-marquee-track {
+          animation: dream-marquee-scroll 40s linear infinite;
+          will-change: transform;
+        }
 
-          return (
-            <article
-              key={project.title}
-              onClick={() => setActiveLgCard(index)}
-              className={`group relative h-[400px] min-h-[400px] max-h-[400px] shrink-0 self-stretch overflow-hidden transition-all duration-500 cursor-pointer ${
-                isActive ? "flex-[1.7]" : "flex-1"
-              }`}
-            >
-              <Image
-                src={project.src}
-                alt={project.alt}
-                title={project.alt}
-                fill
-                className="object-cover object-center transition-all duration-500"
-                sizes="(min-width: 1024px) and (max-width: 1279px) 50vw, 25vw"
-              />
-              <div
-                className={`absolute inset-0 transition-colors duration-300 ${project.overlayClass} ${
-                  isActive ? "bg-transparent" : ""
-                }`}
-              />
-              <p
-                className={`absolute left-4 top-4 font-optima text-[24px] ${project.titleClass} leading-none capitalize text-white`}
-              >
-                {project.title}
-              </p>
-              <div
-                className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
-                  isActive
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-3 opacity-0"
-                }`}
-              >
-                <p className="max-w-[390px] font-montserrat text-[16px] xl:text-[18px] font-[500] leading-[20px] xl:leading-[25px] capitalize text-white">
-                  {project.description}
-                </p>
-                <ReadMoreLink href={project.href} stopPropagation />
-              </div>
-            </article>
-          );
-        })}
-      </div>
+        .dream-marquee-track:hover {
+          animation-play-state: paused;
+        }
 
-      <div
-        className="hidden w-full max-w-none gap-3 px-0 pb-[35px] xl:flex xl:pb-[0px]"
-        onMouseLeave={() => setHoveredXlCard(null)}
-      >
-        {DREAM_PROJECTS.map((project, index) => {
-          const isFeatured = index === 1;
-          const showDetails = isFeatured
-            ? hoveredXlCard === null || hoveredXlCard === index
-            : hoveredXlCard === index;
-
-          return (
-            <article
-              key={project.title}
-              className={`group relative overflow-hidden transition-all duration-500 cursor-pointer ${
-                isFeatured
-                  ? "min-h-[460px] w-full xl:min-h-[520px] xl:flex-[1.7] xl:hover:flex-[1.7]"
-                  : "hidden min-h-[420px] flex-1 xl:block xl:hover:flex-[1.7]"
-              }`}
-              onMouseEnter={() => setHoveredXlCard(index)}
-            >
-              <Image
-                src={project.src}
-                alt={project.alt}
-                title={project.alt}
-                fill
-                className="object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                sizes={isFeatured ? "(max-width: 1024px) 100vw, 40vw" : "33vw"}
-              />
-              <div
-                className={`absolute inset-0 transition-colors duration-300 ${project.overlayClass} group-hover:bg-transparent`}
-              />
-              <p
-                className={`absolute left-4 top-4 font-optima text-[24px] ${project.titleClass} leading-none capitalize text-white`}
-              >
-                {project.title}
-              </p>
-              <div
-                className={`absolute bottom-5 left-4 right-4 transition-all duration-300 ${
-                  showDetails
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-3 opacity-0"
-                }`}
-              >
-                <p className="font-montserrat text-[18px] font-[500] leading-[25px] capitalize text-white">
-                  {project.description}
-                </p>
-                <ReadMoreLink href={project.href} />
-              </div>
-            </article>
-          );
-        })}
-      </div>
+        @keyframes dream-marquee-scroll {
+          from {
+            transform: translate3d(0, 0, 0);
+          }
+          to {
+            transform: translate3d(var(--dream-marquee-distance, -50%), 0, 0);
+          }
+        }
+      `}</style>
     </>
   );
 };
+
+const MarqueeGroup = forwardRef(function MarqueeGroup(
+  { ariaHidden = false },
+  ref
+) {
+  return (
+    <div
+      ref={ref}
+      className="flex shrink-0 gap-3"
+      aria-hidden={ariaHidden || undefined}
+    >
+      {DREAM_PROJECTS.map((project, index) => (
+        <article
+          key={`${ariaHidden ? "clone" : "item"}-${project.src}-${index}`}
+          className="group relative min-h-[380px] w-[85vw] shrink-0 overflow-hidden cursor-pointer sm:w-[60vw] md:w-[45vw] lg:min-h-[400px] lg:w-[320px] xl:h-auto xl:min-h-0 xl:w-[380px]"
+        >
+          <Image
+            src={project.src}
+            alt={ariaHidden ? "" : project.alt}
+            title={ariaHidden ? undefined : project.alt}
+            width={760}
+            height={1140}
+            className="absolute inset-0 h-full w-full object-cover object-center origin-center transition-transform duration-700 ease-out group-hover:scale-[1.05] xl:static xl:h-auto xl:w-full xl:object-contain"
+            sizes="(min-width: 1280px) 380px, (min-width: 1024px) 320px, (min-width: 768px) 45vw, 85vw"
+          />
+          <div
+            className={`absolute inset-0 transition-colors duration-300 group-hover:bg-transparent ${project.overlayClass}`}
+          />
+          <p
+            className={`absolute left-4 top-4 font-optima text-[24px] ${project.titleClass} leading-none capitalize text-white`}
+          >
+            {project.title}
+          </p>
+          <div className="absolute bottom-5 left-4 right-4 translate-y-0 opacity-100 transition-all duration-300">
+            <p className="max-w-[390px] font-montserrat text-[16px] xl:text-[18px] font-[500] leading-[20px] xl:leading-[25px] capitalize text-white">
+              {project.description}
+            </p>
+            <ReadMoreLink href={project.href} />
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+});
 
 function ReadMoreLink({ href, stopPropagation = false }) {
   return (
