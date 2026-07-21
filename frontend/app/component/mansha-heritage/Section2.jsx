@@ -68,7 +68,7 @@ const Section2 = () => {
                   className="h-[50px] w-[50px] object-contain xl:h-20 xl:w-20"
                 />
                 <p className="font-montserrat xl:text-[16px] text-[14px] font-normal leading-[24px] capitalize text-[#333333]">
-                2500+ happy customers
+                3000+ happy customers
                 </p>
               </div>
 

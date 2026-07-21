@@ -35,8 +35,9 @@ const Journey = () => {
         year: "2006–2011",
         text: "Mansha Greens, Mansha Residency, Mansha Estate, Mansha Royal Farms.",
       },
-      { 
+      {
         image: "/about/slider2new.jpeg",
+        alt: "Journey visual two",
         year: "2011–2015",
         text: "Mansha Model Town, Mansha City, Mansha Floors, Mansha Luxury Floors.",
       },

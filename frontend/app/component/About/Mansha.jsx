@@ -6,7 +6,7 @@ import DownloadBrochure from "../common/Download-brochure";
 const STATS = [
   { target: 400, suffix: "+", label: "Channel Partners" },
   { target: 1400, suffix: "+", label: "Worth Projects in Pipeline" },
-  { target: 2500, suffix: "+", label: "Happy Customers" },
+  { target: 3000, suffix: "+", label: "Happy Customers" },
 ];
 
 const COUNT_DURATION_MS = 2000;

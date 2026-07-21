@@ -8,6 +8,7 @@ import Facility from "./component/Home/Facility";
 import Vegas from "./component/Home/Vegas";
 import Signature from "./component/common/Signature";
 import Manshagroup from "./component/Home/Manshagroup";
+import HomeScrollRestore from "./component/Home/HomeScrollRestore";
 import Investment from "./component/Home/Investment";
 import Faq from "./component/common/FAQ";
 import Testiimonial from "./component/Home/Testiimonial";
@@ -20,6 +21,7 @@ import InvertmentCommmon from "./component/common/InvertmentCommmon";
 export default function Home() {
   return (
     <div>
+      <HomeScrollRestore />
       {/* <PageRefreshLoader /> */}
       <Navbar />
       <Headline />

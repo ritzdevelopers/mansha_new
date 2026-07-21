@@ -1,17 +1,20 @@
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import EventDetail from "../../component/event/EventDetail";
 import Footer from "../../component/Home/Footer";
-import { getEventBySlug } from "../../component/event/eventData";
+import { getLocationBySlug } from "../../component/event/eventData";
 
 const page = async ({ params }) => {
   const { slug } = await params;
-  const event = getEventBySlug(slug);
+  const location = getLocationBySlug(slug);
 
-  if (!event) notFound();
+  if (!location) notFound();
 
   return (
     <>
-      <EventDetail event={event} />
+      <Suspense fallback={null}>
+        <EventDetail location={location} />
+      </Suspense>
       <Footer />
     </>
   );
