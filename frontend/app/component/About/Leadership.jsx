@@ -20,8 +20,8 @@ const Leadership = () => {
             <div className="relative aspect-[365/360] overflow-hidden">
               <Image
                 src="/mansha-image/leader-1.jpg"
-                alt="Mr Naresh Malik"
-                title="Mr Naresh Malik"
+                alt="Mr Naresh Kumar Malik"
+                title="Mr Naresh Kumar Malik"
                 fill
                 sizes="(max-width: 1024px) 50vw, 33vw"
                 className="cursor-pointer object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.06]"
@@ -29,7 +29,7 @@ const Leadership = () => {
             </div>
             <div className="px-4 py-4">
               <h3 className="font-montserrat text-[18px] font-medium leading-[100%] tracking-[0%] text-[#111111]">
-                Mr Naresh Malik
+                Mr Naresh Kumar Malik
               </h3>
               <p className="mt-2 font-montserrat text-[14px] font-medium leading-[100%] tracking-[0%] capitalize text-[#666666]">
                 Founder, manshagroup
