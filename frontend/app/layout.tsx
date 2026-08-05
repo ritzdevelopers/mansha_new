@@ -26,6 +26,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.manshagroup.in/",
   },
+  icons: {
+    icon: "/mansha-logo.ico",
+    apple: "/mansha-logo.ico",
+  },
 };
 
 
