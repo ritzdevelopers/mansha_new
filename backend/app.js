@@ -20,6 +20,7 @@ const allowedOrigins = [
   "https://mansha-new.vercel.app",
   "https://www.manshagroup.in",
   "https://manshagroup.in",
+  "https://www.manshagroup.com",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
