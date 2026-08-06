@@ -3,51 +3,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useMemo, useState } from "react";
+import { BLOG_POSTS } from "./blogPosts";
 
-const SIDEBAR_POSTS = [
-  {
-    id: 1,
-    title: "Why Is Ghaziabad Becoming the Ultimate Investment Hub?",
-    date: "April 18, 2026",
-  },
-  {
-    id: 2,
-    title: "Why Is Ghaziabad Becoming the Ultimate Investment Hub?",
-    date: "April 12, 2026",
-  },
-  {
-    id: 3,
-    title: "Why Is Ghaziabad Becoming the Ultimate Investment Hub?",
-    date: "April 8, 2026",
-  },
-  {
-    id: 4,
-    title: "Why Is Ghaziabad Becoming the Ultimate Investment Hub?",
-    date: "March 28, 2026",
-  },
-];
+const FALLBACK_IMAGE = "/blog/blog-image.png";
 
-const MAIN_CARDS = [
-  {
-    id: 1,
-    date: "Jan 6, 2026",
-    title: "Top 5 Locations to Buy Residential Plots in Faridabad – Mansha Group Perspective",
-    descriptionLead:
-      "As a result of its ever-developing infrastructure and easy accessibility through expressways and the ever-expanding metro, Faridabad is becoming a hotspot for real-estate investments  within the NCR region. It holds great potential for investments with a high return on investment. However, the location chosen for investing in a residential plot within Farida",
-    image: "/aagman/aagman-slider2.jpg",
-    slug: "top-5-locations-to-buy-residential-plots-in-faridabad",
-  },
-  {
-    id: 2,
-    date: "Jan 6, 2026",
-    title: "Mansha Vega Street: A Smart Commercial Investment Opportunity in Faridabad",
-    descriptionLead:
-      "Faridabad Is Growing Fast &  The Smart Investors Already Know It A few years ago, most NCR investors looked only at Gurgaon or Noida for commercial real estate. But in 2026, the conversation is changing rapidly. Faridabad is emerging as one of the most promising real estate destinations in NCR  and investors are moving early.",
+const SIDEBAR_POSTS = BLOG_POSTS.slice(0, 4).map((post, index) => ({
+  id: post.slug ?? post.id ?? index,
+  title: post.title,
+  date: post.date?.trim() ?? "",
+  image: post.image || FALLBACK_IMAGE,
+  slug: post.slug,
+}));
 
-    image: "/aagman/aagman-slider2.jpg",
-    slug: "Buy Residential Plots for Sale in Sonipat",
-  },
-];
+const MAIN_CARDS = BLOG_POSTS.slice(0, 2).map((post, index) => ({
+  id: post.slug ?? post.id ?? index,
+  date: post.date?.trim() ?? "",
+  title: post.title,
+  descriptionLead: post.descriptionLead,
+  image: post.image || FALLBACK_IMAGE,
+  slug: post.slug,
+}));
 
 const RecentPosts = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -103,14 +78,14 @@ const RecentPosts = () => {
             <ul className="mt-8 flex flex-col gap-6">
               {filteredSidebarPosts.map((post) => (
                 <li key={post.id}>
-                  <a
-                    href="#"
+                  <Link
+                    href={post.slug ? `/blog/${post.slug}` : "#"}
                     className="group flex gap-3 outline-none transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-[#652A27]/40 focus-visible:ring-offset-2"
                   >
                     <div className="relative h-[88px] w-[108px] shrink-0 overflow-hidden rounded-lg bg-[#f5f5f5]">
                       <Image
-                        src="/blog/recent-blog.png"
-                        alt=""
+                        src={post.image}
+                        alt={post.title}
                         fill
                         className="object-cover"
                         sizes="108px"
@@ -124,7 +99,7 @@ const RecentPosts = () => {
                         {post.date}
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
