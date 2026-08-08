@@ -21,6 +21,7 @@ const allowedOrigins = [
   "https://www.manshagroup.in",
   "https://manshagroup.in",
   "https://www.manshagroup.com",
+  "https://manshagroup.com",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
@@ -30,32 +31,55 @@ const isAllowedOrigin = (origin) => {
   return /^https:\/\/[\w-]+\.vercel\.app$/.test(origin);
 };
 
-// Database Connection
-connectDB();
+const corsOptions = {
+  origin(origin, callback) {
+    if (isAllowedOrigin(origin)) {
+      callback(null, true);
+      return;
+    }
 
-// Middlewares
+    callback(new Error(`CORS blocked for origin: ${origin}`));
+  },
+  credentials: true,
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 204,
+};
+
+// CORS first so preflight always gets headers, even if later middleware fails.
+app.use(cors(corsOptions));
+app.options(/.*/, cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin(origin, callback) {
-      if (isAllowedOrigin(origin)) {
-        callback(null, true);
-        return;
-      }
+app.get("/", (_req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Mansha API is running",
+  });
+});
 
-      callback(null, false);
-    },
-    credentials: true,
-  })
-);
+app.get("/health", (_req, res) => {
+  res.status(200).json({ success: true, status: "ok" });
+});
 
-// Routes
 app.use("/api", authRoutes);
 app.use("/uploads", express.static("uploads"));
 
-// Server Start
+app.use((err, _req, res, next) => {
+  if (err?.message?.startsWith("CORS blocked")) {
+    res.status(403).json({
+      success: false,
+      message: err.message,
+    });
+    return;
+  }
+  next(err);
+});
+
+// Do not block port binding on MongoDB — Render cold starts fail if listen is delayed.
+connectDB();
+
 app.listen(PORT, () => {
   console.log(`Server Running On Port ${PORT}`);
 });
