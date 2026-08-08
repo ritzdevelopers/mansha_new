@@ -18,7 +18,8 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/contact-us", delay: "560ms" },
   { label: "Careers", href: "/careers", delay: "680ms" },
   { label: "Awards", href: "/awards-accolades", delay: "800ms" },
-  { label: "Blogs", href: "/blog", delay: "800ms" },
+  // Temporarily hidden — re-enable when blog section is ready
+  // { label: "Blogs", href: "/blog", delay: "800ms" },
 ];
 
 const ONGOING_RESIDENTIAL = [

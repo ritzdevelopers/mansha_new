@@ -1,9 +1,8 @@
-import React from "react";
-import BlogDetailPage from "../../component/blog/BlogDetailPage";
+import { redirect } from "next/navigation";
 
-const page = async ({ params }) => {
-  const { slug } = await params;
-  return <BlogDetailPage slug={slug} />;
+// Blog section temporarily hidden — restore previous page content when re-enabling
+const page = () => {
+  redirect("/");
 };
 
 export default page;
