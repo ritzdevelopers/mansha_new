@@ -18,8 +18,7 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/contact-us", delay: "560ms" },
   { label: "Careers", href: "/careers", delay: "680ms" },
   { label: "Awards", href: "/awards-accolades", delay: "800ms" },
-  // Temporarily hidden — re-enable when blog section is ready
-  // { label: "Blogs", href: "/blog", delay: "800ms" },
+  { label: "Blogs", href: "/blog", delay: "800ms" },
 ];
 
 const ONGOING_RESIDENTIAL = [
@@ -137,9 +136,10 @@ const NavSideMenu = ({ open, onClose }) => {
       <aside
         id="mobile-navigation"
         className={`fixed right-0 top-0 z-50 flex h-screen w-[450px] max-w-[90vw] flex-col overflow-hidden bg-white p-8 transition-transform duration-500 ${
-          open ? "translate-x-0" : "translate-x-full"
+          open ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
         }`}
         aria-label="Main mobile"
+        aria-hidden={!open}
       >
         <button
           type="button"

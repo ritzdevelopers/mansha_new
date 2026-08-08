@@ -75,7 +75,7 @@ const ContactFAQ = () => {
           </div>
         </div>
 
-        <div className="w-full space-y-0 text-left lg:justify-self-start lg:pt-20 xl:pt-35 lg:-translate-x-16 xl:-translate-x-10">
+        <div className="relative z-10 w-full space-y-0 text-left lg:justify-self-start lg:pt-20 xl:pt-35 lg:-translate-x-16 xl:-translate-x-10">
           {faqs.map((item, index) => {
             const isOpen = activeIndex === index;
             return (
@@ -83,7 +83,7 @@ const ContactFAQ = () => {
                 <button
                   type="button"
                   onClick={() => toggleItem(index)}
-                  className="flex w-full cursor-pointer items-center justify-between gap-4 text-left"
+                  className="relative z-10 flex w-full cursor-pointer items-center justify-between gap-4 text-left"
                 >
                   <span className="min-w-0 flex-1 truncate pr-2 font-montserrat text-[16px] font-medium capitalize tracking-normal text-[#333333] leading-[20px] md:text-[20px] md:leading-[20px] lg:text-[15px] lg:font-normal lg:leading-[22px] xl:text-[24px] xl:font-medium xl:leading-[100%]">
                     {item.question}

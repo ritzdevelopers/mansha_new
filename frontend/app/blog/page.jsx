@@ -1,8 +1,22 @@
-import { redirect } from "next/navigation";
-
-// Blog section temporarily hidden — restore previous page content when re-enabling
+import React from 'react'
+import Navbar from '../component/blog/Navbar'
+import Footer from '../component/Home/Footer'
+import Smart from '../component/blog/Smart'
+import RecentPosts from '../component/blog/Recent-Posts'
+import TestimoniaCommon from '../component/common/Testimonia-common'
 const page = () => {
-  redirect("/");
-};
+  return (
+    <div>
+      <Navbar />
+      <Smart />
+      <RecentPosts />
 
-export default page;
+      <div className="py-[35px] lg:py-[70px]">
+        <TestimoniaCommon />
+      </div>
+      <Footer />
+    </div>
+  )
+}
+
+export default page
