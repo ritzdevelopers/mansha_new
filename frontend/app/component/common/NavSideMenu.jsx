@@ -7,8 +7,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-const PHONE = "tel:+91-8010003838";
-const PHONE_TEXT = "+91-8010003838";
+const PHONE = "tel:+917070705457";
+const PHONE_TEXT = "+91-7070705457";
 const EMAIL = "mailto:info@manshagroup.in";
 const EMAIL_TEXT = "info@manshagroup.in";
 

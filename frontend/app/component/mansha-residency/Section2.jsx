@@ -195,8 +195,8 @@ const CORPORATE_CONTACTS = [
   },
   {
     icon: "ri-phone-line",
-    label: "+91- 8010003838",
-    href: "tel:+918010003838",
+    label: "+91- 7070705457",
+    href: "tel:+917070705457",
   },
 ];
 
@@ -390,10 +390,10 @@ const Section2 = () => {
                         aria-hidden
                       />
                       <a
-                        href="tel:+918010003838"
+                        href="tel:+917070705457"
                         className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333] transition-colors hover:text-[#652A27]"
                       >
-                         +91- 8010003838
+                         +91- 7070705457
                       </a>
                     </li>
                   </ul>

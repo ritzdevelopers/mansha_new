@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import NavSideMenu from "../common/NavSideMenu";
 
-const PHONE = "tel:+919876543210";
+const PHONE = "tel:+917070705457";
 const WHATSAPP = "https://wa.me/917070705457";
 
 

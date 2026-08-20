@@ -17,7 +17,7 @@ const OFFICE_ADDRESSES = [
 ];
 
 const OFFICE_CONTACT = [
-  { label: "Phone :", value: "+91 8010003838", href: "tel:+918010003838" },
+  { label: "Phone :", value: "+91 7070705457", href: "tel:+917070705457" },
   {
     label: "Email :",
     value: "info@manshagroup.in",
