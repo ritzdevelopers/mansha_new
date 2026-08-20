@@ -71,8 +71,6 @@ export const trendingLocations = [
           "/event/independence-day-sonipat/12.png",
           "/event/independence-day-sonipat/13.png",
           "/event/independence-day-sonipat/14.png",
-          "/event/independence-day-sonipat/15.png",
-          "/event/independence-day-sonipat/16.png",
         ],
       },
     ],
