@@ -1,5 +1,11 @@
+const path = require("path");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Git root is `mansha_new/`; keep module/CSS resolution in `frontend/`.
+  turbopack: {
+    root: path.join(__dirname),
+  },
   images: {
     unoptimized: true,
   },
