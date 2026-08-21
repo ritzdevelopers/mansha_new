@@ -27,22 +27,31 @@ const allowedOrigins = [
 
 const isAllowedOrigin = (origin) => {
   if (!origin) return true;
-  if (allowedOrigins.includes(origin)) return true;
-  return /^https:\/\/[\w-]+\.vercel\.app$/.test(origin);
+  const normalized = String(origin).trim().replace(/\/+$/, "");
+  if (allowedOrigins.some((item) => String(item).trim().replace(/\/+$/, "") === normalized)) {
+    return true;
+  }
+  try {
+    const { hostname } = new URL(normalized);
+    const apex = hostname.replace(/^www\./, "");
+    if (apex === "manshagroup.com" || apex === "manshagroup.in") return true;
+    if (hostname === "localhost" || hostname === "127.0.0.1") return true;
+    if (hostname.endsWith(".vercel.app")) return true;
+  } catch {
+    return false;
+  }
+  return false;
 };
 
 const corsOptions = {
   origin(origin, callback) {
-    if (isAllowedOrigin(origin)) {
-      callback(null, true);
-      return;
-    }
-
-    callback(new Error(`CORS blocked for origin: ${origin}`));
+    // Never throw — a thrown CORS error returns JSON without ACAO and the
+    // browser reports "No Access-Control-Allow-Origin header".
+    callback(null, isAllowedOrigin(origin) ? origin || true : false);
   },
   credentials: true,
   methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   optionsSuccessStatus: 204,
 };
 
@@ -66,7 +75,13 @@ app.get("/health", (_req, res) => {
 app.use("/api", authRoutes);
 app.use("/uploads", express.static("uploads"));
 
-app.use((err, _req, res, next) => {
+app.use((err, req, res, next) => {
+  const origin = req.headers.origin;
+  if (origin && isAllowedOrigin(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Vary", "Origin");
+  }
   if (err?.message?.startsWith("CORS blocked")) {
     res.status(403).json({
       success: false,

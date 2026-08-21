@@ -1,0 +1,8 @@
+{
+  "name": "mansha",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}

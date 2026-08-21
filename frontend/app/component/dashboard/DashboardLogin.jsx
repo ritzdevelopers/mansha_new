@@ -36,9 +36,13 @@ export default function DashboardLogin() {
       setLogPassword("");
       router.replace("/dashboard");
     } catch (err) {
+      const status = err.response?.status;
+      const unreachable = !err.response || status === 502 || status === 503 || status === 504;
       setLogMsg({
         type: "err",
-        text: err.response?.data?.message || err.message || "Login failed",
+        text: unreachable
+          ? "Cannot reach the login server. Check that https://mansha-backend-ov04.onrender.com/health is up, then try again."
+          : err.response?.data?.message || err.message || "Login failed",
       });
     } finally {
       setLogLoading(false);
