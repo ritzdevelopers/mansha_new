@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const AUTOPLAY_MS_DESKTOP = 8000;
-const AUTOPLAY_MS_MOBILE = 2000;
+const AUTOPLAY_MS_DESKTOP = 2500;
+const AUTOPLAY_MS_MOBILE = 1800;
 
 const BANNERS = [
   { src: "/mansha-image/mansha-banner-4.jpg", alt: "Mansha banner 4" },
@@ -193,18 +193,18 @@ const ImageSection = () => {
           }
         }
         .image-section-slide-next {
-          animation: image-section-clip-next 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+          animation: image-section-clip-next 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
         }
         .image-section-slide-next :is(img) {
           transform-origin: center center;
-          animation: image-section-img-zoom 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+          animation: image-section-img-zoom 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
         }
         .image-section-slide-prev {
-          animation: image-section-clip-prev 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+          animation: image-section-clip-prev 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
         }
         .image-section-slide-prev :is(img) {
           transform-origin: center center;
-          animation: image-section-img-zoom 1.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+          animation: image-section-img-zoom 0.8s cubic-bezier(0.76, 0, 0.24, 1) forwards;
         }
         @media (prefers-reduced-motion: reduce) {
           .image-section-slide-next,
