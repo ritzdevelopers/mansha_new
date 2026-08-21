@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 

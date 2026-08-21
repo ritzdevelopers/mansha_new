@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Montserrat } from "next/font/google";
 import "remixicon/fonts/remixicon.css";
+import "swiper/css";
+import "swiper/css/effect-fade";
 import "./globals.css";
 import ComingSoonPopup from "./component/Home/ComingSoonPopup";
 

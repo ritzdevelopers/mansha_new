@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
 
 const LEFT_SLIDES = [
   {

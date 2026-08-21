@@ -4,8 +4,6 @@ import Image from "next/image";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-fade";
 
 const HIGHLIGHT_SLIDES = [
   {

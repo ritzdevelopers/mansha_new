@@ -10,6 +10,7 @@ const nextConfig = {
   turbopack: {
     root: path.join(__dirname),
   },
+  serverExternalPackages: ["lightningcss", "detect-libc"],
   images: {
     unoptimized: true,
   },

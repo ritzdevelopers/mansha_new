@@ -5,7 +5,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
 
 const PHONE = "tel:+917070705457";
 const PHONE_TEXT = "+91-7070705457";
