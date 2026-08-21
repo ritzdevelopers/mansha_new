@@ -3,15 +3,55 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+const STORAGE_KEY = "mansha-coming-soon-popup-seen";
+const COOKIE_NAME = "mansha_coming_soon_seen";
+const SEEN_VALUE = "1";
+const ONE_YEAR_SEC = 60 * 60 * 24 * 365;
+
+function hasSeenPopup() {
+  try {
+    if (window.localStorage.getItem(STORAGE_KEY) === SEEN_VALUE) return true;
+  } catch {
+    /* storage blocked */
+  }
+  try {
+    return document.cookie.split(";").some((part) => part.trim() === `${COOKIE_NAME}=${SEEN_VALUE}`);
+  } catch {
+    return false;
+  }
+}
+
+function markPopupSeen() {
+  try {
+    window.localStorage.setItem(STORAGE_KEY, SEEN_VALUE);
+  } catch {
+    /* storage blocked */
+  }
+  try {
+    const host = window.location.hostname;
+    const domain =
+      host.endsWith("manshagroup.com") || host.endsWith("manshagroup.in")
+        ? `; Domain=.${host.split(".").slice(-2).join(".")}`
+        : "";
+    document.cookie = `${COOKIE_NAME}=${SEEN_VALUE}; Path=/; Max-Age=${ONE_YEAR_SEC}; SameSite=Lax${domain}`;
+  } catch {
+    /* cookies blocked */
+  }
+}
+
 export default function ComingSoonPopup() {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const path = window.location.pathname || "";
+    if (path.startsWith("/dashboard")) return undefined;
+    if (hasSeenPopup()) return undefined;
+
     const showTimer = setTimeout(() => {
+      markPopupSeen();
       setMounted(true);
       document.body.style.overflow = "hidden";
-      // Next frame so CSS transition can run
       requestAnimationFrame(() => {
         requestAnimationFrame(() => setVisible(true));
       });
@@ -24,6 +64,7 @@ export default function ComingSoonPopup() {
   }, []);
 
   const handleClose = () => {
+    markPopupSeen();
     setVisible(false);
     setTimeout(() => {
       setMounted(false);

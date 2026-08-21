@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo_Black, Montserrat } from "next/font/google";
 import "remixicon/fonts/remixicon.css";
 import "./globals.css";
+import ComingSoonPopup from "./component/Home/ComingSoonPopup";
 
 /** Splash MANSHA */
 const archivoBlack = Archivo_Black({
@@ -46,6 +47,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
+        <ComingSoonPopup />
         {children}
       </body>
     </html>
