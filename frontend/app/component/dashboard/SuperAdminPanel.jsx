@@ -3,7 +3,14 @@
 import { useCallback, useEffect, useState } from "react";
   import { adminApi, authApi } from "@/lib/api";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+const API_URL = (
+  process.env.NEXT_PUBLIC_API_URL &&
+  !process.env.NEXT_PUBLIC_API_URL.includes("dxti.onrender.com")
+    ? process.env.NEXT_PUBLIC_API_URL
+    : process.env.NODE_ENV === "production"
+      ? "https://mansha-backend-ov04.onrender.com"
+      : "http://localhost:3001"
+).replace(/\/+$/, "");
 
 const roleBadge = {
   admin: "bg-[#652A27] text-white",

@@ -1,20 +1,25 @@
 import axios from "axios";
 
-const rawApiUrl =
-  process.env.NEXT_PUBLIC_API_URL ||
-  (process.env.NODE_ENV === "production"
-    ? "https://mansha-backend-ov04.onrender.com"
-    : "http://localhost:3001");
+const PROD_API = "https://mansha-backend-ov04.onrender.com";
 
-const normalizedApiUrl = rawApiUrl.replace(/\/+$/, "").replace(/\/api$/, "");
+function apiOrigin() {
+  const fromEnv = (process.env.NEXT_PUBLIC_API_URL || "")
+    .replace(/\/+$/, "")
+    .replace(/\/api$/, "");
 
-// Production browser traffic stays on manshagroup.com so login is not a
-// cross-origin call (avoids CORS when the API is on Render).
-const useSameOriginProxy =
-  typeof window !== "undefined" && process.env.NODE_ENV === "production";
+  if (process.env.NODE_ENV === "production") {
+    // Ignore the old suspended Render URL if it is still set on Vercel.
+    if (!fromEnv || fromEnv.includes("dxti.onrender.com")) {
+      return PROD_API;
+    }
+    return fromEnv;
+  }
+
+  return fromEnv || "http://localhost:3001";
+}
 
 const axiosInstance = axios.create({
-  baseURL: useSameOriginProxy ? "/api-proxy" : `${normalizedApiUrl}/api`,
+  baseURL: `${apiOrigin()}/api`,
   headers: {
     "Content-Type": "application/json",
   },
