@@ -1,5 +1,9 @@
 const path = require("path");
 
+const backendOrigin = (
+  process.env.API_PROXY_TARGET || "https://mansha-backend-ov04.onrender.com"
+).replace(/\/+$/, "");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Git root is `mansha_new/`; keep module/CSS resolution in `frontend/`.
