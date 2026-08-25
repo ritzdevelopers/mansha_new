@@ -96,9 +96,9 @@
 import Image from "next/image";
 import React from "react";
 
-/** Sector 83 & 84, Kumashpur, Sonipat — https://www.google.com/maps */
-const VEGA_STREET_MAP_EMBED =
-  "https://www.google.com/maps?q=Sector%2083%20%26%2084%2C%20Kumashpur%2C%20Sonipat%2C%20Haryana%20131021&t=m&z=14&output=embed&iwloc=near&hl=en_IN";
+/** Official listing: https://share.google/jvCSRiFDN2lvKjHI7 */
+const LOCATION_MAP_EMBED =
+  "https://maps.google.com/maps?q=Mansha%20Heritage%20-%20Sonipat&t=m&z=15&output=embed&iwloc=near&hl=en_IN";
 
 /** 8 rows: same 5 icons cycled (metro → side-metro → School → Hospital → Hospital2 → …) */
 const amenityItems = [
@@ -128,8 +128,8 @@ const Section4 = () => {
           <div className="flex flex-col md:items-center lg:flex-row lg:items-stretch">
             <div className="relative min-h-[200px] w-full flex-1 overflow-hidden border border-[#E6E6E6] bg-[#F5F5F5] md:w-full lg:h-[540px] lg:min-h-[540px] xl:max-w-[calc(100%-450px)]">
               <iframe
-                title="Sector 83 & 84, Kumashpur, Sonipat, Haryana 131021"
-                src={VEGA_STREET_MAP_EMBED}
+                title="Mansha Heritage - Sonipat"
+                src={LOCATION_MAP_EMBED}
                 className="absolute inset-0 h-full w-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
