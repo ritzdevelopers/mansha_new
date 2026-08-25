@@ -1,4 +1,5 @@
-const path = require("path");
+import type { NextConfig } from "next";
+import path from "path";
 
 const backendOrigin = (
   process.env.API_PROXY_TARGET || "https://mansha-backend-ov04.onrender.com"
@@ -9,8 +10,7 @@ const workspaceRoot = path.join(__dirname, "..");
 const frontendModules = path.join(frontendDir, "node_modules");
 const tailwindcssDir = path.join(frontendModules, "tailwindcss");
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   // Workspace root must be turbopack.root. Setting it to frontend makes CSS
   // @import "tailwindcss" resolve from mansha_new/ instead of frontend/.
   outputFileTracingRoot: workspaceRoot,
@@ -20,7 +20,7 @@ const nextConfig = {
       tailwindcss: tailwindcssDir,
     },
   },
-  webpack: (config) => {
+  webpack: (config: any) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       tailwindcss: tailwindcssDir,
@@ -51,4 +51,4 @@ const nextConfig = {
   ],
 };
 
-module.exports = nextConfig;
+export default nextConfig;
