@@ -7,6 +7,7 @@ const backendOrigin = (
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Git root is `mansha_new/`; keep module/CSS resolution in `frontend/`.
+  outputFileTracingRoot: path.join(__dirname, ".."),
   turbopack: {
     root: path.join(__dirname),
   },

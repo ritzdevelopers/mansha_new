@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build --workspace=frontend"
+  publish = "frontend/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_CONFIG_INSTALL_STRATEGY = "nested"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
