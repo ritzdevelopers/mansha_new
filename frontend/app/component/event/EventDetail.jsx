@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import NavSideMenu from "../common/NavSideMenu";
 
 const PHONE = "tel:+917070705457";
-const WHATSAPP = "https://wa.me/917070705457";
+const WHATSAPP = "https://wa.me/918010003838";
 
 const iconBtn =
   "inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-md text-black transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black/40 active:opacity-60";

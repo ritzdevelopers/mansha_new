@@ -124,7 +124,7 @@ const Footer = () => {
                   Phone :
                 </p>
                 <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
-                  +91-7070705457
+                  +91-8010003838
                 </p>
               </div>
               <div className="flex items-center gap-3">
