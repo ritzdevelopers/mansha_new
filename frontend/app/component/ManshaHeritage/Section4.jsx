@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-/** Same embed as https://manshagroup.in/vega-street/ (Divi Google Map module) */
-const VEGA_STREET_MAP_EMBED =
-  "https://maps.google.com/maps?q=Mansha%20Vega%20Street%2C%20Sector%2082%2C%20Faridabad%2C%20Haryana%20121004&t=m&z=10&output=embed&iwloc=near&hl=en_US";
+/** Official listing: https://share.google/jvCSRiFDN2lvKjHI7 */
+const LOCATION_MAP_EMBED =
+  "https://maps.google.com/maps?q=Mansha%20Heritage%20-%20Sonipat&t=m&z=15&output=embed&iwloc=near&hl=en_IN";
 
 /** 8 rows: same 5 icons cycled (metro → side-metro → School → Hospital → Hospital2 → …) */
 const amenityItems = [
@@ -33,8 +33,8 @@ const Section4 = () => {
           <div className="flex flex-col md:items-center lg:flex-row lg:items-stretch">
             <div className="relative min-h-[280px] w-full flex-1 overflow-hidden border border-[#E6E6E6] bg-[#F5F5F5] sm:min-h-[320px] md:w-full lg:h-[540px] lg:min-h-[540px]">
               <iframe
-                title="Mansha Vega Street, Sector 82, Faridabad, Haryana 121004"
-                src={VEGA_STREET_MAP_EMBED}
+                title="Mansha Heritage - Sonipat"
+                src={LOCATION_MAP_EMBED}
                 className="absolute inset-0 h-full w-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
