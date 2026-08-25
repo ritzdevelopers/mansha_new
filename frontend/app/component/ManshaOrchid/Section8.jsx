@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const FAQ_IMAGE = {
-  src: "/mansha-image/homepage-faq.jpg",
-  alt: "Commercial workspace",
+  src: "/mansha-image/mansha-orchid-faq.png",
+  alt: "Mansha Orchid",
 };
 
 const faqs = [
