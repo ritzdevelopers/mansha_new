@@ -1,16 +1,19 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Script from "next/script";
 import { useState } from "react";
 import { authApi } from "@/lib/api";
+import PasswordField from "./PasswordField";
+
+const inputClass =
+  "h-12 w-full rounded-xl border border-[#E6DCCF] bg-[#FFFCF8] px-4 font-montserrat text-sm text-[#2e2e2e] outline-none transition placeholder:text-[#9a9a9a] focus:border-[#652A27] focus:bg-white focus:ring-2 focus:ring-[#652A27]/15";
 
 export default function DashboardLogin() {
   const router = useRouter();
   const [logEmail, setLogEmail] = useState("");
   const [logPassword, setLogPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [logLoading, setLogLoading] = useState(false);
   const [logMsg, setLogMsg] = useState(null);
 
@@ -89,38 +92,44 @@ export default function DashboardLogin() {
     setFpMsg({ type: "err", text: "Please contact super admin to reset password." });
   }
 
-  const inputClass =
-    "w-full rounded-full border border-[#e8e8e8] bg-white px-5 py-3 text-sm text-[#2e2e2e] outline-none transition placeholder:text-[#9a9a9a] focus:border-[#F7A51D] focus:bg-white focus:ring-2 focus:ring-[#F7A51D]/20";
-
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#efefef] px-4 py-8 sm:px-6">
-      <Script
-        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
-        type="module"
-        strategy="afterInteractive"
+    <main className="relative min-h-screen overflow-hidden bg-[#1a1210]">
+      <Image
+        src="/mansha-image/Mansha-Heritage.jpg"
+        alt=""
+        fill
+        priority
+        className="object-cover object-center"
+        sizes="100vw"
       />
+      <div className="absolute inset-0 bg-[#1a1210]/70" />
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl items-center justify-center">
-        <div className="mr-0 hidden w-full max-w-[420px] items-center justify-center lg:mr-10 lg:flex">
-          <div
-            className="h-[450px] w-[450px]"
-            dangerouslySetInnerHTML={{
-              __html:
-                '<dotlottie-wc src="https://lottie.host/7017cb36-bc82-45f0-93ef-2399d25a6570/5eH4NxbFkP.lottie" style="width: 450px; height: 450px" autoplay loop></dotlottie-wc>',
-            }}
-          />
-        </div>
-
-        <section className="w-full max-w-[560px] rounded-sm bg-white shadow-[0_12px_24px_-12px_rgba(0,0,0,0.35)]">
-          <div className="px-6 pb-6 pt-8 sm:px-8">
-            <h1 className="mb-7 text-center font-optima text-3xl font-semibold tracking-wide text-black">
-              Login Form
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl items-center justify-center px-4 py-10 sm:px-6">
+        <section className="w-full max-w-[480px] overflow-hidden rounded-[1.75rem] border border-white/20 bg-white shadow-[0_30px_80px_-24px_rgba(0,0,0,0.55)]">
+          <div className="bg-[#652A27] px-6 py-6 text-white sm:px-8">
+            <Link href="/" className="inline-flex items-center">
+              <Image
+                src="/mansha-svg/mansha-logo.svg"
+                width={110}
+                height={48}
+                alt="Mansha"
+                className="h-10 w-auto brightness-0 invert"
+                priority
+              />
+            </Link>
+            <h1 className="mt-5 font-optima text-3xl font-semibold tracking-wide">
+              Admin Dashboard
             </h1>
+            <p className="mt-1.5 font-montserrat text-sm text-white/75">
+              Sign in to manage users, leads, and website content.
+            </p>
+          </div>
 
+          <div className="px-6 py-7 sm:px-8">
             {logMsg ? (
               <div
                 role="alert"
-                className={`mb-4 rounded-xl px-3 py-2 font-montserrat text-sm ${
+                className={`mb-5 rounded-xl px-3 py-2.5 font-montserrat text-sm ${
                   logMsg.type === "ok"
                     ? "border border-emerald-200 bg-emerald-50 text-emerald-900"
                     : "border border-red-200 bg-red-50 text-red-800"
@@ -134,9 +143,9 @@ export default function DashboardLogin() {
               <div>
                 <label
                   htmlFor="login-email"
-                  className="mb-1 block font-montserrat text-sm font-semibold text-[#4f4f4f]"
+                  className="mb-1.5 block font-montserrat text-sm font-semibold text-[#4f4f4f]"
                 >
-                  Username *
+                  Email
                 </label>
                 <input
                   id="login-email"
@@ -145,72 +154,50 @@ export default function DashboardLogin() {
                   autoComplete="email"
                   value={logEmail}
                   onChange={(e) => setLogEmail(e.target.value)}
-                  placeholder="Enter your Username"
+                  placeholder="Enter your email"
                   className={inputClass}
                 />
               </div>
 
-              <div className="relative">
-                <label
-                  htmlFor="login-password"
-                  className="mb-1 block font-montserrat text-sm font-semibold text-[#4f4f4f]"
-                >
-                  Password *
-                </label>
-                <input
-                  id="login-password"
-                  type={showPassword ? "text" : "password"}
-                  required
-                  autoComplete="current-password"
-                  value={logPassword}
-                  onChange={(e) => setLogPassword(e.target.value)}
-                  placeholder="Enter your Password"
-                  className={`${inputClass} pr-11`}
-                />
+              <PasswordField
+                id="login-password"
+                label="Password"
+                required
+                autoComplete="current-password"
+                value={logPassword}
+                onChange={(e) => setLogPassword(e.target.value)}
+                placeholder="Enter your password"
+                inputClassName={inputClass}
+              />
+
+              <div className="flex justify-end">
                 <button
                   type="button"
-                  onClick={() => setShowPassword((p) => !p)}
-                  className="absolute right-2 top-[calc(50%+12px)] -translate-y-1/2 cursor-pointer rounded-lg p-1.5 text-[#8e8e8e] hover:bg-[#ececec]"
-                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  onClick={openForgotPassword}
+                  className="cursor-pointer font-montserrat text-sm font-semibold text-[#652A27] hover:underline"
                 >
-                  <i
-                    className={
-                      showPassword
-                        ? "ri-eye-off-line text-base"
-                        : "ri-eye-line text-base"
-                    }
-                    aria-hidden
-                  />
+                  Forgot password?
                 </button>
               </div>
 
               <button
                 type="submit"
                 disabled={logLoading}
-                className="mt-2 flex w-full cursor-pointer items-center justify-center rounded-full bg-black py-3 font-montserrat text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 ease-in-out hover:bg-amber-300 hover:text-black disabled:opacity-60"
+                className="flex w-full cursor-pointer items-center justify-center rounded-xl bg-[#652A27] py-3.5 font-montserrat text-sm font-bold uppercase tracking-wider text-white transition hover:bg-[#4A1F1F] disabled:opacity-60"
               >
-                {logLoading ? "Logging in..." : "Login"}
+                {logLoading ? "Signing in..." : "Sign in"}
               </button>
             </form>
-          </div>
 
-          <div className="flex items-center justify-between gap-3 border-t border-[#dfdfdf] bg-white px-6 py-4 font-montserrat text-sm sm:px-8">
-            <p className="text-left font-semibold text-black">
-              <i> Don&apos;t have an account? </i>
+            <p className="mt-6 text-center font-montserrat text-sm text-[#666666]">
+              Don&apos;t have an account?{" "}
               <Link
                 href="/dashboard/register"
-                className="cursor-pointer font-bold text-black hover:text-[#878181]"
+                className="cursor-pointer font-bold text-[#652A27] hover:underline"
               >
                 Sign up
               </Link>
             </p>
-            <button
-              type="button"
-              onClick={openForgotPassword}
-              className="shrink-0 cursor-pointer font-bold text-black hover:text-[#878181]"
-            >
-              Forgot password?
-            </button>
           </div>
         </section>
       </div>
@@ -266,7 +253,7 @@ export default function DashboardLogin() {
             <div className="mt-4 space-y-3">
               <div>
                 <label
-                  className="block font-montserrat text-xs font-semibold text-[#4c427e]"
+                  className="mb-1.5 block font-montserrat text-xs font-semibold text-[#4c427e]"
                   htmlFor="fp-email"
                 >
                   Email
@@ -278,14 +265,14 @@ export default function DashboardLogin() {
                   disabled={fpStep > 1 || fpLoading}
                   value={fpEmail}
                   onChange={(e) => setFpEmail(e.target.value)}
-                  className={`${inputClass} mt-1 ${fpStep > 1 ? "opacity-80" : ""}`}
+                  className={`${inputClass} ${fpStep > 1 ? "opacity-80" : ""}`}
                 />
               </div>
 
               {fpStep >= 2 ? (
                 <div>
                   <label
-                    className="block font-montserrat text-xs font-semibold text-[#4c427e]"
+                    className="mb-1.5 block font-montserrat text-xs font-semibold text-[#4c427e]"
                     htmlFor="fp-otp"
                   >
                     OTP
@@ -302,47 +289,31 @@ export default function DashboardLogin() {
                       setFpOtp(e.target.value.replace(/\D/g, "").slice(0, 6))
                     }
                     placeholder="6-digit code"
-                    className={`${inputClass} mt-1 tracking-widest ${fpStep > 2 ? "opacity-80" : ""}`}
+                    className={`${inputClass} tracking-widest ${fpStep > 2 ? "opacity-80" : ""}`}
                   />
                 </div>
               ) : null}
 
               {fpStep === 3 ? (
                 <>
-                  <div>
-                    <label
-                      className="block font-montserrat text-xs font-semibold text-[#4c427e]"
-                      htmlFor="fp-new-pass"
-                    >
-                      New password
-                    </label>
-                    <input
-                      id="fp-new-pass"
-                      type="password"
-                      autoComplete="new-password"
-                      disabled={fpLoading}
-                      value={fpPassword}
-                      onChange={(e) => setFpPassword(e.target.value)}
-                      className={`${inputClass} mt-1`}
-                    />
-                  </div>
-                  <div>
-                    <label
-                      className="block font-montserrat text-xs font-semibold text-[#4c427e]"
-                      htmlFor="fp-confirm-pass"
-                    >
-                      Confirm password
-                    </label>
-                    <input
-                      id="fp-confirm-pass"
-                      type="password"
-                      autoComplete="new-password"
-                      disabled={fpLoading}
-                      value={fpConfirm}
-                      onChange={(e) => setFpConfirm(e.target.value)}
-                      className={`${inputClass} mt-1`}
-                    />
-                  </div>
+                  <PasswordField
+                    id="fp-new-pass"
+                    label="New password"
+                    autoComplete="new-password"
+                    disabled={fpLoading}
+                    value={fpPassword}
+                    onChange={(e) => setFpPassword(e.target.value)}
+                    inputClassName={inputClass}
+                  />
+                  <PasswordField
+                    id="fp-confirm-pass"
+                    label="Confirm password"
+                    autoComplete="new-password"
+                    disabled={fpLoading}
+                    value={fpConfirm}
+                    onChange={(e) => setFpConfirm(e.target.value)}
+                    inputClassName={inputClass}
+                  />
                 </>
               ) : null}
             </div>
@@ -353,7 +324,7 @@ export default function DashboardLogin() {
                   type="button"
                   disabled={fpLoading}
                   onClick={() => void onSendOtp()}
-                  className="cursor-pointer rounded-2xl bg-gradient-to-r from-[#5f4be8] via-[#7460f1] to-[#8b77ff] px-5 py-2.5 font-montserrat text-sm font-semibold text-white shadow-[0_12px_28px_-14px_rgba(95,75,232,0.9)] hover:brightness-105 disabled:opacity-60"
+                  className="cursor-pointer rounded-xl bg-[#652A27] px-5 py-2.5 font-montserrat text-sm font-semibold text-white hover:bg-[#4A1F1F] disabled:opacity-60"
                 >
                   {fpLoading ? "Sending..." : "Send OTP"}
                 </button>
@@ -368,7 +339,7 @@ export default function DashboardLogin() {
                       setFpOtp("");
                       setFpMsg(null);
                     }}
-                    className="cursor-pointer rounded-2xl border border-zinc-300 px-4 py-2.5 font-montserrat text-sm font-semibold text-zinc-700 hover:bg-zinc-50 disabled:opacity-50"
+                    className="cursor-pointer rounded-xl border border-zinc-300 px-4 py-2.5 font-montserrat text-sm font-semibold text-zinc-700 hover:bg-zinc-50 disabled:opacity-50"
                   >
                     Back
                   </button>
@@ -376,7 +347,7 @@ export default function DashboardLogin() {
                     type="button"
                     disabled={fpLoading}
                     onClick={() => void onVerifyOtp()}
-                    className="cursor-pointer rounded-2xl bg-gradient-to-r from-[#5f4be8] via-[#7460f1] to-[#8b77ff] px-5 py-2.5 font-montserrat text-sm font-semibold text-white hover:brightness-105 disabled:opacity-60"
+                    className="cursor-pointer rounded-xl bg-[#652A27] px-5 py-2.5 font-montserrat text-sm font-semibold text-white hover:bg-[#4A1F1F] disabled:opacity-60"
                   >
                     {fpLoading ? "Checking..." : "Verify OTP"}
                   </button>
@@ -391,7 +362,7 @@ export default function DashboardLogin() {
                       setFpStep(2);
                       setFpMsg(null);
                     }}
-                    className="cursor-pointer rounded-2xl border border-zinc-300 px-4 py-2.5 font-montserrat text-sm font-semibold text-zinc-700 hover:bg-zinc-50 disabled:opacity-50"
+                    className="cursor-pointer rounded-xl border border-zinc-300 px-4 py-2.5 font-montserrat text-sm font-semibold text-zinc-700 hover:bg-zinc-50 disabled:opacity-50"
                   >
                     Back
                   </button>
@@ -399,7 +370,7 @@ export default function DashboardLogin() {
                     type="button"
                     disabled={fpLoading}
                     onClick={() => void onResetPassword()}
-                    className="cursor-pointer rounded-2xl bg-gradient-to-r from-[#5f4be8] via-[#7460f1] to-[#8b77ff] px-5 py-2.5 font-montserrat text-sm font-semibold text-white hover:brightness-105 disabled:opacity-60"
+                    className="cursor-pointer rounded-xl bg-[#652A27] px-5 py-2.5 font-montserrat text-sm font-semibold text-white hover:bg-[#4A1F1F] disabled:opacity-60"
                   >
                     {fpLoading ? "Saving..." : "Update password"}
                   </button>

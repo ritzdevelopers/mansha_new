@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "./section4-swiper.css";
+import { useAwards } from "@/lib/usePublicCms";
 
 const ACHIEVEMENTS = [
   {
@@ -45,9 +46,9 @@ const ACHIEVEMENTS = [
   },
 ];
 
-const CAROUSEL_SLIDES = ACHIEVEMENTS.flatMap((item) => item.images.slice(0, 2));
-
 const Section4 = () => {
+  const awards = useAwards(ACHIEVEMENTS);
+  const carouselSlides = awards.flatMap((item) => (item.images || []).slice(0, 2));
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -85,7 +86,7 @@ const Section4 = () => {
             onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
             className="awards-highlight-swiper awards-highlight-swiper--rtl w-full"
           >
-            {CAROUSEL_SLIDES.map((image, idx) => (
+            {carouselSlides.map((image, idx) => (
               <SwiperSlide key={`${image.src}-${idx}`} className="!w-auto">
                 <div className="award-slide-frame relative overflow-hidden rounded-[20px]">
                   <Image
@@ -103,7 +104,7 @@ const Section4 = () => {
         </div>
 
         <div className="mt-6 flex min-h-[8px] items-center justify-center gap-1.5">
-          {CAROUSEL_SLIDES.map((_, idx) => (
+          {carouselSlides.map((_, idx) => (
             <button
               key={idx}
               type="button"

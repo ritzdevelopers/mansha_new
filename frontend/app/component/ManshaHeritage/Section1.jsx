@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import NavSideMenu from "../common/NavSideMenu";
 
 const PHONE = "tel:+917070705457";
-const WHATSAPP = "https://wa.me/917070705457";
+const WHATSAPP = "https://wa.me/918010003838";
 const VEGA_SLIDES = ["/mansha-image/residential-hero.png"];
 
 

@@ -4,16 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { registerUser } from "@/lib/api";
-
-function staggerClass(i) {
-  return { animationDelay: `${80 + i * 70}ms` };
-}
+import PasswordField from "./PasswordField";
 
 export default function DashboardRegister() {
   const [regName, setRegName] = useState("");
   const [regEmail, setRegEmail] = useState("");
   const [regPassword, setRegPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [regRole, setRegRole] = useState("editor");
   const [regLoading, setRegLoading] = useState(false);
   const [regMsg, setRegMsg] = useState(null);
@@ -123,14 +119,15 @@ export default function DashboardRegister() {
                   placeholder="Email"
                   className={inputClass}
                 />
-                <input
-                  type={showPassword ? "text" : "password"}
+                <PasswordField
+                  id="register-password"
                   required
                   autoComplete="new-password"
                   value={regPassword}
                   onChange={(e) => setRegPassword(e.target.value)}
                   placeholder="Password"
-                  className={inputClass}
+                  inputClassName={inputClass}
+                  toggleClassName="text-zinc-500 hover:bg-black/10 hover:text-zinc-800"
                 />
                 <select
                   value={regRole}

@@ -14,6 +14,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  transpilePackages: ["jodit-react", "jodit"],
   async rewrites() {
     return [
       {

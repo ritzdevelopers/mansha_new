@@ -26,6 +26,9 @@ axiosInstance.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  if (typeof FormData !== "undefined" && config.data instanceof FormData) {
+    delete config.headers["Content-Type"];
+  }
   return config;
 });
 
@@ -131,6 +134,81 @@ export const adminApi = {
 
   getBrochureData: async () => {
     const { data } = await axiosInstance.get("/get-brochure-data");
+    return data;
+  },
+
+  uploadImage: async (file) => {
+    const formData = new FormData();
+    formData.append("image", file);
+    const { data } = await axiosInstance.post("/admin/upload", formData);
+    return data;
+  },
+
+  getBlogs: async () => {
+    const { data } = await axiosInstance.get("/admin/blogs");
+    return data;
+  },
+  createBlog: async (body) => {
+    const { data } = await axiosInstance.post("/admin/blogs", body);
+    return data;
+  },
+  updateBlog: async (id, body) => {
+    const { data } = await axiosInstance.put(`/admin/blogs/${id}`, body);
+    return data;
+  },
+  deleteBlog: async (id) => {
+    const { data } = await axiosInstance.delete(`/admin/blogs/${id}`);
+    return data;
+  },
+
+  getJobs: async () => {
+    const { data } = await axiosInstance.get("/admin/jobs");
+    return data;
+  },
+  createJob: async (body) => {
+    const { data } = await axiosInstance.post("/admin/jobs", body);
+    return data;
+  },
+  updateJob: async (id, body) => {
+    const { data } = await axiosInstance.put(`/admin/jobs/${id}`, body);
+    return data;
+  },
+  deleteJob: async (id) => {
+    const { data } = await axiosInstance.delete(`/admin/jobs/${id}`);
+    return data;
+  },
+
+  getAwards: async () => {
+    const { data } = await axiosInstance.get("/admin/awards");
+    return data;
+  },
+  createAward: async (body) => {
+    const { data } = await axiosInstance.post("/admin/awards", body);
+    return data;
+  },
+  updateAward: async (id, body) => {
+    const { data } = await axiosInstance.put(`/admin/awards/${id}`, body);
+    return data;
+  },
+  deleteAward: async (id) => {
+    const { data } = await axiosInstance.delete(`/admin/awards/${id}`);
+    return data;
+  },
+
+  getGallery: async () => {
+    const { data } = await axiosInstance.get("/admin/gallery");
+    return data;
+  },
+  createGalleryImage: async (body) => {
+    const { data } = await axiosInstance.post("/admin/gallery", body);
+    return data;
+  },
+  updateGalleryImage: async (id, body) => {
+    const { data } = await axiosInstance.put(`/admin/gallery/${id}`, body);
+    return data;
+  },
+  deleteGalleryImage: async (id) => {
+    const { data } = await axiosInstance.delete(`/admin/gallery/${id}`);
     return data;
   },
 };

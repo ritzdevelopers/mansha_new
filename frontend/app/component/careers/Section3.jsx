@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { JOBS } from "../common/JobApply";
 import { submitCareerApplication } from "@/lib/api";
+import { useCareerJobs } from "@/lib/usePublicCms";
 
 let setCareerDesignation = null;
 
@@ -14,6 +14,7 @@ export function handleCareerApply(title) {
 }
 
 const Section3 = () => {
+  const jobs = useCareerJobs();
   const inputClass =
     "h-[56px] w-full bg-[#FAFAFA] px-5 font-montserrat text-[14px] font-normal leading-[24px] text-[#515151] outline-none placeholder:text-[#515151]";
   const [designation, setDesignation] = useState("");
@@ -113,7 +114,7 @@ const Section3 = () => {
               <option value="" disabled>
                 Designation *
               </option>
-              {JOBS.map((job) => (
+              {jobs.map((job) => (
                 <option key={job.id} value={job.title}>
                   {job.title}
                 </option>

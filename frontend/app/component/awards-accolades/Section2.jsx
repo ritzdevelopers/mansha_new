@@ -1,5 +1,7 @@
 "use client";
 
+import { useAwards } from "@/lib/usePublicCms";
+
 const AWARD_ITEMS = [
   {
     id: "award-phygital",
@@ -77,17 +79,19 @@ const scrollToAward = (id) => {
 };
 
 const Section2 = () => {
+  const awardItems = useAwards(AWARD_ITEMS);
+
   return (
     <section className="w-full  pb-[35px] pt-2 lg:pb-[50px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
         <div className="overflow-hidden rounded-[20px] border border-[#E8E4DC] bg-white">
-          {AWARD_ITEMS.map((item, index) => (
+          {awardItems.map((item, index) => (
             <button
               key={item.id}
               type="button"
               onClick={() => scrollToAward(item.id)}
               className={`flex w-full cursor-pointer items-center gap-4 px-4 py-5 text-left transition-colors hover:bg-[#FAFAFA] sm:gap-5 sm:px-6 sm:py-6 ${
-                index < AWARD_ITEMS.length - 1 ? "border-b border-[#EEEEEE]" : ""
+                index < awardItems.length - 1 ? "border-b border-[#EEEEEE]" : ""
               } ${item.featured ? "border-l-4 border-l-[#E87B35]" : "border-l-4 border-l-transparent"}`}
             >
               <span

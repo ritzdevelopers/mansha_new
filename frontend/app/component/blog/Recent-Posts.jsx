@@ -3,41 +3,50 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useMemo, useState } from "react";
-import { BLOG_POSTS } from "./blogPosts";
+import { usePublishedBlogs } from "@/lib/usePublicCms";
 
 const FALLBACK_IMAGE = "/blog/blog-image.png";
 
-const SIDEBAR_POSTS = BLOG_POSTS.slice(0, 4).map((post, index) => ({
-  id: post.slug ?? post.id ?? index,
-  title: post.title,
-  date: post.date?.trim() ?? "",
-  image: post.image || FALLBACK_IMAGE,
-  slug: post.slug,
-}));
-
-const MAIN_CARDS = BLOG_POSTS.slice(0, 2).map((post, index) => ({
-  id: post.slug ?? post.id ?? index,
-  date: post.date?.trim() ?? "",
-  title: post.title,
-  descriptionLead: post.descriptionLead,
-  image: post.image || FALLBACK_IMAGE,
-  slug: post.slug,
-}));
-
 const RecentPosts = () => {
+  const posts = usePublishedBlogs();
   const [searchQuery, setSearchQuery] = useState("");
+
+  const sidebarPosts = useMemo(
+    () =>
+      posts.slice(0, 4).map((post, index) => ({
+        id: post.slug ?? post.id ?? index,
+        title: post.title,
+        date: post.date?.trim() ?? "",
+        image: post.image || FALLBACK_IMAGE,
+        slug: post.slug,
+      })),
+    [posts]
+  );
+
+  const mainCards = useMemo(
+    () =>
+      posts.map((post, index) => ({
+        id: post.slug ?? post.id ?? index,
+        date: post.date?.trim() ?? "",
+        title: post.title,
+        descriptionLead: post.descriptionLead,
+        image: post.image || FALLBACK_IMAGE,
+        slug: post.slug,
+      })),
+    [posts]
+  );
 
   const filteredMainCards = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
-    if (!query) return MAIN_CARDS;
-    return MAIN_CARDS.filter((card) => card.title.toLowerCase().includes(query));
-  }, [searchQuery]);
+    if (!query) return mainCards;
+    return mainCards.filter((card) => card.title.toLowerCase().includes(query));
+  }, [searchQuery, mainCards]);
 
   const filteredSidebarPosts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
-    if (!query) return SIDEBAR_POSTS;
-    return SIDEBAR_POSTS.filter((post) => post.title.toLowerCase().includes(query));
-  }, [searchQuery]);
+    if (!query) return sidebarPosts;
+    return sidebarPosts.filter((post) => post.title.toLowerCase().includes(query));
+  }, [searchQuery, sidebarPosts]);
 
   return (
     <section className="w-full bg-white pb-[35px] lg:pb-[70px]">

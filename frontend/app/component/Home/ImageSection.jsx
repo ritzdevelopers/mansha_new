@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const AUTOPLAY_MS_DESKTOP = 2500;
@@ -152,7 +153,7 @@ const ImageSection = () => {
           </button>
         </div>
 
-        <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 md:hidden">
+        <div className="absolute bottom-4 left-4 z-20 flex items-center gap-1.5 md:hidden">
           {BANNERS.map((banner, index) => (
             <button
               key={banner.src}
@@ -164,6 +165,27 @@ const ImageSection = () => {
               }`}
             />
           ))}
+        </div>
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 bg-gradient-to-t from-black/55 via-black/15 to-transparent pb-5 pt-16 md:pb-8 md:pt-24">
+          <div className="pointer-events-auto ml-auto mr-4 max-w-[280px] rounded-[16px] border border-white/20 bg-white/95 p-4 text-left shadow-[0_8px_30px_rgba(0,0,0,0.18)] backdrop-blur-sm sm:mr-6 sm:max-w-[320px] sm:p-5 lg:mr-10">
+            <p className="font-montserrat text-[11px] font-medium uppercase tracking-[0.16em] text-[#888888]">
+              Featured Project
+            </p>
+            <p className="mt-1.5 font-optima text-[22px] font-medium leading-[1.15] text-[#111111] sm:text-[24px]">
+              Vega Street
+            </p>
+            <p className="mt-1.5 font-montserrat text-[13px] leading-[1.45] text-[#555555]">
+              High-street commercial destination in Sonipat.
+            </p>
+            <Link
+              href="/vega-street"
+              className="group mt-4 inline-flex items-center gap-2 rounded-full bg-[#652A27] px-4 py-2 font-montserrat text-[13px] font-medium text-white transition hover:bg-[#4A1F1F]"
+            >
+              Explore Project
+              <i className="ri-arrow-right-line text-[16px] transition group-hover:translate-x-0.5" aria-hidden />
+            </Link>
+          </div>
         </div>
       </div>
 

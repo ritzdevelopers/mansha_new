@@ -1,7 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-  import { adminApi, authApi } from "@/lib/api";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { adminApi, authApi } from "@/lib/api";
+import BlogManager from "./cms/BlogManager";
+import JobsManager from "./cms/JobsManager";
+import AwardsManager from "./cms/AwardsManager";
+import GalleryManager from "./cms/GalleryManager";
 
 const API_URL = (
   process.env.NEXT_PUBLIC_API_URL &&
@@ -14,20 +18,44 @@ const API_URL = (
 
 const roleBadge = {
   admin: "bg-[#652A27] text-white",
+  superadmin: "bg-[#1a1210] text-white",
   editor: "bg-[#FCE0BA] text-[#652A27]",
   pending: "bg-[#FFF3CD] text-[#856404]",
   approved: "bg-[#E8F5E9] text-[#2E7D32]",
   rejected: "bg-[#FFEBEE] text-[#C62828]",
 };
 
-const menuItems = [
-  { id: "users", label: "Users", icon: "ri-group-line" },
-  { id: "enquire", label: "Enquire Forms", icon: "ri-questionnaire-line" },
-  { id: "contact", label: "Contact Forms", icon: "ri-mail-line" },
-  { id: "career", label: "Career Forms", icon: "ri-briefcase-line" },
-  { id: "brochure", label: "Brochure Forms", icon: "ri-file-download-line" },
-  { id: "profile", label: "My Profile", icon: "ri-user-line" },
+const menuGroups = [
+  {
+    label: "Team",
+    items: [{ id: "users", label: "Users", icon: "ri-group-line" }],
+    superAdminOnly: true,
+  },
+  {
+    label: "Leads",
+    items: [
+      { id: "enquire", label: "Enquire Forms", icon: "ri-questionnaire-line" },
+      { id: "contact", label: "Contact Forms", icon: "ri-mail-line" },
+      { id: "career", label: "Career Forms", icon: "ri-briefcase-line" },
+      { id: "brochure", label: "Brochure Forms", icon: "ri-file-download-line" },
+    ],
+  },
+  {
+    label: "Website",
+    items: [
+      { id: "jobs", label: "Career Jobs", icon: "ri-id-card-line" },
+      { id: "blogs", label: "Blogs", icon: "ri-article-line" },
+      { id: "awards", label: "Awards", icon: "ri-trophy-line" },
+      { id: "gallery", label: "Gallery", icon: "ri-image-line" },
+    ],
+  },
+  {
+    label: "Account",
+    items: [{ id: "profile", label: "My Profile", icon: "ri-user-line" }],
+  },
 ];
+
+const CMS_MENUS = ["jobs", "blogs", "awards", "gallery"];
 
 const formatDate = (value) => {
   if (!value) return "-";
@@ -37,69 +65,130 @@ const formatDate = (value) => {
   });
 };
 
+const cardClass =
+  "overflow-hidden rounded-2xl border border-[#E8DDD0] bg-white shadow-[0_8px_24px_-18px_rgba(101,42,39,0.45)]";
+
 const AlertBox = ({ type, children }) => (
   <p
-    className={`rounded-lg px-4 py-3 font-montserrat text-[14px] ${
+    className={`rounded-xl px-4 py-3 font-montserrat text-[14px] ${
       type === "error"
-        ? "bg-[#652A27]/10 text-[#652A27]"
-        : "bg-[#E8F5E9] text-[#2E7D32]"
+        ? "border border-[#652A27]/20 bg-[#652A27]/10 text-[#652A27]"
+        : "border border-emerald-200 bg-emerald-50 text-[#2E7D32]"
     }`}
   >
     {children}
   </p>
 );
 
-const DataTable = ({ columns, rows, emptyText }) => {
-  if (!rows.length) {
-    return (
-      <p className="mt-6 font-montserrat text-[14px] text-[#999999]">
-        {emptyText}
-      </p>
+const EmptyState = ({ text, icon = "ri-inbox-2-line" }) => (
+  <div className="mt-6 flex flex-col items-center justify-center rounded-xl border border-dashed border-[#E8DDD0] bg-[#FBF8F4] px-4 py-12 text-center">
+    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#652A27] shadow-sm">
+      <i className={`${icon} text-xl`} aria-hidden />
+    </span>
+    <p className="mt-3 font-montserrat text-sm text-[#888888]">{text}</p>
+  </div>
+);
+
+const DataTable = ({ columns, rows, emptyText, searchable = true }) => {
+  const [query, setQuery] = useState("");
+
+  const filtered = useMemo(() => {
+    if (!query.trim()) return rows;
+    const q = query.toLowerCase();
+    return rows.filter((row) =>
+      columns.some((column) => {
+        const value = row[column.key];
+        return value != null && String(value).toLowerCase().includes(q);
+      })
     );
+  }, [rows, columns, query]);
+
+  if (!rows.length) {
+    return <EmptyState text={emptyText} />;
   }
 
   return (
-    <div className="mt-5 overflow-x-auto">
-      <table className="w-full max-w-8xl border-collapse">
-        <thead>
-          <tr className="border-b border-[#EEEEEE] text-left">
-            {columns.map((column) => (
-              <th
-                key={column.key}
-                className="pb-3 font-montserrat text-[12px] font-medium uppercase text-[#999999]"
-              >
-                {column.label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row._id} className="border-b border-[#F5F5F5]">
-              {columns.map((column) => (
-                <td
-                  key={column.key}
-                  className="py-4 font-montserrat text-[13px] text-[#333333]"
+    <div className="mt-5">
+      {searchable ? (
+        <div className="relative mb-4 max-w-sm">
+          <i
+            className="ri-search-line pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#999999]"
+            aria-hidden
+          />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search this table"
+            className="h-10 w-full rounded-xl border border-[#E8DDD0] bg-[#FBF8F4] pl-9 pr-3 font-montserrat text-sm text-[#333333] outline-none placeholder:text-[#AAAAAA] focus:border-[#652A27] focus:bg-white focus:ring-2 focus:ring-[#652A27]/10"
+          />
+        </div>
+      ) : null}
+
+      {filtered.length === 0 ? (
+        <EmptyState text="No matching rows" icon="ri-search-line" />
+      ) : (
+        <div className="overflow-x-auto rounded-xl border border-[#F0E7DC]">
+          <table className="w-full min-w-[640px] border-collapse">
+            <thead>
+              <tr className="bg-[#FBF8F4] text-left">
+                {columns.map((column) => (
+                  <th
+                    key={column.key}
+                    className="px-4 py-3 font-montserrat text-[11px] font-semibold uppercase tracking-wide text-[#888888]"
+                  >
+                    {column.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((row) => (
+                <tr
+                  key={row._id}
+                  className="border-t border-[#F5EFE7] transition hover:bg-[#FBF8F4]/80"
                 >
-                  {column.render ? column.render(row) : row[column.key] || "-"}
-                </td>
+                  {columns.map((column) => (
+                    <td
+                      key={column.key}
+                      className="max-w-[280px] px-4 py-3.5 font-montserrat text-[13px] text-[#333333]"
+                    >
+                      {column.render ? column.render(row) : row[column.key] || "-"}
+                    </td>
+                  ))}
+                </tr>
               ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };
 
+const LoadingBlock = () => (
+  <div className={`${cardClass} p-5 md:p-6`}>
+    <div className="animate-pulse space-y-4">
+      <div className="h-6 w-40 rounded bg-[#EDE4D8]" />
+      <div className="h-4 w-64 rounded bg-[#F3EBE1]" />
+      <div className="h-12 rounded-xl bg-[#F6F1EA]" />
+      <div className="h-12 rounded-xl bg-[#F6F1EA]" />
+      <div className="h-12 rounded-xl bg-[#F6F1EA]" />
+    </div>
+  </div>
+);
+
 export default function SuperAdminPanel({ role = "superadmin" }) {
   const isSuperAdmin = role === "superadmin";
-  const visibleMenuItems = isSuperAdmin
-    ? menuItems
-    : menuItems.filter((item) => item.id !== "users");
-  const [activeMenu, setActiveMenu] = useState(
-    isSuperAdmin ? "users" : "enquire"
-  );
+  const visibleGroups = menuGroups
+    .map((group) => ({
+      ...group,
+      items: group.superAdminOnly && !isSuperAdmin ? [] : group.items,
+    }))
+    .filter((group) => group.items.length > 0);
+
+  const [activeMenu, setActiveMenu] = useState(isSuperAdmin ? "users" : "enquire");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [pendingUsers, setPendingUsers] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [enquireData, setEnquireData] = useState([]);
@@ -111,6 +200,16 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
   const [actionLoading, setActionLoading] = useState(null);
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
+
+  const onCmsNotice = useCallback((type, text) => {
+    if (type === "error") {
+      setError(text);
+      setMessage("");
+      return;
+    }
+    setMessage(text);
+    setError("");
+  }, []);
 
   const fetchUsers = useCallback(async () => {
     setLoading(true);
@@ -165,6 +264,11 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
   }, []);
 
   useEffect(() => {
+    if (CMS_MENUS.includes(activeMenu)) {
+      setLoading(false);
+      return;
+    }
+
     if (activeMenu === "users") {
       if (!isSuperAdmin) return;
       fetchUsers();
@@ -174,13 +278,13 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
     fetchFormData(activeMenu);
   }, [activeMenu, fetchUsers, fetchFormData, isSuperAdmin]);
 
-  const handleApprove = async (userId, role) => {
-    setActionLoading(`${userId}-approve-${role}`);
+  const handleApprove = async (userId, nextRole) => {
+    setActionLoading(`${userId}-approve-${nextRole}`);
     setMessage("");
     setError("");
     try {
-      await adminApi.approveUser(userId, role);
-      setMessage(`User approved as ${role}`);
+      await adminApi.approveUser(userId, nextRole);
+      setMessage(`User approved as ${nextRole}`);
       await fetchUsers();
     } catch (err) {
       setError(err.response?.data?.message || err.message);
@@ -204,12 +308,12 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
     }
   };
 
-  const handleRoleChange = async (userId, role) => {
-    setActionLoading(`${userId}-role-${role}`);
+  const handleRoleChange = async (userId, nextRole) => {
+    setActionLoading(`${userId}-role-${nextRole}`);
     setMessage("");
     setError("");
     try {
-      await adminApi.updateUserRole(userId, role);
+      await adminApi.updateUserRole(userId, nextRole);
       setMessage("Role updated successfully");
       await fetchUsers();
     } catch (err) {
@@ -219,39 +323,56 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
     }
   };
 
+  const selectMenu = (id) => {
+    setActiveMenu(id);
+    setError("");
+    setMessage("");
+    setSidebarOpen(false);
+  };
+
   const renderUsers = () => (
-    <div className="space-y-8">
-      <section className="rounded-2xl border border-[#DDDDDD] bg-white p-5 md:p-6">
-        <h2 className="font-optima text-[22px] font-medium text-[#111111] md:text-[26px]">
-          Pending Approvals
-        </h2>
-        <p className="mt-1 font-montserrat text-[13px] text-[#666666]">
-          New registrations appear here. Assign admin or editor role to allow login.
-        </p>
+    <div className="space-y-6">
+      <section className={`${cardClass} p-5 md:p-6`}>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h2 className="font-optima text-[22px] font-medium text-[#111111] md:text-[26px]">
+              Pending Approvals
+            </h2>
+            <p className="mt-1 font-montserrat text-[13px] text-[#666666]">
+              New registrations appear here. Assign admin or editor to allow login.
+            </p>
+          </div>
+          <span className="rounded-full bg-[#FFF3CD] px-3 py-1 font-montserrat text-xs font-semibold text-[#856404]">
+            {pendingUsers.length}
+          </span>
+        </div>
 
         {pendingUsers.length === 0 ? (
-          <p className="mt-6 font-montserrat text-[14px] text-[#999999]">
-            No pending users
-          </p>
+          <EmptyState text="No pending users" icon="ri-user-follow-line" />
         ) : (
-          <div className="mt-5 space-y-4">
+          <div className="mt-5 space-y-3">
             {pendingUsers.map((user) => (
               <div
                 key={user._id}
-                className="flex flex-col gap-4 rounded-xl border border-[#EEEEEE] p-4 md:flex-row md:items-center md:justify-between"
+                className="flex flex-col gap-4 rounded-xl border border-[#F0E7DC] bg-[#FBF8F4] p-4 md:flex-row md:items-center md:justify-between"
               >
-                <div>
-                  <p className="font-montserrat text-[15px] font-medium text-[#111111]">
-                    {user.name}
-                  </p>
-                  <p className="font-montserrat text-[13px] text-[#666666]">
-                    {user.email}
-                  </p>
-                  <span
-                    className={`mt-2 inline-block rounded-full px-3 py-1 font-montserrat text-[11px] capitalize ${roleBadge.pending}`}
-                  >
-                    pending
+                <div className="flex items-center gap-3">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#652A27] font-montserrat text-sm font-semibold text-white">
+                    {(user.name || "U").charAt(0).toUpperCase()}
                   </span>
+                  <div>
+                    <p className="font-montserrat text-[15px] font-medium text-[#111111]">
+                      {user.name}
+                    </p>
+                    <p className="font-montserrat text-[13px] text-[#666666]">
+                      {user.email}
+                    </p>
+                    <span
+                      className={`mt-2 inline-block rounded-full px-3 py-1 font-montserrat text-[11px] capitalize ${roleBadge.pending}`}
+                    >
+                      pending
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
@@ -279,7 +400,7 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
                     type="button"
                     disabled={!!actionLoading}
                     onClick={() => handleReject(user._id)}
-                    className="cursor-pointer rounded-full border border-[#DDDDDD] px-4 py-2 font-montserrat text-[13px] text-[#666666] transition hover:bg-[#F5F5F5] disabled:opacity-60"
+                    className="cursor-pointer rounded-full border border-[#DDDDDD] bg-white px-4 py-2 font-montserrat text-[13px] text-[#666666] transition hover:bg-[#F5F5F5] disabled:opacity-60"
                   >
                     {actionLoading === `${user._id}-reject` ? "..." : "Reject"}
                   </button>
@@ -290,7 +411,7 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
         )}
       </section>
 
-      <section className="rounded-2xl border border-[#DDDDDD] bg-white p-5 md:p-6">
+      <section className={`${cardClass} p-5 md:p-6`}>
         <h2 className="font-optima text-[22px] font-medium text-[#111111] md:text-[26px]">
           All Users
         </h2>
@@ -328,12 +449,12 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
               label: "Actions",
               render: (row) =>
                 row.status === "approved" ? (
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     <button
                       type="button"
                       disabled={!!actionLoading || row.role === "admin"}
                       onClick={() => handleRoleChange(row._id, "admin")}
-                            className="cursor-pointer rounded-full border border-[#652A27] px-3 py-1 font-montserrat text-[12px] text-[#652A27] disabled:opacity-40"
+                      className="cursor-pointer rounded-full border border-[#652A27] px-3 py-1 font-montserrat text-[12px] text-[#652A27] disabled:opacity-40"
                     >
                       Make Admin
                     </button>
@@ -341,7 +462,7 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
                       type="button"
                       disabled={!!actionLoading || row.role === "editor"}
                       onClick={() => handleRoleChange(row._id, "editor")}
-                            className="cursor-pointer rounded-full border border-[#DDDDDD] px-3 py-1 font-montserrat text-[12px] text-[#666666] disabled:opacity-40"
+                      className="cursor-pointer rounded-full border border-[#DDDDDD] px-3 py-1 font-montserrat text-[12px] text-[#666666] disabled:opacity-40"
                     >
                       Make Editor
                     </button>
@@ -357,7 +478,7 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
   );
 
   const renderEnquire = () => (
-    <section className="rounded-2xl border border-[#DDDDDD] bg-white p-5 md:p-6">
+    <section className={`${cardClass} p-5 md:p-6`}>
       <h2 className="font-optima text-[22px] font-medium text-[#111111] md:text-[26px]">
         Enquire Form Data
       </h2>
@@ -369,7 +490,15 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
           { key: "email", label: "Email" },
           { key: "phone", label: "Phone" },
           { key: "project", label: "Project" },
-          { key: "message", label: "Message" },
+          {
+            key: "message",
+            label: "Message",
+            render: (row) => (
+              <span className="line-clamp-2" title={row.message}>
+                {row.message || "-"}
+              </span>
+            ),
+          },
           {
             key: "createdAt",
             label: "Submitted",
@@ -381,7 +510,7 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
   );
 
   const renderContact = () => (
-    <section className="rounded-2xl border border-[#DDDDDD] bg-white p-5 md:p-6">
+    <section className={`${cardClass} p-5 md:p-6`}>
       <h2 className="font-optima text-[22px] font-medium text-[#111111] md:text-[26px]">
         Contact Form Data
       </h2>
@@ -392,7 +521,15 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
           { key: "name", label: "Name" },
           { key: "email", label: "Email" },
           { key: "phone", label: "Phone" },
-          { key: "message", label: "Message" },
+          {
+            key: "message",
+            label: "Message",
+            render: (row) => (
+              <span className="line-clamp-2" title={row.message}>
+                {row.message || "-"}
+              </span>
+            ),
+          },
           {
             key: "createdAt",
             label: "Submitted",
@@ -404,7 +541,7 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
   );
 
   const renderCareer = () => (
-    <section className="rounded-2xl border border-[#DDDDDD] bg-white p-5 md:p-6">
+    <section className={`${cardClass} p-5 md:p-6`}>
       <h2 className="font-optima text-[22px] font-medium text-[#111111] md:text-[26px]">
         Career Form Data
       </h2>
@@ -425,7 +562,7 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
                   href={`${API_URL}/${row.resume.replace(/\\/g, "/")}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="cursor-pointer text-[#652A27] underline"
+                  className="cursor-pointer font-medium text-[#652A27] underline"
                 >
                   View Resume
                 </a>
@@ -444,7 +581,7 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
   );
 
   const renderBrochure = () => (
-    <section className="rounded-2xl border border-[#DDDDDD] bg-white p-5 md:p-6">
+    <section className={`${cardClass} p-5 md:p-6`}>
       <h2 className="font-optima text-[22px] font-medium text-[#111111] md:text-[26px]">
         Brochure Form Data
       </h2>
@@ -467,47 +604,42 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
   );
 
   const renderProfile = () => (
-    <section className="rounded-2xl border border-[#DDDDDD] bg-white p-5 md:p-6">
+    <section className={`${cardClass} p-5 md:p-6`}>
       <h2 className="font-optima text-[22px] font-medium text-[#111111] md:text-[26px]">
         My Profile
       </h2>
       {!profile ? (
-        <p className="mt-6 font-montserrat text-[14px] text-[#999999]">
-          Profile not found
-        </p>
+        <EmptyState text="Profile not found" icon="ri-user-line" />
       ) : (
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="rounded-xl border border-[#EEEEEE] p-4">
-            <p className="font-montserrat text-[12px] uppercase text-[#999999]">
-              Name
-            </p>
-            <p className="mt-1 font-montserrat text-[15px] text-[#111111]">
-              {profile.name}
-            </p>
+        <div className="mt-6">
+          <div className="mb-6 flex items-center gap-4 rounded-2xl bg-[#FBF8F4] p-4">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#652A27] font-optima text-xl text-white">
+              {(profile.name || "A").charAt(0).toUpperCase()}
+            </span>
+            <div>
+              <p className="font-optima text-xl text-[#111111]">{profile.name}</p>
+              <p className="font-montserrat text-sm text-[#666666]">{profile.email}</p>
+            </div>
           </div>
-          <div className="rounded-xl border border-[#EEEEEE] p-4">
-            <p className="font-montserrat text-[12px] uppercase text-[#999999]">
-              Email
-            </p>
-            <p className="mt-1 font-montserrat text-[15px] text-[#111111]">
-              {profile.email}
-            </p>
-          </div>
-          <div className="rounded-xl border border-[#EEEEEE] p-4">
-            <p className="font-montserrat text-[12px] uppercase text-[#999999]">
-              Role
-            </p>
-            <p className="mt-1 font-montserrat text-[15px] capitalize text-[#111111]">
-              {profile.role}
-            </p>
-          </div>
-          <div className="rounded-xl border border-[#EEEEEE] p-4">
-            <p className="font-montserrat text-[12px] uppercase text-[#999999]">
-              Status
-            </p>
-            <p className="mt-1 font-montserrat text-[15px] capitalize text-[#111111]">
-              {profile.status || "approved"}
-            </p>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {[
+              ["Name", profile.name],
+              ["Email", profile.email],
+              ["Role", profile.role],
+              ["Status", profile.status || "approved"],
+            ].map(([label, value]) => (
+              <div
+                key={label}
+                className="rounded-xl border border-[#F0E7DC] p-4"
+              >
+                <p className="font-montserrat text-[11px] uppercase tracking-wide text-[#999999]">
+                  {label}
+                </p>
+                <p className="mt-1 font-montserrat text-[15px] capitalize text-[#111111]">
+                  {value}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       )}
@@ -515,11 +647,12 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
   );
 
   const renderContent = () => {
-    if (loading) {
-      return (
-        <p className="font-montserrat text-[14px] text-[#666666]">Loading...</p>
-      );
-    }
+    if (activeMenu === "blogs") return <BlogManager onNotice={onCmsNotice} />;
+    if (activeMenu === "jobs") return <JobsManager onNotice={onCmsNotice} />;
+    if (activeMenu === "awards") return <AwardsManager onNotice={onCmsNotice} />;
+    if (activeMenu === "gallery") return <GalleryManager onNotice={onCmsNotice} />;
+
+    if (loading) return <LoadingBlock />;
 
     if (activeMenu === "users") return renderUsers();
     if (activeMenu === "enquire") return renderEnquire();
@@ -530,33 +663,73 @@ export default function SuperAdminPanel({ role = "superadmin" }) {
     return null;
   };
 
+  const nav = (
+    <nav className="space-y-5">
+      {visibleGroups.map((group) => (
+        <div key={group.label}>
+          <p className="mb-2 px-3 font-montserrat text-[11px] font-semibold uppercase tracking-[0.14em] text-[#A08B7A]">
+            {group.label}
+          </p>
+          <div className="space-y-1">
+            {group.items.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => selectMenu(item.id)}
+                className={`flex w-full cursor-pointer items-center gap-2.5 rounded-xl px-3 py-2.5 text-left font-montserrat text-[14px] transition ${
+                  activeMenu === item.id
+                    ? "bg-[#652A27] text-white shadow-sm"
+                    : "text-[#333333] hover:bg-[#F6F1EA]"
+                }`}
+              >
+                <i className={`${item.icon} text-[16px]`} aria-hidden />
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+    </nav>
+  );
+
   return (
-    <div className="flex flex-col gap-6 lg:flex-row">
-      <aside className="w-full shrink-0 rounded-2xl border border-[#DDDDDD] bg-white p-4 lg:w-[240px]">
-        <p className="mb-4 px-2 font-optima text-[18px] font-medium text-[#111111]">
-          Menu
-        </p>
-        <nav className="space-y-1">
-          {visibleMenuItems.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => {
-                setActiveMenu(item.id);
-                setError("");
-                setMessage("");
-              }}
-              className={`flex w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-3 text-left font-montserrat text-[14px] transition ${
-                activeMenu === item.id
-                  ? "bg-[#652A27] text-white"
-                  : "text-[#333333] hover:bg-[#F5F5F5]"
-              }`}
-            >
-              <i className={`${item.icon} text-[16px]`} aria-hidden />
-              {item.label}
-            </button>
-          ))}
-        </nav>
+    <div className="flex flex-col gap-5 lg:flex-row">
+      <button
+        type="button"
+        onClick={() => setSidebarOpen(true)}
+        className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-xl border border-[#E8DDD0] bg-white px-3 py-2 font-montserrat text-sm text-[#333333] lg:hidden"
+      >
+        <i className="ri-menu-line" aria-hidden />
+        Menu
+      </button>
+
+      {sidebarOpen ? (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <button
+            type="button"
+            aria-label="Close menu"
+            className="absolute inset-0 bg-black/35"
+            onClick={() => setSidebarOpen(false)}
+          />
+          <aside className="relative z-10 h-full w-[280px] overflow-y-auto border-r border-[#E8DDD0] bg-white p-4 shadow-xl">
+            <div className="mb-5 flex items-center justify-between">
+              <p className="font-optima text-lg font-medium text-[#111111]">Menu</p>
+              <button
+                type="button"
+                onClick={() => setSidebarOpen(false)}
+                className="cursor-pointer rounded-lg p-1.5 text-[#666666] hover:bg-[#F6F1EA]"
+                aria-label="Close"
+              >
+                <i className="ri-close-line text-xl" aria-hidden />
+              </button>
+            </div>
+            {nav}
+          </aside>
+        </div>
+      ) : null}
+
+      <aside className="hidden w-[250px] shrink-0 self-start rounded-2xl border border-[#E8DDD0] bg-white p-4 shadow-[0_8px_24px_-18px_rgba(101,42,39,0.45)] lg:sticky lg:top-20 lg:block">
+        {nav}
       </aside>
 
       <div className="min-w-0 flex-1 space-y-4">

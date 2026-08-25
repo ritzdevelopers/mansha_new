@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "./section4-swiper.css";
+import { useAwards } from "@/lib/usePublicCms";
 
 const ACHIEVEMENTS = [
   {
@@ -101,21 +102,22 @@ const ACHIEVEMENTS = [
 ];
 
 const Section3 = () => {
+  const achievements = useAwards(ACHIEVEMENTS);
   const [activeId, setActiveId] = useState(ACHIEVEMENTS[0].id);
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const popupSwiperRef = useRef(null);
 
   const activeAchievement =
-    ACHIEVEMENTS.find((item) => item.id === activeId) ?? ACHIEVEMENTS[0];
-  const images = activeAchievement.images;
+    achievements.find((item) => item.id === activeId) ?? achievements[0] ?? ACHIEVEMENTS[0];
+  const images = activeAchievement.images || [];
 
   const syncFromHash = useCallback(() => {
     const hash = window.location.hash.replace("#", "");
-    if (ACHIEVEMENTS.some((item) => item.id === hash)) {
+    if (achievements.some((item) => item.id === hash)) {
       setActiveId(hash);
     }
-  }, []);
+  }, [achievements]);
 
   useEffect(() => {
     syncFromHash();
@@ -155,15 +157,15 @@ const Section3 = () => {
       className="w-full bg-white pb-[35px] pt-6 lg:pb-[70px] lg:pt-10"
     >
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
-        {ACHIEVEMENTS.map((achievement, sectionIndex) => {
-          const previewImages = achievement.images.slice(0, 2);
+        {achievements.map((achievement, sectionIndex) => {
+          const previewImages = (achievement.images || []).slice(0, 2);
 
           return (
             <div
               key={achievement.id}
               id={achievement.id}
               className={`${sectionIndex > 0 ? "mt-10 lg:mt-14" : ""} ${
-                sectionIndex < ACHIEVEMENTS.length - 1
+                sectionIndex < achievements.length - 1
                   ? "border-b border-[#E8E4DC] pb-10 lg:pb-14"
                   : ""
               }`}

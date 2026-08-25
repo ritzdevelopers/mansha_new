@@ -9,7 +9,7 @@ const rawApiUrl =
 const normalizedApiUrl = rawApiUrl.replace(/\/+$/, "").replace(/\/api$/, "");
 const PROD_API = "https://mansha-backend-ov04.onrender.com";
 
-function apiOrigin() {
+export function apiOrigin() {
   const fromEnv = (process.env.NEXT_PUBLIC_API_URL || "")
     .replace(/\/+$/, "")
     .replace(/\/api$/, "");

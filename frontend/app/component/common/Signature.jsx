@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useGallery } from "@/lib/usePublicCms";
 
 const AUTOPLAY_MS_DESKTOP = 8000;
 const AUTOPLAY_MS_MOBILE = 2000;
 
+const FALLBACK_SLIDES = [
+  { id: 1, title: "Signature Masterpieces 1", src: "/mansha-image/Signature1.jpeg" },
+  { id: 3, title: "Signature Masterpieces 3", src: "/mansha-image/Signature3.jpeg" },
+];
+
 const Signature = () => {
-  const signatureSlides = [
-    { id: 1, title: "Signature Masterpieces 1", src: "/mansha-image/Signature1.jpeg" },
-    // { id: 2, title: "Signature Masterpieces 2", src: "/mansha-image/Signature2.jpeg" },
-    { id: 3, title: "Signature Masterpieces 3", src: "/mansha-image/Signature3.jpeg" },
-    // { id: 4, title: "Signature Masterpieces 3", src: "/mansha-image/Signature4.jpeg" },
-  ];
+  const signatureSlides = useGallery(FALLBACK_SLIDES);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [incomingSlide, setIncomingSlide] = useState(null);
@@ -66,11 +67,13 @@ const Signature = () => {
   );
 
   const goNext = useCallback(() => {
+    if (!signatureSlides.length) return;
     const next = (currentSlide + 1) % signatureSlides.length;
     goTo(next, "next");
   }, [currentSlide, goTo, signatureSlides.length]);
 
   const goPrev = useCallback(() => {
+    if (!signatureSlides.length) return;
     const prev = (currentSlide - 1 + signatureSlides.length) % signatureSlides.length;
     goTo(prev, "prev");
   }, [currentSlide, goTo, signatureSlides.length]);
@@ -144,12 +147,14 @@ const Signature = () => {
       </div>
 
       <div className="relative isolate w-full overflow-hidden bg-[#EAEAEA] [transform:translateZ(0)]">
-        <SlideLayer
-          slide={signatureSlides[currentSlide]}
-          imagePriority={currentSlide === 0}
-        />
+        {signatureSlides[currentSlide] ? (
+          <SlideLayer
+            slide={signatureSlides[currentSlide]}
+            imagePriority={currentSlide === 0}
+          />
+        ) : null}
 
-        {incomingSlide !== null && (
+        {incomingSlide !== null && signatureSlides[incomingSlide] ? (
           <SlideLayer
             slide={signatureSlides[incomingSlide]}
             entering
@@ -157,7 +162,7 @@ const Signature = () => {
             direction={direction}
             onEnterAnimationEnd={finishSlideTransition}
           />
-        )}
+        ) : null}
 
         <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 md:hidden">
           {signatureSlides.map((slide, index) => (

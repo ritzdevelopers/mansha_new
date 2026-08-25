@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import JobApply, { JOBS } from "../common/JobApply";
+import JobApply from "../common/JobApply";
 import { handleCareerApply } from "./Section3";
-
-
-
+import { useCareerJobs } from "@/lib/usePublicCms";
 
 const Section2 = () => {
-  
+  const jobs = useCareerJobs();
 
   return (
     <section className="bg-[#F9F9F9] mx-auto w-full max-w-[1500px] ">
@@ -17,7 +14,7 @@ const Section2 = () => {
           Careers
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-          {JOBS.map((job) => (
+          {jobs.map((job) => (
             <div
               key={job.id}
               className="career-job-card flex min-h-[120px] flex-col rounded-[10px] bg-white"
@@ -43,15 +40,13 @@ const Section2 = () => {
                       className="ri-time-line text-[15px] leading-none text-[#94a3b8]"
                       aria-hidden
                     />
-                    Full Time
+                    {job.jobType || "Full Time"}
                   </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-      
       </div>
 
       <style>{`

@@ -3,13 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { BLOG_POSTS } from "./blogPosts";
-
-const SLIDER_CARDS = BLOG_POSTS;
+import { usePublishedBlogs } from "@/lib/usePublicCms";
 
 const MOBILE_SLIDE_MS = 500;
 
 const Smart = () => {
+  const SLIDER_CARDS = usePublishedBlogs();
   const [activeMobileIndex, setActiveMobileIndex] = useState(0);
   const [mobileTransition, setMobileTransition] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
@@ -34,7 +33,7 @@ const Smart = () => {
     }, MOBILE_SLIDE_MS);
 
     return () => window.clearTimeout(timeout);
-  }, [activeMobileIndex, isMobile]);
+  }, [activeMobileIndex, isMobile, SLIDER_CARDS.length]);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -56,7 +55,7 @@ const Smart = () => {
       window.clearInterval(timer);
       mq.removeEventListener("change", start);
     };
-  }, []);
+  }, [SLIDER_CARDS.length]);
   
 
   return (
