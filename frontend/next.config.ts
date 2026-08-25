@@ -9,6 +9,10 @@ const nextConfig = {
   // Git root is `mansha_new/`; keep module/CSS resolution in `frontend/`.
   turbopack: {
     root: path.join(__dirname),
+    resolveAlias: {
+      lightningcss: path.join(__dirname, "node_modules", "lightningcss"),
+      "detect-libc": path.join(__dirname, "node_modules", "detect-libc"),
+    },
   },
   serverExternalPackages: ["lightningcss", "detect-libc"],
   images: {

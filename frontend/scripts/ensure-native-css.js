@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * Vercel/Linux: Tailwind and lightningcss need platform .node binaries
- * next to the JS packages. Workspace hoisting often leaves them at the
- * repo root, so require() from frontend/node_modules fails.
+ * Tailwind/PostCSS require() lightningcss from frontend/node_modules.
+ * npm workspaces hoist it to the repo root, so Next/Turbopack (rooted in
+ * frontend/) cannot resolve it. Copy the JS package and the current
+ * platform .node binary next to the frontend app.
  */
 const { execSync } = require("child_process");
 const fs = require("fs");
@@ -25,15 +26,38 @@ function walkFind(name, startDirs) {
   return null;
 }
 
-function copyDirContents(fromDir, toDir) {
-  fs.mkdirSync(toDir, { recursive: true });
-  for (const entry of fs.readdirSync(fromDir)) {
-    const from = path.join(fromDir, entry);
-    const to = path.join(toDir, entry);
-    const stat = fs.lstatSync(from);
-    if (stat.isDirectory()) copyDirContents(from, to);
-    else fs.copyFileSync(from, to);
+function copyDir(from, to) {
+  fs.rmSync(to, { recursive: true, force: true });
+  fs.cpSync(from, to, { recursive: true, dereference: true });
+}
+
+function isOutsideFrontend(dir) {
+  try {
+    const real = fs.realpathSync(dir);
+    return !real.startsWith(FRONTEND + path.sep) && real !== FRONTEND;
+  } catch {
+    return true;
   }
+}
+
+function ensureLocal(pkg) {
+  const dest = path.join(FRONTEND, "node_modules", ...pkg.split("/"));
+  const destExists = fs.existsSync(dest);
+  const destIsLink = destExists && fs.lstatSync(dest).isSymbolicLink();
+  const destOutside = destExists && isOutsideFrontend(dest);
+  const alreadyLocal = destExists && !destIsLink && !destOutside;
+
+  if (alreadyLocal) return dest;
+
+  const source = walkFind(pkg, [FRONTEND, REPO, process.cwd()]);
+  if (!source || !fs.existsSync(source)) {
+    console.warn(`[ensure-native-css] ${pkg} not found; skip`);
+    return null;
+  }
+
+  copyDir(source, dest);
+  console.log(`[ensure-native-css] installed ${pkg} in frontend/node_modules`);
+  return dest;
 }
 
 function installPackages(packages) {
@@ -49,70 +73,89 @@ function installPackages(packages) {
   });
 }
 
-const strict = process.argv.includes("--strict") || process.env.ENSURE_NATIVE_CSS_STRICT === "1";
-
-if (process.platform !== "linux") process.exit(0);
-
-let libc = "gnu";
-try {
-  const { familySync, MUSL } = require("detect-libc");
-  if (familySync() === MUSL) libc = "musl";
-} catch {
-  libc = "gnu";
-}
-
-const arch = process.arch;
-const lightningPkg = `lightningcss-linux-${arch}-${libc}`;
-const oxidePkg = `@tailwindcss/oxide-linux-${arch}-${libc}`;
-
-const lightningPkgs = [
-  "lightningcss-linux-x64-gnu@1.32.0",
-  "lightningcss-linux-x64-musl@1.32.0",
-  "lightningcss-linux-arm64-gnu@1.32.0",
-  "lightningcss-linux-arm64-musl@1.32.0",
-];
-const oxidePkgs = [
-  "@tailwindcss/oxide-linux-x64-gnu@4.2.4",
-  "@tailwindcss/oxide-linux-x64-musl@4.2.4",
-  "@tailwindcss/oxide-linux-arm64-gnu@4.2.4",
-  "@tailwindcss/oxide-linux-arm64-musl@4.2.4",
-];
-
-try {
-  installPackages([...lightningPkgs, ...oxidePkgs]);
-} catch (err) {
-  console.warn("[ensure-native-css] npm install of platform packages failed, continuing:", err.message);
-}
-
-const searchRoots = [FRONTEND, REPO, process.cwd()];
-const lightningDir = walkFind("lightningcss", searchRoots);
-const lightningNativeDir = walkFind(lightningPkg, searchRoots);
-const oxideDir = walkFind("@tailwindcss/oxide", searchRoots);
-const oxideNativeDir = walkFind(oxidePkg, searchRoots);
-
-if (lightningNativeDir) {
-  const frontendNative = path.join(FRONTEND, "node_modules", lightningPkg);
-  if (path.resolve(lightningNativeDir) !== path.resolve(frontendNative)) {
-    copyDirContents(lightningNativeDir, frontendNative);
+function currentLightningPkg() {
+  const arch = process.arch;
+  if (process.platform === "darwin") return `lightningcss-darwin-${arch}`;
+  if (process.platform === "win32") {
+    return arch === "arm64"
+      ? "lightningcss-win32-arm64-msvc"
+      : "lightningcss-win32-x64-msvc";
   }
-  if (lightningDir) {
-    for (const file of fs.readdirSync(lightningNativeDir)) {
-      if (file.endsWith(".node")) {
-        fs.copyFileSync(path.join(lightningNativeDir, file), path.join(lightningDir, file));
-      }
+  if (process.platform !== "linux") return null;
+
+  let libc = "gnu";
+  try {
+    const { familySync, MUSL } = require("detect-libc");
+    if (familySync() === MUSL) libc = "musl";
+  } catch {
+    libc = "gnu";
+  }
+  return `lightningcss-linux-${arch}-${libc}`;
+}
+
+const strict =
+  process.argv.includes("--strict") || process.env.ENSURE_NATIVE_CSS_STRICT === "1";
+
+if (process.platform === "linux") {
+  const lightningPkgs = [
+    "lightningcss-linux-x64-gnu@1.32.0",
+    "lightningcss-linux-x64-musl@1.32.0",
+    "lightningcss-linux-arm64-gnu@1.32.0",
+    "lightningcss-linux-arm64-musl@1.32.0",
+  ];
+  const oxidePkgs = [
+    "@tailwindcss/oxide-linux-x64-gnu@4.2.4",
+    "@tailwindcss/oxide-linux-x64-musl@4.2.4",
+    "@tailwindcss/oxide-linux-arm64-gnu@4.2.4",
+    "@tailwindcss/oxide-linux-arm64-musl@4.2.4",
+  ];
+  try {
+    installPackages([...lightningPkgs, ...oxidePkgs]);
+  } catch (err) {
+    console.warn(
+      "[ensure-native-css] npm install of platform packages failed, continuing:",
+      err.message
+    );
+  }
+}
+
+ensureLocal("detect-libc");
+const lightningDir = ensureLocal("lightningcss");
+const lightningNativePkg = currentLightningPkg();
+const lightningNativeDir = lightningNativePkg
+  ? ensureLocal(lightningNativePkg)
+  : null;
+
+if (lightningDir && lightningNativeDir) {
+  for (const file of fs.readdirSync(lightningNativeDir)) {
+    if (file.endsWith(".node")) {
+      fs.copyFileSync(
+        path.join(lightningNativeDir, file),
+        path.join(lightningDir, file)
+      );
     }
   }
 }
 
-if (oxideNativeDir) {
-  const frontendNative = path.join(FRONTEND, "node_modules", ...oxidePkg.split("/"));
-  if (path.resolve(oxideNativeDir) !== path.resolve(frontendNative)) {
-    copyDirContents(oxideNativeDir, frontendNative);
+// Turbopack evaluates PostCSS from @tailwindcss/node; nest the native
+// packages there so require() does not depend on workspace hoisting.
+for (const host of ["@tailwindcss/node", "@tailwindcss/postcss"]) {
+  const hostDir = path.join(FRONTEND, "node_modules", ...host.split("/"));
+  if (!fs.existsSync(hostDir) || !lightningDir) continue;
+  const nested = path.join(hostDir, "node_modules");
+  fs.mkdirSync(nested, { recursive: true });
+  copyDir(lightningDir, path.join(nested, "lightningcss"));
+  const detectDir = path.join(FRONTEND, "node_modules", "detect-libc");
+  if (fs.existsSync(detectDir)) {
+    copyDir(detectDir, path.join(nested, "detect-libc"));
+  }
+  if (lightningNativePkg && lightningNativeDir) {
+    copyDir(lightningNativeDir, path.join(nested, lightningNativePkg));
   }
 }
 
 try {
-  require("lightningcss");
+  require(path.join(FRONTEND, "node_modules", "lightningcss"));
   console.log("[ensure-native-css] lightningcss loaded");
 } catch (err) {
   console.error("[ensure-native-css] lightningcss still missing:", err.message);
