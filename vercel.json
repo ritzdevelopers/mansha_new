@@ -1,0 +1,3 @@
+{
+  "installCommand": "bash frontend/scripts/vercel-install.sh"
+}
