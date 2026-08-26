@@ -1,27 +1,10 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Archivo_Black, Montserrat } from "next/font/google";
 import "remixicon/fonts/remixicon.css";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "./globals.css";
 import ComingSoonPopup from "./component/Home/ComingSoonPopup";
-
-/** Splash MANSHA */
-const archivoBlack = Archivo_Black({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-archivo-black",
-  display: "swap",
-});
-
-/** Jahan Montserrat use ho — Optima jaisa bundled variable */
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-montserrat-mansha",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Mansha Group Real Estate Developer In Faridabad",
@@ -36,19 +19,25 @@ export const metadata: Metadata = {
   },
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${archivoBlack.variable} ${montserrat.variable} h-full antialiased`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className="h-full antialiased" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
         <Suspense fallback={null}>
           <ComingSoonPopup />

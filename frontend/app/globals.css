@@ -53,5 +53,10 @@
 @theme {
   --font-sans: "Optima", "Optima LT Pro", Candara, "Segoe UI", sans-serif;
   --font-optima: "Optima", "Optima LT Pro", Candara, "Segoe UI", sans-serif;
-  --font-montserrat: var(--font-montserrat-mansha), "Montserrat", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+:root {
+  --font-archivo-black: "Archivo Black", sans-serif;
+  --font-montserrat-mansha: "Montserrat", sans-serif;
 }
