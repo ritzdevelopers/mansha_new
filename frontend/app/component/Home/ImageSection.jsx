@@ -150,7 +150,7 @@ const ImageSection = () => {
             <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#111111] transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:w-11 lg:h-12 lg:w-12">
               <i className="ri-arrow-right-up-line text-[20px] sm:text-[22px] lg:text-[24px]" />
             </span>
-            <span className="font-montserrat text-[16px] font-medium leading-[22px] text-white sm:text-[18px] sm:leading-[24px] md:text-[20px] md:leading-[26px] lg:text-[22px] lg:leading-[28px]">
+            <span className="font-montserrat text-[16px] font-medium leading-[22px] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.85),0_0_18px_rgba(0,0,0,0.5)] sm:text-[18px] sm:leading-[24px] md:text-[20px] md:leading-[26px] lg:text-[22px] lg:leading-[28px]">
               {PROJECT_BANNER.name} | Sector 82, Faridabad
             </span>
           </Link>
