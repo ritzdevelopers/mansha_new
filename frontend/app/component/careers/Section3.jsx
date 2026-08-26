@@ -3,6 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { JOBS } from "../common/JobApply";
 import { submitCareerApplication } from "@/lib/api";
+import {
+  sanitizeLeadEmail,
+  sanitizeLeadName,
+  sanitizeLeadPhone,
+  validateLeadFields,
+} from "@/lib/leadValidation";
 
 let setCareerDesignation = null;
 
@@ -16,11 +22,19 @@ export function handleCareerApply(title) {
 const Section3 = () => {
   const inputClass =
     "h-[56px] w-full bg-[#FAFAFA] px-5 font-montserrat text-[14px] font-normal leading-[24px] text-[#515151] outline-none placeholder:text-[#515151]";
+  const fieldErrorClass =
+    "mt-1 font-montserrat text-[12px] font-medium text-red-600";
   const [designation, setDesignation] = useState("");
   const [resumeName, setResumeName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+  });
 
   useEffect(() => {
     setCareerDesignation = setDesignation;
@@ -29,12 +43,42 @@ const Section3 = () => {
     };
   }, []);
 
+  const handleFieldChange = (event) => {
+    const { name, value } = event.target;
+    const nextValue =
+      name === "name"
+        ? sanitizeLeadName(value)
+        : name === "mobile"
+          ? sanitizeLeadPhone(value)
+          : name === "email"
+            ? sanitizeLeadEmail(value)
+            : value;
+    setForm((prev) => ({ ...prev, [name]: nextValue }));
+    setFieldErrors((prev) => ({ ...prev, [name]: "" }));
+    setError("");
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const form = event.currentTarget;
+    const nativeForm = event.currentTarget;
     setError("");
 
-    const formData = new FormData(form);
+    const validation = validateLeadFields({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.mobile.trim(),
+    });
+    if (!validation.isValid) {
+      setFieldErrors({
+        name: validation.name,
+        email: validation.email,
+        mobile: validation.phone,
+      });
+      setError(validation.firstError);
+      return;
+    }
+
+    const formData = new FormData(nativeForm);
     const resume = formData.get("resume");
 
     if (!(resume instanceof File) || !resume.size) {
@@ -46,9 +90,11 @@ const Section3 = () => {
 
     try {
       await submitCareerApplication(formData);
-      form.reset();
+      nativeForm.reset();
       setDesignation("");
       setResumeName("");
+      setForm({ name: "", email: "", mobile: "" });
+      setFieldErrors({});
       setSubmitted(true);
     } catch (err) {
       setError(
@@ -78,30 +124,61 @@ const Section3 = () => {
           onSubmit={handleSubmit}
         >
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name *"
-              className={inputClass}
-              required
-              disabled={loading}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email *"
-              className={inputClass}
-              required
-              disabled={loading}
-            />
-            <input
-              type="tel"
-              name="mobile"
-              placeholder="Mobile *"
-              className={inputClass}
-              required
-              disabled={loading}
-            />
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name *"
+                value={form.name}
+                onChange={handleFieldChange}
+                className={inputClass}
+                maxLength={60}
+                autoComplete="name"
+                aria-invalid={Boolean(fieldErrors.name)}
+                required
+                disabled={loading}
+              />
+              {fieldErrors.name ? (
+                <p className={fieldErrorClass}>{fieldErrors.name}</p>
+              ) : null}
+            </div>
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email *"
+                value={form.email}
+                onChange={handleFieldChange}
+                className={inputClass}
+                maxLength={80}
+                autoComplete="email"
+                aria-invalid={Boolean(fieldErrors.email)}
+                required
+                disabled={loading}
+              />
+              {fieldErrors.email ? (
+                <p className={fieldErrorClass}>{fieldErrors.email}</p>
+              ) : null}
+            </div>
+            <div>
+              <input
+                type="tel"
+                name="mobile"
+                placeholder="Mobile *"
+                value={form.mobile}
+                onChange={handleFieldChange}
+                className={inputClass}
+                maxLength={16}
+                inputMode="numeric"
+                autoComplete="tel"
+                aria-invalid={Boolean(fieldErrors.mobile)}
+                required
+                disabled={loading}
+              />
+              {fieldErrors.mobile ? (
+                <p className={fieldErrorClass}>{fieldErrors.mobile}</p>
+              ) : null}
+            </div>
             <select
               name="designation"
               value={designation}

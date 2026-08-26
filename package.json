@@ -4,6 +4,10 @@
   "workspaces": [
     "frontend"
   ],
+  "scripts": {
+    "build": "NODE_ENV=production npm run build --workspace=frontend",
+    "dev": "npm run dev --workspace=frontend"
+  },
   "optionalDependencies": {
     "@tailwindcss/oxide-linux-arm64-gnu": "4.2.4",
     "@tailwindcss/oxide-linux-arm64-musl": "4.2.4",

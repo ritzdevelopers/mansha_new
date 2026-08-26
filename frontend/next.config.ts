@@ -1,16 +1,44 @@
-const path = require("path");
+import type { NextConfig } from "next";
+import path from "path";
 
 const backendOrigin = (
   process.env.API_PROXY_TARGET || "https://mansha-backend-ov04.onrender.com"
 ).replace(/\/+$/, "");
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Git root is `mansha_new/`; keep module/CSS resolution in `frontend/`.
+const frontendDir = __dirname;
+const workspaceRoot = path.join(__dirname, "..");
+const frontendModules = path.join(frontendDir, "node_modules");
+const tailwindcssDir = path.join(frontendModules, "tailwindcss");
+
+const nextConfig: NextConfig = {
+  // Workspace root must be turbopack.root. Setting it to frontend makes CSS
+  // @import "tailwindcss" resolve from mansha_new/ instead of frontend/.
+  outputFileTracingRoot: workspaceRoot,
   turbopack: {
-    root: path.join(__dirname),
+    root: workspaceRoot,
+    resolveAlias: {
+      tailwindcss: tailwindcssDir,
+    },
+  },
+  webpack: (config: any) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      tailwindcss: tailwindcssDir,
+    };
+    config.resolve.modules = [
+      frontendModules,
+      ...(config.resolve.modules || ["node_modules"]),
+    ];
+    return config;
   },
   serverExternalPackages: ["lightningcss", "detect-libc"],
+  experimental: {
+    // Vercel uses multiple export workers; Next 16 can crash prerendering
+    // /_global-error when workers race. Match the stable local 1-worker build.
+    staticGenerationRetryCount: 3,
+    staticGenerationMaxConcurrency: 1,
+    staticGenerationMinPagesPerWorker: 50,
+  },
   images: {
     unoptimized: true,
   },
@@ -30,4 +58,4 @@ const nextConfig = {
   ],
 };
 
-module.exports = nextConfig;
+export default nextConfig;

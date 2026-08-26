@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Archivo_Black, Montserrat } from "next/font/google";
 import "remixicon/fonts/remixicon.css";
 import "swiper/css";
@@ -49,7 +50,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
-        <ComingSoonPopup />
+        <Suspense fallback={null}>
+          <ComingSoonPopup />
+        </Suspense>
         {children}
       </body>
     </html>

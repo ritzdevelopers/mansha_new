@@ -3,6 +3,13 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { submitContactData } from "@/lib/api";
+import {
+  sanitizeLeadEmail,
+  sanitizeLeadMessage,
+  sanitizeLeadName,
+  sanitizeLeadPhone,
+  validateLeadFields,
+} from "@/lib/leadValidation";
 
 const CONTACT_ITEMS = [
   {
@@ -26,6 +33,8 @@ const CONTACT_LABELS = new Set(["Call:", "email:", "mail:"]);
 
 const inputClass =
   "h-[56px] w-full bg-[#FAFAFA] px-5 font-montserrat text-[14px] font-normal leading-[24px] text-[#515151] outline-none placeholder:text-[#515151]";
+const fieldErrorClass =
+  "mt-1 font-montserrat text-[12px] font-medium text-red-600";
 
 const Touch = () => {
   const [form, setForm] = useState({
@@ -36,26 +45,54 @@ const Touch = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const nextValue =
+      name === "name"
+        ? sanitizeLeadName(value)
+        : name === "phone"
+          ? sanitizeLeadPhone(value)
+          : name === "email"
+            ? sanitizeLeadEmail(value)
+            : name === "message"
+              ? sanitizeLeadMessage(value)
+              : value;
+    setForm((prev) => ({ ...prev, [name]: nextValue }));
+    setFieldErrors((prev) => ({ ...prev, [name]: "" }));
+    setError("");
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
+
+    const payload = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim(),
+      message: form.message.trim(),
+    };
+    const validation = validateLeadFields({ ...payload, requireMessage: true });
+    if (!validation.isValid) {
+      setFieldErrors({
+        name: validation.name,
+        phone: validation.phone,
+        email: validation.email,
+        message: validation.message,
+      });
+      setError(validation.firstError);
+      return;
+    }
+
     setLoading(true);
 
     try {
-      await submitContactData({
-        name: form.name.trim(),
-        email: form.email.trim(),
-        phone: form.phone.trim(),
-        message: form.message.trim(),
-      });
+      await submitContactData(payload);
       setSubmitted(true);
+      setFieldErrors({});
       setForm({
         name: "",
         phone: "",
@@ -110,48 +147,80 @@ const Touch = () => {
             ) : null}
 
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-              <input
-                type="text"
-                name="name"
-                placeholder="Name *"
-                value={form.name}
-                onChange={handleChange}
-                className={inputClass}
-                required
-                disabled={loading}
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone No *"
-                value={form.phone}
-                onChange={handleChange}
-                className={inputClass}
-                required
-                disabled={loading}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email *"
-                value={form.email}
-                onChange={handleChange}
-                className={inputClass}
-                required
-                disabled={loading}
-              />
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name *"
+                  value={form.name}
+                  onChange={handleChange}
+                  className={inputClass}
+                  maxLength={60}
+                  autoComplete="name"
+                  aria-invalid={Boolean(fieldErrors.name)}
+                  required
+                  disabled={loading}
+                />
+                {fieldErrors.name ? (
+                  <p className={fieldErrorClass}>{fieldErrors.name}</p>
+                ) : null}
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone No *"
+                  value={form.phone}
+                  onChange={handleChange}
+                  className={inputClass}
+                  maxLength={16}
+                  inputMode="numeric"
+                  autoComplete="tel"
+                  aria-invalid={Boolean(fieldErrors.phone)}
+                  required
+                  disabled={loading}
+                />
+                {fieldErrors.phone ? (
+                  <p className={fieldErrorClass}>{fieldErrors.phone}</p>
+                ) : null}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email *"
+                  value={form.email}
+                  onChange={handleChange}
+                  className={inputClass}
+                  maxLength={80}
+                  autoComplete="email"
+                  aria-invalid={Boolean(fieldErrors.email)}
+                  required
+                  disabled={loading}
+                />
+                {fieldErrors.email ? (
+                  <p className={fieldErrorClass}>{fieldErrors.email}</p>
+                ) : null}
+              </div>
             </div>
 
-            <textarea
-              name="message"
-              placeholder="Message *"
-              rows={3}
-              value={form.message}
-              onChange={handleChange}
-              className="mt-5 w-full resize-none bg-[#FAFAFA] px-5 py-4 font-montserrat text-[14px] font-normal leading-[24px] text-[#515151] outline-none placeholder:text-[#515151]"
-              required
-              disabled={loading}
-            />
+            <div className="mt-5">
+              <textarea
+                name="message"
+                placeholder="Message *"
+                rows={3}
+                value={form.message}
+                onChange={handleChange}
+                className="w-full resize-none bg-[#FAFAFA] px-5 py-4 font-montserrat text-[14px] font-normal leading-[24px] text-[#515151] outline-none placeholder:text-[#515151]"
+                maxLength={500}
+                aria-invalid={Boolean(fieldErrors.message)}
+                required
+                disabled={loading}
+              />
+              {fieldErrors.message ? (
+                <p className={fieldErrorClass}>{fieldErrors.message}</p>
+              ) : null}
+            </div>
 
             <button
               type="submit"
