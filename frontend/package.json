@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/materialize-hoisted-deps.js && node scripts/patch-next-workstore.js",
+    "prebuild": "node scripts/patch-next-workstore.js",
     "build": "NODE_ENV=production next build --webpack",
+    "postbuild": "node scripts/materialize-hoisted-deps.js",
     "start": "next start",
     "lint": "eslint",
     "postinstall": "node scripts/ensure-native-css.js"

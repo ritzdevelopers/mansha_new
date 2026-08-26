@@ -1,12 +1,17 @@
 #!/usr/bin/env node
 /**
- * npm workspaces hoist next/react to the repo root as a symlink.
- * Netlify's serverless bundle then cannot require
- * next/dist/server/lib/start-server.js at runtime.
- * Copy real packages into frontend/node_modules before next build.
+ * npm workspaces hoist next/react to the repo root.
+ * Copy them into frontend/node_modules AFTER `next build` so Netlify can
+ * require start-server.js. Never copy before the build: two physical Next
+ * copies split workAsyncStorage and every page fails prerender on Vercel.
  */
 const fs = require("fs");
 const path = require("path");
+
+if (process.env.VERCEL) {
+  console.log("[materialize-hoisted-deps] skip on Vercel");
+  process.exit(0);
+}
 
 const FRONTEND = path.resolve(__dirname, "..");
 const REPO = path.resolve(FRONTEND, "..");

@@ -15,6 +15,34 @@ const path = require("path");
 const FRONTEND = path.resolve(__dirname, "..");
 const REPO = path.resolve(FRONTEND, "..");
 
+function isSymlink(filePath) {
+  try {
+    return fs.lstatSync(filePath).isSymbolicLink();
+  } catch {
+    return false;
+  }
+}
+
+/** Two physical copies of next/react split workAsyncStorage on Vercel. */
+function dedupeNestedCopy(name) {
+  const dest = path.join(FRONTEND, "node_modules", name);
+  const root = path.join(REPO, "node_modules", name);
+  if (!fs.existsSync(dest) || !fs.existsSync(root)) return;
+  if (isSymlink(dest) || isSymlink(root)) return;
+
+  const destReal = fs.realpathSync(dest);
+  const rootReal = fs.realpathSync(root);
+  if (destReal === rootReal) return;
+
+  fs.rmSync(dest, { recursive: true, force: true });
+  fs.symlinkSync(path.relative(path.dirname(dest), root), dest);
+  console.log(`[patch-next-workstore] deduped ${name} -> hoisted package`);
+}
+
+for (const name of ["next", "react", "react-dom"]) {
+  dedupeNestedCopy(name);
+}
+
 function nextRoots() {
   const roots = [];
   for (const dir of [
