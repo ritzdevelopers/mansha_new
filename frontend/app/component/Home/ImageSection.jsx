@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+
+const PROJECT_BANNER = {
+  name: "Vega Street",
+  address: "Sector 82, Faridabad Situated in the commercial hub of Greater Faridabad",
+  href: "/vega-street",
+};
 
 const AUTOPLAY_MS_DESKTOP = 2500;
 const AUTOPLAY_MS_MOBILE = 1800;
@@ -133,6 +140,22 @@ const ImageSection = () => {
           />
         )}
 
+        {activeDot === 0 && (
+          <Link
+            href={PROJECT_BANNER.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group pointer-events-auto absolute bottom-5 right-5 z-[21] flex max-w-[calc(100%-2.5rem)] items-center gap-3 sm:bottom-6 sm:right-8 sm:gap-4 lg:right-[75px]"
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#111111] transition-transform duration-300 group-hover:scale-105 sm:h-11 sm:w-11 lg:h-12 lg:w-12">
+              <i className="ri-arrow-right-up-line text-[20px] sm:text-[22px] lg:text-[24px]" />
+            </span>
+            <span className="font-montserrat text-[16px] font-medium leading-[22px] text-white sm:text-[18px] sm:leading-[24px] md:text-[20px] md:leading-[26px] lg:text-[22px] lg:leading-[28px]">
+              {PROJECT_BANNER.name} | Sector 82, Faridabad
+            </span>
+          </Link>
+        )}
+
         <div className="pointer-events-none absolute inset-x-0 top-1/2 z-20 hidden -translate-y-1/2 items-center justify-between px-4 md:flex md:px-6">
           <button
             type="button"
@@ -152,7 +175,7 @@ const ImageSection = () => {
           </button>
         </div>
 
-        <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 md:hidden">
+        <div className="absolute bottom-3 left-5 z-20 flex items-center gap-1.5 md:hidden">
           {BANNERS.map((banner, index) => (
             <button
               key={banner.src}

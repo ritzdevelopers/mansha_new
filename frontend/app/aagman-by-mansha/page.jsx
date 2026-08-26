@@ -8,6 +8,7 @@ import Section5 from '../component/AagmanByMansha/Section5'
 import Section6 from '../component/AagmanByMansha/Section6'
 import Section7 from '../component/AagmanByMansha/Section7'
 import Section8 from '../component/AagmanByMansha/Section8'
+import WalkthroughVideos from '../component/common/WalkthroughVideos'
 import ConsultationCommon from '../component/common/Consultation-common'
 import Section9 from '../component/ManshaOasis/Section9'
 import TestimoniaCommon from '../component/common/Testimonia-common'
@@ -24,6 +25,7 @@ const AagmanByMansha = () => {
       <div className="py-[35px] lg:py-[70px]">
       <Section7/>
       </div>
+      <WalkthroughVideos projectKey="aagman-by-mansha" />
       <Section8/>
       <TestimoniaCommon />
       <ConsultationCommon />

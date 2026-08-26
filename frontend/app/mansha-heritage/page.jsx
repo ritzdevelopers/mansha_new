@@ -8,6 +8,7 @@ import Section5 from '../component/mansha-heritage/Section5'
 import Section6 from '../component/mansha-heritage/Section6'
 import Section7 from '../component/mansha-heritage/Section7'
 import Section8 from '../component/mansha-heritage/Section8'
+import WalkthroughVideos from '../component/common/WalkthroughVideos'
 import TestimoniaCommon from '../component/common/Testimonia-common'
 import ConsultationCommon from '../component/common/Consultation-common'
 
@@ -23,6 +24,7 @@ const ManshaHeritage = () => {
     <div className="py-[35px] lg:py-[70px]">
     <Section7/>   
     </div>
+    <WalkthroughVideos projectKey="mansha-heritage" />
     <Section8/>
     <TestimoniaCommon/>
     <ConsultationCommon/> 
