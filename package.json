@@ -5,7 +5,7 @@
     "frontend"
   ],
   "scripts": {
-    "build": "npm run build --workspace=frontend",
+    "build": "NODE_ENV=production npm run build --workspace=frontend",
     "dev": "npm run dev --workspace=frontend"
   },
   "optionalDependencies": {
