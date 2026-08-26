@@ -32,6 +32,13 @@ const nextConfig: NextConfig = {
     return config;
   },
   serverExternalPackages: ["lightningcss", "detect-libc"],
+  experimental: {
+    // Vercel uses multiple export workers; Next 16 can crash prerendering
+    // /_global-error when workers race. Match the stable local 1-worker build.
+    staticGenerationRetryCount: 3,
+    staticGenerationMaxConcurrency: 1,
+    staticGenerationMinPagesPerWorker: 50,
+  },
   images: {
     unoptimized: true,
   },

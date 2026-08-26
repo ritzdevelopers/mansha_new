@@ -3,10 +3,17 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { submitBrochureData } from "@/lib/api";
+import {
+  sanitizeLeadEmail,
+  sanitizeLeadName,
+  sanitizeLeadPhone,
+  validateLeadFields,
+} from "@/lib/leadValidation";
 
 const labelClass = "mb-1.5 block font-montserrat text-[13px] font-semibold text-[#111111]";
 const inputClass =
   "h-[48px] w-full rounded-lg border border-[#E5E5E5] bg-white px-3.5 font-montserrat text-[14px] font-normal text-[#111111] outline-none transition-colors placeholder:text-[#9CA3AF] focus:border-[#111111]/30";
+const fieldErrorClass = "mt-1 font-montserrat text-[12px] font-medium text-red-600";
 
 const triggerBrochureDownload = (brochurePath, downloadName) => {
   const link = document.createElement("a");
@@ -34,6 +41,7 @@ const DownloadBrochure = ({
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
 
   useEffect(() => {
     setMounted(true);
@@ -66,6 +74,7 @@ const DownloadBrochure = ({
       setSubmitted(false);
       setLoading(false);
       setError("");
+      setFieldErrors({});
       return undefined;
     }
 
@@ -79,21 +88,44 @@ const DownloadBrochure = ({
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const nextValue =
+      name === "name"
+        ? sanitizeLeadName(value)
+        : name === "phone"
+          ? sanitizeLeadPhone(value)
+          : name === "email"
+            ? sanitizeLeadEmail(value)
+            : value;
+    setForm((prev) => ({ ...prev, [name]: nextValue }));
+    setFieldErrors((prev) => ({ ...prev, [name]: "" }));
+    setError("");
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
+
+    const payload = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim(),
+      project: projectName,
+    };
+    const validation = validateLeadFields({ ...payload, requireProject: true });
+    if (!validation.isValid) {
+      setFieldErrors({
+        name: validation.name,
+        email: validation.email,
+        phone: validation.phone,
+      });
+      setError(validation.firstError);
+      return;
+    }
+
     setLoading(true);
 
     try {
-      await submitBrochureData({
-        name: form.name.trim(),
-        email: form.email.trim(),
-        phone: form.phone.trim(),
-        project: projectName,
-      });
+      await submitBrochureData(payload);
       triggerBrochureDownload(brochurePath, brochureFileName);
       setSubmitted(true);
       setForm({
@@ -184,10 +216,16 @@ const DownloadBrochure = ({
                     value={form.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className={inputClass}
+                    className={`${inputClass} ${fieldErrors.name ? "border-red-400" : ""}`}
+                    maxLength={60}
+                    autoComplete="name"
+                    aria-invalid={Boolean(fieldErrors.name)}
                     required
                     disabled={loading}
                   />
+                  {fieldErrors.name ? (
+                    <p className={fieldErrorClass}>{fieldErrors.name}</p>
+                  ) : null}
                 </div>
 
                 <div>
@@ -201,10 +239,16 @@ const DownloadBrochure = ({
                     value={form.email}
                     onChange={handleChange}
                     placeholder="you@email.com"
-                    className={inputClass}
+                    className={`${inputClass} ${fieldErrors.email ? "border-red-400" : ""}`}
+                    maxLength={80}
+                    autoComplete="email"
+                    aria-invalid={Boolean(fieldErrors.email)}
                     required
                     disabled={loading}
                   />
+                  {fieldErrors.email ? (
+                    <p className={fieldErrorClass}>{fieldErrors.email}</p>
+                  ) : null}
                 </div>
 
                 <div>
@@ -218,10 +262,17 @@ const DownloadBrochure = ({
                     value={form.phone}
                     onChange={handleChange}
                     placeholder="+91"
-                    className={inputClass}
+                    className={`${inputClass} ${fieldErrors.phone ? "border-red-400" : ""}`}
+                    maxLength={16}
+                    inputMode="numeric"
+                    autoComplete="tel"
+                    aria-invalid={Boolean(fieldErrors.phone)}
                     required
                     disabled={loading}
                   />
+                  {fieldErrors.phone ? (
+                    <p className={fieldErrorClass}>{fieldErrors.phone}</p>
+                  ) : null}
                 </div>
 
                 <div>
