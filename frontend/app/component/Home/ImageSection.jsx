@@ -8,6 +8,10 @@ const AUTOPLAY_MS_MOBILE = 1800;
 
 const BANNERS = [
   {
+    src: "/vega-street/vega-street-banner.jpg",
+    alt: "Mansha Vega Street commercial destination",
+  },
+  {
     src: "/mansha-image/mansha-banner-1.jpg",
     alt: "Mansha The Heritage grand entrance with clock tower",
   },
@@ -23,6 +27,7 @@ const BANNERS = [
     src: "/mansha-image/mansha-banner-4.jpg",
     alt: "Aagman by Mansha residential apartments",
   },
+  
 ];
 
 const ImageSection = () => {
