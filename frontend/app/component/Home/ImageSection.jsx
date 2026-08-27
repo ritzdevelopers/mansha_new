@@ -7,10 +7,22 @@ const AUTOPLAY_MS_DESKTOP = 2500;
 const AUTOPLAY_MS_MOBILE = 1800;
 
 const BANNERS = [
-  { src: "/mansha-image/mansha-banner-4.jpg", alt: "Mansha banner 4" },
-  { src: "/mansha-image/mansha-banner-1.jpg", alt: "Mansha banner 1" },
-  { src: "/mansha-image/mansha-banner-2.jpg", alt: "Mansha banner 2" },
-  { src: "/mansha-image/mansha-banner-3.jpg", alt: "Mansha banner 3" },
+  {
+    src: "/mansha-image/mansha-banner-1.jpg",
+    alt: "Mansha The Heritage grand entrance with clock tower",
+  },
+  {
+    src: "/mansha-image/mansha-banner-2.jpg",
+    alt: "Mansha Oasis gated community entrance",
+  },
+  {
+    src: "/mansha-image/mansha-banner-3.jpg",
+    alt: "Mansha Orchid entrance gate and signage",
+  },
+  {
+    src: "/mansha-image/mansha-banner-4.jpg",
+    alt: "Aagman by Mansha residential apartments",
+  },
 ];
 
 const ImageSection = () => {
@@ -265,8 +277,8 @@ function SlideLayer({
           src={slide.src}
           alt={slide.alt}
           title={slide.alt}
-          width={1600}
-          height={900}
+          width={1024}
+          height={454}
           className="block h-auto w-full object-cover xl:h-full"
           priority={imagePriority}
           quality={100}
