@@ -73,7 +73,7 @@ const Footer = () => {
   {[
     { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad" },
     // { icon: "ri-twitter-x-line" },
-    { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/in/mansha-group-a80379212/" },
+    { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup" },
     { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/" },
     { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial" },
   ].map(({ icon, href }) => {
