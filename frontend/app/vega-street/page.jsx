@@ -5,6 +5,7 @@ import Brandsection from '../component/common/Brandsection'
 import Bank from '../component/commerical/Bank'
 import Footer from '../component/Home/Footer'
 import FAQCommerical from '../component/commerical/FAQCommerical'
+import WalkthroughVideos from '../component/common/WalkthroughVideos'
 import TestimoniaCommon from '../component/common/Testimonia-common'
 import Workplace from '../component/commerical/Workplace'
 import Gallery from '../component/commerical/Gallery'
@@ -19,6 +20,7 @@ const CommercialPage = () => {
      <Gallery/>
       <Bank />
       <Everything/>
+      <WalkthroughVideos projectKey="vega-street" />
       <FAQCommerical />
       <TestimoniaCommon/>
       <Workplace />

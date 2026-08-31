@@ -193,7 +193,7 @@ const ImageSection = () => {
           </span>
         </Link>
 
-        <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 md:hidden">
+        <div className="absolute bottom-3 left-5 z-20 flex items-center gap-1.5 md:hidden">
           {BANNERS.map((banner, index) => (
             <button
               key={banner.src}
