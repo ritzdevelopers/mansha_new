@@ -5,8 +5,8 @@ import Section2 from '../component/mansha-oaks-4/Section2'
 import Section3 from '../component/mansha-oaks-4/Section3'
 import Section4 from '../component/mansha-oaks-4/Section4'
 import InvertmentCommmon from '../component/common/InvertmentCommmon'
-import MapCommon from '../component/common/Map-Common'
 import OaksMap from '../component/mansha-oaks-4/oaks-map'
+import WalkthroughVideos from '../component/common/WalkthroughVideos'
 
 
 const ManshaOaks4 = () => {
@@ -20,6 +20,7 @@ const ManshaOaks4 = () => {
      <InvertmentCommmon />
      </div>
      <OaksMap />
+     <WalkthroughVideos projectKey="mansha-oaks-4" />
      <Footer /> 
     </>
   )

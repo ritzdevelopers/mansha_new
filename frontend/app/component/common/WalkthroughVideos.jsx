@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   PROJECT_WALKTHROUGH_VIDEOS,
   getYouTubeId,
@@ -8,6 +8,7 @@ import {
 
 const WalkthroughVideos = ({ projectKey, video }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
 
   const source =
     video || PROJECT_WALKTHROUGH_VIDEOS[projectKey] || null;
@@ -17,8 +18,24 @@ const WalkthroughVideos = ({ projectKey, video }) => {
     ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
     : null;
   const embed = youtubeId
-    ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`
+    ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1`
     : null;
+
+  useEffect(() => {
+    if (!embed) return;
+    const el = videoRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsPlaying(entry.isIntersecting && entry.intersectionRatio >= 0.4);
+      },
+      { threshold: [0, 0.4, 0.75, 1] },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [embed]);
 
   return (
     <section id="walkthrough-videos" className="w-full pb-[35px] lg:pb-[70px]">
@@ -31,7 +48,7 @@ const WalkthroughVideos = ({ projectKey, video }) => {
         </p>
 
         <article className="mt-6 overflow-hidden bg-[#F5F5F5] md:mt-8">
-          <div className="relative aspect-video w-full">
+          <div ref={videoRef} className="relative aspect-video w-full">
             {isPlaying && embed ? (
               <iframe
                 title={title}

@@ -10,11 +10,11 @@
 export const PROJECT_WALKTHROUGH_VIDEOS = {
   "mansha-heritage": {
     title: "Mansha Heritage Walkthrough",
-    url: "",
+    url: "https://youtu.be/NbFfYUc1Emk",
   },
   "mansha-orchid": {
     title: "Mansha Orchid Walkthrough",
-    url: "",
+    url: "https://youtu.be/FiUR_58cQ7U",
   },
   "mansha-oasis": {
     title: "Mansha Oasis Walkthrough",
@@ -22,7 +22,11 @@ export const PROJECT_WALKTHROUGH_VIDEOS = {
   },
   "aagman-by-mansha": {
     title: "Aagman by Mansha Walkthrough",
-    url: "",
+    url: "https://youtu.be/DLseGabV1DE",
+  },
+  "mansha-oaks-4": {
+    title: "Mansha Oaks Walkthrough",
+    url: "https://youtu.be/8BGOYFwDH-Y",
   },
   "vega-street": {
     title: "Vega Street Walkthrough",
