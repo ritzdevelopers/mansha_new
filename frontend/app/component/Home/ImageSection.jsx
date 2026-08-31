@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const PROJECT_BANNER = {
@@ -14,10 +15,36 @@ const AUTOPLAY_MS_DESKTOP = 2500;
 const AUTOPLAY_MS_MOBILE = 1800;
 
 const BANNERS = [
-  { src: "/mansha-image/mansha-banner-4.jpg", alt: "Mansha banner 4" },
-  { src: "/mansha-image/mansha-banner-1.jpg", alt: "Mansha banner 1" },
-  { src: "/mansha-image/mansha-banner-2.jpg", alt: "Mansha banner 2" },
-  { src: "/mansha-image/mansha-banner-3.jpg", alt: "Mansha banner 3" },
+  {
+    src: "/vega-street/vega-street-banner.jpg",
+    alt: "Mansha Vega Street commercial destination",
+    name: "Mansha Vega Street",
+    href: "/vega-street",
+  },
+  {
+    src: "/mansha-image/mansha-banner-1.jpg",
+    alt: "Mansha The Heritage grand entrance with clock tower",
+    name: "Mansha The Heritage",
+    href: "/mansha-heritage",
+  },
+  {
+    src: "/mansha-image/mansha-banner-2.jpg",
+    alt: "Mansha Oasis gated community entrance",
+    name: "Mansha Oasis",
+    href: "/mansha-oasis",
+  },
+  {
+    src: "/mansha-image/mansha-banner-3.jpg",
+    alt: "Mansha Orchid entrance gate and signage",
+    name: "Mansha Orchid",
+    href: "/mansha-orchid",
+  },
+  {
+    src: "/mansha-image/mansha-banner-4.jpg",
+    alt: "Aagman by Mansha residential apartments",
+    name: "Aagman by Mansha",
+    href: "/aagman-by-mansha",
+  },
 ];
 
 const ImageSection = () => {
@@ -121,6 +148,7 @@ const ImageSection = () => {
   };
 
   const activeDot = incomingSlide !== null ? incomingSlide : currentSlide;
+  const activeBanner = BANNERS[activeDot];
 
   return (
     <section ref={sectionRef} id="home-image-section" className="w-full bg-white">
@@ -174,6 +202,19 @@ const ImageSection = () => {
             <i className="ri-arrow-right-line"></i>
           </button>
         </div>
+
+        <Link
+          href={activeBanner.href}
+          aria-label={`View ${activeBanner.name}`}
+          className="group absolute bottom-10 right-4 z-30 inline-flex cursor-pointer items-center gap-2.5 text-white md:bottom-6 md:right-6 md:gap-3 lg:bottom-8 lg:right-10 xl:right-[75px]"
+        >
+          <span className="whitespace-nowrap font-optima text-[15px] font-medium capitalize leading-none tracking-wide drop-shadow-[0_1px_10px_rgba(0,0,0,0.55)] md:text-[20px] lg:text-[24px]">
+            {activeBanner.name}
+          </span>
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/80 bg-white/15 text-white backdrop-blur-sm transition-[background-color,color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-white group-hover:text-[#652A27] md:h-10 md:w-10">
+            <i className="ri-arrow-right-line text-base md:text-lg" />
+          </span>
+        </Link>
 
         <div className="absolute bottom-3 left-5 z-20 flex items-center gap-1.5 md:hidden">
           {BANNERS.map((banner, index) => (
@@ -288,8 +329,8 @@ function SlideLayer({
           src={slide.src}
           alt={slide.alt}
           title={slide.alt}
-          width={1600}
-          height={900}
+          width={1024}
+          height={454}
           className="block h-auto w-full object-cover xl:h-full"
           priority={imagePriority}
           quality={100}
