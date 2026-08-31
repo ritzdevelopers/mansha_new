@@ -29,7 +29,7 @@ const NavMedia = () => {
 
   return (
     <>
-      <section className="about-hero relative min-h-screen overflow-hidden">
+      <section className="about-hero relative min-h-screen">
         <Image
           src="/media/media-nav.jpg"
           alt="About Hero"

@@ -19,7 +19,7 @@ const Section1 = () => {
   return (
     <>
       <ProjectHeroHeader />
-      <section className="about-hero relative min-h-screen overflow-hidden">
+      <section className="about-hero relative min-h-screen">
         <Image
           src="/mansha-image/residential-hero.png"
           alt="Commercial spaces hero"
