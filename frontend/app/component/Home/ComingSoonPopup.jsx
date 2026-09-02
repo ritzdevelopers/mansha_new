@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const STORAGE_KEY = "mansha-coming-soon-popup-seen";
 const COOKIE_NAME = "mansha_coming_soon_seen";
@@ -45,7 +46,9 @@ export default function ComingSoonPopup() {
 
   useEffect(() => {
     const path = window.location.pathname || "";
-    if (path.startsWith("/dashboard")) return undefined;
+    if (path.startsWith("/dashboard") || path.startsWith("/upcoming-project")) {
+      return undefined;
+    }
     if (hasSeenPopup()) return undefined;
 
     const showTimer = setTimeout(() => {
@@ -101,14 +104,17 @@ export default function ComingSoonPopup() {
           <i className="ri-close-line text-2xl leading-none" aria-hidden="true" />
         </button>
 
-        <Image
-          src="/coming-soon-popup.jpeg"
-          alt="Coming Soon — Sector-104 Faridabad. A Different View Lies Ahead."
-          width={1600}
-          height={900}
-          priority
-          className="h-auto w-full object-cover"
-        />
+        <Link href="/upcoming-project" onClick={handleClose} className="block cursor-pointer">
+          <Image
+            src="/coming-soon-popup.jpeg"
+            alt="Coming Soon — Sector-104 Faridabad. A Different View Lies Ahead."
+            title="Coming Soon — Sector-104 Faridabad"
+            width={1600}
+            height={900}
+            priority
+            className="h-auto w-full object-cover"
+          />
+        </Link>
       </div>
     </div>
   );
