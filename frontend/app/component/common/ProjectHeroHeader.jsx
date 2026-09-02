@@ -68,12 +68,12 @@ const ProjectHeroHeader = () => {
   return (
     <>
       <header
-        className={`fixed left-0 right-0 top-0 z-50 border-b transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out ${
+        className={`fixed inset-x-0 top-0 z-50 overflow-visible rounded-none border-b transition-[transform,background-color,border-color,box-shadow] duration-300 ease-out ${
           hideBar ? "-translate-y-full pointer-events-none" : "translate-y-0"
         } ${
           lightBar
             ? "border-[#E8E4DC] bg-[#FAFAFA] shadow-sm"
-            : "border-white/10 bg-[#FAFAFA2B] backdrop-blur-[1px]"
+            : "border-white/10 bg-[#FAFAFA2B]"
         }`}
       >
         {open && (

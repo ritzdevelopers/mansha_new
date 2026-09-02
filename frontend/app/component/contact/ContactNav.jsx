@@ -29,7 +29,7 @@ const ContactNav = () => {
 
   return (
     <>
-      <section className="about-hero relative min-h-screen overflow-hidden md:h-[388px] md:min-h-[388px] md:max-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:max-h-[518px] xl:min-h-screen xl:h-screen xl:max-h-none">
+      <section className="about-hero relative min-h-screen md:h-[388px] md:min-h-[388px] md:max-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:max-h-[518px] xl:min-h-screen xl:h-screen xl:max-h-none">
         <Image
           src="/contact/contact-mobile-banner.jpg"
           alt="Contact Hero"

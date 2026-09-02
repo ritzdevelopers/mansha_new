@@ -60,3 +60,10 @@
   --font-archivo-black: "Archivo Black", sans-serif;
   --font-montserrat-mansha: "Montserrat", sans-serif;
 }
+
+html,
+body {
+  background-color: #ffffff;
+  max-width: 100%;
+  overflow-x: clip;
+}

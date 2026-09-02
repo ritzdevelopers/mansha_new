@@ -148,7 +148,7 @@ const Footer = () => {
           <p className="mt-3 pb-8 max-width-[700px] text-justify font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
            Mansha buildcon private limited, a trusted real estate developer, aims to provide accurate project information including pricing, layouts, and availability. However, all details are subject to change without prior notice. Images and amenities shown are for illustration purposes and may vary in actual delivery. We advise all buyers to verify information with authorized Mansha Group representatives before making investment decisions. Mansha Group is not liable for any discrepancies that may arise.
           </p>
-          <div className="h-px w-screen bg-[#833E3B] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]" />
+          <div className="h-px w-full bg-[#833E3B]" />
           <p className="mt-5 font-montserrat text-[16px] font-normal leading-[26px] text-[#FFFFFFCC]">
             © 2026 Manshagroup. All Rights Reserved. Digital Media Planned By Ritz
             Media World

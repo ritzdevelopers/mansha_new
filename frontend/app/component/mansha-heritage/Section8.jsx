@@ -59,10 +59,10 @@ const Section8 = () => {
   };
 
   return (
-    <section ref={sectionRef} className="mx-auto w-full max-w-[1500px] bg-white px-0">
-      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-5 pb-[35px] sm:px-8 lg:grid-cols-[420px_1fr] lg:gap-0 lg:px-[75px] lg:pb-[70px] xl:grid-cols-[500px_1fr]">
+    <section ref={sectionRef} className="mx-auto w-full overflow-x-clip bg-white px-0">
+      <div className="mx-auto grid max-w-8xl grid-cols-1 gap-4 px-5 pb-[35px] sm:px-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-8 lg:px-[75px] lg:pb-[70px] xl:grid-cols-[minmax(0,500px)_minmax(0,1fr)]">
         <div>
-          <h2 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[30px] tracking-normal capitalize text-[#111111] md:text-[36px] md:leading-[42px] md:text-left lg:whitespace-nowrap">
+          <h2 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[30px] tracking-normal capitalize text-[#111111] md:text-[36px] md:leading-[42px] md:text-left">
             Frequently Asked Questions
           </h2>
           <p className="mt-4 md:mt-2 font-montserrat text-[14px] font-normal leading-[100%] tracking-normal capitalize text-[#333333] text-center md:text-[16px] md:text-left xl:mt-7">
@@ -103,7 +103,7 @@ const Section8 = () => {
           </div>
         </div>
 
-        <div className="w-full space-y-0 text-left lg:justify-self-start lg:pt-20 xl:pt-35 lg:-translate-x-16 xl:-translate-x-10">
+        <div className="min-w-0 w-full space-y-0 text-left lg:justify-self-start lg:pt-20 xl:pt-35">
           {faqs.map((item, index) => {
             const isOpen = activeIndex === index;
             return (

@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <>
-      <section className="about-hero relative min-h-[calc(100vh-50px)] overflow-hidden md:h-[388px] md:min-h-[388px] md:max-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:max-h-[518px] xl:min-h-screen xl:h-screen xl:max-h-none">
+      <section className="about-hero relative min-h-[calc(100vh-50px)] md:h-[388px] md:min-h-[388px] md:max-h-[388px] lg:h-[518px] lg:min-h-[518px] lg:max-h-[518px] xl:min-h-screen xl:h-screen xl:max-h-none">
         <Image
           src="/vega-street/vega-street-mobile-banner.jpg"
           alt="Vega Street"
