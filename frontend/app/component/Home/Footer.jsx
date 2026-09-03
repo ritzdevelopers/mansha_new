@@ -71,12 +71,12 @@ const Footer = () => {
             </div>  
             <div className="mt-5 flex items-center gap-3 text-[#652A27]">
   {[
-    { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad" },
-    // { icon: "ri-twitter-x-line" },
-    { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup" },
-    { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/" },
-    { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial" },
-  ].map(({ icon, href }) => {
+    { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad", label: "Facebook" },
+    { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup", label: "LinkedIn" },
+    { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/", label: "Instagram" },
+    { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial", label: "YouTube" },
+    { icon: "ri-pinterest-fill", href: "https://in.pinterest.com/manshagroupofficial/", label: "Pinterest" },
+  ].map(({ icon, href, label }) => {
     const className =
       "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[16px]  transition-all duration-300 hover:bg-[#652A27] hover:text-white hover:shadow-white/40";
 
@@ -86,6 +86,7 @@ const Footer = () => {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={label}
         className={className}
       >
         <i className={icon} />
