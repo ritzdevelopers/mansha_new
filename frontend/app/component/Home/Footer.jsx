@@ -69,31 +69,51 @@ const Footer = () => {
                 </div>
               </div>
             </div>  
-            <div className="mt-5 flex items-center gap-3 text-[#652A27]">
+            <div className="mt-5 flex flex-wrap items-center gap-3 text-[#652A27]">
   {[
     { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad", label: "Facebook" },
     { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup", label: "LinkedIn" },
     { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/", label: "Instagram" },
+    { src: "/mansha-image/threads.png", href: "https://www.threads.com/@manshagroupofficial", label: "Threads" },
     { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial", label: "YouTube" },
     { icon: "ri-pinterest-fill", href: "https://in.pinterest.com/manshagroupofficial/", label: "Pinterest" },
-  ].map(({ icon, href, label }) => {
+  ].map(({ icon, src, href, label }) => {
     const className =
       "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[16px]  transition-all duration-300 hover:bg-[#652A27] hover:text-white hover:shadow-white/40";
 
+    const iconEl = src ? (
+      <span
+        aria-hidden="true"
+        className="block h-4 w-4 bg-current"
+        style={{
+          WebkitMaskImage: `url(${src})`,
+          maskImage: `url(${src})`,
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+        }}
+      />
+    ) : (
+      <i className={icon} />
+    );
+
     return href ? (
       <a
-        key={icon}
+        key={label}
         href={href}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={label}
         className={className}
       >
-        <i className={icon} />
+        {iconEl}
       </a>
     ) : (
-      <span key={icon} className={className}>
-        <i className={icon} />
+      <span key={label} className={className}>
+        {iconEl}
       </span>
     );
   })}
