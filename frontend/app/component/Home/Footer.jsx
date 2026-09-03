@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="relative w-full overflow-hidden bg-[#652A27] px-0 text-white">
       <div className="mx-auto max-w-8xl px-5 py-[35px] sm:px-8 md:px-6 lg:px-[75px] lg:pt-[70px] lg:pb-[40px]  ">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.6fr_0.6fr_0.8fr]">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.15fr_0.5fr_minmax(0,1fr)_0.55fr]">
           <div className="col-span-2 lg:col-span-1 cursor-pointer">
             <Link href="/">
             <Image
@@ -42,7 +42,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-span-2 lg:col-span-1">
+          <div className="@container col-span-2 min-w-0 lg:col-span-1">
             <div className="relative mx-auto inline-block pb-3 before:absolute before:bottom-0 before:left-0 before:h-px before:w-1/2 before:bg-white after:absolute after:bottom-0 after:right-0 after:h-px after:w-1/2 after:bg-white lg:mx-0">
               <h3 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[36px] lg:text-[30px] text-[28px] font-bold leading-[100%] tracking-normal text-[#FFFFFF] lg:text-left">
                 Stay connected
@@ -68,60 +68,60 @@ const Footer = () => {
                   <i className="ri-star-fill" />
                 </div>
               </div>
-            </div>  
-            <div className="mt-5 flex flex-wrap items-center gap-3 text-[#652A27]">
-  {[
-    { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad", label: "Facebook" },
-    { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup", label: "LinkedIn" },
-    { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/", label: "Instagram" },
-    { src: "/mansha-image/threads.png", href: "https://www.threads.com/@manshagroupofficial", label: "Threads" },
-    { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial", label: "YouTube" },
-    { icon: "ri-pinterest-fill", href: "https://in.pinterest.com/manshagroupofficial/", label: "Pinterest" },
-  ].map(({ icon, src, href, label }) => {
-    const className =
-      "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[16px]  transition-all duration-300 hover:bg-[#652A27] hover:text-white hover:shadow-white/40";
+            </div>
+            <div className="mt-5 grid w-max max-w-full grid-cols-3 gap-2.5 text-[#652A27] @[276px]:grid-cols-6 @[276px]:gap-3">
+              {[
+                { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad", label: "Facebook" },
+                { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup", label: "LinkedIn" },
+                { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/", label: "Instagram" },
+                { src: "/mansha-image/threads.png", href: "https://www.threads.com/@manshagroupofficial", label: "Threads" },
+                { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial", label: "YouTube" },
+                { icon: "ri-pinterest-fill", href: "https://in.pinterest.com/manshagroupofficial/", label: "Pinterest" },
+              ].map(({ icon, src, href, label }) => {
+                const className =
+                  "flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[15px] transition-all duration-300 hover:bg-[#652A27] hover:text-white hover:shadow-white/40 sm:h-9 sm:w-9 sm:text-[16px]";
 
-    const iconEl = src ? (
-      <span
-        aria-hidden="true"
-        className="block h-4 w-4 bg-current"
-        style={{
-          WebkitMaskImage: `url(${src})`,
-          maskImage: `url(${src})`,
-          WebkitMaskSize: "contain",
-          maskSize: "contain",
-          WebkitMaskRepeat: "no-repeat",
-          maskRepeat: "no-repeat",
-          WebkitMaskPosition: "center",
-          maskPosition: "center",
-        }}
-      />
-    ) : (
-      <i className={icon} />
-    );
+                const iconEl = src ? (
+                  <span
+                    aria-hidden="true"
+                    className="block h-4 w-4 bg-current"
+                    style={{
+                      WebkitMaskImage: `url(${src})`,
+                      maskImage: `url(${src})`,
+                      WebkitMaskSize: "contain",
+                      maskSize: "contain",
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                      WebkitMaskPosition: "center",
+                      maskPosition: "center",
+                    }}
+                  />
+                ) : (
+                  <i className={icon} />
+                );
 
-    return href ? (
-      <a
-        key={label}
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={label}
-        className={className}
-      >
-        {iconEl}
-      </a>
-    ) : (
-      <span key={label} className={className}>
-        {iconEl}
-      </span>
-    );
-  })}
-</div>
+                return href ? (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className={className}
+                  >
+                    {iconEl}
+                  </a>
+                ) : (
+                  <span key={label} className={className}>
+                    {iconEl}
+                  </span>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.6fr_0.6fr_0.8fr] mt-10">
+        <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.15fr_0.5fr_minmax(0,1fr)_0.55fr]">
         <div>
             <h4 className=" font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] text-left">Corporate Office</h4>
             <p className="mt-2 max-w-[400px] font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
