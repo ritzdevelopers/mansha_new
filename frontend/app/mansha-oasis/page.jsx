@@ -9,7 +9,7 @@ import Section6 from '../component/ManshaOasis/Section6'
 import Section7 from '../component/ManshaOasis/Section7'
 import Section8 from '../component/ManshaOasis/Section8'
 import Section9 from '../component/ManshaOasis/Section9'
-import WalkthroughVideos from '../component/common/WalkthroughVideos'
+import LayoutPlans from '../component/ManshaOasis/LayoutPlans'
 import ConsultationCommon from '../component/common/Consultation-common'
 import TestimoniaCommon from '../component/common/Testimonia-common'
 const ManshaOasis = () => {
@@ -25,7 +25,7 @@ const ManshaOasis = () => {
       <div className="py-[35px] lg:py-[70px]">
       <Section7 />
       </div>
-      <WalkthroughVideos projectKey="mansha-oasis" />
+      <LayoutPlans />
       <Section8 />
       {/* <Section9 /> */}
       <TestimoniaCommon/>
