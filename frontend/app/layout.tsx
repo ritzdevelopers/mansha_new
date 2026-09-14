@@ -14,8 +14,11 @@ export const metadata: Metadata = {
     canonical: "https://www.manshagroup.in/",
   },
   icons: {
-    icon: "/mansha-logo.ico",
-    apple: "/mansha-logo.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.ico",
   },
 };
 
