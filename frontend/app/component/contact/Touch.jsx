@@ -30,6 +30,31 @@ const CONTACT_ITEMS = [
 ];
 
 const CONTACT_LABELS = new Set(["Call:", "email:", "mail:"]);
+const CONTACT_EMAIL = "info@manshagroup.in";
+const CONTACT_PHONE = "+91- 7070705457";
+const CONTACT_EMAIL_HREF = "mailto:info@manshagroup.in";
+const CONTACT_PHONE_HREF = "tel:+917070705457";
+const contactLinkClass = "hover:text-[#652A27] hover:underline";
+
+const ContactValue = ({ value }) => {
+  if (value === CONTACT_EMAIL) {
+    return (
+      <a href={CONTACT_EMAIL_HREF} className={contactLinkClass}>
+        {value}
+      </a>
+    );
+  }
+
+  if (value === CONTACT_PHONE) {
+    return (
+      <a href={CONTACT_PHONE_HREF} className={contactLinkClass}>
+        {value}
+      </a>
+    );
+  }
+
+  return value;
+};
 
 const inputClass =
   "h-[56px] w-full bg-[#FAFAFA] px-5 font-montserrat text-[14px] font-normal leading-[24px] text-[#515151] outline-none placeholder:text-[#515151]";
@@ -277,12 +302,14 @@ const Touch = () => {
                           <p className="hidden font-semibold leading-[25px] text-[#515151] lg:block">
                             {line}
                           </p>
-                          <p className="hidden lg:block">{value}</p>
+                          <p className="hidden lg:block">
+                            <ContactValue value={value} />
+                          </p>
                           <p className="lg:hidden">
                             <span className="font-semibold leading-[25px] text-[#515151]">
                               {line}
                             </span>{" "}
-                            {value}
+                            <ContactValue value={value} />
                           </p>
                         </React.Fragment>
                       );
@@ -292,7 +319,11 @@ const Touch = () => {
                       return null;
                     }
 
-                    return <p key={`${item.title}-${line}`}>{line}</p>;
+                    return (
+                      <p key={`${item.title}-${line}`}>
+                        <ContactValue value={line} />
+                      </p>
+                    );
                   })}
                 </div>
               </div>

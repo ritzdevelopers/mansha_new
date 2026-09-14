@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import HomeLogoLink from "../common/HomeLogoLink";
+
+const GOOGLE_REVIEW_URL =
+  "https://www.google.com/search?q=mansha+group&sca_esv=66d2cd5ecf989ed9&source=hp&ei=0ZKnatvLC_-QseMPiseIEQ&iflsig=ABILxe8AAAAAaqeg4YSpYCs_DpSokqAPFg8i773-mfJr&gs_ssp=eJzj4tVP1zc0TDYtNs0oMiswYLRSNagwtjRITkkytTBNSTNKTbM0tzKoME1OSbM0NjU0MjBPMjQ3MfTiyU3MK85IVEgvyi8tAACPnBPO&oq=mansha&gs_lp=Egdnd3Mtd2l6IgZtYW5zaGEqDggDGIAEGMcBGK8BGI4FMgsQABiABBixAxiDATIFEAAYgAQyDhAuGIAEGMcBGK8BGI4FMg4QLhiABBjHARivARiOBTIKEC4YgAQYigUYQzIFEAAYgAQyBRAAGIAEMgUQABiABDILEC4YgAQYxwEYrwEyBRAAGIAESIg-UABYhSZwAngAkAEAmAHrAaAB_waqAQUwLjUuMbgBAcgBAPgBAZgCCKAC0AfCAgoQABiABBiKBRhDwgINEAAYgAQYigUYQxixA8ICDhAuGIAEGLEDGMcBGNEDwgIIEAAYgAQYsQPCAg4QLhiABBiKBRixAxiDAcICBRAuGIAEwgIIEC4YgAQYtAfCAgsQABiABBiKBRiRAsICFBAuGIAEGIoFGJECGMkDGMcBGNEDwgIREC4YgAQYigUYkQIYxwEYrwHCAhEQLhiABBiKBRiRAhjHARjRA8ICExAuGIAEGIoFGEMYsQMYxwEY0QPCAgsQABiABBiKBRiSA8ICDRAuGIAEGIoFGEMYsQPCAggQLhiABBixA5gDAJIHBTIuNS4xoAeFQLIHBTAuNS4xuAfDB8IHBTItNi4yyAc8gAgB&sclient=gws-wiz#lrd=0x390cdb585df2ef97:0x5cdf9351207b1741,1,,,,";
 
 const Footer = () => {
   return (
@@ -7,7 +11,7 @@ const Footer = () => {
       <div className="mx-auto max-w-8xl px-5 py-[35px] sm:px-8 md:px-6 lg:px-[75px] lg:pt-[70px] lg:pb-[40px]  ">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.15fr_0.5fr_minmax(0,1fr)_0.55fr]">
           <div className="col-span-2 lg:col-span-1 cursor-pointer">
-            <Link href="/">
+            <HomeLogoLink>
             <Image
               src="/mansha-image/footer-logo.png"
               alt="Mansha footer logo"
@@ -16,7 +20,7 @@ const Footer = () => {
               height={94}
               className="h-auto w-[80px]"
             />
-             </Link>
+             </HomeLogoLink>
             <p className="mt-4 max-w-[380px] font-montserrat text-[15px] font-normal leading-[22px] tracking-normal text-[#FFFFFF]">
               Refined living blends elegant design, curated spaces, and seamless comfort, creating a sophisticated lifestyle where every detail enhances daily experience with effortless ease.
             </p>
@@ -48,7 +52,13 @@ const Footer = () => {
                 Stay connected
               </h3>
             </div>
-            <div className="mt-5 flex w-fit items-center gap-3 bg-[#652A27] py-1">
+            <a
+              href={GOOGLE_REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Mansha Group Google reviews"
+              className="mt-5 flex w-fit cursor-pointer items-center gap-3 bg-[#652A27] py-1"
+            >
               <Image
                 src="/mansha-image/google-review-footer.png"
                 alt="Google review icon"
@@ -68,7 +78,7 @@ const Footer = () => {
                   <i className="ri-star-fill" />
                 </div>
               </div>
-            </div>
+            </a>
             <div className="mt-5 grid w-max max-w-full grid-cols-3 gap-2.5 text-[#652A27] @[276px]:grid-cols-6 @[276px]:gap-3">
               {[
                 { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad", label: "Facebook" },
@@ -144,17 +154,23 @@ const Footer = () => {
                 <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
                   Phone :
                 </p>
-                <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
+                <a
+                  href="tel:+918010003838"
+                  className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF] hover:underline"
+                >
                   +91-8010003838
-                </p>
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
                   Email :
                 </p>
-                <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
+                <a
+                  href="mailto:info@manshagroup.in"
+                  className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF] hover:underline"
+                >
                   info@manshagroup.in
-                </p>
+                </a>
               </div>
             </div>
           </div>

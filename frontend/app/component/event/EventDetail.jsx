@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import NavSideMenu from "../common/NavSideMenu";
+import HomeLogoLink from "../common/HomeLogoLink";
 
 const PHONE = "tel:+917070705457";
 const WHATSAPP = "https://wa.me/918010003838";
@@ -191,8 +192,7 @@ const EventDetail = ({ location }) => {
           )}
 
           <div className="relative z-50 mx-auto flex h-14 max-w-8xl items-center justify-between px-5 py-10 sm:px-8 lg:px-[75px]">
-            <Link
-              href="/"
+            <HomeLogoLink
               className="flex shrink-0 items-center py-1 outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#652A27]/40"
               onClick={() => setOpen(false)}
             >
@@ -204,7 +204,7 @@ const EventDetail = ({ location }) => {
                 className="h-12 w-auto sm:h-15"
                 priority
               />
-            </Link>
+            </HomeLogoLink>
 
             <div className="flex shrink-0 items-center gap-0 sm:gap-3">
               <a href={PHONE} className={iconBtn} aria-label="Call us">
@@ -224,14 +224,16 @@ const EventDetail = ({ location }) => {
                 className="inline-flex h-11 w-11 cursor-pointer items-center justify-center text-black transition-opacity active:opacity-60"
                 aria-controls="mobile-navigation"
                 aria-expanded={open}
-                aria-label={open ? "Close menu" : "Open menu"}
+                aria-label={open ? "Close menu" : "Hamburger Menu - Mansha"}
+                title="Hamburger Menu - Mansha"
                 onClick={() => setOpen((prev) => !prev)}
               >
                 <Image
                   src="/mansha-svg/humburger-sanskar.svg"
                   width={22}
                   height={22}
-                  alt="menu"
+                  alt="Hamburger Menu - Mansha"
+                  title="Hamburger Menu - Mansha"
                   className="brightness-0"
                 />
               </button>

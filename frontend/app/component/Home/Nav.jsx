@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import HomeLogoLink from "../common/HomeLogoLink";
 import NavSideMenu from "../common/NavSideMenu";
 
 const PHONE = "tel:+917070705457";
@@ -64,8 +64,7 @@ const Navbar = () => {
         )}
 
         <div className="relative z-50 mx-auto flex h-14 max-w-8xl items-center justify-between px-5 py-10 sm:px-8 lg:px-[75px]">
-          <Link
-            href="/"
+          <HomeLogoLink
             className="flex shrink-0 items-center py-1 outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#6b3d3d]/50"
             onClick={() => setOpen(false)}
           >
@@ -78,7 +77,7 @@ const Navbar = () => {
               className="h-12 w-auto sm:h-15"
               priority
             />
-          </Link>
+          </HomeLogoLink>
 
           <div className="flex shrink-0 items-center gap-0 sm:gap-3">
             <a href={PHONE} className={iconBtn} aria-label="Call us">
@@ -100,9 +99,11 @@ const Navbar = () => {
               className="inline-flex cursor-pointer h-11 w-11 items-center justify-center text-[#2c2c2a] transition-opacity  active:opacity-60"
               aria-controls="mobile-navigation"
               aria-expanded={open}
+              aria-label="Hamburger Menu - Mansha"
+              title="Hamburger Menu - Mansha"
              onClick={()=>setOpen((prev)=>!prev)}
             >
-              <Image src="/mansha-svg/humburger-sanskar.svg" alt="humburger-sanskar" width={22} height={22}  className="brightness-0" title="humburger-sanskar" />
+              <Image src="/mansha-svg/humburger-sanskar.svg" alt="Hamburger Menu - Mansha" width={22} height={22}  className="brightness-0" title="Hamburger Menu - Mansha" />
             </button>
           </div>
         </div>
