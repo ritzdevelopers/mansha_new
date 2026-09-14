@@ -575,7 +575,7 @@ const Section2 = () => {
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#652A27] font-montserrat text-[13px] font-bold text-white"
                   aria-hidden
                 >
-                  5
+                  3
                 </span>
                 <h2 className="font-montserrat text-[13px] font-bold uppercase leading-snug tracking-wide text-[#652A27] sm:text-[14px]">
                   Past Project In Last Five Year Developed By Promoter
