@@ -27,6 +27,17 @@ const Section7 = () => {
   const showPrev = () => modalSwiper?.slidePrev();
 
   useEffect(() => {
+    if (activeIndex === null) return;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") closeModal();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [activeIndex]);
+
+  useEffect(() => {
     const grid = gridRef.current;
     if (!grid) return;
 
@@ -90,7 +101,15 @@ const Section7 = () => {
       </div>
 
       {activeIndex !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+        <div
+          className="fixed inset-0 z-50 flex cursor-pointer items-center justify-center bg-black/80 p-4"
+          onClick={(event) => {
+            if (event.target === event.currentTarget) closeModal();
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Gallery popup"
+        >
           <button
             type="button"
             onClick={closeModal}
@@ -109,7 +128,10 @@ const Section7 = () => {
             <i className="ri-arrow-left-s-line" />
           </button>
 
-          <div className="relative z-10 h-[70vh] w-full max-w-5xl">
+          <div
+            className="relative z-10 h-[70vh] w-full max-w-5xl cursor-default"
+            onClick={(event) => event.stopPropagation()}
+          >
             <Swiper
               loop
               speed={500}
