@@ -70,7 +70,7 @@ const AWARD_ITEMS = [
 const scrollToAward = (id) => {
   window.history.pushState(null, "", `#${id}`);
   window.dispatchEvent(new HashChangeEvent("hashchange"));
-  const el = document.getElementById("awards-section-3");
+  const el = document.getElementById(id);
   if (el) {
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   }

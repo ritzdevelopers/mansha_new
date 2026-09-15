@@ -4,19 +4,25 @@ import { useEffect, useRef, useState } from "react";
 import {
   PROJECT_WALKTHROUGH_VIDEOS,
   getYouTubeId,
+  isDirectVideoUrl,
 } from "./walkthroughVideos";
 
 const WalkthroughVideos = ({ projectKey, video }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+  const nativeVideoRef = useRef(null);
 
   const source =
     video || PROJECT_WALKTHROUGH_VIDEOS[projectKey] || null;
-  const youtubeId = getYouTubeId(source?.url);
-  const title = source?.title || "Project Walkthrough";
-  const thumbnail = youtubeId
-    ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`
+  const directVideoSrc = isDirectVideoUrl(source?.url)
+    ? String(source.url).trim()
     : null;
+  const youtubeId = directVideoSrc ? null : getYouTubeId(source?.url);
+  const title = source?.title || "Project Walkthrough";
+  const hasPlayableSource = Boolean(youtubeId || directVideoSrc);
+  const thumbnail =
+    source?.poster ||
+    (youtubeId ? `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg` : null);
   const embed = youtubeId
     ? `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&mute=1&rel=0&modestbranding=1&playsinline=1`
     : null;
@@ -37,6 +43,17 @@ const WalkthroughVideos = ({ projectKey, video }) => {
     return () => observer.disconnect();
   }, [embed]);
 
+  useEffect(() => {
+    if (!isPlaying || !directVideoSrc) return;
+    const el = nativeVideoRef.current;
+    if (!el) return;
+    el.play().catch(() => {});
+  }, [isPlaying, directVideoSrc]);
+
+  const handlePlay = () => {
+    if (hasPlayableSource) setIsPlaying(true);
+  };
+
   return (
     <section id="walkthrough-videos" className="w-full pb-[35px] lg:pb-[70px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
@@ -49,7 +66,18 @@ const WalkthroughVideos = ({ projectKey, video }) => {
 
         <article className="mt-6 overflow-hidden bg-[#F5F5F5] md:mt-8">
           <div ref={videoRef} className="relative aspect-video w-full">
-            {isPlaying && embed ? (
+            {isPlaying && directVideoSrc ? (
+              <video
+                ref={nativeVideoRef}
+                src={directVideoSrc}
+                className="absolute inset-0 h-full w-full object-cover"
+                controls
+                autoPlay
+                playsInline
+                poster={thumbnail || undefined}
+                aria-label={title}
+              />
+            ) : isPlaying && embed ? (
               <iframe
                 title={title}
                 src={embed}
@@ -60,14 +88,14 @@ const WalkthroughVideos = ({ projectKey, video }) => {
             ) : (
               <button
                 type="button"
-                onClick={() => {
-                  if (embed) setIsPlaying(true);
-                }}
+                onClick={handlePlay}
                 className={`group absolute inset-0 ${
-                  embed ? "cursor-pointer" : "cursor-default"
+                  hasPlayableSource ? "cursor-pointer" : "cursor-default"
                 }`}
-                aria-label={embed ? `Play ${title}` : `${title} coming soon`}
-                disabled={!embed}
+                aria-label={
+                  hasPlayableSource ? `Play ${title}` : `${title} coming soon`
+                }
+                disabled={!hasPlayableSource}
               >
                 {thumbnail ? (
                   <img

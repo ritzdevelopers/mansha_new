@@ -81,7 +81,7 @@ const Footer = () => {
             </a>
             <div className="mt-5 grid w-max max-w-full grid-cols-3 gap-2.5 text-[#652A27] @[276px]:grid-cols-6 @[276px]:gap-3">
               {[
-                { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad", label: "Facebook" },
+                { icon: "ri-facebook-fill", href: "https://www.facebook.com/ManshaGroupOfficial", label: "Facebook" },
                 { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup", label: "LinkedIn" },
                 { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/", label: "Instagram" },
                 { src: "/mansha-image/threads.png", href: "https://www.threads.com/@manshagroupofficial", label: "Threads" },

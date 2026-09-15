@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import BookASite from "../common/Book-a-site";
 import NavSideMenu from "../common/NavSideMenu";
 import HomeLogoLink from "../common/HomeLogoLink";
 
@@ -20,6 +20,7 @@ const iconBtn =
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [bookSiteOpen, setBookSiteOpen] = useState(false);
   const [activeVegaSlide, setActiveVegaSlide] = useState(0);
 
   useEffect(() => {
@@ -206,26 +207,20 @@ const Navbar = () => {
               <h2 className="font-optima text-[24px] md:text-[36px] lg:text-[36px] font-medium leading-[100%] tracking-[0] text-black text-center md:text-left">
               The Future of High-Street Living
               </h2>
-              <Link href="/contact">
               <button
-  type="button"
-  className="group relative mt-4 hidden w-fit items-center gap-2 overflow-hidden rounded-full border border-[#652A27] bg-[#652A27] px-6 py-4 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0] text-white transition-all duration-500 lg:mt-8 lg:inline-flex cursor-pointer"
->
-  {/* Hover Background */}
-  <span className="absolute inset-0 -translate-x-full bg-white transition-transform duration-500 ease-in-out group-hover:translate-x-0"></span>
-
-  {/* Text */}
-  <span className="relative z-10 transition-colors duration-500 group-hover:text-[#652A27]">
-    Enquire Now
-  </span>
-
-  {/* Icon */}
-  <i
-    className="ri-arrow-right-line relative z-10 text-[20px] transition-colors duration-500 group-hover:text-[#652A27]"
-    aria-hidden
-  />
-</button>
-            </Link>
+                type="button"
+                onClick={() => setBookSiteOpen(true)}
+                className="group relative mt-4 hidden w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full border border-[#652A27] bg-[#652A27] px-6 py-4 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0] text-white transition-all duration-500 lg:mt-8 lg:inline-flex"
+              >
+                <span className="absolute inset-0 -translate-x-full bg-white transition-transform duration-500 ease-in-out group-hover:translate-x-0" />
+                <span className="relative z-10 transition-colors duration-500 group-hover:text-[#652A27]">
+                  Enquire Now
+                </span>
+                <i
+                  className="ri-arrow-right-line relative z-10 text-[20px] transition-colors duration-500 group-hover:text-[#652A27]"
+                  aria-hidden
+                />
+              </button>
             </div>
             <p className="text-center font-montserrat text-[16px] font-normal leading-[25px] md:leading-[28px] tracking-[0px] capitalize text-[#333333] md:text-left">
             An initiative by Mansha Group, Vega Street is envisioned as a landmark destination that brings together premium retail, lifestyle, and leisure. Designed to reflect global high-street experiences, it creates a space where brands,people, and experiences seamlessly connect. With a thoughtfully planned layout and modern infrastructure, it offers the perfect blend of accessibility and elegance. Curated to host renowned brands, fine dining, and vibrant social spaces, it redefines everyday experiences. Every element is crafted to enhance footfall, engagement, and long-term value. Its strategic location ensures excellent visibility and consistent growth potential. More than just a commercial space, it is designed to become a thriving lifestyle hub.
@@ -234,7 +229,8 @@ const Navbar = () => {
             
             <button
               type="button"
-              className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-[#652A27] px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0] text-white lg:hidden"
+              onClick={() => setBookSiteOpen(true)}
+              className="mt-4 inline-flex w-fit cursor-pointer items-center gap-2 rounded-full bg-[#652A27] px-6 py-3 font-montserrat text-[16px] font-normal leading-[100%] tracking-[0] text-white lg:hidden"
             >
               Enquire Now
               <i className="ri-arrow-right-line text-[20px]" aria-hidden />
@@ -244,6 +240,7 @@ const Navbar = () => {
       </section>
 
       <NavSideMenu open={open} onClose={() => setOpen(false)} />
+      <BookASite open={bookSiteOpen} onClose={() => setBookSiteOpen(false)} />
     </>
   );
 };

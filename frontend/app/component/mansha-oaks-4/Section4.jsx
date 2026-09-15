@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Section4 = () => {
   const images = [
@@ -20,6 +20,17 @@ const Section4 = () => {
     setActiveIndex((prev) => (prev + 1) % images.length);
   const showPrev = () =>
     setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
+
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    const onKeyUp = (event) => {
+      if (event.key === "Escape") closeModal();
+    };
+
+    window.addEventListener("keyup", onKeyUp);
+    return () => window.removeEventListener("keyup", onKeyUp);
+  }, [activeIndex]);
 
   return (
     <section className="w-full  pb-[35px] lg:pb-[70px]">
@@ -58,26 +69,35 @@ const Section4 = () => {
       </div>
 
       {activeIndex !== null && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-          <button
-            type="button"
-            onClick={closeModal}
-            className="absolute right-4 top-4 z-[60] flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-[20px] leading-none text-white max-md:right-2 max-md:top-2 max-md:h-8 max-md:w-8 max-md:text-[14px]"
-            aria-label="Close gallery popup"
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={closeModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Gallery image viewer"
+        >
+          <div
+            className="relative z-10 h-[70vh] w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
           >
-            <i className="ri-close-line"  />
-          </button>
+            <button
+              type="button"
+              onClick={closeModal}
+              className="absolute -right-2 -top-2 z-[60] flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-[20px] leading-none text-white max-md:-right-1 max-md:-top-1 max-md:h-8 max-md:w-8 max-md:text-[14px]"
+              aria-label="Close gallery popup"
+            >
+              <i className="ri-close-line" />
+            </button>
 
-          <button
-            type="button"
-            onClick={showPrev}
-            className="absolute left-4 top-1/2 z-[60] flex h-15 w-15 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-[20px] leading-none text-white max-md:left-2 max-md:h-8 max-md:w-8 max-md:text-[14px]"
-            aria-label="Previous image"
-          >
-            <i className="ri-arrow-left-s-line" />
-          </button>
+            <button
+              type="button"
+              onClick={showPrev}
+              className="absolute -left-4 top-1/2 z-[60] flex h-15 w-15 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-[20px] leading-none text-white max-md:-left-2 max-md:h-8 max-md:w-8 max-md:text-[14px]"
+              aria-label="Previous image"
+            >
+              <i className="ri-arrow-left-s-line" />
+            </button>
 
-          <div className="relative z-10 h-[70vh] w-full max-w-5xl">
             <Image
               src={images[activeIndex].src}
               alt={images[activeIndex].alt}
@@ -85,16 +105,16 @@ const Section4 = () => {
               className="object-contain"
               sizes="100vw"
             />
-          </div>
 
-          <button
-            type="button"
-            onClick={showNext}
-            className="absolute right-4 top-1/2 z-[60] flex h-15 w-15 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-[20px] leading-none text-white max-md:right-2 max-md:h-8 max-md:w-8 max-md:text-[14px]"
-            aria-label="Next image"
-          >
-            <i className="ri-arrow-right-s-line"  />
-          </button>
+            <button
+              type="button"
+              onClick={showNext}
+              className="absolute -right-4 top-1/2 z-[60] flex h-15 w-15 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#652A27] text-[20px] leading-none text-white max-md:-right-2 max-md:h-8 max-md:w-8 max-md:text-[14px]"
+              aria-label="Next image"
+            >
+              <i className="ri-arrow-right-s-line" />
+            </button>
+          </div>
         </div>
       )}
     </section>

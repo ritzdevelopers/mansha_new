@@ -162,7 +162,7 @@ const Section3 = () => {
             <div
               key={achievement.id}
               id={achievement.id}
-              className={`${sectionIndex > 0 ? "mt-10 lg:mt-14" : ""} ${
+              className={`scroll-mt-28 ${sectionIndex > 0 ? "mt-10 lg:mt-14" : ""} ${
                 sectionIndex < ACHIEVEMENTS.length - 1
                   ? "border-b border-[#E8E4DC] pb-10 lg:pb-14"
                   : ""

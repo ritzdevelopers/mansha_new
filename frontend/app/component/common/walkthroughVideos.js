@@ -30,9 +30,13 @@ export const PROJECT_WALKTHROUGH_VIDEOS = {
   },
   "vega-street": {
     title: "Vega Street Walkthrough",
-    url: "",
+    url: "https://manshagroup.in/wp-content/uploads/2025/12/Mansha-Vegastreet.mp4",
+    poster: "/vega-street/vega-street-banner.jpg",
   },
 };
+
+export const isDirectVideoUrl = (url = "") =>
+  /\.(mp4|webm|ogg)(\?|#|$)/i.test(String(url).trim());
 
 export const getYouTubeId = (url = "") => {
   const value = String(url).trim();
