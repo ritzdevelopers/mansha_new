@@ -9,7 +9,6 @@
     "postbuild": "node scripts/materialize-hoisted-deps.js",
     "start": "next start",
     "lint": "eslint",
-    "favicon": "node scripts/make-favicon.js",
     "postinstall": "node scripts/ensure-native-css.js"
   },
   "engines": {
@@ -33,14 +32,10 @@
     "@tailwindcss/oxide-linux-arm64-musl": "4.2.4",
     "@tailwindcss/oxide-linux-x64-gnu": "4.2.4",
     "@tailwindcss/oxide-linux-x64-musl": "4.2.4",
-    "@tailwindcss/oxide-win32-arm64-msvc": "4.2.4",
-    "@tailwindcss/oxide-win32-x64-msvc": "4.2.4",
     "lightningcss-linux-arm64-gnu": "1.32.0",
     "lightningcss-linux-arm64-musl": "1.32.0",
     "lightningcss-linux-x64-gnu": "1.32.0",
-    "lightningcss-linux-x64-musl": "1.32.0",
-    "lightningcss-win32-arm64-msvc": "1.32.0",
-    "lightningcss-win32-x64-msvc": "1.32.0"
+    "lightningcss-linux-x64-musl": "1.32.0"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -48,7 +43,6 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
-    "sharp": "^0.34.5",
     "typescript": "^5"
   }
 }

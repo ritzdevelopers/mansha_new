@@ -21,7 +21,7 @@ const ConsultationCommon = () => {
     GET YOUR PERSONALIZED OFFER
   </h2>
 
-  <Link href="/contact-us">
+  <Link href="/about-us">
     <button
       type="button"
       className="group relative isolate mt-0 inline-flex cursor-pointer items-center gap-1 overflow-hidden rounded-full bg-white px-3 py-2 font-['Arial',sans-serif] text-[14px] font-normal leading-[100%] tracking-normal transition-colors duration-300 group-hover:bg-[#652A27] md:mt-3 md:gap-3 md:px-7 md:py-4 md:text-[16px] lg:mt-4 xl:mt-4"

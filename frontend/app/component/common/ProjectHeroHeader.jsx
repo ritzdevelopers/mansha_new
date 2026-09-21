@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import NavSideMenu from "./NavSideMenu";
-import HomeLogoLink from "./HomeLogoLink";
 
 const PHONE = "tel:+917070705457";
 const WHATSAPP = "https://wa.me/918010003838";
@@ -86,7 +86,8 @@ const ProjectHeroHeader = () => {
         )}
 
         <div className="relative z-50 mx-auto flex h-14 max-w-8xl items-center justify-between px-5 py-10 sm:px-8 lg:px-[75px]">
-          <HomeLogoLink
+          <Link
+            href="/"
             className={`flex shrink-0 items-center py-1 outline-offset-4 focus-visible:outline focus-visible:outline-2 ${
               lightBar
                 ? "focus-visible:outline-[#6b3d3d]/50"
@@ -107,7 +108,7 @@ const ProjectHeroHeader = () => {
               }`}
               priority
             />
-          </HomeLogoLink>
+          </Link>
 
           <div className="flex shrink-0 items-center gap-0 sm:gap-3">
             <a href={PHONE} className={iconBtn} aria-label="Call us">
@@ -129,16 +130,14 @@ const ProjectHeroHeader = () => {
               }`}
               aria-controls="mobile-navigation"
               aria-expanded={open}
-              aria-label={open ? "Close menu" : "Hamburger Menu - Mansha"}
-              title="Hamburger Menu - Mansha"
+              aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((prev) => !prev)}
             >
               <Image
                 src="/mansha-svg/humburger-sanskar.svg"
                 width={22}
                 height={22}
-                alt="Hamburger Menu - Mansha"
-                title="Hamburger Menu - Mansha"
+                alt="menu"
                 className={lightBar ? "brightness-0" : "brightness-0 invert"}
               />
             </button>

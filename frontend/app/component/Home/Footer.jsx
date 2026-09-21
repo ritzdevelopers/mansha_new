@@ -1,17 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import HomeLogoLink from "../common/HomeLogoLink";
-
-const GOOGLE_REVIEW_URL =
-  "https://www.google.com/search?q=mansha+group&sca_esv=66d2cd5ecf989ed9&source=hp&ei=0ZKnatvLC_-QseMPiseIEQ&iflsig=ABILxe8AAAAAaqeg4YSpYCs_DpSokqAPFg8i773-mfJr&gs_ssp=eJzj4tVP1zc0TDYtNs0oMiswYLRSNagwtjRITkkytTBNSTNKTbM0tzKoME1OSbM0NjU0MjBPMjQ3MfTiyU3MK85IVEgvyi8tAACPnBPO&oq=mansha&gs_lp=Egdnd3Mtd2l6IgZtYW5zaGEqDggDGIAEGMcBGK8BGI4FMgsQABiABBixAxiDATIFEAAYgAQyDhAuGIAEGMcBGK8BGI4FMg4QLhiABBjHARivARiOBTIKEC4YgAQYigUYQzIFEAAYgAQyBRAAGIAEMgUQABiABDILEC4YgAQYxwEYrwEyBRAAGIAESIg-UABYhSZwAngAkAEAmAHrAaAB_waqAQUwLjUuMbgBAcgBAPgBAZgCCKAC0AfCAgoQABiABBiKBRhDwgINEAAYgAQYigUYQxixA8ICDhAuGIAEGLEDGMcBGNEDwgIIEAAYgAQYsQPCAg4QLhiABBiKBRixAxiDAcICBRAuGIAEwgIIEC4YgAQYtAfCAgsQABiABBiKBRiRAsICFBAuGIAEGIoFGJECGMkDGMcBGNEDwgIREC4YgAQYigUYkQIYxwEYrwHCAhEQLhiABBiKBRiRAhjHARjRA8ICExAuGIAEGIoFGEMYsQMYxwEY0QPCAgsQABiABBiKBRiSA8ICDRAuGIAEGIoFGEMYsQPCAggQLhiABBixA5gDAJIHBTIuNS4xoAeFQLIHBTAuNS4xuAfDB8IHBTItNi4yyAc8gAgB&sclient=gws-wiz#lrd=0x390cdb585df2ef97:0x5cdf9351207b1741,1,,,,";
 
 const Footer = () => {
   return (
     <footer className="relative w-full overflow-hidden bg-[#652A27] px-0 text-white">
       <div className="mx-auto max-w-8xl px-5 py-[35px] sm:px-8 md:px-6 lg:px-[75px] lg:pt-[70px] lg:pb-[40px]  ">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.15fr_0.5fr_minmax(0,1fr)_0.55fr]">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.6fr_0.6fr_0.8fr]">
           <div className="col-span-2 lg:col-span-1 cursor-pointer">
-            <HomeLogoLink>
+            <Link href="/">
             <Image
               src="/mansha-image/footer-logo.png"
               alt="Mansha footer logo"
@@ -20,7 +16,7 @@ const Footer = () => {
               height={94}
               className="h-auto w-[80px]"
             />
-             </HomeLogoLink>
+             </Link>
             <p className="mt-4 max-w-[380px] font-montserrat text-[15px] font-normal leading-[22px] tracking-normal text-[#FFFFFF]">
               Refined living blends elegant design, curated spaces, and seamless comfort, creating a sophisticated lifestyle where every detail enhances daily experience with effortless ease.
             </p>
@@ -46,19 +42,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="@container col-span-2 min-w-0 lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <div className="relative mx-auto inline-block pb-3 before:absolute before:bottom-0 before:left-0 before:h-px before:w-1/2 before:bg-white after:absolute after:bottom-0 after:right-0 after:h-px after:w-1/2 after:bg-white lg:mx-0">
               <h3 className="text-center font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[36px] lg:text-[30px] text-[28px] font-bold leading-[100%] tracking-normal text-[#FFFFFF] lg:text-left">
                 Stay connected
               </h3>
             </div>
-            <a
-              href={GOOGLE_REVIEW_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Mansha Group Google reviews"
-              className="mt-5 flex w-fit cursor-pointer items-center gap-3 bg-[#652A27] py-1"
-            >
+            <div className="mt-5 flex w-fit items-center gap-3 bg-[#652A27] py-1">
               <Image
                 src="/mansha-image/google-review-footer.png"
                 alt="Google review icon"
@@ -78,60 +68,40 @@ const Footer = () => {
                   <i className="ri-star-fill" />
                 </div>
               </div>
-            </a>
-            <div className="mt-5 grid w-max max-w-full grid-cols-3 gap-2.5 text-[#652A27] @[276px]:grid-cols-6 @[276px]:gap-3">
-              {[
-                { icon: "ri-facebook-fill", href: "https://www.facebook.com/ManshaGroupOfficial", label: "Facebook" },
-                { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup", label: "LinkedIn" },
-                { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/", label: "Instagram" },
-                { src: "/mansha-image/threads.png", href: "https://www.threads.com/@manshagroupofficial", label: "Threads" },
-                { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial", label: "YouTube" },
-                { icon: "ri-pinterest-fill", href: "https://in.pinterest.com/manshagroupofficial/", label: "Pinterest" },
-              ].map(({ icon, src, href, label }) => {
-                const className =
-                  "flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[15px] transition-all duration-300 hover:bg-[#652A27] hover:text-white hover:shadow-white/40 sm:h-9 sm:w-9 sm:text-[16px]";
+            </div>  
+            <div className="mt-5 flex items-center gap-3 text-[#652A27]">
+  {[
+    { icon: "ri-facebook-fill", href: "https://www.facebook.com/manshagroupfaridabad" },
+    // { icon: "ri-twitter-x-line" },
+    { icon: "ri-linkedin-fill", href: "https://www.linkedin.com/company/manshagroup" },
+    { icon: "ri-instagram-line", href: "https://www.instagram.com/manshagroupofficial/" },
+    { icon: "ri-youtube-line", href: "https://www.youtube.com/@ManshaGroupOfficial" },
+  ].map(({ icon, href }) => {
+    const className =
+      "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-white bg-white text-[16px]  transition-all duration-300 hover:bg-[#652A27] hover:text-white hover:shadow-white/40";
 
-                const iconEl = src ? (
-                  <span
-                    aria-hidden="true"
-                    className="block h-4 w-4 bg-current"
-                    style={{
-                      WebkitMaskImage: `url(${src})`,
-                      maskImage: `url(${src})`,
-                      WebkitMaskSize: "contain",
-                      maskSize: "contain",
-                      WebkitMaskRepeat: "no-repeat",
-                      maskRepeat: "no-repeat",
-                      WebkitMaskPosition: "center",
-                      maskPosition: "center",
-                    }}
-                  />
-                ) : (
-                  <i className={icon} />
-                );
-
-                return href ? (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className={className}
-                  >
-                    {iconEl}
-                  </a>
-                ) : (
-                  <span key={label} className={className}>
-                    {iconEl}
-                  </span>
-                );
-              })}
-            </div>
+    return href ? (
+      <a
+        key={icon}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        <i className={icon} />
+      </a>
+    ) : (
+      <span key={icon} className={className}>
+        <i className={icon} />
+      </span>
+    );
+  })}
+</div>
           </div>
+
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.15fr_0.5fr_minmax(0,1fr)_0.55fr]">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-[1.2fr_0.6fr_0.6fr_0.8fr] mt-10">
         <div>
             <h4 className=" font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[28px] font-[500] leading-[100%] tracking-normal text-[#FFFFFF] text-left">Corporate Office</h4>
             <p className="mt-2 max-w-[400px] font-montserrat text-[14px] font-normal leading-[26px] tracking-normal text-[#FFFFFF]">
@@ -154,23 +124,17 @@ const Footer = () => {
                 <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
                   Phone :
                 </p>
-                <a
-                  href="tel:+918010003838"
-                  className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF] hover:underline"
-                >
+                <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
                   +91-8010003838
-                </a>
+                </p>
               </div>
               <div className="flex items-center gap-3">
                 <p className="font-['Optima','Optima_LT_Pro',Candara,'Segoe_UI',sans-serif] text-[20px] font-[500] text-[#FFFFFF]">
                   Email :
                 </p>
-                <a
-                  href="mailto:info@manshagroup.in"
-                  className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF] hover:underline"
-                >
+                <p className="font-montserrat text-[13px] lg:text-[14px] font-normal text-[#FFFFFF]">
                   info@manshagroup.in
-                </a>
+                </p>
               </div>
             </div>
           </div>

@@ -278,6 +278,22 @@ const NavSideMenu = ({ open, onClose }) => {
                 );
               })}
 
+              <li>
+                <Link
+                  href="/upcoming-project"
+                  onClick={onClose}
+                  className={sidebarLinkClass}
+                  style={{ transitionDelay: open ? "500ms" : "0ms" }}
+                >
+                  <span className={`${sidebarLabelClass} inline-flex items-center gap-2`}>
+                    Upcoming Project
+                    <span className="inline-flex items-center rounded-full bg-red-600 px-2 py-[3px] font-montserrat text-[10px] font-bold uppercase tracking-[0.12em] text-white">
+                      New
+                    </span>
+                  </span>
+                </Link>
+              </li>
+
               {NAV_ITEMS.slice(2, 4).map((item) => (
                 <li key={item.label}>
                   <Link
