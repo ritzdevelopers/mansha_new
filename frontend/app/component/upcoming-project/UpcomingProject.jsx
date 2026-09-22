@@ -1,51 +1,64 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-const DELIVERED_PROJECTS = [
+// import Image from "next/image";
+
+const NOTIFY_SECTION_ID = "upcoming-notify";
+
+const UPCOMING_PROJECTS = [
     {
-        location: "Mansha Low-Rise & High-Rise – Sector 104, Faridabad",
-        image: "/logo/oaks.png",
-        alt: "Mansha Low-Rise & High-Rise",
-        href: "/#",
+        name: "Mansha Low-Rise & High-Rise",
+        location: "Sector 104, Faridabad",
+        // image: "/logo/oaks.png",
+        // alt: "Mansha Low-Rise & High-Rise",
     },
     {
-        location: "Mansha Evernest – Sector 114, Faridabad",
-        image: "/logo/logo-city-palwal.png",
-        alt: "Mansha Evernest",
-        href: "/#",
+        name: "Mansha Evernest",
+        location: "Sector 114, Faridabad",
+        // image: "/logo/logo-city-palwal.png",
+        // alt: "Mansha Evernest",
     },
     {
-        location: "Senior Living High-Rise – Faridabad",
-        image: "/logo/royal-logo.png",
-        alt: "Senior Living High-Rise",
-        href: "/#",
+        name: "Senior Living High-Rise",
+        location: "Faridabad",
+        // image: "/logo/royal-logo.png",
+        // alt: "Senior Living High-Rise",
     },
     {
-        location: "Ultra-Luxury High-Rise – Sector 83, Sonipat",
-        image: "/logo/luxuary.png",
-        alt: "Ultra-Luxury High-Rise",
-        href: "/#",
+        name: "Ultra-Luxury High-Rise",
+        location: "Sector 83, Sonipat",
+        // image: "/logo/luxuary.png",
+        // alt: "Ultra-Luxury High-Rise",
     },
     {
-        location: "Plotted Township – Faridabad",
-        image: "/logo/eden-logo.png",
-        alt: "Plotted Township",
-        href: "/#",
+        name: "Plotted Township",
+        location: "Faridabad",
+        // image: "/logo/eden-logo.png",
+        // alt: "Plotted Township",
     },
     {
-        location: "Industrial Township – Palwal / Faridabad",
-        image: "/logo/inderprashta.png",
-        alt: "Industrial Township",
-        href: "/#",
+        name: "Industrial Township",
+        location: "Palwal / Faridabad",
+        // image: "/logo/inderprashta.png",
+        // alt: "Industrial Township",
     },
 ];
 
-const renderProjectCard = (project) => {
-    const cardClassName =
-        "delivered-project-card flex h-full flex-col items-center gap-4 rounded-lg border-2 border-[#E0E0E0] bg-white p-5 sm:p-6";
+const scrollToNotifySection = () => {
+    document.getElementById(NOTIFY_SECTION_ID)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+    });
+};
 
-    const cardContent = (
-        <>
+const renderProjectCard = (project, index) => {
+    return (
+        <article
+            key={project.name}
+            className="upcoming-project-card group relative flex h-full min-h-[260px] flex-col overflow-hidden rounded-2xl border border-[#E8E8E8] bg-white transition-all duration-300 hover:-translate-y-1 hover:border-[#652A27]/25"
+        >
+            <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#652A27] via-[#652A27]/70 to-[#652A27]/20" />
+
+            {/* Logo hidden for now
             {project.image ? (
                 <Image
                     src={project.image}
@@ -55,24 +68,44 @@ const renderProjectCard = (project) => {
                     className="h-auto w-auto max-w-[280px] shrink-0 object-contain"
                 />
             ) : null}
+            */}
 
-            <p className="w-full text-center font-['Open_Sans','Open Sans',sans-serif] text-[18px] font-normal leading-[22px] tracking-normal text-[#000000] sm:text-center sm:text-[15px] sm:leading-[24px] md:text-[22px]">
-                {project.location}
-            </p>
-        </>
-    );
+            <div className="flex flex-1 flex-col p-6 sm:p-7">
+                <div className="flex items-center justify-between gap-3">
+                    <span className="inline-flex items-center rounded-full bg-[#652A27]/10 px-3 py-1 font-montserrat text-[10px] font-semibold uppercase tracking-[0.16em] text-[#652A27]">
+                        Upcoming
+                    </span>
+                    <span className="font-montserrat text-[12px] font-medium tabular-nums text-[#C4C4C4]">
+                        {String(index + 1).padStart(2, "0")}
+                    </span>
+                </div>
 
-    return project.href ? (
-        <Link
-            key={project.location}
-            href={project.href}
-            className={`${cardClassName} no-underline`}
-        >
-            {cardContent}
-        </Link>
-    ) : (
-        <article key={project.location} className={cardClassName}>
-            {cardContent}
+                <div className="flex flex-1 items-center justify-center px-1 py-8 text-center">
+                    <h3 className="font-optima text-[20px] font-medium capitalize leading-[28px] text-[#111111] transition-colors duration-300 group-hover:text-[#652A27] sm:text-[21px] md:text-[22px] md:leading-[30px]">
+                        {project.name}
+                    </h3>
+                </div>
+
+                <div className="mt-auto border-t border-dashed border-[#ECECEC] pt-5 text-center">
+                    <p className="font-montserrat text-[13px] font-medium uppercase tracking-[0.12em] text-[#999999] transition-colors duration-300 group-hover:text-[#652A27]/70">
+                        Location
+                    </p>
+                    <p className="mt-2 font-montserrat text-[15px] font-normal leading-[24px] text-[#444444] transition-colors duration-300 group-hover:text-[#652A27]">
+                        {project.location}
+                    </p>
+
+                    <button
+                        type="button"
+                        onClick={scrollToNotifySection}
+                        className="mt-5 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#652A27] px-5 py-2.5 font-montserrat text-[13px] font-medium text-white transition-all duration-300 hover:bg-[#4A1F1F] hover:shadow-[0_8px_20px_rgba(101,42,39,0.25)]"
+                    >
+                        Learn More
+                        <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-0.5">
+                            →
+                        </span>
+                    </button>
+                </div>
+            </div>
         </article>
     );
 };
@@ -81,7 +114,12 @@ const UpcomingProject = () => {
     return (
         <section className="w-full bg-white">
             <div className="mx-auto max-w-8xl px-5 py-[35px] sm:px-8 lg:px-[75px] lg:py-[70px]">
-                <div className="mx-auto max-w-4xl text-center md:mx-0 md:max-w-none md:text-left">
+                <p className="font-montserrat text-[16px] font-normal capitalize leading-[100%] text-[#333333]">
+                    Home | Upcoming Project |{" "}
+                    <span className="font-semibold text-[#652A27]">Sector-104 Faridabad</span>
+                </p>
+
+                <div className="mx-auto mt-8 max-w-4xl text-center md:mx-0 md:max-w-none md:text-left">
                     <p className="font-montserrat text-[13px] font-medium uppercase tracking-[0.18em] text-[#652A27]">
                         Building What’s Next
                     </p>
@@ -99,33 +137,16 @@ const UpcomingProject = () => {
                     Our upcoming developments include:
                 </p>
 
-                <div className="delivered-cards-grid mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-                    {DELIVERED_PROJECTS.map((project) => renderProjectCard(project))}
+                <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+                    {UPCOMING_PROJECTS.map((project, index) =>
+                        renderProjectCard(project, index)
+                    )}
                 </div>
 
                 <p className="mt-10 text-center font-optima text-[20px] font-medium capitalize leading-[30px] text-[#652A27] md:text-left md:text-[22px] md:leading-[34px] lg:text-[24px]">
                     More destinations. More possibilities. A stronger future ahead.
                 </p>
             </div>
-
-            <style>{`
-        .delivered-cards-grid {
-          overflow: visible;
-        }
-
-        .delivered-project-card {
-          cursor: pointer;
-          position: relative;
-          z-index: 0;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .delivered-project-card:hover {
-          z-index: 1;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 12px rgba(101, 42, 39, 0.28);
-        }
-      `}</style>
         </section>
     );
 };

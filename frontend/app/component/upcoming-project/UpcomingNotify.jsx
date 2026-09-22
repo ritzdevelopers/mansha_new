@@ -81,14 +81,9 @@ export default function UpcomingNotify() {
   };
 
   return (
-    <section className="w-full bg-[#FAFAFA] py-[35px] lg:py-[70px]">
+    <section id="upcoming-notify" className="w-full scroll-mt-24 bg-[#FAFAFA] py-[35px] lg:py-[70px]">
       <div className="mx-auto max-w-[1525px] px-5 sm:px-8 lg:px-[70px]">
-        <p className="font-montserrat text-[16px] font-normal capitalize leading-[100%] text-[#333333]">
-          Home | Upcoming Project |{" "}
-          <span className="font-semibold text-[#652A27]">Sector-104 Faridabad</span>
-        </p>
-
-        <div className="mt-8 grid grid-cols-1 gap-10 lg:mt-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div>
             <p className="font-montserrat text-[14px] font-medium uppercase tracking-[0.18em] text-[#652A27]">
               Coming Soon
