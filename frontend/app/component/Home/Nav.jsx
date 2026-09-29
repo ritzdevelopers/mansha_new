@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import HomeLogoLink from "../common/HomeLogoLink";
 import NavSideMenu from "../common/NavSideMenu";
 
-const PHONE = "tel:+917070705457";
+const PHONE = "tel:+918010003838";
 const WHATSAPP = "https://wa.me/918010003838";
 
 const iconBtn =

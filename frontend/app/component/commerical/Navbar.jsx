@@ -6,7 +6,7 @@ import BookASite from "../common/Book-a-site";
 import NavSideMenu from "../common/NavSideMenu";
 import HomeLogoLink from "../common/HomeLogoLink";
 
-const PHONE = "tel:+917070705457";
+const PHONE = "tel:+918010003838";
 const WHATSAPP = "https://wa.me/918010003838";
 const VEGA_SLIDES = [
   "/vega-street/vega-street1.jpg",

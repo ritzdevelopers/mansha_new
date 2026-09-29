@@ -15,25 +15,25 @@ const CONTACT_ITEMS = [
   {
     icon: "/contact-image/customer-support.svg",
     title: "Customer Support",
-    lines: ["info@manshagroup.in", "+91- 7070705457"],
+    lines: ["info@manshagroup.in", "+91- 8010003838"],
   },
   {
     icon: "/contact-image/sale-enquiry.svg",
     title: "Sales Enquiries",
-    lines: ["Call:", "+91- 7070705457", "email:", "info@manshagroup.in"],
+    lines: ["Call:", "+91- 8010003838", "email:", "info@manshagroup.in"],
   },
   {
     icon: "/contact-image/press.svg",
     title: "For Press / Media Queries:",
-    lines: ["Call:", "+91- 7070705457", "mail:", "info@manshagroup.in"],
+    lines: ["Call:", "+91- 8010003838", "mail:", "info@manshagroup.in"],
   },
 ];
 
 const CONTACT_LABELS = new Set(["Call:", "email:", "mail:"]);
 const CONTACT_EMAIL = "info@manshagroup.in";
-const CONTACT_PHONE = "+91- 7070705457";
+const CONTACT_PHONE = "+91- 8010003838";
 const CONTACT_EMAIL_HREF = "mailto:info@manshagroup.in";
-const CONTACT_PHONE_HREF = "tel:+917070705457";
+const CONTACT_PHONE_HREF = "tel:+918010003838";
 const contactLinkClass = "hover:text-[#652A27] hover:underline";
 
 const ContactValue = ({ value }) => {

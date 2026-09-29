@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import NavSideMenu from "./NavSideMenu";
 import HomeLogoLink from "./HomeLogoLink";
 
-const PHONE = "tel:+917070705457";
+const PHONE = "tel:+918010003838";
 const WHATSAPP = "https://wa.me/918010003838";
 const IDLE_HIDE_MS = 1400;
 const TOP_THRESHOLD = 16;

@@ -126,8 +126,8 @@ const CORPORATE_CONTACTS = [
   },
   {
     icon: "ri-phone-line",
-    label: "+91- 7070705457",
-    href: "tel:+917070705457",
+    label: "+91- 8010003838",
+    href: "tel:+918010003838",
   },
 ];
 
@@ -333,10 +333,10 @@ Palwal - Palwal Aligarh
                         aria-hidden
                       />
                       <a
-                        href="tel:+917070705457"
+                        href="tel:+918010003838"
                         className="font-montserrat text-[14px] font-normal leading-[22px] text-[#333333] transition-colors hover:text-[#652A27]"
                       >
-                         +91- 7070705457
+                         +91- 8010003838
                       </a>
                     </li>
                   </ul>
