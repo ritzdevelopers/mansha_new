@@ -6,7 +6,13 @@ const NOTIFY_SECTION_ID = "upcoming-notify";
 
 const UPCOMING_PROJECTS = [
     {
-        name: "Mansha Low-Rise & High-Rise",
+        name: "Vista 3 & 4 Bhk Independent Floors",
+        location: "Sector 104, Faridabad",
+        // image: "/logo/oaks.png",
+        // alt: "Mansha Low-Rise & High-Rise",
+    },
+    {
+        name: "Vista Skyline 3 Bhk Premium High-Rise Apartments",
         location: "Sector 104, Faridabad",
         // image: "/logo/oaks.png",
         // alt: "Mansha Low-Rise & High-Rise",
@@ -18,25 +24,25 @@ const UPCOMING_PROJECTS = [
         // alt: "Mansha Evernest",
     },
     {
-        name: "Senior Living High-Rise",
+        name: "Retirement Housing Krdo",
         location: "Faridabad",
         // image: "/logo/royal-logo.png",
         // alt: "Senior Living High-Rise",
     },
     {
-        name: "Ultra-Luxury High-Rise",
+        name: "Mansha Ultra-Luxury High-Rise",
         location: "Sector 83, Sonipat",
         // image: "/logo/luxuary.png",
         // alt: "Ultra-Luxury High-Rise",
     },
     {
-        name: "Plotted Township",
+        name: "Mansha Plotted Township",
         location: "Faridabad",
         // image: "/logo/eden-logo.png",
         // alt: "Plotted Township",
     },
     {
-        name: "Industrial Township",
+        name: "Mansha Industrial Township",
         location: "Palwal / Faridabad",
         // image: "/logo/inderprashta.png",
         // alt: "Industrial Township",
